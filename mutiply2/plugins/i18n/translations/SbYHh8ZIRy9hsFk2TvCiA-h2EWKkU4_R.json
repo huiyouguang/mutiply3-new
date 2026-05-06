@@ -1,0 +1,2430 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "obsidian-git",
+        "version": "1.0.0",
+        "title": "Git",
+        "description": "Git Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "2.38.0",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "ariaLabel",
+                    "source": "您有合并冲突。请解决冲突后再提交。",
+                    "target": "您有合并冲突。请解决冲突后再提交。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "ariaLabel",
+                    "source": "Automatic routines are currently paused.",
+                    "target": "自动例程当前已暂停。"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "ariaLabel",
+                    "source": "正在检查仓库状态...",
+                    "target": "正在检查仓库状态..."
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "ariaLabel",
+                    "source": "正在添加文件...",
+                    "target": "正在添加文件..."
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "ariaLabel",
+                    "source": "正在提交更改...",
+                    "target": "正在提交更改..."
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "ariaLabel",
+                    "source": "正在推送更改...",
+                    "target": "正在推送更改..."
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "ariaLabel",
+                    "source": "正在拉取更改...",
+                    "target": "正在拉取更改..."
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "ariaLabel",
+                    "source": "初始化失败！",
+                    "target": "初始化失败！"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "\n                    显示创作日期的时区。\n                    可以是您的本地时区(默认),\n                    提交时作者的时区,或者\n                    <a href=\"https://en.wikipedia.org/wiki/UTC%C2%B100:00\">UTC\\xB100:00</a>.\n            ",
+                    "target": "\n                    显示创作日期的时区。\n                    可以是您的本地时区(默认),\n                    提交时作者的时区,或者\n                    <a href=\"https://en.wikipedia.org/wiki/UTC%C2%B100:00\">UTC\\xB100:00</a>.\n            "
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerHTML",
+                    "source": "\n                    空格和换行符默认被解释为\n                    文档的一部分并且在更改中被识别(因此不会被忽略)。\n                    这使得当添加新行时,最后一行仍然显示为“已更改”,\n                    即使之前的最后一行文本相同。\n                    <br>\n                    如果您不关心纯空白的更改\n                    (例如列表嵌套/引用缩进的变化),\n                    那么启用此功能将提供更有意义的更改检测。\n                ",
+                    "target": "\n                    空格和换行符默认被解释为\n                    文档的一部分并且在更改中被识别(因此不会被忽略)。\n                    这使得当添加新行时,最后一行仍然显示为“已更改”,\n                    即使之前的最后一行文本相同。\n                    <br>\n                    如果您不关心纯空白的更改\n                    (例如列表嵌套/引用缩进的变化),\n                    那么启用此功能将提供更有意义的更改检测。\n                "
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "outerHTML",
+                    "source": "<a href='https://ko-fi.com/F1F195IQ5' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>",
+                    "target": "<a href='https://ko-fi.com/F1F195IQ5' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "此浏览器缺少类型化数组 (Uint8Array)) support which is required by `buffer` v5.x. Use `buffer` v4.x if you require old browser support.",
+                    "target": "此浏览器缺少类型化数组 (Uint8Array) 支持，这是 `buffer` v5.x 所必需的。如果需要旧版浏览器支持，请使用 `buffer` v4.x。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Error while adding askpass script to exclude file:",
+                    "target": "将 askpass 脚本添加到排除文件时出错："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "解析行失败,从 0 开始！",
+                    "target": "解析行失败,从 0 开始！"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Unknown state reached while processing groups of lines",
+                    "target": "处理行组时达到未知状态"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Failed %o",
+                    "target": "失败 %o"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "A fatal exception occurred in a previous task, the queue has been purged: %o",
+                    "target": "先前任务中发生致命异常，队列已被清空：%o"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "exitCode=%s handling with custom error handler",
+                    "target": "exitCode=%s 正在使用自定义错误处理程序处理"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "custom error handler treated as success",
+                    "target": "自定义错误处理程序被视为成功"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "handling as error: exitCode=%s stdErr=%s rejection=%o",
+                    "target": "作为错误处理：exitCode=%s stdErr=%s rejection=%o"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "retrieving task output complete",
+                    "target": "检索任务输出完成"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "%s %o",
+                    "target": "%s %o"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "奇怪的事情发生了:",
+                    "target": "奇怪的事情发生了:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "Retry watch for ask pass",
+                    "target": "重试监视以询问密码"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "未找到跟踪分支。将忽略主仓库的拉取,仅更新子模块。",
+                    "target": "未找到跟踪分支。将忽略主仓库的拉取,仅更新子模块。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "未找到跟踪分支。将忽略主仓库的推送,仅更新子模块。",
+                    "target": "未找到跟踪分支。将忽略主仓库的推送,仅更新子模块。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "重新加载设置",
+                    "target": "重新加载设置"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "推送中....",
+                    "target": "推送中...."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "拉取中....",
+                    "target": "拉取中...."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "遇到网络错误,但已在离线模式",
+                    "target": "遇到网络错误,但已在离线模式"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "预览",
+                    "target": "预览"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "重新加载",
+                    "target": "重新加载"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "允许使用一个间隔进行提交,另一个间隔进行同步。",
+                    "target": "允许使用一个间隔进行提交，另一个间隔进行同步。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "每X分钟推送提交。设置为0(默认)以禁用。",
+                    "target": "每X分钟推送提交。设置为0（默认）以禁用。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "每 X 分钟拉取更改。设置为 0(默认)以禁用。",
+                    "target": "每 X 分钟拉取更改。设置为 0（默认）以禁用。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "您将收到一个弹出窗口以指定您的消息。",
+                    "target": "您将收到一个弹出窗口以指定您的消息。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "可用占位符:{{date}}(见下文)、{{hostname}}(见下文)、{{numFiles}}(提交中更改的文件数量)和{{files}}(提交信息中的更改文件)。",
+                    "target": "可用占位符：{{date}}（见下文）、{{hostname}}（见下文）、{{numFiles}}（提交中更改的文件数量）和{{files}}（提交信息中的更改文件）。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "A script that is run using 'sh -c' to generate the commit message. May be used to generate commit messages using AI tools. Available placeholders: {{hostname}}, {{date}}.",
+                    "target": "一个使用 'sh -c' 运行的脚本，用于生成提交信息。可用于通过AI工具生成提交信息。可用占位符：{{hostname}}、{{date}}。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Specify custom hostname for every device. Defaults to the OS hostname if not set on desktop.",
+                    "target": "为每台设备指定自定义主机名。在桌面上如果未设置，则默认为操作系统主机名。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "决定如何将远程分支中的提交集成到本地分支中。",
+                    "target": "决定如何将远程分支中的提交集成到本地分支中。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "自动在 Obsidian 启动时拉取提交。",
+                    "target": "自动在 Obsidian 启动时拉取提交。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "使用默认设置的 提交和同步 意味着暂存所有内容 -> 提交 -> 拉取 -> 推送。理想情况下,这是一个你定期执行的单一操作,用于保持本地和远程仓库的同步。",
+                    "target": "使用默认设置的 提交和同步 意味着暂存所有内容 -> 提交 -> 拉取 -> 推送。理想情况下，这是一个你定期执行的单一操作，用于保持本地和远程仓库的同步。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Hunks are sections of grouped line changes right in your editor.",
+                    "target": "Hunks 是直接在编辑器中分组显示的代码行变更部分。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "This allows you to see your changes right in your editor via colored markers and stage/reset/preview individual hunks.",
+                    "target": "这允许你通过彩色标记直接在编辑器中查看你的更改，并对单个 hunk 进行暂存、重置或预览。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "在历史视图中显示提交的作者。",
+                    "target": "在历史视图中显示提交的作者。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "在历史视图中显示提交的日期。使用 {{date}} 占位符格式来显示日期。",
+                    "target": "在历史视图中显示提交的日期。使用 {{date}} 占位符格式来显示日期。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "在较慢的机器上,这可能会导致延迟。如果是这样,请禁用此选项。",
+                    "target": "在较慢的机器上，这可能会导致延迟。如果是这样，请禁用此选项。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "在文件更改后等待的毫秒数,然后刷新源控制视图。",
+                    "target": "文件更改后，刷新源控制视图前等待的毫秒数。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Set the style for the diff view. Note that the actual diff in \"Split\" mode is not generated by Git, but the editor itself instead so it may differ from the diff generated by Git. One advantage of this is that you can edit the text in that view.",
+                    "target": "设置差异视图的样式。请注意，“Split”模式下的实际差异并非由 Git 生成，而是由编辑器本身生成，因此可能与 Git 生成的差异有所不同。这样做的一个优点是，你可以在该视图中编辑文本。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Disable informative notifications for git operations to minimize distraction (refer to status bar for updates).",
+                    "target": "禁用 Git 操作的信息通知，以尽量减少干扰（请参考状态栏获取更新）。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Disable error notifications of any kind to minimize distraction (refer to status bar for updates).",
+                    "target": "禁用所有类型的错误通知以最小化干扰（请参考状态栏获取更新）。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "当没有需要提交或推送的更改时,不显示通知。",
+                    "target": "当没有需要提交或推送的更改时，不显示通知。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Obsidian必须重启以使更改生效。",
+                    "target": "Obsidian必须重启以使更改生效。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Add \"Stage\", \"Unstage\" and \"Add to .gitignore\" actions to the file menu.",
+                    "target": "向文件菜单添加“暂存”、“取消暂存”和“添加到 .gitignore”操作。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "输入您的密码。您将无法再次看到它。",
+                    "target": "输入您的密码。您将无法再次看到它。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "These settings usually don't need to be changed, but may be required for special setups.",
+                    "target": "这些设置通常无需更改，但在特殊配置下可能需要调整。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "\"提交和同步\"以及\"拉取\"处理子模块。缺失的功能:冲突文件、拉取/推送/提交文件的数量。每个子模块需要设置跟踪分支。",
+                    "target": "“提交和同步”以及“拉取”处理子模块。缺失的功能：冲突文件、拉取/推送/提交文件的数量。每个子模块需要设置跟踪分支。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "每当根仓库发生检出时,递归检出子模块(如果分支存在)。",
+                    "target": "每当根仓库发生检出时，递归检出子模块（如果分支存在）。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Specify the path to the Git binary/executable. Git should already be in your PATH. Should only be necessary for a custom Git installation.",
+                    "target": "指定 Git 二进制文件/可执行文件的路径。Git 应已在您的 PATH 中。仅适用于自定义 Git 安装。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "使用每一行作为新环境变量,格式为 KEY=VALUE 。",
+                    "target": "使用每一行作为新环境变量，格式为 KEY=VALUE 。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "每行使用一个路径",
+                    "target": "每行使用一个路径"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "移除之前添加的环境变量直到 Obsidian 重启才生效。",
+                    "target": "移除之前添加的环境变量直到 Obsidian 重启才生效。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "\n            设置 Git 二进制文件应从哪个存储库执行的相对路径。主要用于设置 Git 仓库的路径,只有当 Git 仓库位于分库根目录之下时才需要。在 Windows 下使用\"\\\\\"代替\"/\"。\n            ",
+                    "target": "\n            设置 Git 二进制文件应从哪个存储库执行的相对路径。主要用于设置 Git 仓库的路径,只有当 Git 仓库位于分库根目录之下时才需要。在 Windows 下使用\"\\\\\"代替\"/\"。\n            "
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Corresponds to the GIT_DIR environment variable. Requires restart of Obsidian to take effect. Use \"\\\" instead of \"/\" on Windows.",
+                    "target": "对应 GIT_DIR 环境变量。需要重启 Obsidian 才能生效。在 Windows 上使用 \"\\\" 代替 \"/\"。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "禁用此设备上的插件。此设置不会同步。",
+                    "target": "禁用此设备上的插件。此设置不会同步。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "如果您喜欢这个插件,请考虑捐赠以支持持续开发。",
+                    "target": "如果您喜欢这个插件,请考虑捐赠以支持持续开发。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "目前仅在桌面版可用。",
+                    "target": "目前仅在桌面版可用。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "作者的显示方式(如果有)",
+                    "target": "作者的显示方式(如果有)"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "如果以及如何显示该行的创作日期和时间",
+                    "target": "如果以及如何显示该行的创作日期和时间"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "自动",
+                    "target": "自动"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "用于自动提交和同步的分割计时器",
+                    "target": "用于自动提交和同步的分割计时器"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "自动推送间隔(分钟)",
+                    "target": "自动推送间隔(分钟)"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "自动拉取间隔(分钟)",
+                    "target": "自动拉取间隔(分钟)"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "提交信息",
+                    "target": "提交信息"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "手动提交时的提交信息",
+                    "target": "手动提交时的提交信息"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Commit message script",
+                    "target": "提交信息脚本"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "{{date}} 占位符格式",
+                    "target": "{{date}} 占位符格式"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "{{hostname}} 占位符替换",
+                    "target": "{{hostname}} 占位符替换"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "预览提交信息",
+                    "target": "预览提交信息"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "在提交内容中列出受提交影响的文件名",
+                    "target": "在提交内容中列出受提交影响的文件名"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "拉取",
+                    "target": "拉取"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "合并策略",
+                    "target": "合并策略"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Merge strategy on conflicts",
+                    "target": "冲突时的合并策略"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "开机时拉取",
+                    "target": "开机时拉取"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "提交并同步",
+                    "target": "提交并同步"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "提交并同步时推送到远程仓库",
+                    "target": "提交并同步时推送到远程仓库"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "提交并同步时从远程仓库拉取",
+                    "target": "提交并同步时从远程仓库拉取"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Hunk commands",
+                    "target": "Hunk 命令"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Status bar with summary of line changes",
+                    "target": "状态栏显示行变更摘要"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "线路作者信息",
+                    "target": "线路作者信息"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "历史视图",
+                    "target": "历史视图"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "显示作者",
+                    "target": "显示作者"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "显示日期",
+                    "target": "显示日期"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "源控制视图",
+                    "target": "源控制视图"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "自动刷新文件更改的源控制视图",
+                    "target": "自动刷新文件更改的源控制视图"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "源控制视图刷新间隔",
+                    "target": "源控制视图刷新间隔"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "杂项",
+                    "target": "杂项"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Diff view style",
+                    "target": "差异视图样式"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Disable informative notifications",
+                    "target": "禁用信息通知"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Disable error notifications",
+                    "target": "禁用错误通知"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "隐藏无更改的通知",
+                    "target": "隐藏无更改的通知"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "显示状态栏",
+                    "target": "显示状态栏"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "File menu integration",
+                    "target": "文件菜单集成"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "显示分支状态栏",
+                    "target": "显示分支状态栏"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "显示状态栏中修改文件的数量",
+                    "target": "显示状态栏中修改文件的数量"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "身份验证/提交作者",
+                    "target": "身份验证/提交作者"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "提交作者",
+                    "target": "提交作者"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "在你的 Git 服务器上的用户名。例如:你在 GitHub 上的用户名",
+                    "target": "在你的 Git 服务器上的用户名。例如:你在 GitHub 上的用户名"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "密码/个人访问令牌",
+                    "target": "密码/个人访问令牌"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "提交的作者名称",
+                    "target": "提交的作者名称"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "提交作者的电子邮件",
+                    "target": "提交作者的电子邮件"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "高级",
+                    "target": "高级"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "更新子模块",
+                    "target": "更新子模块"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "子模块递归检出/切换",
+                    "target": "子模块递归检出/切换"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "自定义 Git 二进制文件路径",
+                    "target": "自定义 Git 二进制文件路径"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "额外的环境变量",
+                    "target": "额外的环境变量"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "其他 PATH 环境变量路径",
+                    "target": "其他 PATH 环境变量路径"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "重新加载新的环境变量",
+                    "target": "重新加载新的环境变量"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "自定义基础路径(Git 仓库路径)",
+                    "target": "自定义基础路径(Git 仓库路径)"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "自定义 Git 目录路径(取代 .git)",
+                    "target": "自定义 Git 目录路径(取代 .git)"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "在此设备上禁用",
+                    "target": "在此设备上禁用"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "支持",
+                    "target": "支持"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "捐赠",
+                    "target": "捐赠"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "显示每行旁边的提交作者信息",
+                    "target": "显示每行旁边的提交作者信息"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "跟踪移动并跨文件和提交进行复制",
+                    "target": "跟踪移动并跨文件和提交进行复制"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "显示提交哈希值",
+                    "target": "显示提交哈希值"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "显示作者姓名",
+                    "target": "显示作者姓名"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "显示创建日期",
+                    "target": "显示创建日期"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "自定义作者日期格式",
+                    "target": "自定义作者日期格式"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "创建日期显示时区:",
+                    "target": "创建日期显示时区:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "着色最旧时间",
+                    "target": "着色最旧时间"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "文本颜色",
+                    "target": "文本颜色"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "忽略更改中的空格和换行符",
+                    "target": "忽略更改中的空格和换行符"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "GIT_DIR=/path/to/git/目录",
+                    "target": "GIT_DIR=/path/to/git/目录"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "目录/带 Git 仓库的目录",
+                    "target": "目录/带 Git 仓库的目录"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "YYYY-MM-DD HH:mm",
+                    "target": "YYYY-MM-DD HH:mm"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "输入您的消息并可选择添加日期的版本。",
+                    "target": "输入您的消息并可选择添加日期的版本。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "不支持的文件将由默认应用程序打开！",
+                    "target": "不支持的文件将由默认应用程序打开！"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "选择要检出的分支",
+                    "target": "选择要检出的分支"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "复制调试信息",
+                    "target": "复制调试信息"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "调试和日志记录:\n使用以下命令打开控制台,即可查看本插件和其他所有插件的日志",
+                    "target": "调试和日志记录:\n使用以下命令打开控制台,即可查看本插件和其他所有插件的日志"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "编辑 .gitignore",
+                    "target": "编辑 .gitignore"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "复制提交哈希",
+                    "target": "复制提交哈希"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Git: 暂存",
+                    "target": "Git: 暂存"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Git: 撤销暂存",
+                    "target": "Git: 撤销暂存"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Git: 添加到 .gitignore",
+                    "target": "Git: 添加到 .gitignore"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Open in default app",
+                    "target": "在默认应用中打开"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "simple-git deprecation notice: git.silent: logging should be configured using the `debug` library / `DEBUG` environment variable, this will be an error in version 3",
+                    "target": "simple-git 弃用通知: git.silent: 日志记录应使用 `debug` 库 / `DEBUG` 环境变量进行配置，这在版本 3 中将是一个错误"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "obsidian-git: rev-parse error:",
+                    "target": "obsidian-git: rev-parse 错误:"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "%c[svelte] lifecycle_double_unmount\n%cTried to unmount a component that was not mounted\nhttps://svelte.dev/e/lifecycle_double_unmount",
+                    "target": "%c[svelte] lifecycle_double_unmount\n%c尝试卸载一个未挂载的组件\nhttps://svelte.dev/e/lifecycle_double_unmount"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "%c[svelte] state_proxy_unmount\n%cTried to unmount a state proxy, rather than a component\nhttps://svelte.dev/e/state_proxy_unmount",
+                    "target": "%c[svelte] state_proxy_unmount\n%c尝试卸载状态代理，而非组件\nhttps://svelte.dev/e/state_proxy_unmount"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "%c[svelte] svelte_boundary_reset_noop\n%cA `<svelte:boundary>` `reset` function only resets the boundary the first time it is called\nhttps://svelte.dev/e/svelte_boundary_reset_noop",
+                    "target": "%c[svelte] svelte_boundary_reset_noop\n%c`<svelte:boundary>` 的 `reset` 函数仅在首次调用时重置边界\nhttps://svelte.dev/e/svelte_boundary_reset_noop"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Failed to hydrate: ",
+                    "target": "水合失败："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Git: undefined lineAuthorInfoProvider. Unexpected situation.",
+                    "target": "Git：未定义 lineAuthorInfoProvider。意外情况。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Git: Error while loading line authoring feature.",
+                    "target": "Git：加载行作者功能时出错。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Git: undefined signsProvider. Unexpected situation.",
+                    "target": "Git：未定义 signsProvider。意外情况。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Git: Error while loading signs feature.",
+                    "target": "Git：加载标记功能时出错。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Git: View is not defined for editor cache key. Unforeseen situation. id: ",
+                    "target": "Git：编辑器缓存键未定义视图。意外情况。id："
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "验证失败。请尝试使用不同的凭据",
+                    "target": "验证失败。请尝试使用不同的凭据"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "这需要较长的时间:获取状态",
+                    "target": "这需要较长的时间：获取状态"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "ObsidianGit: 基础路径不存在",
+                    "target": "ObsidianGit: 基础路径不存在"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Obsidian 必须重新启动以使更改生效。",
+                    "target": "Obsidian 必须重新启动以使更改生效。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "调试信息已复制到剪贴板。可能包含敏感信息！",
+                    "target": "调试信息已复制到剪贴板。可能包含敏感信息！"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "您似乎没有使用 GitHub",
+                    "target": "您似乎没有使用 GitHub"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "成功删除了仓库。正在重新加载插件...",
+                    "target": "成功删除了仓库。正在重新加载插件..."
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "未找到仓库",
+                    "target": "未找到仓库"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Discarded all changes in tracked files.",
+                    "target": "已丢弃所有跟踪文件中的更改。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Discarded all files.",
+                    "target": "已丢弃所有文件。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Paused automatic routines.",
+                    "target": "已暂停自动例程。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Resumed automatic routines.",
+                    "target": "已恢复自动例程。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "无法找到有效的 Git 仓库。请通过给定的命令创建一个,或克隆一个现有的仓库。",
+                    "target": "无法找到有效的 Git 仓库。请通过给定的命令创建一个，或克隆一个现有的仓库。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Automatic routines are currently paused.",
+                    "target": "自动例程当前已暂停。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "初始化新仓库",
+                    "target": "初始化新仓库"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "已终止克隆 clone",
+                    "target": "已终止克隆。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "无效的深度。中止克隆。",
+                    "target": "无效的深度。中止克隆。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "克隆了新的仓库。",
+                    "target": "已克隆新的仓库。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "请重启 Obsidian",
+                    "target": "请重启 Obsidian"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "自动备份:请输入自定义提交信息。留空以中止",
+                    "target": "自动备份：请输入自定义提交信息。留空以中止"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Commit aborted: No commit message provided",
+                    "target": "提交已中止：未提供提交信息"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "没有设置上游分支。请选择一个。",
+                    "target": "未设置上游分支。请选择一个。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "中止",
+                    "target": "中止"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "content",
+                    "source": "\"⦚\"",
+                    "target": "\"⦚\""
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Note added by 'isomorphic-git addNote'\n",
+                    "target": "由 'isomorphic-git addNote' 添加的注释\n"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "源代码管理",
+                    "target": "源代码管理"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "历史记录",
+                    "target": "历史记录"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Diff view",
+                    "target": "差异视图"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "差异视图",
+                    "target": "差异视图"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "文件图标",
+                    "target": "文件图标"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "文件标签",
+                    "target": "文件标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "编辑 .gitignore",
+                    "target": "编辑 .gitignore"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "打开源代码管理视图",
+                    "target": "打开源代码管理视图"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "打开历史记录视图",
+                    "target": "打开历史记录视图"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "打开差异视图",
+                    "target": "打开差异视图"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "在 GitHub 上打开文件",
+                    "target": "在 GitHub 上打开文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "在 GitHub 上查看文件历史",
+                    "target": "在 GitHub 上查看文件历史"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "拉取",
+                    "target": "拉取"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "获取",
+                    "target": "获取"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "切换到远程分支",
+                    "target": "切换到远程分支"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Add file to .gitignore",
+                    "target": "将文件添加到 .gitignore"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "提交并同步",
+                    "target": "提交并同步"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "提交并同步，然后关闭 Obsidian",
+                    "target": "提交并同步，然后关闭 Obsidian"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "提交并同步，使用特定消息",
+                    "target": "提交并同步，使用特定消息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "提交所有更改",
+                    "target": "提交所有更改"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "使用特定消息提交所有更改",
+                    "target": "使用特定消息提交所有更改"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "提交暂存文件",
+                    "target": "提交暂存文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "修改暂存文件",
+                    "target": "修改暂存文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Commit with specific message",
+                    "target": "使用特定消息提交"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "使用特定消息提交暂存文件",
+                    "target": "使用特定消息提交暂存文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "推送",
+                    "target": "推送"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "暂存当前文件",
+                    "target": "暂存当前文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "取消暂存当前文件",
+                    "target": "取消暂存当前文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "编辑远程仓库",
+                    "target": "编辑远程仓库"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "移除远程仓库",
+                    "target": "移除远程仓库"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "设置上游分支",
+                    "target": "设置上游分支"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "警告：删除仓库",
+                    "target": "警告：删除仓库"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "初始化新仓库",
+                    "target": "初始化新仓库"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "克隆现有的远程仓库",
+                    "target": "克隆现有的远程仓库"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "列出已更改的文件",
+                    "target": "列出已更改的文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "切换分支",
+                    "target": "切换分支"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "创建新分支",
+                    "target": "创建新分支"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "删除分支",
+                    "target": "删除分支"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "警告：放弃所有更改",
+                    "target": "警告：放弃所有更改"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Pause/Resume automatic routines",
+                    "target": "暂停/恢复自动例程"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Raw command",
+                    "target": "原始命令"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "切换行作者信息",
+                    "target": "切换行作者信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Reset hunk",
+                    "target": "重置代码块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Stage hunk",
+                    "target": "暂存代码块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Preview hunk",
+                    "target": "预览代码块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Go to next hunk",
+                    "target": "转到下一个代码块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Go to previous hunk",
+                    "target": "转到上一个代码块"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "指定您的用户名",
+                    "target": "指定您的用户名"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "指定您的密码/个人访问令牌",
+                    "target": "指定您的密码/个人访问令牌"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "您确定要删除该仓库(.git目录)吗？此插件操作无法撤销。",
+                    "target": "您确定要删除该仓库(.git目录)吗？此插件操作无法撤销。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "push origin master",
+                    "target": "push origin master"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "输入远程URL",
+                    "target": "输入远程URL"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "输入克隆目录。目录必须为空或不存在。",
+                    "target": "输入克隆目录。目录必须为空或不存在。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "指定克隆的深度。留空则为完整克隆。",
+                    "target": "指定克隆的深度。留空则为完整克隆。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "创建新分支",
+                    "target": "创建新分支"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "删除分支",
+                    "target": "删除分支"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "此分支尚未合并到HEAD中。强制删除？",
+                    "target": "此分支尚未合并到HEAD中。强制删除？"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "通过输入名称并选择来选择或创建新的远程",
+                    "target": "通过输入名称并选择来选择或创建新的远程"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "通过输入名称并选择来选择或创建新的远程分支",
+                    "target": "通过输入名称并选择来选择或创建新的远程分支"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "选择一个远程",
+                    "target": "选择一个远程"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Git还没有准备好。当所有设置都正确时,您可以配置提交同步等。",
+                    "target": "Git尚未准备就绪。当所有设置都正确时，您可以配置提交同步等。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "CMD (⌘) + OPTION (⌥) + I",
+                    "target": "CMD (⌘) + OPTION (⌥) + I"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "CTRL + SHIFT + I",
+                    "target": "CTRL + SHIFT + I"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "保存",
+                    "target": "保存"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "⚠️",
+                    "target": "⚠️"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "取消",
+                    "target": "取消"
+                }
+            ],
+            "regex": [
+                {
+                    "source": "error(\"此浏览器缺少类型化数组 (Uint8Array)) support which is required by `buffer` v5.x. Use `buffer` v4.x if you require old browser support.\")",
+                    "target": "error(\"此浏览器缺少类型化数组 (Uint8Array)) support which is required by `buffer` v5.x. Use `buffer` v4.x if you require old browser support.\")"
+                },
+                {
+                    "source": "Notice(\"验证失败。请尝试使用不同的凭据\")",
+                    "target": "Notice(\"验证失败。请尝试使用不同的凭据\")"
+                },
+                {
+                    "source": "Notice(\"初始化拉取\")",
+                    "target": "Notice(\"初始化拉取\")"
+                },
+                {
+                    "source": "Notice(\"初始化克隆\")",
+                    "target": "Notice(\"初始化克隆\")"
+                },
+                {
+                    "source": "Notice(\"初始化获取\")",
+                    "target": "Notice(\"初始化获取\")"
+                },
+                {
+                    "source": "log(\"奇怪的事情发生了:\")",
+                    "target": "log(\"奇怪的事情发生了:\")"
+                },
+                {
+                    "source": "Notice(\"ObsidianGit: 基础路径不存在\")",
+                    "target": "Notice(\"ObsidianGit: 基础路径不存在\")"
+                },
+                {
+                    "source": "log(\"Retry watch for ask pass\")",
+                    "target": "log(\"Retry watch for ask pass\")"
+                },
+                {
+                    "source": "log(\"未找到跟踪分支。将忽略主仓库的拉取,仅更新子模块。\")",
+                    "target": "log(\"未找到跟踪分支。将忽略主仓库的拉取,仅更新子模块。\")"
+                },
+                {
+                    "source": "log(\"未找到跟踪分支。将忽略主仓库的推送,仅更新子模块。\")",
+                    "target": "log(\"未找到跟踪分支。将忽略主仓库的推送,仅更新子模块。\")"
+                },
+                {
+                    "source": "log(`Git not found in PATH. Checking standard installation path(${Nd}) of Git for Windows.`)",
+                    "target": "log(`Git not found in PATH. Checking standard installation path(${Nd}) of Git for Windows.`)"
+                },
+                {
+                    "source": "setTitle(\"复制提交哈希\")",
+                    "target": "setTitle(\"复制提交哈希\")"
+                },
+                {
+                    "source": "setName(\"自动\")",
+                    "target": "setName(\"自动\")"
+                },
+                {
+                    "source": "setName(\"用于自动提交和同步的分割计时器\")",
+                    "target": "setName(\"用于自动提交和同步的分割计时器\")"
+                },
+                {
+                    "source": "setDesc(\"允许使用一个间隔进行提交,另一个间隔进行同步。\")",
+                    "target": "setDesc(\"允许使用一个间隔进行提交,另一个间隔进行同步。\")"
+                },
+                {
+                    "source": "setName(`Auto ${n} interval (minutes)`)",
+                    "target": "setName(`Auto ${n} interval (minutes)`)"
+                },
+                {
+                    "source": "setDesc(`${i.settings.differentIntervalCommitAndPush?\"Commit\":\"Commit and sync\"} changes every X minutes. Set to 0 (default) to disable. (See below setting for further configuration!)`)",
+                    "target": "setDesc(`${i.settings.differentIntervalCommitAndPush?\"Commit\":\"Commit and sync\"} changes every X minutes. Set to 0 (default) to disable. (See below setting for further configuration!)`)"
+                },
+                {
+                    "source": "setName(`Auto ${n} after stopping file edits`)",
+                    "target": "setName(`Auto ${n} after stopping file edits`)"
+                },
+                {
+                    "source": "setName(`Auto ${n} after latest commit`)",
+                    "target": "setName(`Auto ${n} after latest commit`)"
+                },
+                {
+                    "source": "setDesc(`If turned on, sets last auto ${n} timestamp to the latest commit timestamp. This reduces the frequency of auto ${n} when doing manual commits.`)",
+                    "target": "setDesc(`If turned on, sets last auto ${n} timestamp to the latest commit timestamp. This reduces the frequency of auto ${n} when doing manual commits.`)"
+                },
+                {
+                    "source": "setName(\"自动推送间隔(分钟)\")",
+                    "target": "setName(\"自动推送间隔(分钟)\")"
+                },
+                {
+                    "source": "setDesc(\"每X分钟推送提交。设置为0(默认)以禁用。\")",
+                    "target": "setDesc(\"每X分钟推送提交。设置为0(默认)以禁用。\")"
+                },
+                {
+                    "source": "setName(\"自动拉取间隔(分钟)\")",
+                    "target": "setName(\"自动拉取间隔(分钟)\")"
+                },
+                {
+                    "source": "setDesc(\"每 X 分钟拉取更改。设置为 0(默认)以禁用。\")",
+                    "target": "setDesc(\"每 X 分钟拉取更改。设置为 0(默认)以禁用。\")"
+                },
+                {
+                    "source": "setName(`Auto ${n} only staged files`)",
+                    "target": "setName(`Auto ${n} only staged files`)"
+                },
+                {
+                    "source": "setDesc(`If turned on, only staged files are committed on ${n}. If turned off, all changed files are committed.`)",
+                    "target": "setDesc(`If turned on, only staged files are committed on ${n}. If turned off, all changed files are committed.`)"
+                },
+                {
+                    "source": "setName(`Specify custom commit message on auto ${n}`)",
+                    "target": "setName(`Specify custom commit message on auto ${n}`)"
+                },
+                {
+                    "source": "setDesc(\"您将收到一个弹出窗口以指定您的消息。\")",
+                    "target": "setDesc(\"您将收到一个弹出窗口以指定您的消息。\")"
+                },
+                {
+                    "source": "setName(`Commit message on auto ${n}`)",
+                    "target": "setName(`Commit message on auto ${n}`)"
+                },
+                {
+                    "source": "setDesc(\"可用占位符:{{date}}(见下文)、{{hostname}}(见下文)、{{numFiles}}(提交中更改的文件数量)和{{files}}(提交信息中的更改文件)。\")",
+                    "target": "setDesc(\"可用占位符:{{date}}(见下文)、{{hostname}}(见下文)、{{numFiles}}(提交中更改的文件数量)和{{files}}(提交信息中的更改文件)。\")"
+                },
+                {
+                    "source": "setName(\"提交信息\")",
+                    "target": "setName(\"提交信息\")"
+                },
+                {
+                    "source": "setName(\"手动提交时的提交信息\")",
+                    "target": "setName(\"手动提交时的提交信息\")"
+                },
+                {
+                    "source": "setTooltip(`Set to default: \"${rt.commitMessage}\"`)",
+                    "target": "setTooltip(`Set to default: \"${rt.commitMessage}\"`)"
+                },
+                {
+                    "source": "setName(\"Commit message script\")",
+                    "target": "setName(\"Commit message script\")"
+                },
+                {
+                    "source": "setDesc(\"A script that is run using 'sh -c' to generate the commit message. May be used to generate commit messages using AI tools. Available placeholders: {{hostname}}, {{date}}.\")",
+                    "target": "setDesc(\"A script that is run using 'sh -c' to generate the commit message. May be used to generate commit messages using AI tools. Available placeholders: {{hostname}}, {{date}}.\")"
+                },
+                {
+                    "source": "setName(\"{{date}} 占位符格式\")",
+                    "target": "setName(\"{{date}} 占位符格式\")"
+                },
+                {
+                    "source": "setName(\"{{hostname}} 占位符替换\")",
+                    "target": "setName(\"{{hostname}} 占位符替换\")"
+                },
+                {
+                    "source": "setDesc(\"Specify custom hostname for every device. Defaults to the OS hostname if not set on desktop.\")",
+                    "target": "setDesc(\"Specify custom hostname for every device. Defaults to the OS hostname if not set on desktop.\")"
+                },
+                {
+                    "source": "setName(\"预览提交信息\")",
+                    "target": "setName(\"预览提交信息\")"
+                },
+                {
+                    "source": "setButtonText(\"预览\")",
+                    "target": "setButtonText(\"预览\")"
+                },
+                {
+                    "source": "setName(\"在提交内容中列出受提交影响的文件名\")",
+                    "target": "setName(\"在提交内容中列出受提交影响的文件名\")"
+                },
+                {
+                    "source": "setName(\"拉取\")",
+                    "target": "setName(\"拉取\")"
+                },
+                {
+                    "source": "setName(\"合并策略\")",
+                    "target": "setName(\"合并策略\")"
+                },
+                {
+                    "source": "setDesc(\"决定如何将远程分支中的提交集成到本地分支中。\")",
+                    "target": "setDesc(\"决定如何将远程分支中的提交集成到本地分支中。\")"
+                },
+                {
+                    "source": "setName(\"Merge strategy on conflicts\")",
+                    "target": "setName(\"Merge strategy on conflicts\")"
+                },
+                {
+                    "source": "setName(\"开机时拉取\")",
+                    "target": "setName(\"开机时拉取\")"
+                },
+                {
+                    "source": "setDesc(\"自动在 Obsidian 启动时拉取提交。\")",
+                    "target": "setDesc(\"自动在 Obsidian 启动时拉取提交。\")"
+                },
+                {
+                    "source": "setName(\"提交并同步\")",
+                    "target": "setName(\"提交并同步\")"
+                },
+                {
+                    "source": "setDesc(\"使用默认设置的 提交和同步 意味着暂存所有内容 -> 提交 -> 拉取 -> 推送。理想情况下,这是一个你定期执行的单一操作,用于保持本地和远程仓库的同步。\")",
+                    "target": "setDesc(\"使用默认设置的 提交和同步 意味着暂存所有内容 -> 提交 -> 拉取 -> 推送。理想情况下,这是一个你定期执行的单一操作,用于保持本地和远程仓库的同步。\")"
+                },
+                {
+                    "source": "setName(\"提交并同步时推送到远程仓库\")",
+                    "target": "setName(\"提交并同步时推送到远程仓库\")"
+                },
+                {
+                    "source": "setDesc(`Most of the time you want to push after committing. Turning this off turns a commit-and-sync action into commit ${i.settings.pullBeforePush?\"and pull \":\"\"}only. It will still be called commit-and-sync.`)",
+                    "target": "setDesc(`Most of the time you want to push after committing. Turning this off turns a commit-and-sync action into commit ${i.settings.pullBeforePush?\"and pull \":\"\"}only. It will still be called commit-and-sync.`)"
+                },
+                {
+                    "source": "setName(\"提交并同步时从远程仓库拉取\")",
+                    "target": "setName(\"提交并同步时从远程仓库拉取\")"
+                },
+                {
+                    "source": "setDesc(`On commit-and-sync, pull commits as well. Turning this off turns a commit-and-sync action into commit ${i.settings.disablePush?\"\":\"and push \"}only.`)",
+                    "target": "setDesc(`On commit-and-sync, pull commits as well. Turning this off turns a commit-and-sync action into commit ${i.settings.disablePush?\"\":\"and push \"}only.`)"
+                },
+                {
+                    "source": "setDesc(\"Hunks are sections of grouped line changes right in your editor.\")",
+                    "target": "setDesc(\"Hunks are sections of grouped line changes right in your editor.\")"
+                },
+                {
+                    "source": "setDesc(\"This allows you to see your changes right in your editor via colored markers and stage/reset/preview individual hunks.\")",
+                    "target": "setDesc(\"This allows you to see your changes right in your editor via colored markers and stage/reset/preview individual hunks.\")"
+                },
+                {
+                    "source": "setName(\"Hunk commands\")",
+                    "target": "setName(\"Hunk commands\")"
+                },
+                {
+                    "source": "setName(\"Status bar with summary of line changes\")",
+                    "target": "setName(\"Status bar with summary of line changes\")"
+                },
+                {
+                    "source": "setName(\"线路作者信息\")",
+                    "target": "setName(\"线路作者信息\")"
+                },
+                {
+                    "source": "setName(\"历史视图\")",
+                    "target": "setName(\"历史视图\")"
+                },
+                {
+                    "source": "setName(\"显示作者\")",
+                    "target": "setName(\"显示作者\")"
+                },
+                {
+                    "source": "setDesc(\"在历史视图中显示提交的作者。\")",
+                    "target": "setDesc(\"在历史视图中显示提交的作者。\")"
+                },
+                {
+                    "source": "setName(\"显示日期\")",
+                    "target": "setName(\"显示日期\")"
+                },
+                {
+                    "source": "setDesc(\"在历史视图中显示提交的日期。使用 {{date}} 占位符格式来显示日期。\")",
+                    "target": "setDesc(\"在历史视图中显示提交的日期。使用 {{date}} 占位符格式来显示日期。\")"
+                },
+                {
+                    "source": "setName(\"源控制视图\")",
+                    "target": "setName(\"源控制视图\")"
+                },
+                {
+                    "source": "setName(\"自动刷新文件更改的源控制视图\")",
+                    "target": "setName(\"自动刷新文件更改的源控制视图\")"
+                },
+                {
+                    "source": "setDesc(\"在较慢的机器上,这可能会导致延迟。如果是这样,请禁用此选项。\")",
+                    "target": "setDesc(\"在较慢的机器上,这可能会导致延迟。如果是这样,请禁用此选项。\")"
+                },
+                {
+                    "source": "setName(\"源控制视图刷新间隔\")",
+                    "target": "setName(\"源控制视图刷新间隔\")"
+                },
+                {
+                    "source": "setDesc(\"在文件更改后等待的毫秒数,然后刷新源控制视图。\")",
+                    "target": "setDesc(\"在文件更改后等待的毫秒数,然后刷新源控制视图。\")"
+                },
+                {
+                    "source": "setName(\"杂项\")",
+                    "target": "setName(\"杂项\")"
+                },
+                {
+                    "source": "setName(\"Diff view style\")",
+                    "target": "setName(\"Diff view style\")"
+                },
+                {
+                    "source": "setDesc('Set the style for the diff view. Note that the actual diff in \"Split\" mode is not generated by Git, but the editor itself instead so it may differ from the diff generated by Git. One advantage of this is that you can edit the text in that view.')",
+                    "target": "setDesc('Set the style for the diff view. Note that the actual diff in \"Split\" mode is not generated by Git, but the editor itself instead so it may differ from the diff generated by Git. One advantage of this is that you can edit the text in that view.')"
+                },
+                {
+                    "source": "setName(\"Disable informative notifications\")",
+                    "target": "setName(\"Disable informative notifications\")"
+                },
+                {
+                    "source": "setDesc(\"Disable informative notifications for git operations to minimize distraction (refer to status bar for updates).\")",
+                    "target": "setDesc(\"Disable informative notifications for git operations to minimize distraction (refer to status bar for updates).\")"
+                },
+                {
+                    "source": "setName(\"Disable error notifications\")",
+                    "target": "setName(\"Disable error notifications\")"
+                },
+                {
+                    "source": "setDesc(\"Disable error notifications of any kind to minimize distraction (refer to status bar for updates).\")",
+                    "target": "setDesc(\"Disable error notifications of any kind to minimize distraction (refer to status bar for updates).\")"
+                },
+                {
+                    "source": "setName(\"隐藏无更改的通知\")",
+                    "target": "setName(\"隐藏无更改的通知\")"
+                },
+                {
+                    "source": "setDesc(\"当没有需要提交或推送的更改时,不显示通知。\")",
+                    "target": "setDesc(\"当没有需要提交或推送的更改时,不显示通知。\")"
+                },
+                {
+                    "source": "setName(\"显示状态栏\")",
+                    "target": "setName(\"显示状态栏\")"
+                },
+                {
+                    "source": "setDesc(\"Obsidian必须重启以使更改生效。\")",
+                    "target": "setDesc(\"Obsidian必须重启以使更改生效。\")"
+                },
+                {
+                    "source": "setName(\"File menu integration\")",
+                    "target": "setName(\"File menu integration\")"
+                },
+                {
+                    "source": "setDesc('Add \"Stage\", \"Unstage\" and \"Add to .gitignore\" actions to the file menu.')",
+                    "target": "setDesc('Add \"Stage\", \"Unstage\" and \"Add to .gitignore\" actions to the file menu.')"
+                },
+                {
+                    "source": "setName(\"显示分支状态栏\")",
+                    "target": "setName(\"显示分支状态栏\")"
+                },
+                {
+                    "source": "setName(\"显示状态栏中修改文件的数量\")",
+                    "target": "setName(\"显示状态栏中修改文件的数量\")"
+                },
+                {
+                    "source": "setName(\"身份验证/提交作者\")",
+                    "target": "setName(\"身份验证/提交作者\")"
+                },
+                {
+                    "source": "setName(\"提交作者\")",
+                    "target": "setName(\"提交作者\")"
+                },
+                {
+                    "source": "setName(\"在你的 Git 服务器上的用户名。例如:你在 GitHub 上的用户名\")",
+                    "target": "setName(\"在你的 Git 服务器上的用户名。例如:你在 GitHub 上的用户名\")"
+                },
+                {
+                    "source": "setName(\"密码/个人访问令牌\")",
+                    "target": "setName(\"密码/个人访问令牌\")"
+                },
+                {
+                    "source": "setDesc(\"输入您的密码。您将无法再次看到它。\")",
+                    "target": "setDesc(\"输入您的密码。您将无法再次看到它。\")"
+                },
+                {
+                    "source": "setName(\"提交的作者名称\")",
+                    "target": "setName(\"提交的作者名称\")"
+                },
+                {
+                    "source": "setName(\"提交作者的电子邮件\")",
+                    "target": "setName(\"提交作者的电子邮件\")"
+                },
+                {
+                    "source": "setName(\"高级\")",
+                    "target": "setName(\"高级\")"
+                },
+                {
+                    "source": "setDesc(\"These settings usually don't need to be changed, but may be required for special setups.\")",
+                    "target": "setDesc(\"These settings usually don't need to be changed, but may be required for special setups.\")"
+                },
+                {
+                    "source": "setName(\"更新子模块\")",
+                    "target": "setName(\"更新子模块\")"
+                },
+                {
+                    "source": "setDesc('\"提交和同步\"以及\"拉取\"处理子模块。缺失的功能:冲突文件、拉取/推送/提交文件的数量。每个子模块需要设置跟踪分支。')",
+                    "target": "setDesc('\"提交和同步\"以及\"拉取\"处理子模块。缺失的功能:冲突文件、拉取/推送/提交文件的数量。每个子模块需要设置跟踪分支。')"
+                },
+                {
+                    "source": "setName(\"子模块递归检出/切换\")",
+                    "target": "setName(\"子模块递归检出/切换\")"
+                },
+                {
+                    "source": "setDesc(\"每当根仓库发生检出时,递归检出子模块(如果分支存在)。\")",
+                    "target": "setDesc(\"每当根仓库发生检出时,递归检出子模块(如果分支存在)。\")"
+                },
+                {
+                    "source": "setName(\"自定义 Git 二进制文件路径\")",
+                    "target": "setName(\"自定义 Git 二进制文件路径\")"
+                },
+                {
+                    "source": "setDesc(\"Specify the path to the Git binary/executable. Git should already be in your PATH. Should only be necessary for a custom Git installation.\")",
+                    "target": "setDesc(\"Specify the path to the Git binary/executable. Git should already be in your PATH. Should only be necessary for a custom Git installation.\")"
+                },
+                {
+                    "source": "setName(\"额外的环境变量\")",
+                    "target": "setName(\"额外的环境变量\")"
+                },
+                {
+                    "source": "setDesc(\"使用每一行作为新环境变量,格式为 KEY=VALUE 。\")",
+                    "target": "setDesc(\"使用每一行作为新环境变量,格式为 KEY=VALUE 。\")"
+                },
+                {
+                    "source": "setPlaceholder(\"GIT_DIR=/path/to/git/目录\")",
+                    "target": "setPlaceholder(\"GIT_DIR=/path/to/git/目录\")"
+                },
+                {
+                    "source": "setName(\"其他 PATH 环境变量路径\")",
+                    "target": "setName(\"其他 PATH 环境变量路径\")"
+                },
+                {
+                    "source": "setDesc(\"每行使用一个路径\")",
+                    "target": "setDesc(\"每行使用一个路径\")"
+                },
+                {
+                    "source": "setName(\"重新加载新的环境变量\")",
+                    "target": "setName(\"重新加载新的环境变量\")"
+                },
+                {
+                    "source": "setDesc(\"移除之前添加的环境变量直到 Obsidian 重启才生效。\")",
+                    "target": "setDesc(\"移除之前添加的环境变量直到 Obsidian 重启才生效。\")"
+                },
+                {
+                    "source": "setButtonText(\"重新加载\")",
+                    "target": "setButtonText(\"重新加载\")"
+                },
+                {
+                    "source": "setName(\"自定义基础路径(Git 仓库路径)\")",
+                    "target": "setName(\"自定义基础路径(Git 仓库路径)\")"
+                },
+                {
+                    "source": "setDesc(`\n            设置 Git 二进制文件应从哪个存储库执行的相对路径。主要用于设置 Git 仓库的路径,只有当 Git 仓库位于分库根目录之下时才需要。在 Windows 下使用\"\\\\\"代替\"/\"。\n            `)",
+                    "target": "setDesc(`\n            设置 Git 二进制文件应从哪个存储库执行的相对路径。主要用于设置 Git 仓库的路径,只有当 Git 仓库位于分库根目录之下时才需要。在 Windows 下使用\"\\\\\"代替\"/\"。\n            `)"
+                },
+                {
+                    "source": "setPlaceholder(\"目录/带 Git 仓库的目录\")",
+                    "target": "setPlaceholder(\"目录/带 Git 仓库的目录\")"
+                },
+                {
+                    "source": "setName(\"自定义 Git 目录路径(取代 .git)\")",
+                    "target": "setName(\"自定义 Git 目录路径(取代 .git)\")"
+                },
+                {
+                    "source": "setDesc('Corresponds to the GIT_DIR environment variable. Requires restart of Obsidian to take effect. Use \"\\\\\" instead of \"/\" on Windows.')",
+                    "target": "setDesc('Corresponds to the GIT_DIR environment variable. Requires restart of Obsidian to take effect. Use \"\\\\\" instead of \"/\" on Windows.')"
+                },
+                {
+                    "source": "setName(\"在此设备上禁用\")",
+                    "target": "setName(\"在此设备上禁用\")"
+                },
+                {
+                    "source": "setDesc(\"禁用此设备上的插件。此设置不会同步。\")",
+                    "target": "setDesc(\"禁用此设备上的插件。此设置不会同步。\")"
+                },
+                {
+                    "source": "Notice(\"Obsidian 必须重新启动以使更改生效。\")",
+                    "target": "Notice(\"Obsidian 必须重新启动以使更改生效。\")"
+                },
+                {
+                    "source": "setName(\"支持\")",
+                    "target": "setName(\"支持\")"
+                },
+                {
+                    "source": "setName(\"捐赠\")",
+                    "target": "setName(\"捐赠\")"
+                },
+                {
+                    "source": "setDesc(\"如果您喜欢这个插件,请考虑捐赠以支持持续开发。\")",
+                    "target": "setDesc(\"如果您喜欢这个插件,请考虑捐赠以支持持续开发。\")"
+                },
+                {
+                    "source": "setText(\"复制调试信息\")",
+                    "target": "setText(\"复制调试信息\")"
+                },
+                {
+                    "source": "Notice(\"调试信息已复制到剪贴板。可能包含敏感信息！\")",
+                    "target": "Notice(\"调试信息已复制到剪贴板。可能包含敏感信息！\")"
+                },
+                {
+                    "source": "setText(`调试和日志记录:\n使用以下命令打开控制台,即可查看本插件和其他所有插件的日志`)",
+                    "target": "setText(`调试和日志记录:\n使用以下命令打开控制台,即可查看本插件和其他所有插件的日志`)"
+                },
+                {
+                    "source": "setName(\"显示每行旁边的提交作者信息\")",
+                    "target": "setName(\"显示每行旁边的提交作者信息\")"
+                },
+                {
+                    "source": "setDesc(\"目前仅在桌面版可用。\")",
+                    "target": "setDesc(\"目前仅在桌面版可用。\")"
+                },
+                {
+                    "source": "setName(\"跟踪移动并跨文件和提交进行复制\")",
+                    "target": "setName(\"跟踪移动并跨文件和提交进行复制\")"
+                },
+                {
+                    "source": "setName(\"显示提交哈希值\")",
+                    "target": "setName(\"显示提交哈希值\")"
+                },
+                {
+                    "source": "setName(\"显示作者姓名\")",
+                    "target": "setName(\"显示作者姓名\")"
+                },
+                {
+                    "source": "setDesc(\"作者的显示方式(如果有)\")",
+                    "target": "setDesc(\"作者的显示方式(如果有)\")"
+                },
+                {
+                    "source": "setName(\"显示创建日期\")",
+                    "target": "setName(\"显示创建日期\")"
+                },
+                {
+                    "source": "setDesc(\"如果以及如何显示该行的创作日期和时间\")",
+                    "target": "setDesc(\"如果以及如何显示该行的创作日期和时间\")"
+                },
+                {
+                    "source": "setName(\"自定义作者日期格式\")",
+                    "target": "setName(\"自定义作者日期格式\")"
+                },
+                {
+                    "source": "setPlaceholder(\"YYYY-MM-DD HH:mm\")",
+                    "target": "setPlaceholder(\"YYYY-MM-DD HH:mm\")"
+                },
+                {
+                    "source": "setName(\"创建日期显示时区:\")",
+                    "target": "setName(\"创建日期显示时区:\")"
+                },
+                {
+                    "source": "setName(\"着色最旧时间\")",
+                    "target": "setName(\"着色最旧时间\")"
+                },
+                {
+                    "source": "setName(\"文本颜色\")",
+                    "target": "setName(\"文本颜色\")"
+                },
+                {
+                    "source": "setName(\"忽略更改中的空格和换行符\")",
+                    "target": "setName(\"忽略更改中的空格和换行符\")"
+                },
+                {
+                    "source": "setPlaceholder(\"输入您的消息并可选择添加日期的版本。\")",
+                    "target": "setPlaceholder(\"输入您的消息并可选择添加日期的版本。\")"
+                },
+                {
+                    "source": "Notice(\"您似乎没有使用 GitHub\")",
+                    "target": "Notice(\"您似乎没有使用 GitHub\")"
+                },
+                {
+                    "source": "setPlaceholder(\"不支持的文件将由默认应用程序打开！\")",
+                    "target": "setPlaceholder(\"不支持的文件将由默认应用程序打开！\")"
+                },
+                {
+                    "source": "setText(\"编辑 .gitignore\")",
+                    "target": "setText(\"编辑 .gitignore\")"
+                },
+                {
+                    "source": "error(`Invalid hunk with untracked=${a} hunk=\"${r.head}\"`)",
+                    "target": "error(`Invalid hunk with untracked=${a} hunk=\"${r.head}\"`)"
+                },
+                {
+                    "source": "error(\"解析行失败,从 0 开始！\")",
+                    "target": "error(\"解析行失败,从 0 开始！\")"
+                },
+                {
+                    "source": "Notice(\"成功删除了仓库。正在重新加载插件...\")",
+                    "target": "Notice(\"成功删除了仓库。正在重新加载插件...\")"
+                },
+                {
+                    "source": "Notice(\"未找到仓库\")",
+                    "target": "Notice(\"未找到仓库\")"
+                },
+                {
+                    "source": "Notice(\"Discarded all changes in tracked files.\")",
+                    "target": "Notice(\"Discarded all changes in tracked files.\")"
+                },
+                {
+                    "source": "Notice(\"Discarded all files.\")",
+                    "target": "Notice(\"Discarded all files.\")"
+                },
+                {
+                    "source": "Notice(\"Paused automatic routines.\")",
+                    "target": "Notice(\"Paused automatic routines.\")"
+                },
+                {
+                    "source": "Notice(\"Resumed automatic routines.\")",
+                    "target": "Notice(\"Resumed automatic routines.\")"
+                },
+                {
+                    "source": "setPlaceholder(\"选择要检出的分支\")",
+                    "target": "setPlaceholder(\"选择要检出的分支\")"
+                },
+                {
+                    "source": "setText(`${this.discardCount==0?\"Delete\":\"Discard\"} ${s}`)",
+                    "target": "setText(`${this.discardCount==0?\"Delete\":\"Discard\"} ${s}`)"
+                },
+                {
+                    "source": "setText(`Are you sure you want to DELETE the ${Su(this.deleteCount,\"untracked file\")}? They are deleted according to your Obsidian trash settting.`)",
+                    "target": "setText(`Are you sure you want to DELETE the ${Su(this.deleteCount,\"untracked file\")}? They are deleted according to your Obsidian trash settting.`)"
+                },
+                {
+                    "source": "setText(`Are you sure you want to discard ALL changes in ${Su(this.discardCount,\"tracked file\")}?`)",
+                    "target": "setText(`Are you sure you want to discard ALL changes in ${Su(this.discardCount,\"tracked file\")}?`)"
+                },
+                {
+                    "source": "setTitle(\"Git: 暂存\")",
+                    "target": "setTitle(\"Git: 暂存\")"
+                },
+                {
+                    "source": "setTitle(\"Git: 撤销暂存\")",
+                    "target": "setTitle(\"Git: 撤销暂存\")"
+                },
+                {
+                    "source": "setTitle(\"Git: 添加到 .gitignore\")",
+                    "target": "setTitle(\"Git: 添加到 .gitignore\")"
+                },
+                {
+                    "source": "setTitle(\"Open in default app\")",
+                    "target": "setTitle(\"Open in default app\")"
+                },
+                {
+                    "source": "log(\"卸载 \"+this.manifest.name+\" 插件\")",
+                    "target": "log(\"卸载 \"+this.manifest.name+\" 插件\")"
+                },
+                {
+                    "source": "Notice(\"Automatic routines are currently paused.\")",
+                    "target": "Notice(\"Automatic routines are currently paused.\")"
+                },
+                {
+                    "source": "Notice(\"已终止克隆 clone\")",
+                    "target": "Notice(\"已终止克隆 clone\")"
+                },
+                {
+                    "source": "Notice(\"无效的深度。中止克隆。\")",
+                    "target": "Notice(\"无效的深度。中止克隆。\")"
+                },
+                {
+                    "source": "Notice(`Cloning new repo into \"${s}\"`)",
+                    "target": "Notice(`Cloning new repo into \"${s}\"`)"
+                },
+                {
+                    "source": "Notice(\"克隆了新的仓库。\")",
+                    "target": "Notice(\"克隆了新的仓库。\")"
+                },
+                {
+                    "source": "Notice(\"请重启 Obsidian\")",
+                    "target": "Notice(\"请重启 Obsidian\")"
+                },
+                {
+                    "source": "Notice(\"自动备份:请输入自定义提交信息。留空以中止\")",
+                    "target": "Notice(\"自动备份:请输入自定义提交信息。留空以中止\")"
+                },
+                {
+                    "source": "Notice(\"Commit aborted: No commit message provided\")",
+                    "target": "Notice(\"Commit aborted: No commit message provided\")"
+                },
+                {
+                    "source": "log(\"推送中....\")",
+                    "target": "log(\"推送中....\")"
+                },
+                {
+                    "source": "log(\"拉取中....\")",
+                    "target": "log(\"拉取中....\")"
+                },
+                {
+                    "source": "Notice(\"没有设置上游分支。请选择一个。\")",
+                    "target": "Notice(\"没有设置上游分支。请选择一个。\")"
+                },
+                {
+                    "source": "log(\"遇到网络错误,但已在离线模式\")",
+                    "target": "log(\"遇到网络错误,但已在离线模式\")"
+                },
+                {
+                    "source": "Notice(\"中止\")",
+                    "target": "Notice(\"中止\")"
+                },
+                {
+                    "source": "name=`${this.name} [${t}]`",
+                    "target": "name=`${this.name} [${t}]`"
+                },
+                {
+                    "source": "description:`${At} '${_a(ve)}' of ${T}`",
+                    "target": "description:`${At} '${_a(ve)}' of ${T}`"
+                },
+                {
+                    "source": "name:\"源代码管理\"",
+                    "target": "name:\"源代码管理\""
+                },
+                {
+                    "source": "name:\"历史记录\"",
+                    "target": "name:\"历史记录\""
+                },
+                {
+                    "source": "name:\"Diff view\"",
+                    "target": "name:\"Diff view\""
+                },
+                {
+                    "source": "name:\"差异视图\"",
+                    "target": "name:\"差异视图\""
+                },
+                {
+                    "source": "text:\"Git还没有准备好。当所有设置都正确时,您可以配置提交同步等。\"",
+                    "target": "text:\"Git还没有准备好。当所有设置都正确时,您可以配置提交同步等。\""
+                },
+                {
+                    "source": "text:\"CMD (\\u2318) + OPTION (\\u2325) + I\"",
+                    "target": "text:\"CMD (\\u2318) + OPTION (\\u2325) + I\""
+                },
+                {
+                    "source": "text:\"CTRL + SHIFT + I\"",
+                    "target": "text:\"CTRL + SHIFT + I\""
+                },
+                {
+                    "source": "innerText=`Color for ${n} commits`",
+                    "target": "innerText=`Color for ${n} commits`"
+                },
+                {
+                    "source": "text:\"保存\"",
+                    "target": "text:\"保存\""
+                },
+                {
+                    "source": "name:\"文件图标\"",
+                    "target": "name:\"文件图标\""
+                },
+                {
+                    "source": "name:\"文件标签\"",
+                    "target": "name:\"文件标签\""
+                },
+                {
+                    "source": "name:\"编辑 .gitignore\"",
+                    "target": "name:\"编辑 .gitignore\""
+                },
+                {
+                    "source": "name:\"打开源代码管理视图\"",
+                    "target": "name:\"打开源代码管理视图\""
+                },
+                {
+                    "source": "name:\"打开历史记录视图\"",
+                    "target": "name:\"打开历史记录视图\""
+                },
+                {
+                    "source": "name:\"打开差异视图\"",
+                    "target": "name:\"打开差异视图\""
+                },
+                {
+                    "source": "name:\"在 GitHub 上打开文件\"",
+                    "target": "name:\"在 GitHub 上打开文件\""
+                },
+                {
+                    "source": "name:\"在 GitHub 上查看文件历史\"",
+                    "target": "name:\"在 GitHub 上查看文件历史\""
+                },
+                {
+                    "source": "name:\"拉取\"",
+                    "target": "name:\"拉取\""
+                },
+                {
+                    "source": "name:\"获取\"",
+                    "target": "name:\"获取\""
+                },
+                {
+                    "source": "name:\"切换到远程分支\"",
+                    "target": "name:\"切换到远程分支\""
+                },
+                {
+                    "source": "name:\"Add file to .gitignore\"",
+                    "target": "name:\"Add file to .gitignore\""
+                },
+                {
+                    "source": "name:\"提交并同步\"",
+                    "target": "name:\"提交并同步\""
+                },
+                {
+                    "source": "name:\"提交并同步，然后关闭 Obsidian\"",
+                    "target": "name:\"提交并同步，然后关闭 Obsidian\""
+                },
+                {
+                    "source": "name:\"提交并同步，使用特定消息\"",
+                    "target": "name:\"提交并同步，使用特定消息\""
+                },
+                {
+                    "source": "name:\"提交所有更改\"",
+                    "target": "name:\"提交所有更改\""
+                },
+                {
+                    "source": "name:\"使用特定消息提交所有更改\"",
+                    "target": "name:\"使用特定消息提交所有更改\""
+                },
+                {
+                    "source": "name:\"提交暂存文件\"",
+                    "target": "name:\"提交暂存文件\""
+                },
+                {
+                    "source": "name:\"修改暂存文件\"",
+                    "target": "name:\"修改暂存文件\""
+                },
+                {
+                    "source": "name:\"Commit with specific message\"",
+                    "target": "name:\"Commit with specific message\""
+                },
+                {
+                    "source": "name:\"使用特定消息提交暂存文件\"",
+                    "target": "name:\"使用特定消息提交暂存文件\""
+                },
+                {
+                    "source": "name:\"推送\"",
+                    "target": "name:\"推送\""
+                },
+                {
+                    "source": "name:\"暂存当前文件\"",
+                    "target": "name:\"暂存当前文件\""
+                },
+                {
+                    "source": "name:\"取消暂存当前文件\"",
+                    "target": "name:\"取消暂存当前文件\""
+                },
+                {
+                    "source": "name:\"编辑远程仓库\"",
+                    "target": "name:\"编辑远程仓库\""
+                },
+                {
+                    "source": "name:\"移除远程仓库\"",
+                    "target": "name:\"移除远程仓库\""
+                },
+                {
+                    "source": "name:\"设置上游分支\"",
+                    "target": "name:\"设置上游分支\""
+                },
+                {
+                    "source": "name:\"警告：删除仓库\"",
+                    "target": "name:\"警告：删除仓库\""
+                },
+                {
+                    "source": "name:\"初始化新仓库\"",
+                    "target": "name:\"初始化新仓库\""
+                },
+                {
+                    "source": "name:\"克隆现有的远程仓库\"",
+                    "target": "name:\"克隆现有的远程仓库\""
+                },
+                {
+                    "source": "name:\"列出已更改的文件\"",
+                    "target": "name:\"列出已更改的文件\""
+                },
+                {
+                    "source": "name:\"切换分支\"",
+                    "target": "name:\"切换分支\""
+                },
+                {
+                    "source": "name:\"创建新分支\"",
+                    "target": "name:\"创建新分支\""
+                },
+                {
+                    "source": "name:\"删除分支\"",
+                    "target": "name:\"删除分支\""
+                },
+                {
+                    "source": "name:\"警告：放弃所有更改\"",
+                    "target": "name:\"警告：放弃所有更改\""
+                },
+                {
+                    "source": "name:\"Pause/Resume automatic routines\"",
+                    "target": "name:\"Pause/Resume automatic routines\""
+                },
+                {
+                    "source": "name:\"Raw command\"",
+                    "target": "name:\"Raw command\""
+                },
+                {
+                    "source": "name:\"切换行作者信息\"",
+                    "target": "name:\"切换行作者信息\""
+                },
+                {
+                    "source": "name:\"Reset hunk\"",
+                    "target": "name:\"Reset hunk\""
+                },
+                {
+                    "source": "name:\"Stage hunk\"",
+                    "target": "name:\"Stage hunk\""
+                },
+                {
+                    "source": "name:\"Preview hunk\"",
+                    "target": "name:\"Preview hunk\""
+                },
+                {
+                    "source": "name:\"Go to next hunk\"",
+                    "target": "name:\"Go to next hunk\""
+                },
+                {
+                    "source": "name:\"Go to previous hunk\"",
+                    "target": "name:\"Go to previous hunk\""
+                },
+                {
+                    "source": "text:\"文件未找到:\"",
+                    "target": "text:\"文件未找到:\""
+                },
+                {
+                    "source": "name=\"Svelte error\"",
+                    "target": "name=\"Svelte error\""
+                },
+                {
+                    "source": "text:`${this.discardCount>0?\"Discard\":\"Delete\"} all ${Su(r,\"file\")}`",
+                    "target": "text:`${this.discardCount>0?\"Discard\":\"Delete\"} all ${Su(r,\"file\")}`"
+                },
+                {
+                    "source": "text:`Discard all ${Su(this.discardCount,\"tracked file\")}`",
+                    "target": "text:`Discard all ${Su(this.discardCount,\"tracked file\")}`"
+                },
+                {
+                    "source": "text:\"取消\"",
+                    "target": "text:\"取消\""
+                },
+                {
+                    "source": "text:`+${n} `",
+                    "target": "text:`+${n} `"
+                },
+                {
+                    "source": "text:`~${s} `",
+                    "target": "text:`~${s} `"
+                }
+            ]
+        }
+    }
+}

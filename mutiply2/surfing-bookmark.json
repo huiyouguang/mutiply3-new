@@ -1,0 +1,24 @@
+{
+  "bookmarks": [
+    {
+      "id": "1855814161",
+      "name": "DeepSeek - 探索未至之境",
+      "url": "https://chat.deepseek.com/",
+      "description": "",
+      "category": [
+        "ROOT"
+      ],
+      "tags": "",
+      "created": 1745114608854,
+      "modified": 1745114608854
+    }
+  ],
+  "categories": [
+    {
+      "value": "ROOT",
+      "text": "ROOT",
+      "label": "ROOT",
+      "children": []
+    }
+  ]
+}

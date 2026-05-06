@@ -1,0 +1,11 @@
+{
+    "id": "ob-table-enhancer",
+    "name": "Table Enhancer",
+    "version": "0.3.5",
+    "minAppVersion": "0.15.0",
+    "description": "在Obsidian中操作Markdown表格，而无需触及源代码。",
+    "author": "Stardust",
+    "authorUrl": "https://obsidian.md",
+    "fundingUrl": "https://github.com/Stardusten/ob-table-enhancer",
+    "isDesktopOnly": false
+}

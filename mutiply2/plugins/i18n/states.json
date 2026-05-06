@@ -1,0 +1,36 @@
+{
+    "plugins": {
+        "obsidian-git": {
+            "id": "obsidian-git",
+            "isApplied": true,
+            "pluginVersion": "2.38.0",
+            "translationVersion": "1.0.0"
+        },
+        "find-orphaned-images": {
+            "id": "find-orphaned-images",
+            "isApplied": true,
+            "pluginVersion": "1.1.3",
+            "translationVersion": "1.0.0"
+        },
+        "notebook-navigator": {
+            "id": "notebook-navigator",
+            "isApplied": true,
+            "pluginVersion": "2.5.5",
+            "translationVersion": "1.0.0"
+        }
+    },
+    "themes": {
+        "AnuPpuccin": {
+            "id": "AnuPpuccin",
+            "isApplied": true,
+            "pluginVersion": "1.5.0",
+            "translationVersion": "1.0.0"
+        },
+        "Cupertino": {
+            "id": "Cupertino",
+            "isApplied": true,
+            "pluginVersion": "3.2.9",
+            "translationVersion": "1.0.0"
+        }
+    }
+}

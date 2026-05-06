@@ -1,0 +1,60 @@
+{
+  "account": "",
+  "credential": "",
+  "remoteDir": "",
+  "remoteCacheDir": "",
+  "useGitStyle": false,
+  "conflictStrategy": "latest-timestamp",
+  "oauthResponseText": "B-_hbNWkGcj21Eqz2GreV_eHymB8YeHR66GOUAB4CHYDtgfuCKc0k0-JEpChTktQbm1x3iQJ2XHA82_yguRR0gjTNoF7nw9WAa3iTBZvG-vh8c7lf5tmDUGKxwJ6GvN54ZsQacpmnfdRaFg54dOP80XIs9ELeHc31B20SQzXsEX2dNw",
+  "loginMode": "sso",
+  "confirmBeforeSync": true,
+  "confirmBeforeDeleteInAutoSync": true,
+  "syncMode": "loose",
+  "filterRules": {
+    "exclusionRules": [
+      {
+        "expr": "**/.git",
+        "options": {
+          "caseSensitive": false
+        }
+      },
+      {
+        "expr": "**/.DS_Store",
+        "options": {
+          "caseSensitive": false
+        }
+      },
+      {
+        "expr": "**/.trash",
+        "options": {
+          "caseSensitive": false
+        }
+      },
+      {
+        "expr": ".obsidian",
+        "options": {
+          "caseSensitive": false
+        }
+      },
+      {
+        "expr": ".mutiply",
+        "options": {
+          "caseSensitive": false
+        }
+      },
+      {
+        "expr": "插件备份.zip",
+        "options": {
+          "caseSensitive": false
+        }
+      }
+    ],
+    "inclusionRules": []
+  },
+  "skipLargeFiles": {
+    "maxSize": "30 MB"
+  },
+  "realtimeSync": false,
+  "startupSyncDelaySeconds": 0,
+  "autoSyncIntervalSeconds": 300
+}

@@ -1,0 +1,54 @@
+{
+  "pluginList": [
+    "johansan/notebook-navigator",
+    "remotely-save/remotely-save",
+    "eondrcode/obsidian-i18n",
+    "Quorafind/Obsidian-Task-Genius",
+    "sean2077/obsidian-dynamic-theme-background",
+    "ted-marozzi/task-list",
+    "mdelobelle/obsidian_supercharged_links"
+  ],
+  "pluginSubListFrozenVersion": [
+    {
+      "repo": "johansan/notebook-navigator",
+      "version": "2.5.5"
+    },
+    {
+      "repo": "remotely-save/remotely-save",
+      "version": "0.5.25"
+    },
+    {
+      "repo": "eondrcode/obsidian-i18n",
+      "version": "latest"
+    },
+    {
+      "repo": "Quorafind/Obsidian-Task-Genius",
+      "version": "9.9.4"
+    },
+    {
+      "repo": "sean2077/obsidian-dynamic-theme-background",
+      "version": "2.9.0"
+    },
+    {
+      "repo": "ted-marozzi/task-list",
+      "version": ""
+    },
+    {
+      "repo": "mdelobelle/obsidian_supercharged_links",
+      "version": "latest"
+    }
+  ],
+  "themesList": [],
+  "updateAtStartup": true,
+  "updateThemesAtStartup": true,
+  "enableAfterInstall": true,
+  "loggingEnabled": false,
+  "loggingPath": "BRAT-log",
+  "loggingVerboseEnabled": false,
+  "debuggingMode": false,
+  "notificationsEnabled": true,
+  "globalTokenName": "",
+  "personalAccessToken": "",
+  "selectLatestPluginVersionByDefault": false,
+  "allowIncompatiblePlugins": false
+}

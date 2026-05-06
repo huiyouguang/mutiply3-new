@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 2,
+  "sources": {
+    "YU2IZTWmOfyd_zoY_FBJbh_Ii7Cm3b0H": {
+      "id": "YU2IZTWmOfyd_zoY_FBJbh_Ii7Cm3b0H",
+      "plugin": "AnuPpuccin",
+      "title": "AnuPpuccin",
+      "type": "theme",
+      "origin": "local",
+      "isActive": true,
+      "checksum": "0431837cc1f311adec0d54c5499ba8692c472c1133becd732c363dfce0a7ba49",
+      "updatedAt": 1775466196628,
+      "createdAt": 1775465934043
+    },
+    "SbYHh8ZIRy9hsFk2TvCiA-h2EWKkU4_R": {
+      "id": "SbYHh8ZIRy9hsFk2TvCiA-h2EWKkU4_R",
+      "plugin": "obsidian-git",
+      "title": "Git",
+      "type": "plugin",
+      "origin": "local",
+      "isActive": true,
+      "checksum": "65738fc8e13f9f577087bd23008994aff88359c959da07fe436720eba462ae78",
+      "updatedAt": 1775488661211,
+      "createdAt": 1775488580361
+    },
+    "V4jLiFYr9jo7VRxTe-okbZ-Bemn-77_B": {
+      "id": "V4jLiFYr9jo7VRxTe-okbZ-Bemn-77_B",
+      "plugin": "keep-the-rhythm",
+      "title": "Keep the Rhythm",
+      "type": "plugin",
+      "origin": "local",
+      "isActive": true,
+      "checksum": "c8c860f00816333f1b92e4cee637add7e1131a402d780b1541c4a43a472b714f",
+      "updatedAt": 1775488678751,
+      "createdAt": 1775488676598
+    },
+    "skX2PBtq53AsHQHb5FjlmGHDjI274Dnu": {
+      "id": "skX2PBtq53AsHQHb5FjlmGHDjI274Dnu",
+      "plugin": "find-orphaned-images",
+      "title": "Find Orphaned Images",
+      "type": "plugin",
+      "origin": "local",
+      "isActive": true,
+      "checksum": "12df52d5df53bb018e2e4b94fccaefc428671ce9553d3d10c2493540b7f4a588",
+      "updatedAt": 1775965811874,
+      "createdAt": 1775965799703
+    },
+    "95IpcwB1mZ8PosU8PJ8t49P5mhgprLmp": {
+      "id": "95IpcwB1mZ8PosU8PJ8t49P5mhgprLmp",
+      "plugin": "Cupertino",
+      "title": "Cupertino",
+      "type": "theme",
+      "origin": "local",
+      "isActive": false,
+      "checksum": "d50f8553a62be2411bc492035efc2ceb87b2ce0dcd4d34135c7115538d1eedd3",
+      "updatedAt": 1777167080341,
+      "createdAt": 1777167080340
+    },
+    "15enHNdJZ93_l1it5ZkH7N9CqAYLolbz": {
+      "id": "15enHNdJZ93_l1it5ZkH7N9CqAYLolbz",
+      "plugin": "Cupertino",
+      "title": "Cupertino",
+      "type": "theme",
+      "origin": "local",
+      "isActive": true,
+      "checksum": "d50f8553a62be2411bc492035efc2ceb87b2ce0dcd4d34135c7115538d1eedd3",
+      "updatedAt": 1777167320513,
+      "createdAt": 1777167083088
+    },
+    "Oex0NJXfOByRM0Khcd-HVFfC8j0HM7Jv": {
+      "id": "Oex0NJXfOByRM0Khcd-HVFfC8j0HM7Jv",
+      "plugin": "notebook-navigator",
+      "title": "Notebook Navigator",
+      "type": "plugin",
+      "origin": "local",
+      "isActive": true,
+      "checksum": "45c1431f612e8e7c7eef5d088ad1dc2dd9ed07d9df074726442dab9cbf3f4314",
+      "updatedAt": 1777216718078,
+      "createdAt": 1777215528448
+    }
+  }
+}

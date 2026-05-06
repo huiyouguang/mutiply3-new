@@ -1,0 +1,735 @@
+/* === 通用标题样式 === */
+
+/* 定义CSS变量以便深色模式适配 */
+:root {
+  --h1-color-light: #006699;
+  --h1-bg-light: linear-gradient(135deg, #e6f7ff 0%, #b3e0ff 100%);
+  --h1-border-light: #0099cc;
+  --h2-color-light: #996600;
+  --h2-bg-light: linear-gradient(135deg, #fff9e6 0%, #ffdd99 100%);
+  --h2-border-light: #ff9900;
+  --h3-color-light: #2d862d;
+  --h3-bg-light: linear-gradient(135deg, #f0ffe6 0%, #b3ff99 100%);
+  --h3-border-light: #33cc33;
+  --h4-color-light: #660066;
+  --h4-bg-light: linear-gradient(135deg, #f9e6ff 0%, #e6b3ff 100%);
+  --h4-border-light: #9933cc;
+  --h5-color-light: #990000;
+  --h5-bg-light: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%);
+  --h5-border-light: #ff6666;
+  --h6-color-light: #666666;
+  --h6-bg-light: linear-gradient(135deg, #e6e6e6 0%, #cccccc 100%);
+  --h6-border-light: #999999;
+}
+
+/* 深色模式变量 */
+.theme-dark {
+  --h1-color-dark: #66ccff;
+  --h1-bg-dark: linear-gradient(135deg, #00334d 0%, #004d73 100%);
+  --h1-border-dark: #0099cc;
+  --h2-color-dark: #ffcc00;
+  --h2-bg-dark: linear-gradient(135deg, #4d3d00 0%, #665200 100%);
+  --h2-border-dark: #ff9900;
+  --h3-color-dark: #66ff66;
+  --h3-bg-dark: linear-gradient(135deg, #004d00 0%, #006600 100%);
+  --h3-border-dark: #33cc33;
+  --h4-color-dark: #cc99ff;
+  --h4-bg-dark: linear-gradient(135deg, #330033 0%, #4d004d 100%);
+  --h4-border-dark: #9933cc;
+  --h5-color-dark: #ff6666;
+  --h5-bg-dark: linear-gradient(135deg, #4d0000 0%, #660000 100%);
+  --h5-border-dark: #ff6666;
+  --h6-color-dark: #cccccc;
+  --h6-bg-dark: linear-gradient(135deg, #333333 0%, #4d4d4d 100%);
+  --h6-border-dark: #999999;
+}
+
+/* === 编辑模式标题样式 === */
+
+/* H1 - 编辑模式 */
+.HyperMD-header.HyperMD-header-1.cm-line {
+  background: var(--h1-bg-light) !important;
+  color: var(--h1-color-light) !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+  display: inline-block;
+  padding: 6px 15px;
+  border: 2px solid var(--h1-border-light);
+  border-radius: 8px;
+  margin: 8px 0;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 102, 153, 0.2);
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+/* H1 框框符号 */
+.HyperMD-header.HyperMD-header-1.cm-line::before {
+  content: "【";
+  color: var(--h1-color-light);
+  font-weight: 900;
+  margin-right: 2px;
+}
+
+.HyperMD-header.HyperMD-header-1.cm-line::after {
+  content: "】";
+  color: var(--h1-color-light);
+  font-weight: 900;
+  margin-left: 2px;
+}
+
+/* H2 - 编辑模式 */
+.HyperMD-header.HyperMD-header-2.cm-line {
+  background: var(--h2-bg-light) !important;
+  color: var(--h2-color-light) !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  display: inline-block;
+  padding: 5px 12px;
+  border-left: 4px solid var(--h2-border-light);
+  border-radius: 4px;
+  margin: 6px 0;
+  box-shadow: 0 1px 3px rgba(179, 119, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* H3 - 编辑模式 */
+.HyperMD-header.HyperMD-header-3.cm-line {
+  background: var(--h3-bg-light) !important;
+  color: var(--h3-color-light) !important;
+  font-weight: 650 !important;
+  font-style: italic !important;
+  display: inline-block;
+  padding: 4px 10px;
+  border-left: 3px solid var(--h3-border-light);
+  border-radius: 3px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+/* H4 - 编辑模式 */
+.HyperMD-header.HyperMD-header-4.cm-line {
+  background: var(--h4-bg-light) !important;
+  color: var(--h4-color-light) !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  display: inline-block;
+  padding: 3px 8px;
+  border-left: 2px solid var(--h4-border-light);
+  border-radius: 2px;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* H5 - 编辑模式 */
+.HyperMD-header.HyperMD-header-5.cm-line {
+  background: var(--h5-bg-light) !important;
+  color: var(--h5-color-light) !important;
+  font-weight: 550 !important;
+  font-style: normal !important;
+  display: inline-block;
+  padding: 2px 6px;
+  border-left: 2px solid var(--h5-border-light);
+  border-radius: 2px;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+/* H6 - 编辑模式 */
+.HyperMD-header.HyperMD-header-6.cm-line {
+  background: var(--h6-bg-light) !important;
+  color: var(--h6-color-light) !important;
+  font-weight: 500 !important;
+  font-style: italic !important;
+  display: inline-block;
+  padding: 2px 6px;
+  border-left: 1px solid var(--h6-border-light);
+  border-radius: 1px;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+}
+
+/* === 预览模式标题样式 === */
+
+/* 重置计数器 */
+.markdown-preview-view {
+  counter-reset: h1;
+}
+
+/* H1 - 预览模式 */
+.markdown-preview-view h1 {
+  background: var(--h1-bg-light) !important;
+  color: var(--h1-color-light) !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+  display: inline-block;
+  padding: 8px 18px;
+  border: 2px solid var(--h1-border-light);
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 102, 153, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+  counter-increment: h1;
+  counter-reset: h2;
+}
+
+.markdown-preview-view h1::before {
+  content: "【" counter(h1) "】";
+  color: var(--h1-color-light);
+  font-weight: 900;
+  margin-right: 4px;
+}
+
+/* H2 - 预览模式 */
+.markdown-preview-view h2 {
+  background: var(--h2-bg-light) !important;
+  color: var(--h2-color-light) !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  display: inline-block;
+  padding: 5px 12px;
+  border-left: 4px solid var(--h2-border-light);
+  border-radius: 4px;
+  margin: 6px 0;
+  box-shadow: 0 1px 3px rgba(179, 119, 0, 0.2);
+  transition: all 0.3s ease;
+  counter-increment: h2;
+  counter-reset: h3;
+}
+
+.markdown-preview-view h2::before {
+  content: counter(h1) "." counter(h2) " ";
+  font-weight: bold;
+}
+
+/* H3 - 预览模式 */
+.markdown-preview-view h3 {
+  background: var(--h3-bg-light) !important;
+  color: var(--h3-color-light) !important;
+  font-weight: 650 !important;
+  font-style: italic !important;
+  display: inline-block;
+  padding: 4px 10px;
+  border-left: 3px solid var(--h3-border-light);
+  border-radius: 3px;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+  counter-increment: h3;
+  counter-reset: h4;
+}
+
+.markdown-preview-view h3::before {
+  content: counter(h1) "." counter(h2) "." counter(h3) " ";
+  font-weight: bold;
+}
+
+/* H4 - 预览模式 */
+.markdown-preview-view h4 {
+  background: var(--h4-bg-light) !important;
+  color: var(--h4-color-light) !important;
+  font-weight: 600 !important;
+  font-style: normal !important;
+  display: inline-block;
+  padding: 3px 8px;
+  border-left: 2px solid var(--h4-border-light);
+  border-radius: 2px;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+  counter-increment: h4;
+  counter-reset: h5;
+}
+
+.markdown-preview-view h4::before {
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) " ";
+  font-size: 0.9em;
+}
+
+/* H5 - 预览模式 */
+.markdown-preview-view h5 {
+  background: var(--h5-bg-light) !important;
+  color: var(--h5-color-light) !important;
+  font-weight: 550 !important;
+  font-style: normal !important;
+  display: inline-block;
+  padding: 2px 6px;
+  border-left: 2px solid var(--h5-border-light);
+  border-radius: 2px;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  counter-increment: h5;
+  counter-reset: h6;
+}
+
+.markdown-preview-view h5::before {
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) " ";
+  font-size: 0.8em;
+}
+
+/* H6 - 预览模式 */
+.markdown-preview-view h6 {
+  background: var(--h6-bg-light) !important;
+  color: var(--h6-color-light) !important;
+  font-weight: 500 !important;
+  font-style: italic !important;
+  display: inline-block;
+  padding: 2px 6px;
+  border-left: 1px solid var(--h6-border-light);
+  border-radius: 1px;
+  margin: 2px 0;
+  transition: all 0.3s ease;
+  counter-increment: h6;
+}
+
+.markdown-preview-view h6::before {
+  content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6) " ";
+  font-size: 0.7em;
+}
+
+/* === 深色模式适配 === */
+
+.theme-dark .HyperMD-header.HyperMD-header-1.cm-line,
+.theme-dark .markdown-preview-view h1 {
+  background: var(--h1-bg-dark) !important;
+  color: var(--h1-color-dark) !important;
+  border-color: var(--h1-border-dark);
+}
+
+.theme-dark .HyperMD-header.HyperMD-header-2.cm-line,
+.theme-dark .markdown-preview-view h2 {
+  background: var(--h2-bg-dark) !important;
+  color: var(--h2-color-dark) !important;
+  border-color: var(--h2-border-dark);
+}
+
+.theme-dark .HyperMD-header.HyperMD-header-3.cm-line,
+.theme-dark .markdown-preview-view h3 {
+  background: var(--h3-bg-dark) !important;
+  color: var(--h3-color-dark) !important;
+  border-color: var(--h3-border-dark);
+}
+
+.theme-dark .HyperMD-header.HyperMD-header-4.cm-line,
+.theme-dark .markdown-preview-view h4 {
+  background: var(--h4-bg-dark) !important;
+  color: var(--h4-color-dark) !important;
+  border-color: var(--h4-border-dark);
+}
+
+.theme-dark .HyperMD-header.HyperMD-header-5.cm-line,
+.theme-dark .markdown-preview-view h5 {
+  background: var(--h5-bg-dark) !important;
+  color: var(--h5-color-dark) !important;
+  border-color: var(--h5-border-dark);
+}
+
+.theme-dark .HyperMD-header.HyperMD-header-6.cm-line,
+.theme-dark .markdown-preview-view h6 {
+  background: var(--h6-bg-dark) !important;
+  color: var(--h6-color-dark) !important;
+  border-color: var(--h6-border-dark);
+}
+
+/* === 悬停效果 === */
+
+.HyperMD-header.cm-line:hover,
+.markdown-preview-view h1:hover,
+.markdown-preview-view h2:hover,
+.markdown-preview-view h3:hover,
+.markdown-preview-view h4:hover,
+.markdown-preview-view h5:hover,
+.markdown-preview-view h6:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* === 折叠指示器样式调整 === */
+
+/* 调整预览模式的折叠指示器颜色 */
+.markdown-preview-view .collapse-indicator {
+  color: var(--h1-color-light);
+}
+
+.theme-dark .markdown-preview-view .collapse-indicator {
+  color: var(--h1-color-dark);
+}
+
+/* 编辑模式的折叠指示器 */
+.HyperMD-header .cm-fold-indicator .collapse-indicator {
+  color: var(--h1-color-light);
+}
+
+.theme-dark .HyperMD-header .cm-fold-indicator .collapse-indicator {
+  color: var(--h1-color-dark);
+}
+/* ===== 修复版本：霓虹手绘风格完整主题 ===== */
+/* ===== 霓虹手绘风格标题系统 ===== */
+
+/* H1 - 霓虹手绘框框 */
+.HyperMD-header.HyperMD-header-1.cm-line,
+.markdown-preview-view h1 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+    font-weight: 800 !important;
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif !important;
+    display: inline-block;
+    padding: 12px 25px;
+    border: 2px solid #5d4037;
+    border-radius: 12px 25px 12px 25px;
+    margin: 15px 0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 
+        0 4px 15px rgba(102, 126, 234, 0.4),
+        3px 3px 0px rgba(93, 64, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+    transform: rotate(-0.7deg);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.HyperMD-header.HyperMD-header-1.cm-line::before,
+.markdown-preview-view h1::before {
+    content: "✨ ";
+    text-shadow: 0 0 8px rgba(255,255,255,0.7);
+    margin-right: 8px;
+}
+
+.HyperMD-header.HyperMD-header-1.cm-line::after,
+.markdown-preview-view h1::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff);
+    border-radius: 14px 27px 14px 27px;
+    z-index: -1;
+    animation: gradient-border 4s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* H2 - 霓虹手绘风格 */
+.HyperMD-header.HyperMD-header-2.cm-line,
+.markdown-preview-view h2 {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%) !important;
+    color: white !important;
+    font-weight: 750 !important;
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif !important;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid #5d4037;
+    border-radius: 10px 20px 10px 20px;
+    margin: 12px 0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 
+        0 3px 12px rgba(255, 107, 107, 0.4),
+        2px 2px 0px rgba(93, 64, 55, 0.15);
+    position: relative;
+    overflow: hidden;
+    transform: rotate(0.5deg);
+    transition: all 0.3s ease;
+}
+
+.HyperMD-header.HyperMD-header-2.cm-line::before,
+.markdown-preview-view h2::before {
+    content: "🔴 ";
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    margin-right: 6px;
+}
+
+.HyperMD-header.HyperMD-header-2.cm-line::after,
+.markdown-preview-view h2::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f);
+    border-radius: 12px 22px 12px 22px;
+    z-index: -1;
+    animation: gradient-border 5s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* H3 - 霓虹手绘风格 */
+.HyperMD-header.HyperMD-header-3.cm-line,
+.markdown-preview-view h3 {
+    background: linear-gradient(135deg, #6bcf7f 0%, #4d96ff 100%) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif !important;
+    display: inline-block;
+    padding: 8px 18px;
+    border: 2px solid #5d4037;
+    border-radius: 8px 16px 8px 16px;
+    margin: 10px 0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 
+        0 2px 10px rgba(107, 207, 127, 0.4),
+        2px 2px 0px rgba(93, 64, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: rotate(-0.3deg);
+    transition: all 0.3s ease;
+}
+
+.HyperMD-header.HyperMD-header-3.cm-line::before,
+.markdown-preview-view h3::before {
+    content: "🟢 ";
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    margin-right: 5px;
+}
+
+.HyperMD-header.HyperMD-header-3.cm-line::after,
+.markdown-preview-view h3::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #6bcf7f, #4d96ff, #ff6b6b);
+    border-radius: 10px 18px 10px 18px;
+    z-index: -1;
+    animation: gradient-border 6s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* H4 - 霓虹手绘风格 */
+.HyperMD-header.HyperMD-header-4.cm-line,
+.markdown-preview-view h4 {
+    background: linear-gradient(135deg, #ffa726 0%, #ff9800 100%) !important;
+    color: white !important;
+    font-weight: 650 !important;
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif !important;
+    display: inline-block;
+    padding: 7px 16px;
+    border: 2px solid #5d4037;
+    border-radius: 6px 14px 6px 14px;
+    margin: 8px 0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 
+        0 2px 8px rgba(255, 167, 38, 0.4),
+        1px 1px 0px rgba(93, 64, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: rotate(0.2deg);
+    transition: all 0.3s ease;
+}
+
+.HyperMD-header.HyperMD-header-4.cm-line::before,
+.markdown-preview-view h4::before {
+    content: "🟠 ";
+    text-shadow: 0 0 4px rgba(255,255,255,0.5);
+    margin-right: 4px;
+}
+
+.HyperMD-header.HyperMD-header-4.cm-line::after,
+.markdown-preview-view h4::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ffa726, #ff9800, #6bcf7f);
+    border-radius: 8px 16px 8px 16px;
+    z-index: -1;
+    animation: gradient-border 7s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* H5 - 霓虹手绘风格 */
+.HyperMD-header.HyperMD-header-5.cm-line,
+.markdown-preview-view h5 {
+    background: linear-gradient(135deg, #e91e63 0%, #ad1457 100%) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif !important;
+    display: inline-block;
+    padding: 6px 14px;
+    border: 2px solid #5d4037;
+    border-radius: 5px 12px 5px 12px;
+    margin: 6px 0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 
+        0 2px 6px rgba(233, 30, 99, 0.4),
+        1px 1px 0px rgba(93, 64, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: rotate(-0.2deg);
+    transition: all 0.3s ease;
+}
+
+.HyperMD-header.HyperMD-header-5.cm-line::before,
+.markdown-preview-view h5::before {
+    content: "🎀 ";
+    text-shadow: 0 0 4px rgba(255,255,255,0.5);
+    margin-right: 4px;
+}
+
+.HyperMD-header.HyperMD-header-5.cm-line::after,
+.markdown-preview-view h5::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #e91e63, #ad1457, #ffa726);
+    border-radius: 7px 14px 7px 14px;
+    z-index: -1;
+    animation: gradient-border 8s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* H6 - 霓虹手绘风格 */
+.HyperMD-header.HyperMD-header-6.cm-line,
+.markdown-preview-view h6 {
+    background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%) !important;
+    color: white !important;
+    font-weight: 550 !important;
+    font-family: "Comic Sans MS", "Segoe UI", sans-serif !important;
+    display: inline-block;
+    padding: 5px 12px;
+    border: 2px solid #5d4037;
+    border-radius: 4px 10px 4px 10px;
+    margin: 5px 0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 
+        0 1px 5px rgba(189, 195, 199, 0.4),
+        1px 1px 0px rgba(93, 64, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+    transform: rotate(0.1deg);
+    transition: all 0.3s ease;
+}
+
+.HyperMD-header.HyperMD-header-6.cm-line::before,
+.markdown-preview-view h6::before {
+    content: "⚫ ";
+    text-shadow: 0 0 3px rgba(255,255,255,0.5);
+    margin-right: 3px;
+}
+
+.HyperMD-header.HyperMD-header-6.cm-line::after,
+.markdown-preview-view h6::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #bdc3c7, #95a5a6, #e91e63);
+    border-radius: 6px 12px 6px 12px;
+    z-index: -1;
+    animation: gradient-border 9s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* 动画关键帧 */
+@keyframes gradient-border {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+/* 悬停效果 */
+.HyperMD-header.cm-line:hover,
+.markdown-preview-view h1:hover,
+.markdown-preview-view h2:hover,
+.markdown-preview-view h3:hover,
+.markdown-preview-view h4:hover,
+.markdown-preview-view h5:hover,
+.markdown-preview-view h6:hover {
+    transform: translateY(-3px) rotate(0deg) !important;
+    box-shadow: 
+        0 6px 20px rgba(0,0,0,0.2),
+        3px 3px 0px rgba(93, 64, 55, 0.3) !important;
+    z-index: 10;
+}
+
+/* 点击效果 */
+.HyperMD-header.cm-line:active,
+.markdown-preview-view h1:active,
+.markdown-preview-view h2:active,
+.markdown-preview-view h3:active,
+.markdown-preview-view h4:active,
+.markdown-preview-view h5:active,
+.markdown-preview-view h6:active {
+    transform: translateY(-1px) scale(0.98) !important;
+    transition: all 0.1s ease;
+}
+
+/* 手绘装饰元素 */
+.HyperMD-header.HyperMD-header-1.cm-line .cm-header:after,
+.markdown-preview-view h1:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: #ff7043;
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: 5;
+}
+
+.HyperMD-header.HyperMD-header-2.cm-line .cm-header:after,
+.markdown-preview-view h2:after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 15px;
+    height: 15px;
+    background: #ffd93d;
+    border-radius: 50%;
+    opacity: 0.5;
+    z-index: 5;
+}
+
+/* 标题聚焦效果 */
+.HyperMD-header.cm-line.is-active,
+.markdown-preview-view h1:focus,
+.markdown-preview-view h2:focus,
+.markdown-preview-view h3:focus,
+.markdown-preview-view h4:focus,
+.markdown-preview-view h5:focus,
+.markdown-preview-view h6:focus {
+    outline: 2px dashed rgba(255, 255, 255, 0.8);
+    outline-offset: 4px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .HyperMD-header.HyperMD-header-1.cm-line,
+    .markdown-preview-view h1,
+    .HyperMD-header.HyperMD-header-2.cm-line,
+    .markdown-preview-view h2,
+    .HyperMD-header.HyperMD-header-3.cm-line,
+    .markdown-preview-view h3,
+    .HyperMD-header.HyperMD-header-4.cm-line,
+    .markdown-preview-view h4,
+    .HyperMD-header.HyperMD-header-5.cm-line,
+    .markdown-preview-view h5,
+    .HyperMD-header.HyperMD-header-6.cm-line,
+    .markdown-preview-view h6 {
+        transform: none !important;
+        display: block !important;
+        text-align: center;
+    }
+    
+    .HyperMD-header.cm-line:hover,
+    .markdown-preview-view h1:hover,
+    .markdown-preview-view h2:hover,
+    .markdown-preview-view h3:hover,
+    .markdown-preview-view h4:hover,
+    .markdown-preview-view h5:hover,
+    .markdown-preview-view h6:hover {
+        transform: translateY(-2px) !important;
+    }
+}

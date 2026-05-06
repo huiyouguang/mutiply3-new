@@ -1,0 +1,14 @@
+{
+  "xsColor": "#fff2c8",
+  "smColor": "#eadbf6",
+  "mdColor": "#c5f2cd",
+  "lgColor": "#f9caca",
+  "xlColor": "#d1f6f4",
+  "textColor": "#222222",
+  "enabled": true,
+  "xsThreshold": 2,
+  "smThreshold": 5,
+  "mdThreshold": 10,
+  "lgThreshold": 20,
+  "treatLineBreakAsSentenceEnd": true
+}

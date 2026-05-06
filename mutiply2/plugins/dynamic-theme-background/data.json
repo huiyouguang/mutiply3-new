@@ -1,0 +1,180 @@
+{
+  "enabled": true,
+  "statusBarEnabled": true,
+  "blurDepth": 0,
+  "brightness4Bg": 0.9,
+  "saturate4Bg": 1,
+  "bgColorLight": "#c8c8c8",
+  "bgColorOpacityLight": 0.32,
+  "bgColorDark": "#1f1e1e",
+  "bgColorOpacityDark": 0.38,
+  "bgSize": "intelligent",
+  "mode": "time-based",
+  "timeRules": [
+    {
+      "id": "morning",
+      "name": "清晨",
+      "startTime": "06:00",
+      "endTime": "09:00",
+      "backgroundId": "blue-purple-gradient",
+      "enabled": true
+    },
+    {
+      "id": "later-morning",
+      "name": "上午",
+      "startTime": "09:00",
+      "endTime": "11:00",
+      "backgroundId": "pink-gradient",
+      "enabled": true
+    },
+    {
+      "id": "noon",
+      "name": "中午",
+      "startTime": "11:00",
+      "endTime": "13:00",
+      "backgroundId": "blue-cyan-gradient",
+      "enabled": true
+    },
+    {
+      "id": "afternoon",
+      "name": "下午",
+      "startTime": "13:00",
+      "endTime": "17:00",
+      "backgroundId": "green-cyan-gradient",
+      "enabled": true
+    },
+    {
+      "id": "dusk",
+      "name": "黄昏",
+      "startTime": "17:00",
+      "endTime": "18:00",
+      "backgroundId": "pink-yellow-gradient",
+      "enabled": true
+    },
+    {
+      "id": "evening",
+      "name": "傍晚",
+      "startTime": "18:00",
+      "endTime": "22:00",
+      "backgroundId": "cyan-pink-gradient",
+      "enabled": true
+    },
+    {
+      "id": "night",
+      "name": "夜晚",
+      "startTime": "22:00",
+      "endTime": "06:00",
+      "backgroundId": "dark-blue-gray-gradient",
+      "enabled": true
+    }
+  ],
+  "intervalMinutes": 60,
+  "localBackgroundFolder": "",
+  "backgrounds": [
+    {
+      "id": "blue-purple-gradient",
+      "name": "蓝紫色渐变",
+      "type": "gradient",
+      "value": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+    },
+    {
+      "id": "pink-gradient",
+      "name": "粉红色渐变",
+      "type": "gradient",
+      "value": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+    },
+    {
+      "id": "blue-cyan-gradient",
+      "name": "蓝青色渐变",
+      "type": "gradient",
+      "value": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+    },
+    {
+      "id": "green-cyan-gradient",
+      "name": "绿青色渐变",
+      "type": "gradient",
+      "value": "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)"
+    },
+    {
+      "id": "pink-yellow-gradient",
+      "name": "粉黄色渐变",
+      "type": "gradient",
+      "value": "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+    },
+    {
+      "id": "cyan-pink-gradient",
+      "name": "青粉色渐变",
+      "type": "gradient",
+      "value": "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+    },
+    {
+      "id": "dark-blue-gray-gradient",
+      "name": "深蓝灰色渐变",
+      "type": "gradient",
+      "value": "linear-gradient(135deg, #2c3e50 0%, #34495e 100%)"
+    }
+  ],
+  "currentIndex": 0,
+  "enableRandomWallpaper": true,
+  "wallpaperApis": [
+    {
+      "id": "api-wallhaven-default",
+      "name": "Wallhaven API (default)",
+      "type": "Wallhaven",
+      "baseUrl": "https://wallhaven.cc/api/v1",
+      "enabled": false,
+      "params": {
+        "categories": "111",
+        "purity": "100",
+        "sorting": "random",
+        "order": "desc",
+        "topRange": "1M",
+        "page": 1
+      },
+      "endpoints": {
+        "search": "/search",
+        "detail": "/w/{id}",
+        "tag": "/search/tags"
+      }
+    },
+    {
+      "id": "api-qihoo360-default",
+      "name": "360壁纸 API (default)",
+      "description": "",
+      "type": "Qihoo360",
+      "baseUrl": "http://wallpaper.apc.360.cn",
+      "enabled": true,
+      "params": {
+        "cid": "9",
+        "start": 0,
+        "count": 24,
+        "kw": "",
+        "from": "360chrome",
+        "order": "create_time",
+        "searchMode": "category",
+        "preferredResolution": "auto"
+      },
+      "endpoints": {
+        "categories": "/index.php?c=WallPaperAndroid&a=getAllCategories",
+        "categoriesV2": "/index.php?c=WallPaper&a=getAllCategoriesV2&from=360chrome",
+        "search": "/index.php?c=WallPaper&a=search",
+        "category": "/index.php?c=WallPaperAndroid&a=getAppsByCategory",
+        "newest": "/index.php?c=WallPaper&a=getAppsByOrder&order=create_time&from=360chrome",
+        "hotSearch": "http://openbox.mobilem.360.cn/html/api/wallpaperhot.html"
+      }
+    },
+    {
+      "id": "api-peapix-bing-cn",
+      "type": "Custom",
+      "enabled": false,
+      "name": "Peapix API (Bing CN)",
+      "description": "For details, see https://peapix.com/api",
+      "baseUrl": "https://peapix.com/bing/feed?country=cn",
+      "params": {},
+      "customSettings": {
+        "imageUrlJsonPath": "$[*].imageUrl"
+      },
+      "endpoints": {}
+    }
+  ]
+}
