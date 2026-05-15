@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4be9238a4b7d735e",
+        "id": "551ad465456c5332",
         "type": "tabs",
         "children": [
           {
-            "id": "dc933a718745ee58",
+            "id": "eb359661e53fdff2",
             "type": "leaf",
             "state": {
               "type": "thino_view",
@@ -18,18 +18,18 @@
             }
           },
           {
-            "id": "16ca4fb562b09cd4",
+            "id": "39bfabe464229ee6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "04成长/知识管理/004 注会/005 财管/财管知识点/第二章 ：财务管理.md",
+                "file": "04成长/知识管理/004 注会/001 会计/会计专题班/第二十一章  到三时章.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "第二章 ：财务管理"
+              "title": "第二十一章  到三时章"
             }
           }
         ],
@@ -87,17 +87,27 @@
             }
           },
           {
-            "id": "97e76735b6c2311f",
+            "id": "3fd66329004feba0",
             "type": "leaf",
             "state": {
-              "type": "surfing-tab-tree",
+              "type": "recent-files",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "surfing-tab-tree"
+              "icon": "clock",
+              "title": "Recent files"
             }
           },
           {
-            "id": "5d3f2c6a3094cadc",
+            "id": "49d557aad14365bc",
+            "type": "leaf",
+            "state": {
+              "type": "tg-left-sidebar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "tg-left-sidebar"
+            }
+          },
+          {
+            "id": "ca8f88b79aa397ac",
             "type": "leaf",
             "state": {
               "type": "notebook-navigator",
@@ -105,23 +115,12 @@
               "icon": "notebook-navigator",
               "title": "笔记本导航器"
             }
-          },
-          {
-            "id": "3fd66329004feba0",
-            "type": "leaf",
-            "state": {
-              "type": "recent-files",
-              "state": {},
-              "icon": "clock",
-              "title": "Recent Files"
-            }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 339.5
+    "width": 322.5024719238281
   },
   "right": {
     "id": "1eeabe721bfa615c",
@@ -130,7 +129,7 @@
       {
         "id": "adf2a2e115a738af",
         "type": "tabs",
-        "dimension": 45.48192771084337,
+        "dimension": 65.41176470588236,
         "children": [
           {
             "id": "4dd7e0057cddfa70",
@@ -191,21 +190,7 @@
               "type": "git-view",
               "state": {},
               "icon": "git-pull-request",
-              "title": "源代码管理"
-            }
-          },
-          {
-            "id": "64bfd04a18b5fe9a",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "04成长/知识管理/004 注会/005 财管/财管知识点/第二章 ：财务管理.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "第二章 ：财务管理 的出链列表"
+              "title": "Source Control"
             }
           },
           {
@@ -236,6 +221,40 @@
               "icon": "lucide-archive",
               "title": "添加笔记属性"
             }
+          },
+          {
+            "id": "c09a161eb857b700",
+            "type": "leaf",
+            "state": {
+              "type": "tg-right-detail",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "tg-right-detail"
+            }
+          },
+          {
+            "id": "f9c56fa882d15f2f",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "04成长/知识管理/004 注会/001 会计/会计专题班/# 长投主观题突破 例题.md"
+              },
+              "icon": "lucide-info",
+              "title": "# 长投主观题突破 例题的笔记属性"
+            }
+          },
+          {
+            "id": "43e2b9bba1b63089",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "04成长/知识管理/004 注会/001 会计/会计专题班/十一章-二十章.md"
+              },
+              "icon": "lucide-file-signature",
+              "title": "脚注"
+            }
           }
         ],
         "currentTab": 4
@@ -243,7 +262,7 @@
       {
         "id": "cf640654e156b4ab",
         "type": "tabs",
-        "dimension": 54.518072289156635,
+        "dimension": 34.588235294117645,
         "children": [
           {
             "id": "77cc7dce0161943b",
@@ -259,7 +278,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 420
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -273,63 +292,68 @@
       "obsidian-memos:Thino Super": false,
       "css-editor:Open CSS editor quick switcher": false,
       "i18n:common.i18n": false,
-      "daily-notes:打开/创建今天的日记": false,
-      "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "workspaces:管理工作区布局": false,
       "obsidian-memos:Thino": false,
       "remotely-save:Remotely Save": false,
       "keep-the-rhythm:Word Count Stats": false,
-      "omnisearch:Omnisearch": false,
       "cloze:显/隐所有填空": false,
       "templater-obsidian:Templater": false,
-      "obsidian-task-progress-bar:打开 Task Genius 视图": false
+      "nutstore-sync:Open chatbox": false,
+      "auto-ai-property:填充当前笔记属性": false,
+      "float-search:Search obsidian in modal view": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "obsidian-task-progress-bar:打开 Task Genius 视图": false,
+      "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7c513af2a6a5381a",
+  "active": "62e0e48b172b7515",
   "lastOpenFiles": [
-    "Clippings/目前为止，你总结出的最大人生经验是什么.md",
-    "Clippings/提升自己最快的方式是什么.md",
-    "Clippings/悟透什么道理后，你的人生从此通透起来.md",
-    "Clippings/怎么快速理解现金流量表.md",
-    "Clippings/做小生意真的比打工强吗.md",
-    "Clippings/你人生中太晚明白的道理是什么.md",
-    "Clippings/什么是见自己，见天地，见众生.md",
-    "Clippings/人到中年遭遇人生重创，该如何真正走出低谷.md",
-    "Clippings/人什么时候能大彻大悟.md",
-    "Clippings/为什么现在的年轻人不会从自己身上找问题，而是一上来就怪罪原生家庭.md",
-    "Clippings/为什么大家都说人生的容错率大到无法想象.md",
-    "Clippings/(98 封私信  16 条消息) 目前为止，你总结出的最大人生经验是什么.md",
-    "Clippings/悟透什么道理后，你的人生从此通透起来? - 近妖隐学深知 的回答.md",
-    "04成长/知识管理/004 注会/005 财管/财管知识点/第二章 ：财务管理.md",
-    "主页/本月统计.md",
-    "04成长/知识管理/错题库/审计/错题/主观题  背诵.md",
-    "04成长/知识管理/错题库/审计/注会审计刷题/审计第一章及第二章.md",
-    "04成长/知识管理/错题库/会计/注会会计刷题/25年最后六道题/会计25 最后六套卷 第一卷.md",
-    "主页/仪表盘.md",
-    "04成长/知识管理/错题库/财务/第一套试卷.md",
-    "04成长/思维导图/未命名.md",
+    "03Life os/日常收藏/004 知乎/没了心气是怎么恢复的 - 我只是一只喵 的回答.md",
+    "03Life os/日常收藏/004 知乎/世界上大多数的痛苦，源于什么 - 南郭 的回答.md",
+    "工作/数据线知识.md",
     "04成长/知识管理/004 注会/001 会计/会计专题班/十一章-二十章.md",
-    "04成长/知识管理/004 注会/001 会计/会计专题班/前十章整理.md",
-    "重大影响.md",
-    "04成长/知识管理/004 注会/002 审计/审计职业道德.md",
-    "主页/按钮.md",
-    "nutstore-sync/logs",
-    "nutstore-sync",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_22 07_43_27.jpg",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_21 08_06_22.jpg",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_21 22_20_56.jpg",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_21 22_20_02.jpg",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_21 22_18_51.jpg",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_21 22_17_08.jpg",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_21 22_24_24.jpg",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_21 22_25_23.jpg",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_21 22_27_29.jpg",
-    "0Inbox/image/Wallhaven API (default) - 2026_4_21 22_33_15.jpg",
-    "0Inbox/image",
-    "03Life os/05书籍/001 纳瓦尔宝典.md.edtz",
-    "Excalidraw",
-    "01 task/金考典刷题日志",
-    "未命名.base"
+    "04成长/知识管理/004 注会/001 会计/会计专题班/第二十一章  到三时章.md",
+    "04成长/知识管理/错题库/财务/财管主观题/产品成本计算.md",
+    "04成长/知识管理/错题库/财务/财管主观题/管理报表、资本成本、企业价值评估.md",
+    "04成长/知识管理/错题库/财务/财管主观题/期权价值计算+可转债.md",
+    "04成长/知识管理/错题库/财务/财管主观题/期权价值计算+可转债+认证股权.md",
+    "04成长/知识管理/错题库/财务/财管主观题/投资资本测算.md",
+    "04成长/知识管理/错题库/财务/财管主观题/营运成本管理.md",
+    "04成长/知识管理/错题库/财务/财管主观题/最后几个知识点.md",
+    "04成长/知识管理/004 注会/005 财管/财管试题/第十四章  作业成本法.md",
+    "04成长/知识管理/004 注会/005 财管/财管试题/财管易错点.md",
+    "04成长/知识管理/004 注会/005 财管/产品计算经典例题.md",
+    "04成长/知识管理/004 注会/005 财管/财管知识点/第五章 投资成本.md",
+    "04成长/知识管理/004 注会/005 财管/财管知识点/相关需要加强的公式.md",
+    "04成长/知识管理/004 注会/005 财管/财管知识点/第十三章  标准成本.md",
+    "04成长/知识管理/错题库/刷题/注会财管刷题/财管主观题/产品成本计算.md",
+    "04成长/知识管理/004 注会/各科薄弱点整理/薄弱点整理.md",
+    "04成长/知识管理/错题库/财务/注会财管刷题/sier模考.md",
+    "thino/2026-05-13.md",
+    "Clippings/没了心气是怎么恢复的 - 随风自由 的回答.md",
+    "04成长/知识管理/错题库/税法/注会税法刷题/只做好题/增值税错题.md",
+    "Templates/错题模板.md",
+    "04成长/知识管理/错题库/税法/注会税法刷题/只做好题",
+    "04成长/知识管理/004 注会/006 税法/税法知识点/2026/增值税.md",
+    "git",
+    "04成长/知识管理/004 注会/006 税法/税法知识点/2026",
+    "mutiply2/plugins/obsidian-image-auto-upload-plugin/lang/zh-cn.json",
+    "mutiply2/plugins/obsidian-image-auto-upload-plugin/lang/state.json",
+    "mutiply2/plugins/activity-heatmap/activity_heatmap_data/data_v1.json",
+    "mutiply2/plugins/i18n/backups/find-orphaned-images/main.js.gz",
+    "mutiply2/plugins/obsidian-image-auto-upload-plugin/manifest.json",
+    "mutiply2/plugins/obsidian-image-auto-upload-plugin/data.json",
+    "mutiply2/plugins/obsidian-image-auto-upload-plugin/main.js",
+    "mutiply2/icons/remix-icons/CreativeCommonsFill.svg",
+    "mutiply2/icons/remix-icons/LightbulbFlashLine.svg",
+    "mutiply2/icons/remix-icons/AccountCircleFill.svg",
+    "mutiply2/icons/remix-icons/MapPinRangeFill.svg",
+    "mutiply2/icons/remix-icons/AccountBoxLine.svg",
+    "mutiply2/icons/remix-icons/ListUnordered.svg",
+    "mutiply2/icons/remix-icons/BookReadFill.svg",
+    "mutiply2/icons/remix-icons/BookOpenLine.svg",
+    "mutiply2/icons/remix-icons/ArtboardLine.svg",
+    "mutiply2/icons/remix-icons/SlackFill.svg"
   ]
 }

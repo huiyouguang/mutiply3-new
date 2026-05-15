@@ -6,9 +6,9 @@
   "saturate4Bg": 1,
   "bgColorLight": "#c8c8c8",
   "bgColorOpacityLight": 0.32,
-  "bgColorDark": "#1f1e1e",
-  "bgColorOpacityDark": 0.38,
-  "bgSize": "intelligent",
+  "bgColorDark": "#f6eaea",
+  "bgColorOpacityDark": 0,
+  "bgSize": "cover",
   "mode": "time-based",
   "timeRules": [
     {
@@ -69,7 +69,7 @@
     }
   ],
   "intervalMinutes": 60,
-  "localBackgroundFolder": "",
+  "localBackgroundFolder": "0Inbox",
   "backgrounds": [
     {
       "id": "blue-purple-gradient",
@@ -112,23 +112,30 @@
       "name": "深蓝灰色渐变",
       "type": "gradient",
       "value": "linear-gradient(135deg, #2c3e50 0%, #34495e 100%)"
+    },
+    {
+      "id": "api-wallhaven-default-12448d47-bc28-4643-81c1-1c5f31f3959f",
+      "name": "Wallhaven API (default) - 2026/5/9 23:10:55",
+      "type": "image",
+      "value": "https://w.wallhaven.cc/full/vp/wallhaven-vpyekp.jpg"
     }
   ],
-  "currentIndex": 0,
+  "currentIndex": 3,
   "enableRandomWallpaper": true,
   "wallpaperApis": [
     {
       "id": "api-wallhaven-default",
       "name": "Wallhaven API (default)",
+      "description": "",
       "type": "Wallhaven",
       "baseUrl": "https://wallhaven.cc/api/v1",
       "enabled": false,
       "params": {
-        "categories": "111",
-        "purity": "100",
-        "sorting": "random",
+        "categories": "101",
+        "purity": "110",
+        "sorting": "favorites",
         "order": "desc",
-        "topRange": "1M",
+        "topRange": "1Y",
         "page": 1
       },
       "endpoints": {
@@ -140,19 +147,16 @@
     {
       "id": "api-qihoo360-default",
       "name": "360壁纸 API (default)",
-      "description": "",
       "type": "Qihoo360",
       "baseUrl": "http://wallpaper.apc.360.cn",
-      "enabled": true,
+      "enabled": false,
       "params": {
         "cid": "9",
         "start": 0,
         "count": 24,
         "kw": "",
         "from": "360chrome",
-        "order": "create_time",
-        "searchMode": "category",
-        "preferredResolution": "auto"
+        "order": "create_time"
       },
       "endpoints": {
         "categories": "/index.php?c=WallPaperAndroid&a=getAllCategories",

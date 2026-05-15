@@ -5,7 +5,7 @@
   "lgColor": "#f9caca",
   "xlColor": "#d1f6f4",
   "textColor": "#222222",
-  "enabled": true,
+  "enabled": false,
   "xsThreshold": 2,
   "smThreshold": 5,
   "mdThreshold": 10,

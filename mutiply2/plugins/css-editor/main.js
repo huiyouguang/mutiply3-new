@@ -10707,7 +10707,7 @@ var CssSnippetRenameModal = class extends import_obsidian3.Modal {
 // src/utils/view-helpers.ts
 function focusAndSelectElement(el) {
   el.focus({ preventScroll: true });
-  const range = document.createRange();
+  const range = activeDocument.createRange();
   range.selectNodeContents(el);
   const selection = getSelection();
   if (selection) {
@@ -12732,7 +12732,7 @@ var ColorPickerWidget = class extends import_view8.WidgetType {
     return this.color === other.color && this.from === other.from && this.to === other.to;
   }
   toDOM() {
-    const wrapper = document.createElement("span");
+    const wrapper = createSpan();
     wrapper.className = "css-editor-color-picker-wrapper";
     new import_obsidian4.ColorComponent(wrapper).setValue(convertToHex(this.color)).onChange((newColor) => {
       const model = getColorModel(this.color);
@@ -13169,11 +13169,10 @@ var CssEditorView = class extends import_obsidian8.ItemView {
     var _a, _b;
     return (_b = (_a = this.file) == null ? void 0 : _a.basename) != null ? _b : "No file open";
   }
-  // eslint-disable-next-line @typescript-eslint/require-await
   async onOpen() {
     const timer = window.setInterval(() => {
       this.editor.focus();
-      if (this.editor.hasFocus) clearInterval(timer);
+      if (this.editor.hasFocus) window.clearInterval(timer);
     }, 200);
     this.registerInterval(timer);
     if (import_obsidian8.Platform.isMobileApp) {
@@ -13407,7 +13406,6 @@ var CssEditorView = class extends import_obsidian8.ItemView {
       await writeSnippetFile(this.app, this.file, data);
     }
   }
-  // eslint-disable-next-line @typescript-eslint/require-await
   async onClose() {
     this.editor.destroy();
   }
@@ -13443,7 +13441,7 @@ var CssSnippetFuzzySuggestModal = class extends import_obsidian9.FuzzySuggestMod
       }
       return true;
     });
-    this.scope.register([], "Tab", (evt) => {
+    this.scope.register([], "Tab", (_evt) => {
       var _a, _b;
       if (this.chooser) {
         const selectedItem = this.chooser.selectedItem;

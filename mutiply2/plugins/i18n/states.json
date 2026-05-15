@@ -17,6 +17,18 @@
             "isApplied": true,
             "pluginVersion": "2.5.5",
             "translationVersion": "1.0.0"
+        },
+        "metadata-auto-classifier": {
+            "id": "metadata-auto-classifier",
+            "isApplied": true,
+            "pluginVersion": "1.12.9",
+            "translationVersion": "1.0.0"
+        },
+        "heatmap-tracker": {
+            "id": "heatmap-tracker",
+            "isApplied": true,
+            "pluginVersion": "2.2.0",
+            "translationVersion": "1.0.0"
         }
     },
     "themes": {

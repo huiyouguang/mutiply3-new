@@ -1067,7 +1067,7 @@
       "ws_1762178755605_n9uo2fpvn": {
         "id": "ws_1762178755605_n9uo2fpvn",
         "name": "mutiply",
-        "updatedAt": 1763644252345,
+        "updatedAt": 1778236906724,
         "settings": {
           "fluentFilterState": {
             "inbox": {
@@ -1099,25 +1099,25 @@
             },
             "projects": {
               "filters": {},
-              "selectedProject": "人生打卡计划",
+              "selectedProject": "中级会计",
               "advancedFilter": {
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1762180491084",
+                    "id": "fluent-proj-group-1778236119668",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1762180491084",
+                        "id": "fluent-proj-filter-1778236119668",
                         "property": "project",
                         "condition": "is",
-                        "value": "人生打卡计划"
+                        "value": "中级会计"
                       }
                     ]
                   }
                 ]
               },
-              "viewMode": "tree"
+              "viewMode": "list"
             },
             "today": {
               "filters": {},
@@ -1158,7 +1158,7 @@
               "viewMode": "list"
             }
           },
-          "fluentActiveViewId": "inbox"
+          "fluentActiveViewId": "projects"
         },
         "icon": "layers",
         "color": "#888888"

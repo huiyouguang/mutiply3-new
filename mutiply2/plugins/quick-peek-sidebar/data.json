@@ -5,12 +5,12 @@
   "enforceSameDelay": true,
   "sidebarDelay": 150,
   "sidebarExpandDelay": 10,
-  "leftSideBarPixelTrigger": 20,
+  "leftSideBarPixelTrigger": 100,
   "rightSideBarPixelTrigger": 20,
   "overlayMode": false,
   "doubleClickPin": false,
   "onlyWhenFocused": false,
   "expandCollapseSpeed": 370,
-  "leftSidebarMaxWidth": 325,
+  "leftSidebarMaxWidth": 400,
   "rightSidebarMaxWidth": 325
 }

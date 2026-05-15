@@ -104,14 +104,6 @@
     }
   ],
   "editor:insert-link": [],
-  "editor:insert-wikilink": [
-    {
-      "modifiers": [
-        "Mod"
-      ],
-      "key": "K"
-    }
-  ],
   "mysnippets-plugin:open-snippets-menu": [
     {
       "modifiers": [
@@ -299,6 +291,83 @@
         "Mod"
       ],
       "key": "W"
+    }
+  ],
+  "css-editor:open-quick-switcher": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "C"
+    }
+  ],
+  "Enhanced editing:copy-text": [],
+  "editor:follow-link": [],
+  "Enhanced editing:del-line2": [],
+  "theme:toggle-light-dark": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "Q"
+    }
+  ],
+  "editor:insert-codeblock": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "D"
+    }
+  ],
+  "Enhanced editing:edit-jiucuo": [],
+  "editor:insert-footnote": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "J"
+    }
+  ],
+  "editor:insert-wikilink": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "L"
+    }
+  ],
+  "file-explorer:new-file-in-new-pane": [],
+  "dynamic-theme-background:fetch-random-wallpaper": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "H"
+    }
+  ],
+  "Enhanced editing:add-lines": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "K"
+    }
+  ],
+  "Enhanced editing:add-space": [],
+  "Enhanced editing:del-lines": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "L"
     }
   ]
 }

@@ -1,5 +1,6 @@
 {
   "pluginList": [
+    "yodaliu0414/obsidian-easily-habit-tracker",
     "johansan/notebook-navigator",
     "remotely-save/remotely-save",
     "eondrcode/obsidian-i18n",
@@ -9,6 +10,10 @@
     "mdelobelle/obsidian_supercharged_links"
   ],
   "pluginSubListFrozenVersion": [
+    {
+      "repo": "yodaliu0414/obsidian-easily-habit-tracker",
+      "version": "1.0.4"
+    },
     {
       "repo": "johansan/notebook-navigator",
       "version": "2.5.5"
@@ -35,7 +40,7 @@
     },
     {
       "repo": "mdelobelle/obsidian_supercharged_links",
-      "version": "latest"
+      "version": ""
     }
   ],
   "themesList": [],
