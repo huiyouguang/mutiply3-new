@@ -1,13 +1,15 @@
 ---
-文件分类: "在人生重大选择中，最应该考虑的是什么？ - XENON 的回答"
-平台: "平台"
+文件分类: 在人生重大选择中，最应该考虑的是什么？ - XENON 的回答
+平台: 平台
 核心主题:
-链接: "https://www.zhihu.com/question/55195858/answer/2034742971690643518"
+链接: https://www.zhihu.com/question/55195858/answer/2034742971690643518
 完成状态:
-收藏标签: "clippings"
+收藏标签: clippings
 类型:
-"mindmap-plugin": "basic"
+mindmap-plugin: basic
 cssclasses:
+PrevNote: "[[一直无法理解王阳明的龙场悟道厉害到什么程度，懂得人能讲讲吗- 椿子酒树 的回答]]"
+NextNote: "[[Clippings/怎么快速理解现金流量表]]"
 ---
 ## 在人生重大选择中，最应该考虑的是什么？
 
