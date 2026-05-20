@@ -1,5 +1,8 @@
 ---
 tags: weread
+words:
+  2026-05-14: 11113
+NextNote: "[[纳瓦尔宝典]]"
 ---
 >[!rnb|noicon] 
 ># 单干：成为超级个体的49个关键动作 (陈欢) (Z-Library)
