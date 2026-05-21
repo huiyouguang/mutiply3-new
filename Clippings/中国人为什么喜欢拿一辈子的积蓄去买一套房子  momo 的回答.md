@@ -1,13 +1,15 @@
 ---
-文件分类: "中国人为什么喜欢拿一辈子的积蓄去买一套房子？ - momo 的回答"
-平台: "平台"
+文件分类: 中国人为什么喜欢拿一辈子的积蓄去买一套房子？ - momo 的回答
+平台: 平台
 核心主题:
-链接: "https://www.zhihu.com/question/655666456/answer/2039653721391489072"
+链接: https://www.zhihu.com/question/655666456/answer/2039653721391489072
 完成状态:
-收藏标签: "clippings"
+收藏标签: clippings
 类型:
-"mindmap-plugin": "basic"
+mindmap-plugin: basic
 cssclasses:
+PrevNote: "[[人到中年遭遇人生重创，该如何真正走出低谷？ - 四月 的回答]]"
+NextNote: "[[Clippings/人什么时候能大彻大悟]]"
 ---
 小事斤斤计较，大事稀里糊涂。
 

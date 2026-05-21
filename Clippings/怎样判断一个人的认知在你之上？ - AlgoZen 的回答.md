@@ -11,6 +11,7 @@ cssclasses:
 words:
   2026-05-19: 9282
 PrevNote: "[[是什么原因造成了现在“一切向钱看”的社会    昱希dzf 的回答]]"
+NextNote: "[[Clippings/提升自己最快的方式是什么]]"
 ---
 2107 人赞同了该回答
 

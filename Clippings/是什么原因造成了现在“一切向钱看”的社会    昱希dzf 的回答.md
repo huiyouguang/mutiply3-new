@@ -10,7 +10,7 @@ mindmap-plugin: basic
 cssclasses:
 words:
   2026-05-19: 2820
-PrevNote: "[[Clippings/目前为止，你总结出的最大人生经验是什么]]"
+PrevNote: "[[Clippings/怎么快速理解现金流量表]]"
 NextNote: "[[怎样判断一个人的认知在你之上？ - AlgoZen 的回答]]"
 ---
 233 人赞同了该回答
