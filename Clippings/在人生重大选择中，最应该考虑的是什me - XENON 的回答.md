@@ -9,7 +9,7 @@
 mindmap-plugin: basic
 cssclasses:
 PrevNote: "[[一直无法理解王阳明的龙场悟道厉害到什么程度，懂得人能讲讲吗- 椿子酒树 的回答]]"
-NextNote: "[[Clippings/为什么大家都说人生的容错率大到无法想象]]"
+NextNote: "[[Clippings/目前为止，你总结出的最大人生经验是什么]]"
 words:
   2026-05-19: 9742
 ---

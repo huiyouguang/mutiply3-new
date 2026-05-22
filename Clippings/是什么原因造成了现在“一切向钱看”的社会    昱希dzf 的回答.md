@@ -10,7 +10,7 @@ mindmap-plugin: basic
 cssclasses:
 words:
   2026-05-19: 2820
-PrevNote: "[[Clippings/怎么快速理解现金流量表]]"
+PrevNote: "[[Clippings/人什么时候能大彻大悟]]"
 NextNote: "[[怎样判断一个人的认知在你之上？ - AlgoZen 的回答]]"
 ---
 233 人赞同了该回答

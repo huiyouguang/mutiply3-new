@@ -8,7 +8,7 @@
 类型:
 mindmap-plugin: basic
 cssclasses:
-PrevNote: "[[Clippings/为什么大家都说人生的容错率大到无法想象]]"
+PrevNote: "[[Clippings/你人生中太晚明白的道理是什么]]"
 NextNote: "[[为什么美国人花了很多时间在体育上  - 知乎用户5y12N 的回答]]"
 ---
 [谢邀 @麦清](https://www.zhihu.com/people/c99982b64304b35f254dbaf05581a188)
