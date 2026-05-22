@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": 1779370447591,
+  "scopes": {
+    "400::15px|19.5px|\"Open Sans\", \"??\", \"??\", ui-sans-serif, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Inter, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Microsoft YaHei Light\", sans-serif|na|1rem|calc(1rem * 2.5)": {
+      "widthBucket": 400,
+      "styleSignature": "15px|19.5px|\"Open Sans\", \"??\", \"??\", ui-sans-serif, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Inter, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Microsoft YaHei Light\", sans-serif|na|1rem|calc(1rem * 2.5)",
+      "updatedAt": 1779370446585,
+      "heights": {
+        "bottom-anchor": 10,
+        "3674f78a-3e57-4ece-9953-80c11ad5ec5e": 45,
+        "query-progress": 16,
+        "55653c02-b3c0-4122-b2cb-505de74780f5-slice-0": 665,
+        "7c6cd37d-1a2c-416a-8561-ae9f9ac20cd2": 33,
+        "4a931e70-979a-46f1-b2a0-21c1b9d1a076-slice-0": 1451,
+        "4bd5be61-f53a-463f-94bf-6ec5cdff4c3e": 33,
+        "13cc26f6-ffb3-49cf-b55a-d424905e3f20-slice-0": 1450,
+        "0477628a-5c12-48f5-8872-f5b3138c56d5": 33,
+        "9db62c1c-eef0-48cc-a82a-9e32b89832ec-slice-0": 131
+      }
+    },
+    "0::default": {
+      "widthBucket": 0,
+      "styleSignature": "default",
+      "updatedAt": 1779370185655,
+      "heights": {
+        "bottom-anchor": 10,
+        "3674f78a-3e57-4ece-9953-80c11ad5ec5e": 45,
+        "55653c02-b3c0-4122-b2cb-505de74780f5-slice-0": 68
+      }
+    },
+    "0::15px|19.5px|\"Open Sans\", \"??\", \"??\", ui-sans-serif, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Inter, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Microsoft YaHei Light\", sans-serif|na|1rem|calc(1rem * 2.5)": {
+      "widthBucket": 0,
+      "styleSignature": "15px|19.5px|\"Open Sans\", \"??\", \"??\", ui-sans-serif, -apple-system, \"system-ui\", \"Segoe UI\", Roboto, Inter, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Microsoft YaHei Light\", sans-serif|na|1rem|calc(1rem * 2.5)",
+      "updatedAt": 1779370140081,
+      "heights": {
+        "bottom-anchor": 1
+      }
+    }
+  }
+}
