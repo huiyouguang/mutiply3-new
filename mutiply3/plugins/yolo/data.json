@@ -1,0 +1,231 @@
+{
+  "version": 56,
+  "providers": [
+    {
+      "id": "deepseek-r1:1.5b",
+      "presetType": "ollama",
+      "apiType": "openai-compatible",
+      "baseUrl": "http://127.0.0.1:11434",
+      "apiKey": ""
+    }
+  ],
+  "chatModels": [
+    {
+      "providerId": "deepseek-r1:1.5b",
+      "id": "deepseek-r1:1.5b/deepseek-r1:1.5b",
+      "model": "deepseek-r1:1.5b",
+      "name": "deepseek-r1:1.5b",
+      "enable": true,
+      "reasoningType": "none",
+      "temperature": 0.8,
+      "topP": 0.9,
+      "maxContextTokens": 32768,
+      "maxOutputTokens": 115200,
+      "modalities": [
+        "text"
+      ],
+      "builtinToolProvider": "none",
+      "builtinTools": {
+        "gpt": {
+          "webSearch": {
+            "enabled": false
+          }
+        },
+        "openrouter": {
+          "webSearch": {
+            "enabled": false
+          }
+        },
+        "grok": {
+          "webSearch": {
+            "enabled": false
+          }
+        },
+        "gemini": {
+          "webSearch": {
+            "enabled": false
+          },
+          "urlContext": {
+            "enabled": false
+          }
+        }
+      }
+    }
+  ],
+  "embeddingModels": [],
+  "chatModelId": "deepseek-r1:1.5b/deepseek-r1:1.5b",
+  "chatTitleModelId": "deepseek-r1:1.5b/deepseek-r1:1.5b",
+  "embeddingModelId": "",
+  "systemPrompt": "",
+  "ragOptions": {
+    "enabled": true,
+    "chunkSize": 1000,
+    "thresholdTokens": 20000,
+    "minSimilarity": 0,
+    "limit": 10,
+    "embeddingConcurrency": 10,
+    "excludePatterns": [],
+    "includePatterns": [],
+    "indexPdf": true,
+    "autoUpdateEnabled": true,
+    "autoUpdateIntervalHours": 0,
+    "lastAutoUpdateAt": 0
+  },
+  "mcp": {
+    "servers": [],
+    "builtinToolOptions": {
+      "web_ops": {
+        "disabled": false
+      },
+      "web_search": {
+        "disabled": false
+      },
+      "web_scrape": {
+        "disabled": false
+      }
+    }
+  },
+  "webSearch": {
+    "providers": [],
+    "common": {
+      "resultSize": 10,
+      "searchTimeoutMs": 120000,
+      "scrapeTimeoutMs": 20000
+    }
+  },
+  "skills": {
+    "disabledSkillIds": []
+  },
+  "yolo": {
+    "baseDir": "YOLO"
+  },
+  "debug": {},
+  "chatOptions": {
+    "includeCurrentFileContent": true,
+    "mentionDisplayMode": "inline",
+    "mentionContextMode": "light",
+    "chatApplyMode": "review-required",
+    "chatTitlePrompt": "",
+    "chatMode": "chat",
+    "agentModeWarningConfirmed": false,
+    "reasoningLevelByModelId": {},
+    "historyArchiveEnabled": true,
+    "historyArchiveThreshold": 50,
+    "autoContextCompactionEnabled": false,
+    "autoContextCompactionThresholdMode": "tokens",
+    "autoContextCompactionThresholdTokens": 24000,
+    "autoContextCompactionThresholdRatio": 0.8,
+    "imageReadingEnabled": true,
+    "imageCompressionEnabled": true,
+    "imageCompressionQuality": 85,
+    "externalImageFetchEnabled": false
+  },
+  "notificationOptions": {
+    "enabled": false,
+    "channel": "sound",
+    "timing": "when-unfocused",
+    "notifyOnApprovalRequired": true,
+    "notifyOnTaskCompleted": true
+  },
+  "continuationOptions": {
+    "continuationModelId": "",
+    "enableSmartSpace": true,
+    "enableSelectionChat": true,
+    "persistSelectionHighlight": true,
+    "manualContextEnabled": false,
+    "manualContextFolders": [],
+    "referenceRuleFolders": [],
+    "knowledgeBaseFolders": [],
+    "stream": true,
+    "maxContinuationChars": 8000,
+    "enableTabCompletion": true,
+    "tabCompletionModelId": "",
+    "tabCompletionOptions": {
+      "idleTriggerEnabled": false,
+      "autoTriggerDelayMs": 3000,
+      "autoTriggerCooldownMs": 15000,
+      "triggerDelayMs": 3000,
+      "minContextLength": 20,
+      "contextRange": 4000,
+      "maxSuggestionLength": 2000,
+      "temperature": 0.5,
+      "requestTimeoutMs": 12000,
+      "reasoningLevel": "off"
+    },
+    "tabCompletionTriggers": [
+      {
+        "id": "sentence-end-comma",
+        "type": "string",
+        "pattern": ", ",
+        "enabled": true
+      },
+      {
+        "id": "sentence-end-chinese-comma",
+        "type": "string",
+        "pattern": "，",
+        "enabled": true
+      },
+      {
+        "id": "sentence-end-colon",
+        "type": "string",
+        "pattern": ": ",
+        "enabled": true
+      },
+      {
+        "id": "sentence-end-chinese-colon",
+        "type": "string",
+        "pattern": "：",
+        "enabled": true
+      },
+      {
+        "id": "newline",
+        "type": "regex",
+        "pattern": "\\n$",
+        "enabled": true
+      },
+      {
+        "id": "list-item",
+        "type": "regex",
+        "pattern": "(?:^|\\n)[-*+]\\s$",
+        "enabled": true
+      }
+    ],
+    "tabCompletionSystemPrompt": "Your job is to predict the most logical text that should be written at the location of the <mask/>. Your answer can be either code, a single word, or multiple sentences. Your answer must be in the same language as the text that is already there.\n\nAdditional constraints:\n{{tab_completion_constraints}}\n\nOutput only the text that should appear at the <mask/>. Do not include explanations, labels, or formatting.",
+    "tabCompletionConstraints": "",
+    "tabCompletionLengthPreset": "medium",
+    "smartSpaceTriggerMode": "single-space",
+    "smartSpaceUseWebSearch": false,
+    "smartSpaceUseUrlContext": false,
+    "enableQuickAsk": true,
+    "quickAskTrigger": "@",
+    "quickAskMode": "chat",
+    "quickAskAutoDockToTopRight": true,
+    "quickAskContextBeforeChars": 5000,
+    "quickAskContextAfterChars": 2000,
+    "streamFallbackRecoveryEnabled": true,
+    "primaryRequestTimeoutMs": 60000
+  },
+  "assistants": [
+    {
+      "id": "__default_agent__",
+      "name": "Default",
+      "description": "Default editing agent for sidebar chat.",
+      "systemPrompt": "",
+      "persona": "balanced",
+      "modelId": "deepseek-r1:1.5b/deepseek-r1:1.5b",
+      "enableTools": true,
+      "includeBuiltinTools": true,
+      "enabledToolNames": [],
+      "toolPreferences": {},
+      "enabledSkills": [],
+      "skillPreferences": {},
+      "createdAt": 1779368881177,
+      "updatedAt": 1779368986755
+    }
+  ],
+  "currentAssistantId": "__default_agent__",
+  "__meta": {
+    "updatedAt": 1779370187406,
+    "deviceId": "25df931d-7b9f-4782-9391-44a55c51c28a"
+  }
+}
