@@ -29,3 +29,4 @@ node_modules/
 *.bak
 *.backup
 /mutiply2/
+/YOLO/.yolo_json_db/chats/timeline_height_cache/fb5da0ab-c9fd-429a-90e9-f4d77c8f57b5.json
