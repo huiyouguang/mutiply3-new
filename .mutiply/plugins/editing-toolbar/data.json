@@ -1670,11 +1670,11 @@
     "pkmerApiBaseUrl": "https://newapi.pkmer.cn",
     "pkmerModel": "04-fast",
     "pkmerModelRouting": {
-      "mode": "manual",
-      "completion": "03-agent",
-      "rewrite": "03-agent",
-      "reasoning": "03-agent",
-      "artifact": "03-agent"
+      "mode": "smart",
+      "completion": "04-fast",
+      "rewrite": "04-fast",
+      "reasoning": "04-fast",
+      "artifact": "04-fast"
     },
     "pkmer": {
       "tokenExpiresAt": 1779606590423,
@@ -1697,7 +1697,7 @@
       "apiFormat": "ollama",
       "baseUrl": "http://127.0.0.1:11434",
       "apiKey": "",
-      "model": "qwen3.5:4b",
+      "model": "llama3.2:3b",
       "temperature": 0.2
     },
     "customPromptHistory": [

@@ -162,27 +162,6 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "copilot"
-    -
-        id: bg-copilot
-        format: hex
-        opacity: true
-        type: variable-themed-color
-        title: "Background color"
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-    -
-        id: col-copilot
-        title: Text color
-        type: variable-themed-color
-        format: hex
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-        opacity: true
-    -
-        type: heading
-        level: 3
-        collapsed: true
         title: "Clippings"
     -
         id: bg-clippings
@@ -194,6 +173,27 @@ settings:
         default-dark: "#ffffff00"
     -
         id: col-clippings
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
+        title: "copilot"
+    -
+        id: bg-copilot
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-copilot
         title: Text color
         type: variable-themed-color
         format: hex
@@ -246,7 +246,7 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "主页"
+        title: "工作"
     -
         id: bg-
         format: hex
@@ -267,7 +267,7 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "工作"
+        title: "主页"
     -
         id: bg-
         format: hex
@@ -298,10 +298,10 @@ settings:
     --col-0inbox: "var(--nav-item-color)";
     --bg-canvas: #ffffff00;
     --col-canvas: "var(--nav-item-color)";
-    --bg-copilot: #ffffff00;
-    --col-copilot: "var(--nav-item-color)";
     --bg-clippings: #ffffff00;
     --col-clippings: "var(--nav-item-color)";
+    --bg-copilot: #ffffff00;
+    --col-copilot: "var(--nav-item-color)";
     --bg-templates: #ffffff00;
     --col-templates: "var(--nav-item-color)";
     --bg-thino: #ffffff00;
@@ -322,10 +322,10 @@ settings:
     --col-0inbox: "var(--nav-item-color)";
     --bg-canvas: #ffffff00;
     --col-canvas: "var(--nav-item-color)";
-    --bg-copilot: #ffffff00;
-    --col-copilot: "var(--nav-item-color)";
     --bg-clippings: #ffffff00;
     --col-clippings: "var(--nav-item-color)";
+    --bg-copilot: #ffffff00;
+    --col-copilot: "var(--nav-item-color)";
     --bg-templates: #ffffff00;
     --col-templates: "var(--nav-item-color)";
     --bg-thino: #ffffff00;
@@ -381,14 +381,6 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-canvas) !important;
 }
-.nav-folder-title[data-path^="copilot"],
-.nav-file-title[data-path^="copilot"] {
-    color: var(--col-copilot) !important;
-}
-.tree-item.nav-folder[data-path="copilot"] {
-    border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-copilot) !important;
-}
 .nav-folder-title[data-path^="Clippings"],
 .nav-file-title[data-path^="Clippings"] {
     color: var(--col-clippings) !important;
@@ -396,6 +388,14 @@ settings:
 .tree-item.nav-folder[data-path="Clippings"] {
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-clippings) !important;
+}
+.nav-folder-title[data-path^="copilot"],
+.nav-file-title[data-path^="copilot"] {
+    color: var(--col-copilot) !important;
+}
+.tree-item.nav-folder[data-path="copilot"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-copilot) !important;
 }
 .nav-folder-title[data-path^="Templates"],
 .nav-file-title[data-path^="Templates"] {
@@ -413,19 +413,19 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-thino) !important;
 }
-.nav-folder-title[data-path^="主页"],
-.nav-file-title[data-path^="主页"] {
-    color: var(--col-) !important;
-}
-.tree-item.nav-folder[data-path="主页"] {
-    border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-) !important;
-}
 .nav-folder-title[data-path^="工作"],
 .nav-file-title[data-path^="工作"] {
     color: var(--col-) !important;
 }
 .tree-item.nav-folder[data-path="工作"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-) !important;
+}
+.nav-folder-title[data-path^="主页"],
+.nav-file-title[data-path^="主页"] {
+    color: var(--col-) !important;
+}
+.tree-item.nav-folder[data-path="主页"] {
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-) !important;
 }
