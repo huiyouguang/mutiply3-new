@@ -1,8 +1,22 @@
+# ==============================================
+# 你原本的安全规则（已保留）
+# ==============================================
 # 仅排除含密钥的插件（安全必须）
 **/plugins/remotely-save/
 **/remotely-save/
 mutiply2/plugins/remotely-save/
 0Inbox/image/mutiply/plugins/remotely-save/
+
+# AI插件配置文件
+plugins/copilot/data.json
+plugins/text-generator/data.json
+plugins/smart-connections/
+plugins/ai-tagger-universe/data.json
+
+# 通用敏感文件
+*.env
+*.key
+secret*
 
 # Obsidian 相关（避免设备间冲突）
 .obsidian/
@@ -30,3 +44,56 @@ node_modules/
 *.backup
 /mutiply2/
 /YOLO/.yolo_json_db/chats/timeline_height_cache/fb5da0ab-c9fd-429a-90e9-f4d77c8f57b5.json
+
+# ==============================================
+# 🔥 新增：永久防密钥泄露 + 同步安全强化
+# ==============================================
+# 所有会导致 GitHub 密钥报错的插件（必须屏蔽）
+plugins/yolo/
+plugins/surfing/
+plugins/obsidian-git/
+plugins/sync-vault-ce/
+plugins/google-drive/
+plugins/onedrive/
+plugins/dropbox/
+plugins/obsidian-google-calendar/
+plugins/notion/
+plugins/trello/
+plugins/slack/
+
+# 所有 AI 插件完整目录（密钥、缓存、配置全屏蔽）
+plugins/obsidian-copilot/
+plugins/chatgpt/
+plugins/ollama/
+plugins/openai/
+plugins/gemini/
+plugins/claude/
+plugins/ai-summary/
+plugins/auto-ai-property/
+plugins/wordflow-tracker/
+
+# Obsidian 缓存、索引、工作区（绝不提交）
+.obsidian/cache/
+.obsidian/indexes/
+.obsidian/graph.json
+.obsidian/workspace
+.obsidian/workspace.json
+.obsidian/starred.json
+copilot-index-*.json
+
+# 全局密钥安全兜底（永远不会漏）
+.env.*
+token*
+password*
+oauth*
+api-key*
+credentials*
+
+# 媒体/大文件（可选，不影响同步）
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.mp4
+*.zip
+*.rar
