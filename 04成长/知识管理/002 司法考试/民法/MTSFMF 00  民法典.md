@@ -1,3 +1,6 @@
+---
+NextNote: "[[MTSFMF 01  民事法律关系的基本原理]]"
+---
 <span id="20250122211428-8wxfczv" style="display: none;"></span>1.  
 
     *  第一编　总则

@@ -16,7 +16,7 @@ tags:
   - 基本法律
   - 注册会计师
 mindmap-plugin: basic
-PrevNote: "[[民事法律行为]]"
+PrevNote: "[[合同法]]"
 NextNote: "[[票据法]]"
 ---
 

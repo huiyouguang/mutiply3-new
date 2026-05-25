@@ -1,3 +1,7 @@
+---
+PrevNote: "[[MTSFMF 08 合同编- 具体合同]]"
+NextNote: "[[MTSFMF 08 合同编--通则]]"
+---
 
 <span id="20250206154144-y4ecra6" style="display: none;"></span>((20250208203411-zzilb8j?focus=1 "MTSFMF 08 合同编- 具体合同 (Conflicted 2025-02-08 20:34:11)"))
 
