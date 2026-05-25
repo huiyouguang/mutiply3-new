@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Clippings/(98 封私信  16 条消息) 目前为止，你总结出的最大人生经验是什么.md",
+                "file": "04成长/知识管理/004 注会/003 经济法/2026/99记--经济法.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "(98 封私信  16 条消息) 目前为止，你总结出的最大人生经验是什么"
+              "title": "99记--经济法"
             }
           }
         ]
@@ -64,7 +64,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "99记",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -91,8 +91,8 @@
             "state": {
               "type": "recent-files",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "recent-files"
+              "icon": "clock",
+              "title": "Recent files"
             }
           },
           {
@@ -106,7 +106,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -307,8 +307,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 382.5,
-    "collapsed": true
+    "width": 382.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -318,12 +317,10 @@
       "daily-notes:打开/创建今天的日记": false,
       "obsidian42-brat:BRAT": false,
       "cloze:显/隐所有填空": false,
-      "keep-the-rhythm:Word Count Stats": false,
       "obsidian-memos:Thino": false,
       "obsidian-memos:Thino Super": false,
       "templater-obsidian:Templater": false,
       "obsidian-git:打开Git源代码管理": false,
-      "obsidian-task-progress-bar:打开 Task Genius 视图": false,
       "css-editor:Open CSS editor quick switcher": false,
       "i18n:common.i18n": false,
       "notebook-navigator:笔记本导航器": false,
@@ -335,11 +332,13 @@
       "auto-ai-property:选择字段填充...": false,
       "wordflow-tracker:Record wordflows from edited notes": false,
       "wordflow-tracker:Reveal and refresh wordflow tracker widget": false,
-      "keep-the-rhythm:Keep the Rhythm": false
+      "keep-the-rhythm:Keep the Rhythm": false,
+      "obsidian-task-progress-bar:打开 Task Genius 视图": false
     }
   },
   "active": "599862c47982c9ce",
   "lastOpenFiles": [
+    "Clippings/(98 封私信  16 条消息) 目前为止，你总结出的最大人生经验是什么.md",
     "2 不能完全辨认自己行为的成年人新浪微博 ＠ 斯尔教育或关注斯尔教育微信公众号精准冲刺 99 记·经济法· 4 · 续表行为能力类型完全民事行为能力人 118 周岁以上的自然人。.md",
     "10.work status trakcer",
     "04成长/知识管理/004 注会/002 审计/各科薄弱点整理/99记--审计.md",
@@ -371,7 +370,6 @@
     "04成长/知识管理/错题库/会计/注会会计刷题/金考典/extract_questions.py",
     "01 task/注册会计师第二轮 task.md",
     "Clippings/当一个人长期在压抑的环境里自我内耗，真正治愈自己的关键，是和解过去，还是放下期待 - 123与 的回答.md",
-    "Clippings/为什么国内的大学越来越高中化了 - 铁芒萁的研习社 的回答.md",
     "YOLO/skills",
     "skill",
     "YOLO",
