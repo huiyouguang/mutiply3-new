@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "2026-04-03T08:14:33.264Z",
+    "version": 1,
+    "type": "init",
+    "description": "Init revision",
+    "delta": [
+      {
+        "insert": "---\ncopilot-command-context-menu-enabled: true\ncopilot-command-slash-enabled: true\ncopilot-command-context-menu-order: 0\ncopilot-command-model-key: \"\"\ncopilot-command-last-used: 0\n---\nTranslate {} into Chinese:\n    1. Preserve the meaning and tone\n    2. Maintain appropriate cultural context\n    3. Keep formatting and structure\n    Return only the translated text."
+      }
+    ],
+    "metadata": {
+      "size": 366,
+      "hash": "4917fe1c472626f4584e123bc767a96e55c39e0a8174276aa3a37d3bf905a4af"
+    }
+  }
+]

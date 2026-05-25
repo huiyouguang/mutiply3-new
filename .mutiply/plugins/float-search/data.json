@@ -1,0 +1,15 @@
+{
+  "searchViewState": {
+    "collapseAll": false,
+    "explainSearch": false,
+    "extraContext": false,
+    "matchingCase": false,
+    "query": "完全商誉",
+    "sortOrder": "alphabetical"
+  },
+  "showFilePath": false,
+  "showInstructions": true,
+  "defaultViewType": "modal",
+  "cmdkTriggerKey": "Alt",
+  "cmdkDoubleTapInterval": 300
+}

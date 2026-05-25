@@ -1,0 +1,1384 @@
+{
+  "workspaces": {
+    "默认工作区": {
+      "main": {
+        "id": "929044414500c6ef",
+        "type": "split",
+        "children": [
+          {
+            "id": "4be9238a4b7d735e",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "dc933a718745ee58",
+                "type": "leaf",
+                "state": {
+                  "type": "thino_view",
+                  "state": {},
+                  "icon": "Memos",
+                  "title": "Thino"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "963a39b77a035e5b",
+        "type": "split",
+        "children": [
+          {
+            "id": "7cdafd2c6ef01d65",
+            "type": "tabs",
+            "dimension": 68.90660592255125,
+            "children": [
+              {
+                "id": "62e0e48b172b7515",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              },
+              {
+                "id": "c717c05b60e1c7ad",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-file",
+                  "title": "插件不再活动"
+                }
+              },
+              {
+                "id": "a6902865a034e4ad",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "97e76735b6c2311f",
+                "type": "leaf",
+                "state": {
+                  "type": "surfing-tab-tree",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "插件不再活动"
+                }
+              }
+            ]
+          },
+          {
+            "id": "3e40cad7ecdc4046",
+            "type": "tabs",
+            "dimension": 31.093394077448746,
+            "children": [
+              {
+                "id": "a2f841e1a7d4c6c2",
+                "type": "leaf",
+                "state": {
+                  "type": "periodic-para",
+                  "state": {},
+                  "icon": "file-plus",
+                  "title": "LifeOS"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 339.5
+      },
+      "right": {
+        "id": "1eeabe721bfa615c",
+        "type": "split",
+        "children": [
+          {
+            "id": "adf2a2e115a738af",
+            "type": "tabs",
+            "dimension": 45.48192771084337,
+            "children": [
+              {
+                "id": "4dd7e0057cddfa70",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": false
+                  },
+                  "icon": "links-coming-in",
+                  "title": "反向链接"
+                }
+              },
+              {
+                "id": "0bdc0decf42236e7",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "followCursor": true,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "大纲"
+                }
+              },
+              {
+                "id": "7a3bdb84429911cd",
+                "type": "leaf",
+                "state": {
+                  "type": "copilot-chat-view",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "插件不再活动"
+                }
+              },
+              {
+                "id": "bc3179b40d60a2eb",
+                "type": "leaf",
+                "state": {
+                  "type": "quiet-outline",
+                  "state": {},
+                  "icon": "lines-of-text",
+                  "title": "Quiet Outline"
+                }
+              }
+            ],
+            "currentTab": 1
+          },
+          {
+            "id": "cf640654e156b4ab",
+            "type": "tabs",
+            "dimension": 54.518072289156635,
+            "children": [
+              {
+                "id": "77cc7dce0161943b",
+                "type": "leaf",
+                "state": {
+                  "type": "keep-the-rhythm",
+                  "state": {},
+                  "icon": "calendar-days",
+                  "title": "Keep the Rhythm"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 200,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "canvas:新建白板": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "templates:插入模板": false,
+          "markdown-importer:打开 Markdown 格式转换器": false,
+          "widgets:Add widget": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "command-palette:打开命令面板": false,
+          "workspaces:管理工作区布局": false,
+          "marp-slides:Show Slide Preview": false,
+          "obsidian-kanban:创建新看板": false,
+          "obsidian-memos:Thino": false,
+          "remotely-save:Remotely Save": false,
+          "keep-the-rhythm:Word Count Stats": false,
+          "omnisearch:Omnisearch": false,
+          "obsidian-projects:打开项目": false,
+          "cloze:显/隐所有填空": false,
+          "periodic-notes:Open today's daily note": false,
+          "templater-obsidian:Templater": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "copilot:Open Copilot Chat": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "periodic-para:LifeOS 创建": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false
+        }
+      },
+      "active": "dc933a718745ee58",
+      "mtime": "2025-04-13T21:20:59+08:00"
+    },
+    "出链布局": {
+      "main": {
+        "id": "929044414500c6ef",
+        "type": "split",
+        "children": [
+          {
+            "id": "12655fa5e43a1247",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "ed5f4f0c2a23371c",
+                "type": "leaf",
+                "state": {
+                  "type": "bases",
+                  "state": {
+                    "file": "数据/中级.base",
+                    "viewName": "表格"
+                  },
+                  "icon": "lucide-table",
+                  "title": "中级"
+                }
+              },
+              {
+                "id": "5e91953241b61fda",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "005 注册税务师/税一/刷题/增值税.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "增值税"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "963a39b77a035e5b",
+        "type": "split",
+        "children": [
+          {
+            "id": "7cdafd2c6ef01d65",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "7aab200267640af4",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              },
+              {
+                "id": "48bf4e04d91cd34e",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {},
+                  "icon": "clock",
+                  "title": "Recent Files"
+                }
+              },
+              {
+                "id": "f32c66a84981e5a3",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "Bookmarks"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 446.5,
+        "collapsed": true
+      },
+      "right": {
+        "id": "1eeabe721bfa615c",
+        "type": "split",
+        "children": [
+          {
+            "id": "adf2a2e115a738af",
+            "type": "tabs",
+            "dimension": 34.84126984126984,
+            "children": [
+              {
+                "id": "b9300c107b96873a",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "003 中级/003 中级.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "003 中级 的出链列表"
+                }
+              },
+              {
+                "id": "5eb2bf9fca99d698",
+                "type": "leaf",
+                "state": {
+                  "type": "quiet-outline",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "quiet-outline"
+                }
+              },
+              {
+                "id": "50da6464b97ce5cd",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "c717c05b60e1c7ad",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "f45c399e9d03ca68",
+                "type": "leaf",
+                "state": {
+                  "type": "git-history-view",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "git-history-view"
+                }
+              },
+              {
+                "id": "6d1a6364494cb8d8",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "反向链接"
+                }
+              },
+              {
+                "id": "5ecff6fc4ec6e50e",
+                "type": "leaf",
+                "state": {
+                  "type": "all-properties",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-archive",
+                  "title": "添加笔记属性"
+                }
+              },
+              {
+                "id": "b6af02defc486a66",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {},
+                  "icon": "spreadsheet",
+                  "title": "Advanced Tables"
+                }
+              },
+              {
+                "id": "5d606153f1585d4c",
+                "type": "leaf",
+                "state": {
+                  "type": "file-properties",
+                  "state": {},
+                  "icon": "lucide-info",
+                  "title": "笔记属性"
+                }
+              },
+              {
+                "id": "d038dec87a0416fc",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "源代码管理"
+                }
+              },
+              {
+                "id": "436d68e5659daf40",
+                "type": "leaf",
+                "state": {
+                  "type": "tag-group-view",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "标签概览"
+                }
+              }
+            ],
+            "currentTab": 9
+          },
+          {
+            "id": "03534a259ef09a3f",
+            "type": "tabs",
+            "dimension": 34.84126984126984,
+            "children": [
+              {
+                "id": "cbcecab3fd579f13",
+                "type": "leaf",
+                "state": {
+                  "type": "footnotes",
+                  "state": {
+                    "file": "005 注册税务师/税一/刷题/增值税.md"
+                  },
+                  "icon": "lucide-file-signature",
+                  "title": "脚注"
+                }
+              }
+            ]
+          },
+          {
+            "id": "2ae9a1777f445b93",
+            "type": "tabs",
+            "dimension": 30.317460317460316,
+            "children": [
+              {
+                "id": "16f821bb0ae7704d",
+                "type": "leaf",
+                "state": {
+                  "type": "keep-the-rhythm",
+                  "state": {},
+                  "icon": "calendar-days",
+                  "title": "Keep the Rhythm"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 445.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "explorer-hider:Disable hiding": false,
+          "tag-group-manager:标签概览": false,
+          "bases:创建新数据库": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "command-palette:打开命令面板": false,
+          "markdown-importer:打开 Markdown 格式转换器": false,
+          "workspaces:管理工作区布局": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "obsidian42-brat:BRAT": false,
+          "callout-manager:Insert Callout": false,
+          "cloze:显/隐所有填空": false,
+          "edit-history:Open edit history": false,
+          "float-search:Search obsidian in window view": false,
+          "i18n:I18N": false,
+          "iconic:打开规则书": false,
+          "keep-the-rhythm:Word Count Stats": false,
+          "omnisearch:Omnisearch": false,
+          "yearly-glance:打开年度概览": false,
+          "templater-obsidian:Templater": false,
+          "dynamic-theme-background:🌈 Obsidian DTB": false,
+          "pkmer:打开 Pkmer 插件市场": false,
+          "random-note:开始漫游笔记": false,
+          "obsidian-kanban:创建新看板": false,
+          "homepage:Open homepage": false,
+          "periodic-notes:Open today's daily note": false,
+          "obsidian-memos:Thino": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "copilot:打开 Copilot 对话": false,
+          "obsidian-git:打开Git源代码管理": false
+        }
+      },
+      "active": "5e91953241b61fda",
+      "mtime": "2025-10-26T11:00:32+08:00"
+    },
+    "工作布局": {
+      "main": {
+        "id": "b637251f0dc645ff",
+        "type": "split",
+        "children": [
+          {
+            "id": "549ccd67538c31a7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "1f101ba8a3db8027",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "003 注会/刷题/经济法易错点/经济法背诵框架.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "经济法背诵框架"
+                }
+              },
+              {
+                "id": "03d52e41e9c16963",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "003 注会/005 财管/005 财管.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "005 财管"
+                }
+              },
+              {
+                "id": "26cc3030680e2167",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "000 life os/000 life os.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "000 life os"
+                }
+              },
+              {
+                "id": "7d825b54bb59e3c5",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "003 注会/刷题/注会税法刷题/增值税错题/王颖老师69道大题.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "王颖老师69道大题"
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "81b15a5302b45c95",
+        "type": "split",
+        "children": [
+          {
+            "id": "a176f4777de7f934",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "999700150c7cb16a",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              },
+              {
+                "id": "8177c87cf77234b3",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "96cb994100a727cb",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 462.4986946582794
+      },
+      "right": {
+        "id": "c2fd22ca658c27a7",
+        "type": "split",
+        "children": [
+          {
+            "id": "b51aa9cdcfcf9985",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "272c1e8566deded0",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "003 注会/刷题/注会税法刷题/增值税错题/王颖老师69道大题.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": true,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "王颖老师69道大题 的反向链接列表"
+                }
+              },
+              {
+                "id": "efa1a56b3ad5989d",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "003 注会/刷题/注会税法刷题/增值税错题/王颖老师69道大题.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "王颖老师69道大题 的出链列表"
+                }
+              },
+              {
+                "id": "60dbe1f24b59499f",
+                "type": "leaf",
+                "state": {
+                  "type": "all-properties",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-archive",
+                  "title": "添加笔记属性"
+                }
+              }
+            ],
+            "currentTab": 2
+          }
+        ],
+        "direction": "horizontal",
+        "width": 724.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "pexels-banner:🚩 Pixel Banner Menu": false,
+          "switcher:打开快速切换": false,
+          "graph:查看关系图谱": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "workspaces:管理工作区布局": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "cloze:显/隐所有填空": false,
+          "copilot:Open Copilot Chat": false,
+          "explorer-hider:Disable hiding": false,
+          "iconic:打开规则书": false,
+          "float-search:Search obsidian in window view": false,
+          "keep-the-rhythm:Word Count Stats": false,
+          "marp:Marp: Open Preview": false,
+          "omnisearch:Omnisearch": false,
+          "remotely-save:Remotely Save": false,
+          "obsidian-weread-plugin:同步微信读书笔记": false,
+          "templater-obsidian:Templater": false,
+          "task-board:打开任务看板": false,
+          "tag-group-manager:标签概览": false,
+          "obsidian-git:打开Git源代码管理": false,
+          "i18n:I18N": false,
+          "time-ruler:Open Time Ruler": false,
+          "obsidian-memos:Thino": false,
+          "obsidian42-brat:BRAT": false,
+          "book-smith:打开书籍管理面板": false,
+          "yearly-glance:打开年度概览": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "edit-history:Open edit history": false
+        }
+      },
+      "active": "7d825b54bb59e3c5",
+      "mtime": "2025-07-22T22:03:51+08:00"
+    },
+    "AI布局": {
+      "main": {
+        "id": "929044414500c6ef",
+        "type": "split",
+        "children": [
+          {
+            "id": "83b9c3136e5b59a4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "a56e0aad918c7659",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "003 注会/001 会计/会计知识点/椰子默写本—会计.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "椰子默写本—会计"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "963a39b77a035e5b",
+        "type": "split",
+        "children": [
+          {
+            "id": "7cdafd2c6ef01d65",
+            "type": "tabs",
+            "dimension": 68.90660592255125,
+            "children": [
+              {
+                "id": "62e0e48b172b7515",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              },
+              {
+                "id": "c717c05b60e1c7ad",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "a6902865a034e4ad",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "97e76735b6c2311f",
+                "type": "leaf",
+                "state": {
+                  "type": "surfing-tab-tree",
+                  "state": {},
+                  "icon": "chrome",
+                  "title": "Surfing Tab Tree"
+                }
+              },
+              {
+                "id": "2839f49de3cb61c9",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {},
+                  "icon": "clock",
+                  "title": "Recent Files"
+                }
+              }
+            ],
+            "currentTab": 4
+          },
+          {
+            "id": "3e40cad7ecdc4046",
+            "type": "tabs",
+            "dimension": 31.093394077448746,
+            "children": [
+              {
+                "id": "a2f841e1a7d4c6c2",
+                "type": "leaf",
+                "state": {
+                  "type": "periodic-para",
+                  "state": {},
+                  "icon": "file-plus",
+                  "title": "LifeOS"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 339.5
+      },
+      "right": {
+        "id": "1eeabe721bfa615c",
+        "type": "split",
+        "children": [
+          {
+            "id": "6d117e27b22d6d61",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "a76fa12e43ffb24f",
+                "type": "leaf",
+                "state": {
+                  "type": "surfing-view",
+                  "state": {
+                    "url": "https://chat.deepseek.com/a/chat/s/1c6ee586-92da-4830-9fc3-7dda4061692c"
+                  },
+                  "icon": "lucide-file",
+                  "title": "DeepSeek - 探索未至之境"
+                }
+              },
+              {
+                "id": "756c24bfa748bd0e",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "反向链接"
+                }
+              },
+              {
+                "id": "ac44fa75bf261e96",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "出链"
+                }
+              },
+              {
+                "id": "fdebb999c46eb26c",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "ad97f804f437d5ce",
+                "type": "leaf",
+                "state": {
+                  "type": "all-properties",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-archive",
+                  "title": "添加笔记属性"
+                }
+              },
+              {
+                "id": "a902de6c442208a8",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "大纲"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 374.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "surfing:surfing-bookmark-manager": false,
+          "obsidian42-brat:BRAT": false,
+          "canvas:新建白板": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "markdown-importer:打开 Markdown 格式转换器": false,
+          "widgets:Add widget": false,
+          "graph:查看关系图谱": false,
+          "command-palette:打开命令面板": false,
+          "workspaces:管理工作区布局": false,
+          "marp-slides:Show Slide Preview": false,
+          "obsidian-kanban:创建新看板": false,
+          "obsidian-memos:Thino": false,
+          "remotely-save:Remotely Save": false,
+          "keep-the-rhythm:Word Count Stats": false,
+          "omnisearch:Omnisearch": false,
+          "obsidian-projects:打开项目": false,
+          "cloze:显/隐所有填空": false,
+          "periodic-notes:Open today's daily note": false,
+          "templater-obsidian:Templater": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "copilot:Open Copilot Chat": false,
+          "obsidian-excalidraw-plugin:新建绘图文件": false,
+          "periodic-para:LifeOS 创建": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false
+        }
+      },
+      "active": "a76fa12e43ffb24f",
+      "mtime": "2025-04-20T23:12:57+08:00"
+    },
+    "常用": {
+      "main": {
+        "id": "929044414500c6ef",
+        "type": "split",
+        "children": [
+          {
+            "id": "47cd6fa519dc585b",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "c327938c70ea7054",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "新标签页"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "963a39b77a035e5b",
+        "type": "split",
+        "children": [
+          {
+            "id": "1670e7e8e25dff28",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "063ddc247870ad1c",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "文件列表"
+                }
+              }
+            ]
+          },
+          {
+            "id": "7cdafd2c6ef01d65",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "48bf4e04d91cd34e",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {},
+                  "icon": "clock",
+                  "title": "Recent Files"
+                }
+              },
+              {
+                "id": "f32c66a84981e5a3",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "书签"
+                }
+              },
+              {
+                "id": "f8e6733f32036e6f",
+                "type": "leaf",
+                "state": {
+                  "type": "tg-left-sidebar",
+                  "state": {},
+                  "icon": "panel-left-dashed",
+                  "title": "Task GeniusSidebar"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 446.5
+      },
+      "right": {
+        "id": "1eeabe721bfa615c",
+        "type": "split",
+        "children": [
+          {
+            "id": "adf2a2e115a738af",
+            "type": "tabs",
+            "dimension": 53.60696517412935,
+            "children": [
+              {
+                "id": "b9300c107b96873a",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "003 中级/003 中级.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "003 中级 的出链列表"
+                }
+              },
+              {
+                "id": "5eb2bf9fca99d698",
+                "type": "leaf",
+                "state": {
+                  "type": "quiet-outline",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "quiet-outline"
+                }
+              },
+              {
+                "id": "50da6464b97ce5cd",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "标签"
+                }
+              },
+              {
+                "id": "805509ddc4d5d9f2",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "大纲"
+                }
+              },
+              {
+                "id": "c717c05b60e1c7ad",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "搜索"
+                }
+              },
+              {
+                "id": "f45c399e9d03ca68",
+                "type": "leaf",
+                "state": {
+                  "type": "git-history-view",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "git-history-view"
+                }
+              },
+              {
+                "id": "6d1a6364494cb8d8",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "反向链接"
+                }
+              },
+              {
+                "id": "b6af02defc486a66",
+                "type": "leaf",
+                "state": {
+                  "type": "advanced-tables-toolbar",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "advanced-tables-toolbar"
+                }
+              },
+              {
+                "id": "d038dec87a0416fc",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "源代码管理"
+                }
+              },
+              {
+                "id": "436d68e5659daf40",
+                "type": "leaf",
+                "state": {
+                  "type": "tag-group-view",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "tag-group-view"
+                }
+              },
+              {
+                "id": "eaf0c64526e82da4",
+                "type": "leaf",
+                "state": {
+                  "type": "tg-right-detail",
+                  "state": {},
+                  "icon": "panel-right-dashed",
+                  "title": "Task Genius详情"
+                }
+              },
+              {
+                "id": "fb47b3b795913ee1",
+                "type": "leaf",
+                "state": {
+                  "type": "pw.todo-list",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "pw.todo-list"
+                }
+              },
+              {
+                "id": "d54aca3bccd55bdb",
+                "type": "leaf",
+                "state": {
+                  "type": "pw.todo-list",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "pw.todo-list"
+                }
+              },
+              {
+                "id": "a852be4e0c1678ee",
+                "type": "leaf",
+                "state": {
+                  "type": "pw.todo-list",
+                  "state": {},
+                  "icon": "lucide-ghost",
+                  "title": "pw.todo-list"
+                }
+              },
+              {
+                "id": "47ebb2ab01daf777",
+                "type": "leaf",
+                "state": {
+                  "type": "all-properties",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-archive",
+                  "title": "添加笔记属性"
+                }
+              }
+            ],
+            "currentTab": 3
+          },
+          {
+            "id": "2ae9a1777f445b93",
+            "type": "tabs",
+            "dimension": 17.288557213930346,
+            "children": [
+              {
+                "id": "16f821bb0ae7704d",
+                "type": "leaf",
+                "state": {
+                  "type": "keep-the-rhythm",
+                  "state": {},
+                  "icon": "calendar-days",
+                  "title": "Keep the Rhythm"
+                }
+              }
+            ]
+          },
+          {
+            "id": "ed1accfdeb6a3ff0",
+            "type": "tabs",
+            "dimension": 29.1044776119403,
+            "children": [
+              {
+                "id": "a77703c002a6b663",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "主页/本月统计.md",
+                    "mode": "source",
+                    "source": false,
+                    "backlinks": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "本月统计"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 717.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "explorer-hider:Enable hiding snippets": false,
+          "remotely-save:Remotely Save": false,
+          "notebook-navigator:笔记本导航器": false,
+          "omnisearch:Omnisearch": false,
+          "find-orphaned-images:Find orphaned images": false,
+          "nutstore-sync:Start sync": false,
+          "nutstore-sync:Stop sync": false,
+          "cmdr:重新加载 Obsidian（不保存当前编辑内容）": false,
+          "cmdr:上下分屏": false,
+          "bases:新建数据库": false,
+          "templates:插入模板": false,
+          "command-palette:打开命令面板": false,
+          "workspaces:管理工作区布局": false,
+          "daily-notes:打开/创建今天的日记": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "obsidian42-brat:BRAT": false,
+          "cloze:显/隐所有填空": false,
+          "iconic:打开规则书": false,
+          "keep-the-rhythm:Word Count Stats": false,
+          "obsidian-memos:Thino": false,
+          "templater-obsidian:Templater": false,
+          "obsidian-git:打开Git源代码管理": false,
+          "obsidian-kanban:创建新看板": false,
+          "obsidian-memos:Thino Super": false,
+          "css-editor:Open CSS editor quick switcher": false,
+          "i18n:common.i18n": false,
+          "obsidian-task-progress-bar:打开 Task Genius 视图": false
+        }
+      },
+      "active": "c327938c70ea7054",
+      "mtime": "2026-04-23T19:12:38+08:00"
+    }
+  },
+  "active": "默认工作区"
+}

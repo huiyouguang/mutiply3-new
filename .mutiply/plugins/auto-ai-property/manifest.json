@@ -1,0 +1,10 @@
+{
+  "id": "auto-ai-property",
+  "name": "Auto AI Property",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "自动使用 AI 填充笔记中未填写的 Frontmatter 属性字段",
+  "author": "AI Property Filler",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}

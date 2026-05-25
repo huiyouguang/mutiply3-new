@@ -1,0 +1,177 @@
+{
+  "serviceType": "local",
+  "localEndpoint": "http://localhost:11434/v1/chat/completions",
+  "localModel": "deepseek-r1:1.5b",
+  "cloudEndpoint": "https://api.deepseek.com/v1/chat/completions",
+  "cloudApiKey": "sk-fb18523845a24a89afb29d9456226e1f",
+  "cloudModel": "deepseek-chat",
+  "cloudServiceType": "deepseek",
+  "llmTemperatureOverride": 0.3,
+  "requestTimeout": 60,
+  "debugMode": true,
+  "language": "zh-cn",
+  "interfaceLanguage": "zh-cn",
+  "matchMode": "configured",
+  "emptyFieldsOnly": true,
+  "customPrompt": "请根据以下笔记内容，分析并填写这些空缺的 Frontmatter 属性字段。\n\n### 当前已有属性（请勿修改）\n{existing_properties}\n\n### 需要填充的空缺字段\n{empty_fields}\n\n### 笔记内容:\n{document_content}\n\n请只返回需要填充的字段对应的 YAML 键值对，不要修改已有属性，不要额外解释。确保值准确基于笔记内容。",
+  "excludedFolders": [],
+  "propertyFields": [
+    {
+      "name": "章节",
+      "enabled": true,
+      "strategy": "ai",
+      "description": "笔记所属章节",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "困难程度",
+      "enabled": true,
+      "strategy": "ai",
+      "description": "难易程度",
+      "options": [
+        "简单",
+        "中等",
+        "困难"
+      ],
+      "allowCustom": false
+    },
+    {
+      "name": "科目类别",
+      "enabled": true,
+      "strategy": "folder",
+      "description": "取文件所在文件夹名",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "主要程度",
+      "enabled": true,
+      "strategy": "ai",
+      "description": "重要程度",
+      "options": [
+        "核心",
+        "次要",
+        "了解"
+      ],
+      "allowCustom": false
+    },
+    {
+      "name": "分值",
+      "enabled": true,
+      "strategy": "ai",
+      "description": "价值评分",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "复习次数",
+      "enabled": true,
+      "strategy": "fixed",
+      "description": "复习次数",
+      "options": [],
+      "allowCustom": true,
+      "defaultValue": ""
+    },
+    {
+      "name": "创建时间",
+      "enabled": true,
+      "strategy": "date",
+      "description": "当前日期时间",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "结束日期",
+      "enabled": true,
+      "strategy": "date",
+      "description": "当前日期",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "文件分类",
+      "enabled": true,
+      "strategy": "folder",
+      "description": "取文件所在文件夹名",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "播客",
+      "enabled": true,
+      "strategy": "ai",
+      "description": "播客名称",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "收藏标签",
+      "enabled": true,
+      "strategy": "ai",
+      "description": "收藏标签",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "季号",
+      "enabled": true,
+      "strategy": "ai",
+      "description": "播客季号",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "文件名",
+      "enabled": true,
+      "strategy": "filename",
+      "description": "",
+      "options": [],
+      "allowCustom": false,
+      "defaultValue": ""
+    },
+    {
+      "name": "words",
+      "enabled": true,
+      "strategy": "ai",
+      "description": "",
+      "options": [],
+      "allowCustom": true
+    },
+    {
+      "name": "PrevNote",
+      "enabled": true,
+      "strategy": "ai",
+      "description": "",
+      "options": [],
+      "allowCustom": true
+    }
+  ],
+  "combos": [
+    {
+      "name": "播客组合",
+      "fields": [
+        "播客",
+        "收藏标签",
+        "季号",
+        "文件分类",
+        "结束日期"
+      ]
+    },
+    {
+      "name": "常用笔记组合",
+      "fields": [
+        "文件分类",
+        "科目类别",
+        "章节",
+        "困难程度",
+        "主要程度",
+        "分值",
+        "复习次数",
+        "创建时间",
+        "结束日期",
+        "文件名"
+      ]
+    }
+  ]
+}
