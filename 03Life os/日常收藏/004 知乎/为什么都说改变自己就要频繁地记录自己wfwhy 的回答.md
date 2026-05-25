@@ -1,15 +1,19 @@
 ---
-文件分类: 为什么都说改变自己就要频繁地记录自己？ - wfwhy 的回答
-平台: 平台
-核心主题:
+收藏标签: 知乎
+状态: 待读
+来源: 知乎
+作者:
+标签:
 链接: https://www.zhihu.com/question/1995380182287132044/answer/2035675962231240375
-完成状态:
-收藏标签: clippings
-类型:
-mindmap-plugin: basic
 cssclasses:
-PrevNote: "[[Clippings/你人生中太晚明白的道理是什么]]"
-NextNote: "[[为什么美国人花了很多时间在体育上  - 知乎用户5y12N 的回答]]"
+mindmap-plugin: basic
+完成状态:
+平台: 平台
+文件分类: 为什么都说改变自己就要频繁地记录自己？ - wfwhy 的回答
+核心主题:
+类型:
+PrevNote: "[[为什么大家都说人生的容错率大到无法想象]]"
+NextNote: "[[为什么国内的大学越来越高中化了 - 铁芒萁的研习社 的回答]]"
 ---
 [谢邀 @麦清](https://www.zhihu.com/people/c99982b64304b35f254dbaf05581a188)
 

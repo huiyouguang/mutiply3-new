@@ -1,8 +1,12 @@
 ---
-收藏标签: clippings
+收藏标签: 知乎
+状态: 待读
+来源: 知乎
+作者:
+标签:
+链接:
+PrevNote: "[[做小生意真的比打工强吗]]"
 ---
-
-
 ### 0.1 0.1 do this before 2026
 
 You’re probably going to quit your new years<font color="#f79646"> resolution</font>.
