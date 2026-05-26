@@ -307,7 +307,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 382.5
+    "width": 382.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -338,6 +339,9 @@
   },
   "active": "599862c47982c9ce",
   "lastOpenFiles": [
+    "copilot/copilot-conversations/你好@20260525_201425.md",
+    "copilot/copilot-conversations",
+    "03Life os/日常收藏/004 知乎/目前为止，你总结出的最大人生经验是什么 (Clippings版).md",
     "Clippings/(98 封私信  16 条消息) 目前为止，你总结出的最大人生经验是什么.md",
     "2 不能完全辨认自己行为的成年人新浪微博 ＠ 斯尔教育或关注斯尔教育微信公众号精准冲刺 99 记·经济法· 4 · 续表行为能力类型完全民事行为能力人 118 周岁以上的自然人。.md",
     "10.work status trakcer",
@@ -368,13 +372,10 @@
     "04成长/知识管理/错题库/会计/注会会计刷题/金考典/计算题.md",
     "04成长/知识管理/错题库/会计/注会会计刷题/金考典/错题整理---前三章.md",
     "04成长/知识管理/错题库/会计/注会会计刷题/金考典/extract_questions.py",
-    "01 task/注册会计师第二轮 task.md",
-    "Clippings/当一个人长期在压抑的环境里自我内耗，真正治愈自己的关键，是和解过去，还是放下期待 - 123与 的回答.md",
     "YOLO/skills",
     "skill",
     "YOLO",
     "08数据库/书籍总库.base",
-    "04成长/知识管理/错题库/2026试题刷",
     "Mutiply2/icons/remix-icons/SlackFill.svg",
     "Mutiply2/icons/remix-icons/MindMap.svg",
     "Mutiply2/icons/remix-icons/MapPinRangeFill.svg",

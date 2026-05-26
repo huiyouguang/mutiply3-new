@@ -246,7 +246,7 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "工作"
+        title: "主页"
     -
         id: bg-
         format: hex
@@ -267,7 +267,7 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "主页"
+        title: "工作"
     -
         id: bg-
         format: hex
@@ -413,19 +413,19 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-thino) !important;
 }
-.nav-folder-title[data-path^="工作"],
-.nav-file-title[data-path^="工作"] {
-    color: var(--col-) !important;
-}
-.tree-item.nav-folder[data-path="工作"] {
-    border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-) !important;
-}
 .nav-folder-title[data-path^="主页"],
 .nav-file-title[data-path^="主页"] {
     color: var(--col-) !important;
 }
 .tree-item.nav-folder[data-path="主页"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-) !important;
+}
+.nav-folder-title[data-path^="工作"],
+.nav-file-title[data-path^="工作"] {
+    color: var(--col-) !important;
+}
+.tree-item.nav-folder[data-path="工作"] {
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-) !important;
 }
