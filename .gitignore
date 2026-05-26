@@ -12,7 +12,7 @@ plugins/copilot/data.json
 plugins/text-generator/data.json
 plugins/smart-connections/
 plugins/ai-tagger-universe/data.json
-
+.obsidian/plugins/yolo
 # 通用敏感文件
 *.env
 *.key
