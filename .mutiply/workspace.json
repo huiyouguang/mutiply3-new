@@ -333,8 +333,7 @@
       "auto-ai-property:选择字段填充...": false,
       "wordflow-tracker:Record wordflows from edited notes": false,
       "wordflow-tracker:Reveal and refresh wordflow tracker widget": false,
-      "keep-the-rhythm:Keep the Rhythm": false,
-      "obsidian-task-progress-bar:打开 Task Genius 视图": false
+      "keep-the-rhythm:Keep the Rhythm": false
     }
   },
   "active": "599862c47982c9ce",
