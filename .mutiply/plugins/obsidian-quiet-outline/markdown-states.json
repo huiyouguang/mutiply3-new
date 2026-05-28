@@ -28,15 +28,15 @@
     ]
   },
   "01 task/注册会计师.md": {
-    "scroll": 0,
+    "scroll": 402.7131901825589,
     "cursor": {
       "from": {
-        "line": 23,
-        "ch": 14
+        "line": 418,
+        "ch": 8
       },
       "to": {
-        "line": 23,
-        "ch": 14
+        "line": 418,
+        "ch": 8
       }
     },
     "expandedKeys": []
@@ -487,15 +487,15 @@
     "expandedKeys": []
   },
   "0Inbox/戒.md": {
-    "scroll": 5.926367315196335,
+    "scroll": 4.516495195407312,
     "cursor": {
       "from": {
-        "line": 17,
-        "ch": 35
+        "line": 33,
+        "ch": 20
       },
       "to": {
-        "line": 17,
-        "ch": 35
+        "line": 33,
+        "ch": 20
       }
     },
     "expandedKeys": []
@@ -1857,11 +1857,11 @@
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 23,
+        "line": 0,
         "ch": 0
       },
       "to": {
-        "line": 23,
+        "line": 0,
         "ch": 0
       }
     },
@@ -3484,15 +3484,99 @@
     "expandedKeys": []
   },
   "04成长/知识管理/004 注会/003 经济法/2026/99记--经济法.md": {
-    "scroll": 928.3645833333334,
+    "scroll": 432.27777777777777,
     "cursor": {
       "from": {
-        "line": 13,
+        "line": 447,
         "ch": 0
       },
       "to": {
-        "line": 13,
+        "line": 447,
         "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "QuickCapture.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 6,
+        "ch": 71
+      },
+      "to": {
+        "line": 6,
+        "ch": 71
+      }
+    },
+    "expandedKeys": []
+  },
+  "01 task/QuickCapture.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 6,
+        "ch": 76
+      },
+      "to": {
+        "line": 6,
+        "ch": 76
+      }
+    },
+    "expandedKeys": []
+  },
+  "inbox/2026-05-28.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 4,
+        "ch": 0
+      },
+      "to": {
+        "line": 4,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "01 task/2026-05-28.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 5,
+        "ch": 0
+      },
+      "to": {
+        "line": 5,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "01 task/task genuis/QuickCapture.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 5,
+        "ch": 0
+      },
+      "to": {
+        "line": 6,
+        "ch": 76
+      }
+    },
+    "expandedKeys": []
+  },
+  "01 task/task genuis/2026-05-28.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 20,
+        "ch": 73
+      },
+      "to": {
+        "line": 20,
+        "ch": 73
       }
     },
     "expandedKeys": []

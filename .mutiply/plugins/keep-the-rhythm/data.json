@@ -25360,6 +25360,148 @@
         "charCountStart": 27943,
         "changes": [],
         "id": 1830
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "04成长/知识管理/004 注会/003 经济法/2026/物权法.md",
+        "wordCountStart": 9480,
+        "charCountStart": 26005,
+        "changes": [],
+        "id": 1831
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "0Inbox/戒.md",
+        "wordCountStart": 241,
+        "charCountStart": 872,
+        "changes": [
+          {
+            "timeKey": "11:15",
+            "w": 5,
+            "c": -5
+          }
+        ],
+        "id": 1832
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "01 task/注册会计师.md",
+        "wordCountStart": 21798,
+        "charCountStart": 42589,
+        "changes": [
+          {
+            "timeKey": "11:15",
+            "w": 117,
+            "c": 43
+          },
+          {
+            "timeKey": "11:20",
+            "w": 58,
+            "c": 377
+          }
+        ],
+        "id": 1833
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "01 task/注册会计师第二轮 task.md",
+        "wordCountStart": 67,
+        "charCountStart": 211,
+        "changes": [
+          {
+            "timeKey": "11:15",
+            "w": -67,
+            "c": -211
+          }
+        ],
+        "id": 1834
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "01 task/task genuis/QuickCapture.md",
+        "wordCountStart": 44,
+        "charCountStart": 139,
+        "changes": [
+          {
+            "timeKey": "11:20",
+            "w": 6,
+            "c": 20
+          },
+          {
+            "timeKey": "11:25",
+            "w": 29,
+            "c": 77
+          },
+          {
+            "timeKey": "11:35",
+            "w": -79,
+            "c": -236
+          }
+        ],
+        "id": 1835
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "01 task/主观题突破.md",
+        "wordCountStart": 184,
+        "charCountStart": 482,
+        "changes": [],
+        "id": 1836
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "QuickCapture.md",
+        "wordCountStart": 57,
+        "charCountStart": 177,
+        "changes": [
+          {
+            "timeKey": "11:30",
+            "w": -57,
+            "c": -177
+          }
+        ],
+        "id": 1837
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "inbox/2026-05-28.md",
+        "wordCountStart": 26,
+        "charCountStart": 99,
+        "changes": [
+          {
+            "timeKey": "11:30",
+            "w": -26,
+            "c": -99
+          }
+        ],
+        "id": 1838
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "01 task/task genuis/2026-05-28.md",
+        "wordCountStart": 37,
+        "charCountStart": 122,
+        "changes": [
+          {
+            "timeKey": "11:35",
+            "w": 96,
+            "c": 275
+          },
+          {
+            "timeKey": "11:40",
+            "w": 113,
+            "c": 312
+          }
+        ],
+        "id": 1839
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "thino/2026-05-21.md",
+        "wordCountStart": 1156,
+        "charCountStart": 1545,
+        "changes": [],
+        "id": 1840
       }
     ],
     "daysWithCompletedGoal": [

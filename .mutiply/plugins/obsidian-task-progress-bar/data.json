@@ -208,11 +208,11 @@
     "targetFile": "QuickCapture.md",
     "placeholder": "记录你的想法...",
     "appendToFile": "append",
-    "targetType": "fixed",
+    "targetType": "daily-note",
     "targetHeading": "",
     "dailyNoteSettings": {
       "format": "YYYY-MM-DD",
-      "folder": "",
+      "folder": "01 task/task genuis",
       "template": ""
     },
     "enableMinimalMode": false,
@@ -426,6 +426,14 @@
         "color": "#27ae60",
         "createdAt": 1762787006854,
         "updatedAt": 1762787006854
+      },
+      {
+        "id": "project-1779938504455-tud1u6mfl",
+        "name": "注会第二轮",
+        "displayName": "注会第二轮",
+        "color": "#f39c12",
+        "createdAt": 1779938504455,
+        "updatedAt": 1779938504455
       }
     ]
   },
@@ -1048,54 +1056,10 @@
       "ws_1762178755605_n9uo2fpvn": {
         "id": "ws_1762178755605_n9uo2fpvn",
         "name": "mutiply",
-        "updatedAt": 1778858617638,
+        "updatedAt": 1779939723211,
         "settings": {
           "fluentFilterState": {
             "inbox": {
-              "filters": {},
-              "selectedProject": "中级会计",
-              "advancedFilter": {
-                "rootCondition": "all",
-                "filterGroups": [
-                  {
-                    "id": "fluent-proj-group-1778236119668",
-                    "groupCondition": "all",
-                    "filters": [
-                      {
-                        "id": "fluent-proj-filter-1778236119668",
-                        "property": "project",
-                        "condition": "is",
-                        "value": "中级会计"
-                      }
-                    ]
-                  }
-                ]
-              },
-              "viewMode": "list"
-            },
-            "flagged": {
-              "filters": {},
-              "selectedProject": "中级会计",
-              "advancedFilter": {
-                "rootCondition": "all",
-                "filterGroups": [
-                  {
-                    "id": "fluent-proj-group-1778236119668",
-                    "groupCondition": "all",
-                    "filters": [
-                      {
-                        "id": "fluent-proj-filter-1778236119668",
-                        "property": "project",
-                        "condition": "is",
-                        "value": "中级会计"
-                      }
-                    ]
-                  }
-                ]
-              },
-              "viewMode": "list"
-            },
-            "projects": {
               "filters": {},
               "selectedProject": "注册会计师",
               "advancedFilter": {
@@ -1115,23 +1079,23 @@
                   }
                 ]
               },
-              "viewMode": "calendar"
+              "viewMode": "list"
             },
-            "today": {
+            "flagged": {
               "filters": {},
-              "selectedProject": "中级会计",
+              "selectedProject": "戒色",
               "advancedFilter": {
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778236119668",
+                    "id": "fluent-proj-group-1779938153331",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778236119668",
+                        "id": "fluent-proj-filter-1779938153331",
                         "property": "project",
                         "condition": "is",
-                        "value": "中级会计"
+                        "value": "戒色"
                       }
                     ]
                   }
@@ -1139,21 +1103,65 @@
               },
               "viewMode": "list"
             },
-            "forecast": {
+            "projects": {
               "filters": {},
-              "selectedProject": "中级会计",
+              "selectedProject": "注会第二轮",
               "advancedFilter": {
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778236119668",
+                    "id": "fluent-proj-group-1779939646502",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778236119668",
+                        "id": "fluent-proj-filter-1779939646502",
                         "property": "project",
                         "condition": "is",
-                        "value": "中级会计"
+                        "value": "注会第二轮"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "viewMode": "list"
+            },
+            "today": {
+              "filters": {},
+              "selectedProject": "戒色",
+              "advancedFilter": {
+                "rootCondition": "all",
+                "filterGroups": [
+                  {
+                    "id": "fluent-proj-group-1779938016783",
+                    "groupCondition": "all",
+                    "filters": [
+                      {
+                        "id": "fluent-proj-filter-1779938016783",
+                        "property": "project",
+                        "condition": "is",
+                        "value": "戒色"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "viewMode": "tree"
+            },
+            "forecast": {
+              "filters": {},
+              "selectedProject": "注册会计师",
+              "advancedFilter": {
+                "rootCondition": "all",
+                "filterGroups": [
+                  {
+                    "id": "fluent-proj-group-1779938248161",
+                    "groupCondition": "all",
+                    "filters": [
+                      {
+                        "id": "fluent-proj-filter-1779938248161",
+                        "property": "project",
+                        "condition": "is",
+                        "value": "注册会计师"
                       }
                     ]
                   }
@@ -1163,27 +1171,41 @@
             },
             "upcoming": {
               "filters": {},
+              "selectedProject": "注册会计师",
               "advancedFilter": {
                 "rootCondition": "all",
-                "filterGroups": []
+                "filterGroups": [
+                  {
+                    "id": "fluent-proj-group-1778858554248",
+                    "groupCondition": "all",
+                    "filters": [
+                      {
+                        "id": "fluent-proj-filter-1778858554248",
+                        "property": "project",
+                        "condition": "is",
+                        "value": "注册会计师"
+                      }
+                    ]
+                  }
+                ]
               },
               "viewMode": "list"
             },
             "quadrant": {
               "filters": {},
-              "selectedProject": "中级会计",
+              "selectedProject": "注会第二轮",
               "advancedFilter": {
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778236119668",
+                    "id": "fluent-proj-group-1779938519904",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778236119668",
+                        "id": "fluent-proj-filter-1779938519904",
                         "property": "project",
                         "condition": "is",
-                        "value": "中级会计"
+                        "value": "注会第二轮"
                       }
                     ]
                   }
@@ -1193,19 +1215,19 @@
             },
             "working-on": {
               "filters": {},
-              "selectedProject": "中级会计",
+              "selectedProject": "戒色",
               "advancedFilter": {
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778236119668",
+                    "id": "fluent-proj-group-1779937972665",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778236119668",
+                        "id": "fluent-proj-filter-1779937972665",
                         "property": "project",
                         "condition": "is",
-                        "value": "中级会计"
+                        "value": "戒色"
                       }
                     ]
                   }
@@ -1215,19 +1237,19 @@
             },
             "table": {
               "filters": {},
-              "selectedProject": "中级会计",
+              "selectedProject": "注会第二轮",
               "advancedFilter": {
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778236119668",
+                    "id": "fluent-proj-group-1779939646502",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778236119668",
+                        "id": "fluent-proj-filter-1779939646502",
                         "property": "project",
                         "condition": "is",
-                        "value": "中级会计"
+                        "value": "注会第二轮"
                       }
                     ]
                   }
@@ -1237,19 +1259,19 @@
             },
             "review": {
               "filters": {},
-              "selectedProject": "中级会计",
+              "selectedProject": "戒色",
               "advancedFilter": {
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778236119668",
+                    "id": "fluent-proj-group-1779937972665",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778236119668",
+                        "id": "fluent-proj-filter-1779937972665",
                         "property": "project",
                         "condition": "is",
-                        "value": "中级会计"
+                        "value": "戒色"
                       }
                     ]
                   }
@@ -1286,11 +1308,11 @@
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778858527511",
+                    "id": "fluent-proj-group-1779938016783",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778858527511",
+                        "id": "fluent-proj-filter-1779938016783",
                         "property": "project",
                         "condition": "is",
                         "value": "戒色"
@@ -1308,11 +1330,11 @@
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778858527511",
+                    "id": "fluent-proj-group-1779938016783",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778858527511",
+                        "id": "fluent-proj-filter-1779938016783",
                         "property": "project",
                         "condition": "is",
                         "value": "戒色"
@@ -1330,11 +1352,11 @@
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778858527511",
+                    "id": "fluent-proj-group-1779938016783",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778858527511",
+                        "id": "fluent-proj-filter-1779938016783",
                         "property": "project",
                         "condition": "is",
                         "value": "戒色"
@@ -1352,11 +1374,33 @@
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1778858527511",
+                    "id": "fluent-proj-group-1779938016783",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1778858527511",
+                        "id": "fluent-proj-filter-1779938016783",
+                        "property": "project",
+                        "condition": "is",
+                        "value": "戒色"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "viewMode": "list"
+            },
+            "new-task": {
+              "filters": {},
+              "selectedProject": "戒色",
+              "advancedFilter": {
+                "rootCondition": "all",
+                "filterGroups": [
+                  {
+                    "id": "fluent-proj-group-1779938041665",
+                    "groupCondition": "all",
+                    "filters": [
+                      {
+                        "id": "fluent-proj-filter-1779938041665",
                         "property": "project",
                         "condition": "is",
                         "value": "戒色"
@@ -1368,7 +1412,7 @@
               "viewMode": "list"
             }
           },
-          "fluentActiveViewId": "projects"
+          "fluentActiveViewId": "table"
         },
         "icon": "layers",
         "color": "#888888"
