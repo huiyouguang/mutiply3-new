@@ -25338,6 +25338,28 @@
           }
         ],
         "id": 1828
+      },
+      {
+        "date": "2026-05-27",
+        "filePath": "04成长/知识管理/004 注会/003 经济法/2026/99记--经济法.md",
+        "wordCountStart": 12098,
+        "charCountStart": 27895,
+        "changes": [
+          {
+            "timeKey": "10:30",
+            "w": 12,
+            "c": -887
+          }
+        ],
+        "id": 1829
+      },
+      {
+        "date": "2026-05-28",
+        "filePath": "04成长/知识管理/004 注会/003 经济法/2026/99记--经济法.md",
+        "wordCountStart": 12110,
+        "charCountStart": 27943,
+        "changes": [],
+        "id": 1830
       }
     ],
     "daysWithCompletedGoal": [

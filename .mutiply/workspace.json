@@ -333,11 +333,14 @@
       "auto-ai-property:选择字段填充...": false,
       "wordflow-tracker:Record wordflows from edited notes": false,
       "wordflow-tracker:Reveal and refresh wordflow tracker widget": false,
-      "keep-the-rhythm:Keep the Rhythm": false
+      "keep-the-rhythm:Keep the Rhythm": false,
+      "obsidian-task-progress-bar:打开 Task Genius 视图": false
     }
   },
   "active": "599862c47982c9ce",
   "lastOpenFiles": [
+    "未命名.md",
+    "copilot/copilot-conversations/你好@20260526_220626.md",
     "copilot/copilot-conversations/你好@20260525_201425.md",
     "copilot/copilot-conversations",
     "03Life os/日常收藏/004 知乎/目前为止，你总结出的最大人生经验是什么 (Clippings版).md",
@@ -368,8 +371,6 @@
     "04成长/知识管理/004 注会/002 审计/审计知识点/完成审计工作.md",
     "04成长/知识管理/004 注会/各科薄弱点整理/薄弱点整理.md",
     "04成长/知识管理/错题库/会计/注会会计刷题/金考典/错题整理---前六章.md",
-    "04成长/知识管理/错题库/会计/注会会计刷题/金考典/计算题.md",
-    "04成长/知识管理/错题库/会计/注会会计刷题/金考典/错题整理---前三章.md",
     "04成长/知识管理/错题库/会计/注会会计刷题/金考典/extract_questions.py",
     "YOLO/skills",
     "skill",
