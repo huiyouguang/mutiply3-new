@@ -18,6 +18,8 @@ tags:
 mindmap-plugin: basic
 PrevNote: "[[合同法]]"
 NextNote: "[[票据法]]"
+words:
+  2026-05-25: 10002
 ---
 
 # 票据法
