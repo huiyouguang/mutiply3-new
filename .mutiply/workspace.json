@@ -8,94 +8,6 @@
         "type": "tabs",
         "children": [
           {
-            "id": "599862c47982c9ce",
-            "type": "leaf",
-            "state": {
-              "type": "mindmapview",
-              "state": {
-                "file": "04成长/知识管理/004 注会/003 经济法/2026/物权法.md"
-              },
-              "icon": "blocks",
-              "title": "物权法"
-            }
-          },
-          {
-            "id": "47e31e3b7ef44833",
-            "type": "leaf",
-            "state": {
-              "type": "thino_view",
-              "state": {},
-              "icon": "Memos",
-              "title": "Thino"
-            }
-          },
-          {
-            "id": "39272fe56ba4c602",
-            "type": "leaf",
-            "state": {
-              "type": "fluent-task-genius-view",
-              "state": {
-                "currentWorkspace": "ws_1762178755605_n9uo2fpvn",
-                "viewMode": "list",
-                "viewModeByViewId": {
-                  "table": "list"
-                },
-                "searchQuery": "",
-                "filters": {},
-                "filterInputValue": "",
-                "selectedProject": "注会第二轮",
-                "currentViewId": "table"
-              },
-              "icon": "task-genius",
-              "title": "Task Genius"
-            }
-          },
-          {
-            "id": "3977d37c6faab93f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01 task/注册会计师.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "注册会计师"
-            }
-          },
-          {
-            "id": "7661c812bc73acb0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01 task/task genuis/2026-05-28.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-05-28"
-            }
-          },
-          {
-            "id": "67437f62cccc5db4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01 task/task genuis/2026-05-28.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "2026-05-28"
-            }
-          },
-          {
             "id": "5023206848c7ca72",
             "type": "leaf",
             "state": {
@@ -110,8 +22,7 @@
               "title": "合表题"
             }
           }
-        ],
-        "currentTab": 6
+        ]
       }
     ],
     "direction": "vertical"
