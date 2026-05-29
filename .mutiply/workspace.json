@@ -370,12 +370,12 @@
             "state": {
               "type": "tg-right-detail",
               "state": {},
-              "icon": "panel-right-dashed",
-              "title": "Task Genius详情"
+              "icon": "lucide-ghost",
+              "title": "tg-right-detail"
             }
           }
         ],
-        "currentTab": 13
+        "currentTab": 4
       },
       {
         "id": "cf640654e156b4ab",
@@ -427,6 +427,8 @@
   },
   "active": "5023206848c7ca72",
   "lastOpenFiles": [
+    "Clippings/一个人最根本的能力到底是什么？ - 茶花路莫里亚蒂 的回答.md",
+    "Clippings",
     "01 task/注册会计师.md",
     "01 task/task genuis/2026-05-28.md",
     "04成长/知识管理/004 注会/003 经济法/2026/物权法.md",
@@ -462,8 +464,6 @@
     "04成长/知识管理/错题库/会计/注会会计刷题/金考典/错题整理---前六章（题目版）.md",
     "04成长/知识管理/004 注会/004 战略/2026/战略 战略分析.md",
     "工作/数据线知识.md",
-    "04成长/知识管理/004 注会/004 战略/战略知识点/pdf.md",
-    "04成长/知识管理/004 注会/004 战略/2026",
     "Mutiply2/icons/remix-icons/SlackFill.svg",
     "Mutiply2/icons/remix-icons/MindMap.svg",
     "Mutiply2/icons/remix-icons/MapPinRangeFill.svg",
