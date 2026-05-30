@@ -1,0 +1,223 @@
+/* ===================== Property Field List Styles ===================== */
+.property-fields-list {
+    margin-top: var(--size-4-4);
+    margin-bottom: var(--size-4-4);
+}
+
+.property-field-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: var(--size-4-3);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-m);
+    margin-bottom: var(--size-4-2);
+    background: var(--background-secondary);
+}
+
+.property-field-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.property-field-name-row {
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-2);
+    margin-bottom: var(--size-2-1);
+}
+
+.property-field-name {
+    font-weight: var(--font-semibold);
+    font-size: var(--font-ui-medium);
+}
+
+.property-field-badge {
+    display: inline-block;
+    padding: 0 var(--size-4-2);
+    border-radius: var(--radius-s);
+    font-size: var(--font-smallest);
+    font-weight: var(--font-medium);
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+}
+
+.property-field-group-badge {
+    display: inline-block;
+    padding: 0 var(--size-4-2);
+    border-radius: var(--radius-s);
+    font-size: var(--font-smallest);
+    font-weight: var(--font-medium);
+    background: var(--color-cyan);
+    color: var(--text-on-accent);
+    margin-left: var(--size-2-1);
+}
+
+.property-field-desc {
+    font-size: var(--font-smaller);
+    color: var(--text-muted);
+    margin-top: var(--size-2-1);
+}
+
+.property-field-options,
+.property-field-default {
+    font-size: var(--font-smallest);
+    color: var(--text-muted);
+    margin-top: var(--size-2-1);
+}
+
+.property-field-actions {
+    display: flex;
+    gap: var(--size-2-1);
+    flex-shrink: 0;
+    margin-left: var(--size-4-2);
+}
+
+.property-field-btn {
+    background: none;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    cursor: pointer;
+    padding: var(--size-2-1) var(--size-4-1);
+    font-size: var(--font-smaller);
+    color: var(--text-muted);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.property-field-btn:hover {
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+}
+
+.property-field-btn.active {
+    color: var(--color-green);
+    border-color: var(--color-green);
+}
+
+.property-field-btn.delete:hover {
+    color: var(--color-red);
+    border-color: var(--color-red);
+}
+
+/* ===================== Combo List Styles ===================== */
+.combo-list {
+    margin-top: var(--size-4-2);
+    margin-bottom: var(--size-4-4);
+}
+
+.combo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--size-4-2) var(--size-4-3);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-m);
+    margin-bottom: var(--size-4-2);
+    background: var(--background-secondary);
+}
+
+.combo-item-info {
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-2);
+}
+
+.combo-item-name {
+    font-weight: var(--font-semibold);
+    font-size: var(--font-ui-medium);
+}
+
+.combo-item-count {
+    font-size: var(--font-smaller);
+    color: var(--text-muted);
+}
+
+.combo-fill-btn {
+    flex-shrink: 0;
+}
+
+/* ===================== Fill Config Modal ===================== */
+.fill-config-row {
+    display: flex;
+    align-items: center;
+    padding: var(--size-2-1) 0;
+    gap: var(--size-2-1);
+}
+
+.fill-config-row input[type="checkbox"] {
+    margin: 0;
+    cursor: pointer;
+}
+
+.fill-config-row label {
+    cursor: pointer;
+    font-size: var(--font-ui-small);
+}
+
+.fill-config-buttons {
+    border-top: 1px solid var(--background-modifier-border);
+    padding-top: var(--size-4-3);
+}
+
+/* ===================== Field Edit Modal ===================== */
+.property-field-modal {
+    padding: var(--size-4-4);
+    max-width: 500px;
+}
+
+.property-field-modal h2 {
+    margin-bottom: var(--size-4-4);
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: var(--size-4-2);
+}
+
+.property-field-modal-buttons {
+    border-top: 1px solid var(--background-modifier-border);
+    padding-top: var(--size-4-3);
+}
+
+/* ===================== Preview Modal ===================== */
+.property-preview-modal {
+    padding: var(--size-4-4);
+    max-width: 400px;
+}
+
+.property-preview-modal h3 {
+    margin-bottom: var(--size-4-3);
+    border-bottom: 1px solid var(--background-modifier-border);
+    padding-bottom: var(--size-4-2);
+}
+
+.property-preview-modal ul {
+    padding-left: var(--size-4-4);
+}
+
+.property-preview-modal li {
+    padding: var(--size-2-1) 0;
+    font-size: var(--font-ui-small);
+}
+
+/* ===================== Connection Test ===================== */
+.connection-test-container {
+    display: flex;
+    align-items: center;
+    gap: var(--size-4-2);
+}
+
+/* ===================== Value Display for Sliders ===================== */
+.value-display {
+    font-size: var(--font-ui-small);
+    color: var(--text-muted);
+    min-width: 20px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ===================== Text Area for Prompt ===================== */
+.setting-item textarea {
+    width: 100%;
+    min-height: 120px;
+    font-family: var(--font-monospace);
+    font-size: var(--font-smaller);
+}

@@ -24,6 +24,9 @@ secret*
 .keep-the-rhythm/
 .trash/
 
+
+
+
 # 系统垃圾文件（不影响插件）
 .DS_Store
 .Spotlight-V100

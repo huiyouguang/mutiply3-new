@@ -1,0 +1,122 @@
+/* ======================================== */
+/* ========== 【终极修复】表格右侧留白+文字挤竖排 ========== */
+/* ========== 优化版：修复列表标记消失问题 ========== */
+/* ======================================== */
+
+/* 1. 全局强制解锁所有行宽限制，根因修复 */
+body {
+  --file-line-width: 100% !important;
+  --line-width: 100% !important;
+  --line-width-readable: 100% !important;
+  --table-max-width: 100% !important;
+}
+
+/* 2. 编辑模式（实时预览）核心容器强制铺满，但【不破坏列表缩进】 */
+.markdown-source-view.mod-cm6 .cm-contentContainer,
+.markdown-source-view.mod-cm6 .cm-content {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  /* 可选：给整个内容区一个全局左右留白，避免文本贴边（保留16px） */
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* 3. 针对普通段落、代码块等行容器：只控制宽度，不强制覆盖内边距 */
+.markdown-source-view.mod-cm6 .cm-line {
+  max-width: 100% !important;
+  width: 100% !important;
+  /* 移除强制 margin/padding，让列表能使用自己的缩进 */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  /* 保留默认的 padding 行为（Obsidian 会根据元素类型动态加缩进） */
+  /* 注意：不设置 padding-left，否则会破坏列表标记的基准位置 */
+}
+
+/* 4. 阅读模式核心容器：同样不破坏缩进 */
+.markdown-preview-view .markdown-preview-sizer,
+.markdown-preview-view .markdown-preview-section {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* 5. 列表修复：确保显示标记（圆点、数字）并恢复正确缩进 */
+/* 5.1 编辑模式下的列表项（CM6） */
+.markdown-source-view.mod-cm6 .cm-list-item {
+  /* 保留左侧空间以显示列表标记（圆点/数字） */
+  padding-left: 0 !important;
+  /* 确保标记不被截断 */
+  list-style-type: disc;
+}
+
+/* 确保有序列表的标记可见 */
+.markdown-source-view.mod-cm6 .cm-list-1,
+.markdown-source-view.mod-cm6 .cm-list-2,
+.markdown-source-view.mod-cm6 .cm-list-3 {
+  /* 维持 Obsidian 默认的列表编号样式 */
+  list-style-type: decimal;
+}
+
+/* 5.2 阅读模式下的列表 */
+.markdown-preview-view ul,
+.markdown-preview-view ol {
+  padding-left: 2em !important;  /* 保留标准缩进，显示标记 */
+  margin-left: 0 !important;
+}
+
+/* 6. 表格所有外层包裹容器：强制铺满，彻底解除宽度限制 */
+.markdown-source-view.mod-cm6 .cm-table-widget,
+.markdown-source-view.mod-cm6 .cm-table-widget .table-wrapper,
+.markdown-preview-view .table-wrapper,
+.markdown-rendered .table-wrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  overflow-x: visible !important;
+}
+
+/* 7. 表格本身：强制100%宽度，列宽自适应不挤文字 */
+.markdown-source-view.mod-cm6 .cm-table-widget table,
+.markdown-rendered table,
+.markdown-preview-view table {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  table-layout: auto !important; /* 列宽随内容自适应 */
+  border-collapse: collapse !important;
+}
+
+/* 8. 解决表格内文字挤成竖排的核心规则 */
+.markdown-source-view.mod-cm6 .cm-table-widget th,
+.markdown-rendered th {
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  word-break: keep-all !important;
+  white-space: nowrap !important;
+  padding: 8px 12px !important;
+}
+
+.markdown-source-view.mod-cm6 .cm-table-widget td,
+.markdown-rendered td {
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  word-break: keep-all !important;
+  white-space: normal !important;
+  padding: 8px 12px !important;
+}
+
+/* 9. 可选：段落、引用块等其他元素的行宽一致性（不破坏原有样式） */
+.markdown-source-view.mod-cm6 .cm-line:not(.cm-list-item) {
+  /* 普通段落不额外干预缩进，保留 Obsidian 默认 */
+}
+
+/* 10. 兼容你原有的全宽模式类（如果有） */
+body.tbMH-qk {
+  --file-line-width: 100% !important;
+  --line-width: 100% !important;
+}
