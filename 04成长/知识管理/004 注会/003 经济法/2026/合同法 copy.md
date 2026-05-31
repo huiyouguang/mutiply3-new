@@ -12,8 +12,8 @@ source:
 mindmap-plugin:
 created:
 updated:
-PrevNote: "[[国有资产法]]"
-NextNote: "[[票据法-basic]]"
+PrevNote: "[[基本民事法律制度2]]"
+NextNote: "[[04成长/知识管理/004 注会/003 经济法/2026/物权法]]"
 words:
   2026-05-19: 20883
   2026-05-30: 20881
