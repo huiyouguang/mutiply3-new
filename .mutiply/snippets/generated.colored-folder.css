@@ -36,48 +36,6 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "03Life os"
-    -
-        id: bg-03lifeos
-        format: hex
-        opacity: true
-        type: variable-themed-color
-        title: "Background color"
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-    -
-        id: col-03lifeos
-        title: Text color
-        type: variable-themed-color
-        format: hex
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-        opacity: true
-    -
-        type: heading
-        level: 3
-        collapsed: true
-        title: "04成长"
-    -
-        id: bg-04
-        format: hex
-        opacity: true
-        type: variable-themed-color
-        title: "Background color"
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-    -
-        id: col-04
-        title: Text color
-        type: variable-themed-color
-        format: hex
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-        opacity: true
-    -
-        type: heading
-        level: 3
-        collapsed: true
         title: "01 task"
     -
         id: bg-01task
@@ -89,6 +47,27 @@ settings:
         default-dark: "#ffffff00"
     -
         id: col-01task
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
+        title: "03Life os"
+    -
+        id: bg-03lifeos
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-03lifeos
         title: Text color
         type: variable-themed-color
         format: hex
@@ -120,9 +99,9 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "canvas"
+        title: "Clippings"
     -
-        id: bg-canvas
+        id: bg-clippings
         format: hex
         opacity: true
         type: variable-themed-color
@@ -130,7 +109,28 @@ settings:
         default-light: "#ffffff00"
         default-dark: "#ffffff00"
     -
-        id: col-canvas
+        id: col-clippings
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
+        title: "04成长"
+    -
+        id: bg-04
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-04
         title: Text color
         type: variable-themed-color
         format: hex
@@ -162,9 +162,9 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "copilot"
+        title: "canvas"
     -
-        id: bg-copilot
+        id: bg-canvas
         format: hex
         opacity: true
         type: variable-themed-color
@@ -172,28 +172,7 @@ settings:
         default-light: "#ffffff00"
         default-dark: "#ffffff00"
     -
-        id: col-copilot
-        title: Text color
-        type: variable-themed-color
-        format: hex
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-        opacity: true
-    -
-        type: heading
-        level: 3
-        collapsed: true
-        title: "inbox"
-    -
-        id: bg-inbox
-        format: hex
-        opacity: true
-        type: variable-themed-color
-        title: "Background color"
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-    -
-        id: col-inbox
+        id: col-canvas
         title: Text color
         type: variable-themed-color
         format: hex
@@ -246,9 +225,9 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "主页"
+        title: "copilot"
     -
-        id: bg-
+        id: bg-copilot
         format: hex
         opacity: true
         type: variable-themed-color
@@ -256,7 +235,28 @@ settings:
         default-light: "#ffffff00"
         default-dark: "#ffffff00"
     -
-        id: col-
+        id: col-copilot
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
+        title: "inbox"
+    -
+        id: bg-inbox
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-inbox
         title: Text color
         type: variable-themed-color
         format: hex
@@ -288,9 +288,9 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "Clippings"
+        title: "主页"
     -
-        id: bg-clippings
+        id: bg-
         format: hex
         opacity: true
         type: variable-themed-color
@@ -298,7 +298,7 @@ settings:
         default-light: "#ffffff00"
         default-dark: "#ffffff00"
     -
-        id: col-clippings
+        id: col-
         title: Text color
         type: variable-themed-color
         format: hex
@@ -307,72 +307,56 @@ settings:
         opacity: true
 */
 .theme-dark {
-    --bg-03lifeos: #ffffff00;
-    --col-03lifeos: "var(--nav-item-color)";
-    --bg-04: #ffffff00;
-    --col-04: "var(--nav-item-color)";
     --bg-01task: #ffffff00;
     --col-01task: "var(--nav-item-color)";
+    --bg-03lifeos: #ffffff00;
+    --col-03lifeos: "var(--nav-item-color)";
     --bg-08: #ffffff00;
     --col-08: "var(--nav-item-color)";
-    --bg-canvas: #ffffff00;
-    --col-canvas: "var(--nav-item-color)";
+    --bg-clippings: #ffffff00;
+    --col-clippings: "var(--nav-item-color)";
+    --bg-04: #ffffff00;
+    --col-04: "var(--nav-item-color)";
     --bg-0inbox: #ffffff00;
     --col-0inbox: "var(--nav-item-color)";
-    --bg-copilot: #ffffff00;
-    --col-copilot: "var(--nav-item-color)";
-    --bg-inbox: #ffffff00;
-    --col-inbox: "var(--nav-item-color)";
+    --bg-canvas: #ffffff00;
+    --col-canvas: "var(--nav-item-color)";
     --bg-templates: #ffffff00;
     --col-templates: "var(--nav-item-color)";
     --bg-thino: #ffffff00;
     --col-thino: "var(--nav-item-color)";
+    --bg-copilot: #ffffff00;
+    --col-copilot: "var(--nav-item-color)";
+    --bg-inbox: #ffffff00;
+    --col-inbox: "var(--nav-item-color)";
     --bg-: #ffffff00;
     --col-: "var(--nav-item-color)";
-    --bg-clippings: #ffffff00;
-    --col-clippings: "var(--nav-item-color)";
 }
 .theme-light {
-    --bg-03lifeos: #ffffff00;
-    --col-03lifeos: "var(--nav-item-color)";
-    --bg-04: #ffffff00;
-    --col-04: "var(--nav-item-color)";
     --bg-01task: #ffffff00;
     --col-01task: "var(--nav-item-color)";
+    --bg-03lifeos: #ffffff00;
+    --col-03lifeos: "var(--nav-item-color)";
     --bg-08: #ffffff00;
     --col-08: "var(--nav-item-color)";
-    --bg-canvas: #ffffff00;
-    --col-canvas: "var(--nav-item-color)";
+    --bg-clippings: #ffffff00;
+    --col-clippings: "var(--nav-item-color)";
+    --bg-04: #ffffff00;
+    --col-04: "var(--nav-item-color)";
     --bg-0inbox: #ffffff00;
     --col-0inbox: "var(--nav-item-color)";
-    --bg-copilot: #ffffff00;
-    --col-copilot: "var(--nav-item-color)";
-    --bg-inbox: #ffffff00;
-    --col-inbox: "var(--nav-item-color)";
+    --bg-canvas: #ffffff00;
+    --col-canvas: "var(--nav-item-color)";
     --bg-templates: #ffffff00;
     --col-templates: "var(--nav-item-color)";
     --bg-thino: #ffffff00;
     --col-thino: "var(--nav-item-color)";
+    --bg-copilot: #ffffff00;
+    --col-copilot: "var(--nav-item-color)";
+    --bg-inbox: #ffffff00;
+    --col-inbox: "var(--nav-item-color)";
     --bg-: #ffffff00;
     --col-: "var(--nav-item-color)";
-    --bg-clippings: #ffffff00;
-    --col-clippings: "var(--nav-item-color)";
-}
-.nav-folder-title[data-path^="03Life os"],
-.nav-file-title[data-path^="03Life os"] {
-    color: var(--col-03lifeos) !important;
-}
-.tree-item.nav-folder[data-path="03Life os"] {
-    border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-03lifeos) !important;
-}
-.nav-folder-title[data-path^="04成长"],
-.nav-file-title[data-path^="04成长"] {
-    color: var(--col-04) !important;
-}
-.tree-item.nav-folder[data-path="04成长"] {
-    border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-04) !important;
 }
 .nav-folder-title[data-path^="01 task"],
 .nav-file-title[data-path^="01 task"] {
@@ -382,6 +366,14 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-01task) !important;
 }
+.nav-folder-title[data-path^="03Life os"],
+.nav-file-title[data-path^="03Life os"] {
+    color: var(--col-03lifeos) !important;
+}
+.tree-item.nav-folder[data-path="03Life os"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-03lifeos) !important;
+}
 .nav-folder-title[data-path^="08数据库"],
 .nav-file-title[data-path^="08数据库"] {
     color: var(--col-08) !important;
@@ -390,13 +382,21 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-08) !important;
 }
-.nav-folder-title[data-path^="canvas"],
-.nav-file-title[data-path^="canvas"] {
-    color: var(--col-canvas) !important;
+.nav-folder-title[data-path^="Clippings"],
+.nav-file-title[data-path^="Clippings"] {
+    color: var(--col-clippings) !important;
 }
-.tree-item.nav-folder[data-path="canvas"] {
+.tree-item.nav-folder[data-path="Clippings"] {
     border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-canvas) !important;
+    background-color: var(--bg-clippings) !important;
+}
+.nav-folder-title[data-path^="04成长"],
+.nav-file-title[data-path^="04成长"] {
+    color: var(--col-04) !important;
+}
+.tree-item.nav-folder[data-path="04成长"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-04) !important;
 }
 .nav-folder-title[data-path^="0Inbox"],
 .nav-file-title[data-path^="0Inbox"] {
@@ -406,21 +406,13 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-0inbox) !important;
 }
-.nav-folder-title[data-path^="copilot"],
-.nav-file-title[data-path^="copilot"] {
-    color: var(--col-copilot) !important;
+.nav-folder-title[data-path^="canvas"],
+.nav-file-title[data-path^="canvas"] {
+    color: var(--col-canvas) !important;
 }
-.tree-item.nav-folder[data-path="copilot"] {
+.tree-item.nav-folder[data-path="canvas"] {
     border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-copilot) !important;
-}
-.nav-folder-title[data-path^="inbox"],
-.nav-file-title[data-path^="inbox"] {
-    color: var(--col-inbox) !important;
-}
-.tree-item.nav-folder[data-path="inbox"] {
-    border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-inbox) !important;
+    background-color: var(--bg-canvas) !important;
 }
 .nav-folder-title[data-path^="Templates"],
 .nav-file-title[data-path^="Templates"] {
@@ -438,13 +430,21 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-thino) !important;
 }
-.nav-folder-title[data-path^="主页"],
-.nav-file-title[data-path^="主页"] {
-    color: var(--col-) !important;
+.nav-folder-title[data-path^="copilot"],
+.nav-file-title[data-path^="copilot"] {
+    color: var(--col-copilot) !important;
 }
-.tree-item.nav-folder[data-path="主页"] {
+.tree-item.nav-folder[data-path="copilot"] {
     border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-) !important;
+    background-color: var(--bg-copilot) !important;
+}
+.nav-folder-title[data-path^="inbox"],
+.nav-file-title[data-path^="inbox"] {
+    color: var(--col-inbox) !important;
+}
+.tree-item.nav-folder[data-path="inbox"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-inbox) !important;
 }
 .nav-folder-title[data-path^="工作"],
 .nav-file-title[data-path^="工作"] {
@@ -454,11 +454,11 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-) !important;
 }
-.nav-folder-title[data-path^="Clippings"],
-.nav-file-title[data-path^="Clippings"] {
-    color: var(--col-clippings) !important;
+.nav-folder-title[data-path^="主页"],
+.nav-file-title[data-path^="主页"] {
+    color: var(--col-) !important;
 }
-.tree-item.nav-folder[data-path="Clippings"] {
+.tree-item.nav-folder[data-path="主页"] {
     border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-clippings) !important;
+    background-color: var(--bg-) !important;
 }
