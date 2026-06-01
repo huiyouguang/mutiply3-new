@@ -52,7 +52,8 @@
     "彩色分割线",
     "大纲",
     "callout",
-    "选中行高亮"
+    "选中行高亮",
+    "画板"
   ],
   "translucency": true,
   "textFontFamily": "Open Sans",

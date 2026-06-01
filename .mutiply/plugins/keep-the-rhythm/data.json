@@ -25602,6 +25602,28 @@
         "charCountStart": 28419,
         "changes": [],
         "id": 1843
+      },
+      {
+        "date": "2026-06-01",
+        "filePath": "Excalidraw/Drawing 2026-06-01 15.38.08.excalidraw.md",
+        "wordCountStart": 49,
+        "charCountStart": 590,
+        "changes": [],
+        "id": 1844
+      },
+      {
+        "date": "2026-06-01",
+        "filePath": "04成长/知识管理/错题库/会计/注会会计刷题/会计错题3月.md",
+        "wordCountStart": 4982,
+        "charCountStart": 9558,
+        "changes": [
+          {
+            "timeKey": "16:00",
+            "w": 50,
+            "c": -460
+          }
+        ],
+        "id": 1845
       }
     ],
     "daysWithCompletedGoal": [

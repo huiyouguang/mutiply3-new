@@ -4,22 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "614b7512af8073a8",
+        "id": "e8bddadc542d3678",
         "type": "tabs",
         "children": [
           {
-            "id": "5023206848c7ca72",
+            "id": "12437a780af6fda8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "04成长/知识管理/错题库/会计/注会会计刷题/金考典/合表题.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "Excalidraw/Drawing 2026-06-01 15.38.08.excalidraw.md"
               },
-              "icon": "lucide-file",
-              "title": "合表题"
+              "icon": "excalidraw-icon",
+              "title": "Drawing 2026-06-01 15.38.08.excalidraw"
             }
           }
         ]
@@ -333,11 +330,17 @@
       "wordflow-tracker:Record wordflows from edited notes": false,
       "wordflow-tracker:Reveal and refresh wordflow tracker widget": false,
       "keep-the-rhythm:Keep the Rhythm": false,
-      "obsidian-task-progress-bar:打开 Task Genius 视图": false
+      "obsidian-task-progress-bar:打开 Task Genius 视图": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "5023206848c7ca72",
+  "active": "12437a780af6fda8",
   "lastOpenFiles": [
+    "04成长/知识管理/错题库/会计/注会会计刷题/金考典/合表题.md",
+    "Excalidraw/Drawing 2026-06-01 15.38.08.excalidraw.md",
+    "04成长/知识管理/错题库/会计/注会会计刷题/会计错题3月.md",
+    "Excalidraw",
+    "10.23周r15 42t下午tu42 tr下午15c0r",
     "插件2065.5.30.7z",
     "thino/2026/2026-05-31.md",
     "Clippings/你人生中太晚明白的道理是什么？ - 理性情绪实验室 的回答.md",
@@ -364,16 +367,11 @@
     "10.22周r11 53t上午tu53 tr上午11c3r",
     "01 task/注册会计师第二轮 task.md",
     "0Inbox/戒.md",
-    "10.22周r10 2t上午tu2 tr上午10c3r",
     "04成长/知识管理/004 注会/003 经济法/2026/99记--经济法.md",
     "未命名.md",
     "copilot/copilot-conversations/你好@20260526_220626.md",
     "copilot/copilot-conversations/你好@20260525_201425.md",
-    "copilot/copilot-conversations",
     "03Life os/日常收藏/004 知乎/目前为止，你总结出的最大人生经验是什么 (Clippings版).md",
-    "Clippings/(98 封私信  16 条消息) 目前为止，你总结出的最大人生经验是什么.md",
-    "2 不能完全辨认自己行为的成年人新浪微博 ＠ 斯尔教育或关注斯尔教育微信公众号精准冲刺 99 记·经济法· 4 · 续表行为能力类型完全民事行为能力人 118 周岁以上的自然人。.md",
-    "10.work status trakcer",
     "04成长/知识管理/004 注会/001 会计/会计专题班/99记-会计 AI Canvas.canvas",
     "Mutiply2/icons/remix-icons/SlackFill.svg",
     "Mutiply2/icons/remix-icons/MindMap.svg",
