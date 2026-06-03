@@ -406,11 +406,11 @@
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 0,
+        "line": 5,
         "ch": 0
       },
       "to": {
-        "line": 0,
+        "line": 5,
         "ch": 0
       }
     },
@@ -1016,15 +1016,15 @@
     ]
   },
   "01 task/基础阶段-中级刷题.md": {
-    "scroll": 3.64203125,
+    "scroll": 0.20711974110032363,
     "cursor": {
       "from": {
-        "line": 19,
-        "ch": 12
+        "line": 8,
+        "ch": 0
       },
       "to": {
-        "line": 19,
-        "ch": 12
+        "line": 8,
+        "ch": 0
       }
     },
     "expandedKeys": []
@@ -1033,12 +1033,12 @@
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 0,
-        "ch": 11
+        "line": 5,
+        "ch": 0
       },
       "to": {
-        "line": 0,
-        "ch": 11
+        "line": 5,
+        "ch": 0
       }
     },
     "expandedKeys": []
@@ -3568,15 +3568,15 @@
     "expandedKeys": []
   },
   "01 task/task genuis/2026-05-28.md": {
-    "scroll": 0,
+    "scroll": 3.883495145631068,
     "cursor": {
       "from": {
         "line": 20,
-        "ch": 73
+        "ch": 0
       },
       "to": {
         "line": 20,
-        "ch": 73
+        "ch": 0
       }
     },
     "expandedKeys": []
@@ -3604,6 +3604,118 @@
       },
       "to": {
         "line": 14,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "03Life os/日常收藏/004 知乎/未命名思维导图.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 12,
+        "ch": 0
+      },
+      "to": {
+        "line": 12,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "03Life os/日常收藏/004 知乎/How to fix your entire life in 1 day.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 12,
+        "ch": 0
+      },
+      "to": {
+        "line": 12,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "03Life os/日常收藏/004 知乎/没了心气是怎么恢复的 - 随风自由 的回答.md": {
+    "scroll": 0.3830480847595762,
+    "cursor": {
+      "from": {
+        "line": 0,
+        "ch": 0
+      },
+      "to": {
+        "line": 0,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "03Life os/日常收藏/004 知乎/没了心气是怎么恢复的 - 我只是一只喵 的回答.md": {
+    "scroll": 693.6534722222223,
+    "cursor": {
+      "from": {
+        "line": 713,
+        "ch": 0
+      },
+      "to": {
+        "line": 713,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "Clippings/请说出一个对人极其重要、简单、实用，但常被忽略的认知？ - 奶茶新贵 的回答.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 14,
+        "ch": 0
+      },
+      "to": {
+        "line": 14,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "Clippings/请说出一个对人极其重要、简单、实用，但常被忽略的认知？ - 奶茶新贵 的回答 1.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 14,
+        "ch": 0
+      },
+      "to": {
+        "line": 14,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "03Life os/播客生活/未命名.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 7,
+        "ch": 27
+      },
+      "to": {
+        "line": 6,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "03Life os/播客生活/我走了十年的路才明白的道理.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 6,
+        "ch": 0
+      },
+      "to": {
+        "line": 6,
         "ch": 0
       }
     },

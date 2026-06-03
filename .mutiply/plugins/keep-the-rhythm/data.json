@@ -25624,6 +25624,188 @@
           }
         ],
         "id": 1845
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "未命名.md",
+        "wordCountStart": 6,
+        "charCountStart": 43,
+        "changes": [
+          {
+            "timeKey": "09:30",
+            "w": 2,
+            "c": 42
+          }
+        ],
+        "id": 1848
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "conflict-files-obsidian-git.md",
+        "wordCountStart": 99,
+        "charCountStart": 682,
+        "changes": [
+          {
+            "timeKey": "09:30",
+            "w": 0,
+            "c": 0
+          }
+        ],
+        "id": 1849
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "Excalidraw/长投合表整理.md",
+        "wordCountStart": 3925,
+        "charCountStart": 52633,
+        "changes": [],
+        "id": 1850
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "03Life os/日常收藏/004 知乎/在人生重大选择中，最应该考虑的是什me - XENON 的回答.md",
+        "wordCountStart": 9863,
+        "charCountStart": 15461,
+        "changes": [],
+        "id": 1851
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "03Life os/日常收藏/004 知乎/未命名思维导图.md",
+        "wordCountStart": 37,
+        "charCountStart": 131,
+        "changes": [
+          {
+            "timeKey": "09:30",
+            "w": 0,
+            "c": -4
+          }
+        ],
+        "id": 1852
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "03Life os/日常收藏/004 知乎/How to fix your entire life in 1 day.md",
+        "wordCountStart": 12724,
+        "charCountStart": 43313,
+        "changes": [
+          {
+            "timeKey": "09:30",
+            "w": 0,
+            "c": -665
+          }
+        ],
+        "id": 1853
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "03Life os/日常收藏/004 知乎/没了心气是怎么恢复的 - 随风自由 的回答.md",
+        "wordCountStart": 6160,
+        "charCountStart": 11974,
+        "changes": [],
+        "id": 1854
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "03Life os/日常收藏/004 知乎/没了心气是怎么恢复的 - 我只是一只喵 的回答.md",
+        "wordCountStart": 6413,
+        "charCountStart": 11807,
+        "changes": [
+          {
+            "timeKey": "09:30",
+            "w": 0,
+            "c": -719
+          }
+        ],
+        "id": 1855
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "Clippings/请说出一个对人极其重要、简单、实用，但常被忽略的认知？ - 奶茶新贵 的回答.md",
+        "wordCountStart": 5461,
+        "charCountStart": 8608,
+        "changes": [
+          {
+            "timeKey": "10:00",
+            "w": 0,
+            "c": -147
+          }
+        ],
+        "id": 1856
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "Clippings/请说出一个对人极其重要、简单、实用，但常被忽略的认知 - 奶茶新贵 的回答 1.md",
+        "wordCountStart": 1879,
+        "charCountStart": 2746,
+        "changes": [
+          {
+            "timeKey": "10:05",
+            "w": 0,
+            "c": -26
+          }
+        ],
+        "id": 1857
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "01 task/task genuis/2026-05-28.md",
+        "wordCountStart": 249,
+        "charCountStart": 747,
+        "changes": [
+          {
+            "timeKey": "10:55",
+            "w": 8,
+            "c": 24
+          },
+          {
+            "timeKey": "11:00",
+            "w": 1,
+            "c": 17
+          }
+        ],
+        "id": 1858
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "01 task/基础阶段-中级刷题.md",
+        "wordCountStart": 1325,
+        "charCountStart": 3609,
+        "changes": [
+          {
+            "timeKey": "11:00",
+            "w": 0,
+            "c": -56
+          }
+        ],
+        "id": 1859
+      },
+      {
+        "date": "2026-06-02",
+        "filePath": "03Life os/播客生活/我走了十年的路才明白的道理.md",
+        "wordCountStart": 27,
+        "charCountStart": 56,
+        "changes": [
+          {
+            "timeKey": "11:00",
+            "w": 11,
+            "c": 74
+          },
+          {
+            "timeKey": "11:10",
+            "w": 29,
+            "c": 46
+          }
+        ],
+        "id": 1860
+      },
+      {
+        "date": "2026-06-03",
+        "filePath": "03Life os/播客生活/我走了十年的路才明白的道理.md",
+        "wordCountStart": 67,
+        "charCountStart": 177,
+        "changes": [],
+        "id": 1861
       }
     ],
     "daysWithCompletedGoal": [

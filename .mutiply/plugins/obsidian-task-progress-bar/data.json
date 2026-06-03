@@ -1056,7 +1056,7 @@
       "ws_1762178755605_n9uo2fpvn": {
         "id": "ws_1762178755605_n9uo2fpvn",
         "name": "mutiply",
-        "updatedAt": 1780040507898,
+        "updatedAt": 1780369218901,
         "settings": {
           "fluentFilterState": {
             "inbox": {
@@ -1110,11 +1110,11 @@
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1779939646502",
+                    "id": "fluent-proj-group-1780369218217",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1779939646502",
+                        "id": "fluent-proj-filter-1780369218217",
                         "property": "project",
                         "condition": "is",
                         "value": "注会第二轮"
@@ -1237,19 +1237,19 @@
             },
             "table": {
               "filters": {},
-              "selectedProject": "注会第二轮",
+              "selectedProject": "戒色",
               "advancedFilter": {
                 "rootCondition": "all",
                 "filterGroups": [
                   {
-                    "id": "fluent-proj-group-1779939646502",
+                    "id": "fluent-proj-group-1780369132429",
                     "groupCondition": "all",
                     "filters": [
                       {
-                        "id": "fluent-proj-filter-1779939646502",
+                        "id": "fluent-proj-filter-1780369132429",
                         "property": "project",
                         "condition": "is",
-                        "value": "注会第二轮"
+                        "value": "戒色"
                       }
                     ]
                   }
@@ -1412,7 +1412,7 @@
               "viewMode": "list"
             }
           },
-          "fluentActiveViewId": "table"
+          "fluentActiveViewId": "projects"
         },
         "icon": "layers",
         "color": "#888888"

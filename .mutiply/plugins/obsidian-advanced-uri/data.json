@@ -1,8 +1,18 @@
 {
   "openFileOnWrite": true,
-  "openDailyInNewPane": false,
-  "openFileOnWriteInNewPane": false,
-  "openFileWithoutWriteInNewPane": false,
+  "openDailyInNewPane": true,
+  "openFileOnWriteInNewPane": true,
+  "openFileWithoutWriteInNewPane": true,
   "idField": "id",
-  "useUID": false
+  "useUID": true,
+  "addFilepathWhenUsingUID": false,
+  "allowEval": false,
+  "includeVaultName": true,
+  "vaultParam": "name",
+  "linkFormats": [
+    {
+      "name": "Markdown",
+      "format": "[{{name}}]({{uri}})"
+    }
+  ]
 }
