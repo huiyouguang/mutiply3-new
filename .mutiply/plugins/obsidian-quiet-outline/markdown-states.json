@@ -3711,11 +3711,39 @@
     "scroll": 0,
     "cursor": {
       "from": {
-        "line": 6,
+        "line": 8,
+        "ch": 94
+      },
+      "to": {
+        "line": 8,
+        "ch": 94
+      }
+    },
+    "expandedKeys": []
+  },
+  "01 task/task genuis/未命名.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 5,
         "ch": 0
       },
       "to": {
-        "line": 6,
+        "line": 5,
+        "ch": 0
+      }
+    },
+    "expandedKeys": []
+  },
+  "01 task/task genuis/2026.6.4.md": {
+    "scroll": 0,
+    "cursor": {
+      "from": {
+        "line": 12,
+        "ch": 0
+      },
+      "to": {
+        "line": 12,
         "ch": 0
       }
     },

@@ -49,13 +49,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03Life os/播客生活/我走了十年的路才明白的道理.md",
+                "file": "01 task/task genuis/2026.6.4.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "我走了十年的路才明白的道理"
+              "title": "2026.6.4"
             }
           }
         ],
@@ -143,7 +143,7 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -221,6 +221,20 @@
             }
           },
           {
+            "id": "2e22929c4449a97d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
             "id": "3018ed1ed4b3e28e",
             "type": "leaf",
             "state": {
@@ -236,29 +250,15 @@
             }
           },
           {
-            "id": "2e22929c4449a97d",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-archive",
-              "title": "添加笔记属性"
-            }
-          },
-          {
             "id": "f9c56fa882d15f2f",
             "type": "leaf",
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "01 task/task genuis/2026-05-28.md"
+                "file": "01 task/task genuis/2026.6.4.md"
               },
               "icon": "lucide-info",
-              "title": "2026-05-28的笔记属性"
+              "title": "2026.6.4的笔记属性"
             }
           },
           {
@@ -322,7 +322,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 4
       },
       {
         "id": "cf640654e156b4ab",
@@ -375,8 +375,9 @@
   },
   "active": "7b1aadc8f323ee26",
   "lastOpenFiles": [
-    "04成长/知识管理/004 注会/006 税法/税法知识点/2026/企业所得税.md",
     "03Life os/播客生活/我走了十年的路才明白的道理.md",
+    "01 task/task genuis/2026.6.4.md",
+    "04成长/知识管理/004 注会/006 税法/税法知识点/2026/企业所得税.md",
     "01 task/task genuis/2026-05-28.md",
     "01 task/基础阶段-中级刷题.md",
     "01 task/task genuis/2026-06-02.md",
@@ -407,7 +408,6 @@
     "Clippings/一个人最根本的能力到底是什么？ - 茶花路莫里亚蒂 的回答.md",
     "Clippings",
     "01 task/注册会计师.md",
-    "04成长/知识管理/004 注会/003 经济法/2026/物权法.md",
     "task genuis",
     "10.22周r11 8t上午tu8 tr上午11c3r",
     "10.22周r11 23t中午tu23 tr中午11c3r",
