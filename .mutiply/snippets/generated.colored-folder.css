@@ -204,6 +204,27 @@ settings:
         type: heading
         level: 3
         collapsed: true
+        title: "Excalidraw"
+    -
+        id: bg-excalidraw
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-excalidraw
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
         title: "inbox"
     -
         id: bg-inbox
@@ -257,27 +278,6 @@ settings:
         default-dark: "#ffffff00"
     -
         id: col-thino
-        title: Text color
-        type: variable-themed-color
-        format: hex
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-        opacity: true
-    -
-        type: heading
-        level: 3
-        collapsed: true
-        title: "Excalidraw"
-    -
-        id: bg-excalidraw
-        format: hex
-        opacity: true
-        type: variable-themed-color
-        title: "Background color"
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-    -
-        id: col-excalidraw
         title: Text color
         type: variable-themed-color
         format: hex
@@ -344,14 +344,14 @@ settings:
     --col-clippings: "var(--nav-item-color)";
     --bg-copilot: #ffffff00;
     --col-copilot: "var(--nav-item-color)";
+    --bg-excalidraw: #ffffff00;
+    --col-excalidraw: "var(--nav-item-color)";
     --bg-inbox: #ffffff00;
     --col-inbox: "var(--nav-item-color)";
     --bg-templates: #ffffff00;
     --col-templates: "var(--nav-item-color)";
     --bg-thino: #ffffff00;
     --col-thino: "var(--nav-item-color)";
-    --bg-excalidraw: #ffffff00;
-    --col-excalidraw: "var(--nav-item-color)";
     --bg-: #ffffff00;
     --col-: "var(--nav-item-color)";
 }
@@ -372,14 +372,14 @@ settings:
     --col-clippings: "var(--nav-item-color)";
     --bg-copilot: #ffffff00;
     --col-copilot: "var(--nav-item-color)";
+    --bg-excalidraw: #ffffff00;
+    --col-excalidraw: "var(--nav-item-color)";
     --bg-inbox: #ffffff00;
     --col-inbox: "var(--nav-item-color)";
     --bg-templates: #ffffff00;
     --col-templates: "var(--nav-item-color)";
     --bg-thino: #ffffff00;
     --col-thino: "var(--nav-item-color)";
-    --bg-excalidraw: #ffffff00;
-    --col-excalidraw: "var(--nav-item-color)";
     --bg-: #ffffff00;
     --col-: "var(--nav-item-color)";
 }
@@ -447,6 +447,14 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-copilot) !important;
 }
+.nav-folder-title[data-path^="Excalidraw"],
+.nav-file-title[data-path^="Excalidraw"] {
+    color: var(--col-excalidraw) !important;
+}
+.tree-item.nav-folder[data-path="Excalidraw"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-excalidraw) !important;
+}
 .nav-folder-title[data-path^="inbox"],
 .nav-file-title[data-path^="inbox"] {
     color: var(--col-inbox) !important;
@@ -470,14 +478,6 @@ settings:
 .tree-item.nav-folder[data-path="thino"] {
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-thino) !important;
-}
-.nav-folder-title[data-path^="Excalidraw"],
-.nav-file-title[data-path^="Excalidraw"] {
-    color: var(--col-excalidraw) !important;
-}
-.tree-item.nav-folder[data-path="Excalidraw"] {
-    border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-excalidraw) !important;
 }
 .nav-folder-title[data-path^="主页"],
 .nav-file-title[data-path^="主页"] {

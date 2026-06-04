@@ -138,12 +138,12 @@
             "state": {
               "type": "tg-left-sidebar",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "tg-left-sidebar"
+              "icon": "panel-left-dashed",
+              "title": "Task GeniusSidebar"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -277,8 +277,8 @@
             "state": {
               "type": "git-history-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "git-history-view"
+              "icon": "history",
+              "title": "历史记录"
             }
           },
           {
@@ -297,8 +297,8 @@
             "state": {
               "type": "notebook-navigator-calendar",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "notebook-navigator-calendar"
+              "icon": "notebook-navigator",
+              "title": "日历"
             }
           },
           {
@@ -307,8 +307,8 @@
             "state": {
               "type": "wordflow-widget-view",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "wordflow-widget-view"
+              "icon": "chart-bar-decreasing",
+              "title": "Wordflow Tracker"
             }
           },
           {
@@ -317,12 +317,12 @@
             "state": {
               "type": "tg-right-detail",
               "state": {},
-              "icon": "panel-right-dashed",
-              "title": "Task Genius详情"
+              "icon": "lucide-ghost",
+              "title": "tg-right-detail"
             }
           }
         ],
-        "currentTab": 13
+        "currentTab": 6
       },
       {
         "id": "cf640654e156b4ab",
@@ -375,6 +375,7 @@
   },
   "active": "7b1aadc8f323ee26",
   "lastOpenFiles": [
+    "04成长/知识管理/004 注会/006 税法/税法知识点/2026/企业所得税.md",
     "03Life os/播客生活/我走了十年的路才明白的道理.md",
     "01 task/task genuis/2026-05-28.md",
     "01 task/基础阶段-中级刷题.md",
@@ -407,7 +408,6 @@
     "Clippings",
     "01 task/注册会计师.md",
     "04成长/知识管理/004 注会/003 经济法/2026/物权法.md",
-    "task genuis/2026-05-28.md",
     "task genuis",
     "10.22周r11 8t上午tu8 tr上午11c3r",
     "10.22周r11 23t中午tu23 tr中午11c3r",
