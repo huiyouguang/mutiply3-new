@@ -138,8 +138,8 @@
             "state": {
               "type": "tg-left-sidebar",
               "state": {},
-              "icon": "panel-left-dashed",
-              "title": "Task GeniusSidebar"
+              "icon": "lucide-ghost",
+              "title": "tg-left-sidebar"
             }
           }
         ],
@@ -373,7 +373,7 @@
       "obsidian-task-progress-bar:打开 Task Genius 视图": false
     }
   },
-  "active": "7b1aadc8f323ee26",
+  "active": "7c513af2a6a5381a",
   "lastOpenFiles": [
     "03Life os/播客生活/我走了十年的路才明白的道理.md",
     "01 task/task genuis/2026.6.4.md",
