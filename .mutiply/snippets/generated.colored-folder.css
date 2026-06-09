@@ -162,27 +162,6 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "canvas"
-    -
-        id: bg-canvas
-        format: hex
-        opacity: true
-        type: variable-themed-color
-        title: "Background color"
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-    -
-        id: col-canvas
-        title: Text color
-        type: variable-themed-color
-        format: hex
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-        opacity: true
-    -
-        type: heading
-        level: 3
-        collapsed: true
         title: "0Inbox"
     -
         id: bg-0inbox
@@ -204,6 +183,48 @@ settings:
         type: heading
         level: 3
         collapsed: true
+        title: "copilot"
+    -
+        id: bg-copilot
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-copilot
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
+        title: "canvas"
+    -
+        id: bg-canvas
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-canvas
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
         title: "Templates"
     -
         id: bg-templates
@@ -215,27 +236,6 @@ settings:
         default-dark: "#ffffff00"
     -
         id: col-templates
-        title: Text color
-        type: variable-themed-color
-        format: hex
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-        opacity: true
-    -
-        type: heading
-        level: 3
-        collapsed: true
-        title: "thino"
-    -
-        id: bg-thino
-        format: hex
-        opacity: true
-        type: variable-themed-color
-        title: "Background color"
-        default-light: "#ffffff00"
-        default-dark: "#ffffff00"
-    -
-        id: col-thino
         title: Text color
         type: variable-themed-color
         format: hex
@@ -288,9 +288,9 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "copilot"
+        title: "thino"
     -
-        id: bg-copilot
+        id: bg-thino
         format: hex
         opacity: true
         type: variable-themed-color
@@ -298,7 +298,7 @@ settings:
         default-light: "#ffffff00"
         default-dark: "#ffffff00"
     -
-        id: col-copilot
+        id: col-thino
         title: Text color
         type: variable-themed-color
         format: hex
@@ -340,18 +340,18 @@ settings:
     --col-clippings: "var(--nav-item-color)";
     --bg-excalidraw: #ffffff00;
     --col-excalidraw: "var(--nav-item-color)";
-    --bg-canvas: #ffffff00;
-    --col-canvas: "var(--nav-item-color)";
     --bg-0inbox: #ffffff00;
     --col-0inbox: "var(--nav-item-color)";
-    --bg-templates: #ffffff00;
-    --col-templates: "var(--nav-item-color)";
-    --bg-thino: #ffffff00;
-    --col-thino: "var(--nav-item-color)";
-    --bg-inbox: #ffffff00;
-    --col-inbox: "var(--nav-item-color)";
     --bg-copilot: #ffffff00;
     --col-copilot: "var(--nav-item-color)";
+    --bg-canvas: #ffffff00;
+    --col-canvas: "var(--nav-item-color)";
+    --bg-templates: #ffffff00;
+    --col-templates: "var(--nav-item-color)";
+    --bg-inbox: #ffffff00;
+    --col-inbox: "var(--nav-item-color)";
+    --bg-thino: #ffffff00;
+    --col-thino: "var(--nav-item-color)";
     --bg-: #ffffff00;
     --col-: "var(--nav-item-color)";
 }
@@ -368,18 +368,18 @@ settings:
     --col-clippings: "var(--nav-item-color)";
     --bg-excalidraw: #ffffff00;
     --col-excalidraw: "var(--nav-item-color)";
-    --bg-canvas: #ffffff00;
-    --col-canvas: "var(--nav-item-color)";
     --bg-0inbox: #ffffff00;
     --col-0inbox: "var(--nav-item-color)";
-    --bg-templates: #ffffff00;
-    --col-templates: "var(--nav-item-color)";
-    --bg-thino: #ffffff00;
-    --col-thino: "var(--nav-item-color)";
-    --bg-inbox: #ffffff00;
-    --col-inbox: "var(--nav-item-color)";
     --bg-copilot: #ffffff00;
     --col-copilot: "var(--nav-item-color)";
+    --bg-canvas: #ffffff00;
+    --col-canvas: "var(--nav-item-color)";
+    --bg-templates: #ffffff00;
+    --col-templates: "var(--nav-item-color)";
+    --bg-inbox: #ffffff00;
+    --col-inbox: "var(--nav-item-color)";
+    --bg-thino: #ffffff00;
+    --col-thino: "var(--nav-item-color)";
     --bg-: #ffffff00;
     --col-: "var(--nav-item-color)";
 }
@@ -431,14 +431,6 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-excalidraw) !important;
 }
-.nav-folder-title[data-path^="canvas"],
-.nav-file-title[data-path^="canvas"] {
-    color: var(--col-canvas) !important;
-}
-.tree-item.nav-folder[data-path="canvas"] {
-    border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-canvas) !important;
-}
 .nav-folder-title[data-path^="0Inbox"],
 .nav-file-title[data-path^="0Inbox"] {
     color: var(--col-0inbox) !important;
@@ -447,6 +439,22 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-0inbox) !important;
 }
+.nav-folder-title[data-path^="copilot"],
+.nav-file-title[data-path^="copilot"] {
+    color: var(--col-copilot) !important;
+}
+.tree-item.nav-folder[data-path="copilot"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-copilot) !important;
+}
+.nav-folder-title[data-path^="canvas"],
+.nav-file-title[data-path^="canvas"] {
+    color: var(--col-canvas) !important;
+}
+.tree-item.nav-folder[data-path="canvas"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-canvas) !important;
+}
 .nav-folder-title[data-path^="Templates"],
 .nav-file-title[data-path^="Templates"] {
     color: var(--col-templates) !important;
@@ -454,14 +462,6 @@ settings:
 .tree-item.nav-folder[data-path="Templates"] {
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-templates) !important;
-}
-.nav-folder-title[data-path^="thino"],
-.nav-file-title[data-path^="thino"] {
-    color: var(--col-thino) !important;
-}
-.tree-item.nav-folder[data-path="thino"] {
-    border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-thino) !important;
 }
 .nav-folder-title[data-path^="inbox"],
 .nav-file-title[data-path^="inbox"] {
@@ -479,13 +479,13 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-) !important;
 }
-.nav-folder-title[data-path^="copilot"],
-.nav-file-title[data-path^="copilot"] {
-    color: var(--col-copilot) !important;
+.nav-folder-title[data-path^="thino"],
+.nav-file-title[data-path^="thino"] {
+    color: var(--col-thino) !important;
 }
-.tree-item.nav-folder[data-path="copilot"] {
+.tree-item.nav-folder[data-path="thino"] {
     border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-copilot) !important;
+    background-color: var(--bg-thino) !important;
 }
 .nav-folder-title[data-path^="主页"],
 .nav-file-title[data-path^="主页"] {

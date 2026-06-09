@@ -4,62 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "4c1409bf4358f2e1",
+        "id": "c24fa52ad2eeb80c",
         "type": "tabs",
         "children": [
           {
-            "id": "52c4eda05c9a306a",
+            "id": "d56117b6acc70bb8",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01 task/task genuis/2026-05-28.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "2026-05-28"
-            }
-          },
-          {
-            "id": "ed8fc2742285d192",
-            "type": "leaf",
-            "state": {
-              "type": "fluent-task-genius-view",
-              "state": {
-                "currentWorkspace": "ws_1762178755605_n9uo2fpvn",
-                "viewMode": "list",
-                "viewModeByViewId": {
-                  "projects": "list"
-                },
-                "searchQuery": "",
-                "filters": {},
-                "filterInputValue": "",
-                "selectedProject": "注会第二轮",
-                "currentViewId": "projects"
-              },
-              "icon": "task-genius",
-              "title": "Task Genius"
-            }
-          },
-          {
-            "id": "7b1aadc8f323ee26",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "01 task/task genuis/2026.6.4.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
-              },
-              "icon": "lucide-file",
-              "title": "2026.6.4"
+              "title": "新标签页"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -138,8 +96,8 @@
             "state": {
               "type": "tg-left-sidebar",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "tg-left-sidebar"
+              "icon": "panel-left-dashed",
+              "title": "Task GeniusSidebar"
             }
           }
         ],
@@ -317,12 +275,12 @@
             "state": {
               "type": "tg-right-detail",
               "state": {},
-              "icon": "lucide-ghost",
-              "title": "tg-right-detail"
+              "icon": "panel-right-dashed",
+              "title": "Task Genius详情"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 13
       },
       {
         "id": "cf640654e156b4ab",
@@ -373,12 +331,16 @@
       "obsidian-task-progress-bar:打开 Task Genius 视图": false
     }
   },
-  "active": "7c513af2a6a5381a",
+  "active": "62e0e48b172b7515",
   "lastOpenFiles": [
-    "03Life os/播客生活/我走了十年的路才明白的道理.md",
-    "01 task/task genuis/2026.6.4.md",
-    "04成长/知识管理/004 注会/006 税法/税法知识点/2026/企业所得税.md",
+    "04成长/知识管理/实物/AI 时代下，顶级财务币别的技能.md",
+    "04成长/知识管理/实物",
     "01 task/task genuis/2026-05-28.md",
+    "Clippings/认知水平高的人都有什么特点 - ZeroBug 的回答.md",
+    "01 task/task genuis/2026.6.4.md",
+    "thino/2026/2026-06-04.md",
+    "03Life os/播客生活/我走了十年的路才明白的道理.md",
+    "04成长/知识管理/004 注会/006 税法/税法知识点/2026/企业所得税.md",
     "01 task/基础阶段-中级刷题.md",
     "01 task/task genuis/2026-06-02.md",
     "10.23周r10 8t上午tu8 tr上午10c1r",
@@ -404,13 +366,9 @@
     "Clippings/你人生中太晚明白的道理是什么？ - 理性情绪实验室 的回答.md",
     "Clippings/你人生中太晚明白的道理是什么 - 理性情绪实验室 的回答.md",
     "Clippings/人到中年后为什么很难快乐起来 - momo 的回答.md",
-    "Clippings/人什么时候能大彻大悟？ - 人性密码 的回答.md",
-    "Clippings/一个人最根本的能力到底是什么？ - 茶花路莫里亚蒂 的回答.md",
     "Clippings",
-    "01 task/注册会计师.md",
     "task genuis",
     "10.22周r11 8t上午tu8 tr上午11c3r",
-    "10.22周r11 23t中午tu23 tr中午11c3r",
     "04成长/知识管理/004 注会/001 会计/会计专题班/99记-会计 AI Canvas.canvas",
     "Mutiply2/icons/remix-icons/SlackFill.svg",
     "Mutiply2/icons/remix-icons/MindMap.svg",
