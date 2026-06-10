@@ -96,8 +96,8 @@
             "state": {
               "type": "tg-left-sidebar",
               "state": {},
-              "icon": "panel-left-dashed",
-              "title": "Task GeniusSidebar"
+              "icon": "lucide-ghost",
+              "title": "tg-left-sidebar"
             }
           }
         ],
@@ -275,12 +275,12 @@
             "state": {
               "type": "tg-right-detail",
               "state": {},
-              "icon": "panel-right-dashed",
-              "title": "Task Genius详情"
+              "icon": "lucide-ghost",
+              "title": "tg-right-detail"
             }
           }
         ],
-        "currentTab": 13
+        "currentTab": 4
       },
       {
         "id": "cf640654e156b4ab",
@@ -333,6 +333,7 @@
   },
   "active": "62e0e48b172b7515",
   "lastOpenFiles": [
+    "04成长/知识管理/错题库/会计/注会会计刷题/金考典/收入题.md",
     "04成长/知识管理/实物/AI 时代下，顶级财务币别的技能.md",
     "04成长/知识管理/实物",
     "01 task/task genuis/2026-05-28.md",
@@ -365,7 +366,6 @@
     "thino/2026/2026-05-31.md",
     "Clippings/你人生中太晚明白的道理是什么？ - 理性情绪实验室 的回答.md",
     "Clippings/你人生中太晚明白的道理是什么 - 理性情绪实验室 的回答.md",
-    "Clippings/人到中年后为什么很难快乐起来 - momo 的回答.md",
     "Clippings",
     "task genuis",
     "10.22周r11 8t上午tu8 tr上午11c3r",
