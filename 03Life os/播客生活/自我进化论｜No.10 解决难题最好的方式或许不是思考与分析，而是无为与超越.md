@@ -1,4 +1,7 @@
 ---
+type: podcast
+topic: 自我进化
+status: done
 文件分类: 播客生活
 播客: 自我进化论
 收藏标签:

@@ -1,4 +1,7 @@
 ---
+type: podcast
+topic: 自我进化
+status: done
 words:
   2026-05-30: 2122
 PrevNote: "[[E189 聊聊段永平，以及你想活出怎样的人生]]"

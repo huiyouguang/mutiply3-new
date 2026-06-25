@@ -1,4 +1,7 @@
 ---
+type: podcast
+topic: 自我进化
+status: done
 标题: 精神花园｜Vol.56 粉丝特辑：你经历过低谷期吗，是怎么过来的？
 播客: 精神花园（Spiritual Garden）
 来源: https://www.xiaoyuzhoufm.com/
