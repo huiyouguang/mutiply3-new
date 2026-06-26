@@ -3,6 +3,10 @@ tags:
   - agent/控制台
   - 主页/工具
 PrevNote: "[[主页-开发文档]]"
+words:
+  2026-06-25: 1726
+  2026-06-26: 1402
+NextNote: "[[主页]]"
 ---
 
 # 🤖 Mcyo · Agent 控制台
@@ -25,18 +29,18 @@ const C = {
 const NOW = new Date();
 
 // ── 全局状态 ──
-let activeCount = 14;
+let activeCount = 5;
 
 // ── 顶部状态栏 ──
 const cid = 'ctl-' + Date.now();
 dv.paragraph(`<div id="${cid}">
   <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;">
     <div style="background:${C.card};border-radius:12px;padding:12px;border:1px solid ${C.bd};text-align:center;">
-      <div style="font-size:22px;font-weight:700;color:${C.ac};">14</div>
-      <div style="font-size:11px;color:${C.sub};">模块总数</div>
+      <div style="font-size:22px;font-weight:700;color:${C.ac};">5</div>
+      <div style="font-size:11px;color:${C.sub};">代码块</div>
     </div>
     <div style="background:${C.card};border-radius:12px;padding:12px;border:1px solid ${C.bd};text-align:center;">
-      <div id="ctl-active-count" style="font-size:22px;font-weight:700;color:${C.gn};">14</div>
+      <div id="ctl-active-count" style="font-size:22px;font-weight:700;color:${C.gn};">5</div>
       <div style="font-size:11px;color:${C.sub};">已启用</div>
     </div>
     <div style="background:${C.card};border-radius:12px;padding:12px;border:1px solid ${C.bd};text-align:center;">
@@ -51,7 +55,7 @@ dv.paragraph(`<div id="${cid}">
   <div id="ctl-toolbar" style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;"></div>
   <div id="ctl-modules"></div>
   <div style="text-align:center;padding:16px 0 6px;font-size:11px;color:${C.sub};border-top:1px solid ${C.bd};margin-top:6px;">
-    🤖 Mcyo Agent Console v2.0 · 可视化交互 · [[主页-开发文档|开发文档]] · [[主页 2|主控台]]
+    🤖 Mcyo Agent Console v3.0 · 5-Block 架构 · [[主页-开发文档|开发文档]] · [[主页 2|主控台]]
   </div>
 </div>`);
 
@@ -62,8 +66,7 @@ requestAnimationFrame(() => {
   // ── 工具栏按钮 (可点击) ──
   const toolbar = root.querySelector('#ctl-toolbar');
   const tbtns = [
-    { icon:'➕', text:'新增模块', color:C.ac, action: ()=>alert('📝 复制以下模板粘贴给 Agent 即可：\n\n在模块 X 和 Y 之间新增一个「XX」模块，数据源是 XX 文件夹') },
-    { icon:'🎨', text:'换主题色', color:C.gn, action: ()=>alert('🎨 当前使用 Obsidian 默认主题\n深色:'+(dark?'是':'否')+'\n\n要换色粘贴：\n把主页主题色改为 XX') },
+    { icon:'➕', text:'新增模块', color:C.ac, action: ()=>alert('📝 5-Block 架构：选一个 Block 追加代码\n\n读取共享状态：\nconst __m = window.__mcyo;\nconst { C, navigateTo } = __m;\n\n渲染：\nconst mod = dv.el("div","");\nmod.style.cssText = `background:${C.card};...`;\nmod.innerHTML = `...`;') },
     { icon:'🌐', text:'打开主页', color:C.blu, action: ()=>app.workspace.openLinkText('主页 2','',false) },
     { icon:'📖', text:'开发文档', color:C.ora, action: ()=>app.workspace.openLinkText('主页-开发文档','',false) },
   ];
@@ -77,27 +80,18 @@ requestAnimationFrame(() => {
     toolbar.appendChild(btn);
   });
 
-  // ── 模块数据 ──
+  // ── 模块数据（5-Block 架构）──
   let modules = [
-    { id:'1', name:'🏠 顶部横幅', group:'核心区', ico:'🏠', desc:'标题·日期·年度进度·统计', active:true },
-    { id:'1.5', name:'🌍 天气模块', group:'核心区', ico:'🌍', desc:'深圳实时天气·气温·湿度·风速', active:true },
-    { id:'1.8', name:'🎯 人生愿景板', group:'个人区', ico:'🎯', desc:'9大分类·可勾选·进度条', active:true },
-    { id:'2', name:'⏱️ 三列概览卡', group:'核心区', ico:'⏱️', desc:'时间进度·考试倒计时·今日统计', active:true },
-    { id:'2.5', name:'😊 心情日记', group:'个人区', ico:'😊', desc:'10心情·年度热力图·每日打卡', active:true },
-    { id:'2.8', name:'🎙️ 播客生活', group:'内容区', ico:'🎙️', desc:'4分类·主题速览·最近收听', active:true },
-    { id:'3', name:'📚 学习快速入口', group:'内容区', ico:'📚', desc:'12科目·2×6网格·文件夹跳转', active:true },
-    { id:'4', name:'📖 知识花园·快捷面板', group:'内容区', ico:'📖', desc:'书籍·电影·播客·快速导航', active:true },
-    { id:'5', name:'📝 最近编辑·Thino灵感', group:'内容区', ico:'📝', desc:'7天内编辑·随机灵感·换一批', active:true },
-    { id:'6', name:'🏷️ 标签·待办任务', group:'内容区', ico:'🏷️', desc:'全部标签·按文件分组待办', active:true },
-    { id:'7', name:'✍️ 写作足迹热力图', group:'数据区', ico:'✍️', desc:'365天·月标签·日志统计', active:true },
-    { id:'7.5', name:'📊 数据看板', group:'数据区', ico:'📊', desc:'KPI·柱状图·文件夹分布', active:true },
-    { id:'8', name:'📊 Vault Stats', group:'数据区', ico:'📊', desc:'仓库概览·条形图·汇总', active:true },
-    { id:'9', name:'底部信息', group:'核心区', ico:'', desc:'版本号·声明', active:true },
+    { id:'Setup', name:'🎨 Setup: 共享环境', group:'基础设施', ico:'⚙️', desc:'色彩系统·工具函数·全局数据→window.__mcyo', active:true },
+    { id:'1', name:'🏠 Block1: 顶部区', group:'核心区', ico:'🏠', desc:'横幅·天气·愿景板·三列概览(时间/考试/统计)', active:true },
+    { id:'2', name:'😊 Block2: 个人区', group:'核心区', ico:'😊', desc:'心情日记(10心情·热力图)·播客生活(4分类)', active:true },
+    { id:'3', name:'📚 Block3: 学习区', group:'核心区', ico:'📚', desc:'学习入口·知识花园·快捷面板·最近编辑·Thino灵感', active:true },
+    { id:'4', name:'📋 Block4: 数据区', group:'核心区', ico:'📋', desc:'CPA备考(6科·父子层级)·热力图·数据看板·Vault Stats·页脚', active:true },
   ];
 
-  const groups = ['核心区','个人区','内容区','数据区'];
-  const gIcons = { '核心区':'⭐','个人区':'👤','内容区':'📦','数据区':'📉' };
-  const gColors = { '核心区':C.ac,'个人区':C.gn,'内容区':C.blu,'数据区':C.ora };
+  const groups = ['基础设施','核心区'];
+  const gIcons = { '基础设施':'⚙️','核心区':'⭐' };
+  const gColors = { '基础设施':C.ora,'核心区':C.ac };
 
   function updateActiveCount() {
     activeCount = modules.filter(m => m.active).length;
