@@ -6,7 +6,6 @@ tags:
 PrevNote: "[[主页]]"
 words:
   2026-06-27: 13396
-NextNote: "[[主页2 copy]]"
 ---
 
 # Mcyo Obsidian · 每日工作台 v3.1
