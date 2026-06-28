@@ -99,3 +99,8 @@ credentials*
 *.gif
 *.mp4
 *.rar
+
+
+
+# Ignore Smart Environment folder
+.smart-env
