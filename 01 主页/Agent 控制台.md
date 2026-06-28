@@ -6,7 +6,7 @@ PrevNote: "[[主页-开发文档]]"
 words:
   2026-06-25: 1726
   2026-06-26: 1402
-NextNote: "[[主页]]"
+NextNote: "[[主页2]]"
 ---
 
 # 🤖 Mcyo · Agent 控制台
