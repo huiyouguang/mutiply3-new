@@ -426,14 +426,6 @@
         "color": "#27ae60",
         "createdAt": 1762787006854,
         "updatedAt": 1762787006854
-      },
-      {
-        "id": "project-1779938504455-tud1u6mfl",
-        "name": "注会第二轮",
-        "displayName": "注会第二轮",
-        "color": "#f39c12",
-        "createdAt": 1779938504455,
-        "updatedAt": 1779938504455
       }
     ]
   },
@@ -1105,24 +1097,7 @@
             },
             "projects": {
               "filters": {},
-              "selectedProject": "注会第二轮",
-              "advancedFilter": {
-                "rootCondition": "all",
-                "filterGroups": [
-                  {
-                    "id": "fluent-proj-group-1780369218217",
-                    "groupCondition": "all",
-                    "filters": [
-                      {
-                        "id": "fluent-proj-filter-1780369218217",
-                        "property": "project",
-                        "condition": "is",
-                        "value": "注会第二轮"
-                      }
-                    ]
-                  }
-                ]
-              },
+              "selectedProject": "",
               "viewMode": "list"
             },
             "today": {
@@ -1193,24 +1168,7 @@
             },
             "quadrant": {
               "filters": {},
-              "selectedProject": "注会第二轮",
-              "advancedFilter": {
-                "rootCondition": "all",
-                "filterGroups": [
-                  {
-                    "id": "fluent-proj-group-1779938519904",
-                    "groupCondition": "all",
-                    "filters": [
-                      {
-                        "id": "fluent-proj-filter-1779938519904",
-                        "property": "project",
-                        "condition": "is",
-                        "value": "注会第二轮"
-                      }
-                    ]
-                  }
-                ]
-              },
+              "selectedProject": "",
               "viewMode": "list"
             },
             "working-on": {
