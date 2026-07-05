@@ -1,5 +1,5 @@
 {
-  "theme": "light",
+  "theme": "dark",
   "colorTheme": "bamboo",
   "dataMigrated": true,
   "purchaseHistory": {
@@ -7,15 +7,23 @@
     "archive": {}
   },
   "incomeHistory": {
-    "records": [],
+    "records": [
+      {
+        "amount": 1,
+        "type": "task_complete",
+        "desc": "完成：项目推进 - 测试上线",
+        "date": "2026-07-05T07:12:09.863Z",
+        "month": "2026-07"
+      }
+    ],
     "archive": {}
   },
   "dataVersion": "3.0",
-  "balance": 0,
+  "balance": 1,
   "shopStats": {
-    "todayEarnings": 0,
+    "todayEarnings": 1,
     "totalSpent": 0,
-    "totalEarnings": 0,
+    "totalEarnings": 1,
     "date": "Sun Jul 05 2026"
   }
 }

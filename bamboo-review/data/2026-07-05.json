@@ -2,30 +2,14 @@
   "date": "2026-07-05",
   "weekday": "周日",
   "metrics": {
-    "firstCheckIn": "08:30",
+    "firstCheckIn": "06:00",
     "completedTasks": "8/12",
     "inspirationCount": "3",
-    "lastCheckIn": "18:30",
+    "lastCheckIn": "21:00",
     "activeTime": "8h",
     "emptySlots": "2"
   },
   "timeline": [
-    {
-      "period": "lateNight",
-      "name": "凌晨",
-      "time": "00:00 - 04:00",
-      "icon": "moon",
-      "eval": "good",
-      "items": []
-    },
-    {
-      "period": "dawn",
-      "name": "黎明",
-      "time": "04:00 - 05:30",
-      "icon": "sunrise",
-      "eval": "good",
-      "items": []
-    },
     {
       "period": "earlyMorning",
       "name": "清晨",
@@ -109,16 +93,13 @@
           "time": "16:00",
           "task": "继续开发",
           "eval": "逐步推进"
+        },
+        {
+          "time": "15:12",
+          "task": "项目推进 - 测试上线",
+          "eval": "完成"
         }
       ]
-    },
-    {
-      "period": "dusk",
-      "name": "傍晚",
-      "time": "17:00 - 18:30",
-      "icon": "sunset",
-      "eval": "good",
-      "items": []
     },
     {
       "period": "evening",
@@ -143,14 +124,6 @@
           "eval": "回顾一天"
         }
       ]
-    },
-    {
-      "period": "night",
-      "name": "深夜",
-      "time": "22:00 - 24:00",
-      "icon": "moon",
-      "eval": "good",
-      "items": []
     }
   ],
   "goals": [
@@ -248,5 +221,16 @@
         }
       ]
     }
-  ]
+  ],
+  "weather": {
+    "temperature": 32,
+    "weatherCode": "113",
+    "label": "晴",
+    "fetchedAt": 1783236431104
+  },
+  "goalTaskCompletions": {
+    "goal_default_1": {
+      "2": true
+    }
+  }
 }

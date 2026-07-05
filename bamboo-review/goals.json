@@ -6,7 +6,7 @@
     "meta": "Q2核心目标",
     "category": "work",
     "startDate": "2026-07-01",
-    "endDate": "2026-07-31",
+    "endDate": "2026-08-02",
     "items": [
       {
         "name": "方案设计",
@@ -37,17 +37,18 @@
       {
         "name": "测试上线",
         "detail": "未开始",
-        "percent": 0,
+        "percent": 3,
         "startDate": "2026-07-01",
-        "endDate": "2026-07-31",
+        "endDate": "2026-08-02",
         "startValue": "0",
         "targetValue": "100",
-        "currentValue": "0",
+        "currentValue": "3",
         "dailyMin": "3",
         "taskDayType": "daily",
         "taskDayConfig": ""
       }
-    ]
+    ],
+    "progress": 54
   },
   {
     "id": "goal_default_2",
@@ -98,89 +99,5 @@
         "taskDayConfig": ""
       }
     ]
-  },
-  {
-    "icon": "",
-    "title": "健身计划",
-    "meta": "",
-    "category": "health",
-    "progress": 0,
-    "items": [
-      {
-        "name": "有氧运动",
-        "percent": 0,
-        "detail": "",
-        "startDate": "2026-07-05",
-        "endDate": "2026-08-05",
-        "startValue": "0",
-        "targetValue": "100",
-        "currentValue": "0",
-        "taskDayType": "daily",
-        "taskDayConfig": ""
-      },
-      {
-        "name": "力量训练",
-        "percent": 0,
-        "detail": "",
-        "startDate": "2026-07-05",
-        "endDate": "2026-08-05",
-        "startValue": "0",
-        "targetValue": "100",
-        "currentValue": "0",
-        "taskDayType": "daily",
-        "taskDayConfig": ""
-      },
-      {
-        "name": "拉伸放松",
-        "percent": 0,
-        "detail": "",
-        "startDate": "2026-07-05",
-        "endDate": "2026-08-05",
-        "startValue": "0",
-        "targetValue": "100",
-        "currentValue": "0",
-        "taskDayType": "daily",
-        "taskDayConfig": ""
-      }
-    ],
-    "startDate": "2026-07-05",
-    "endDate": "2026-08-05",
-    "id": "goal_1783215144241_3oaj"
-  },
-  {
-    "icon": "",
-    "title": "阅读计划",
-    "meta": "",
-    "category": "study",
-    "progress": 0,
-    "items": [
-      {
-        "name": "阅读书籍",
-        "percent": 0,
-        "detail": "",
-        "startDate": "2026-07-05",
-        "endDate": "2026-08-05",
-        "startValue": "0",
-        "targetValue": "100",
-        "currentValue": "0",
-        "taskDayType": "daily",
-        "taskDayConfig": ""
-      },
-      {
-        "name": "读书笔记",
-        "percent": 0,
-        "detail": "",
-        "startDate": "2026-07-05",
-        "endDate": "2026-08-05",
-        "startValue": "0",
-        "targetValue": "100",
-        "currentValue": "0",
-        "taskDayType": "daily",
-        "taskDayConfig": ""
-      }
-    ],
-    "startDate": "2026-07-05",
-    "endDate": "2026-08-05",
-    "id": "goal_1783215157224_ktqx"
   }
 ]
