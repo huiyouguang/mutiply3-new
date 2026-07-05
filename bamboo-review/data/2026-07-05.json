@@ -223,10 +223,10 @@
     }
   ],
   "weather": {
-    "temperature": 32,
-    "weatherCode": "176",
-    "label": "雨",
-    "fetchedAt": 1783245092358
+    "temperature": 31,
+    "weatherCode": "116",
+    "label": "多云",
+    "fetchedAt": 1783256194582
   },
   "goalTaskCompletions": {
     "goal_default_1": {
