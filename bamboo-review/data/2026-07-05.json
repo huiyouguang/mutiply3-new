@@ -224,9 +224,9 @@
   ],
   "weather": {
     "temperature": 32,
-    "weatherCode": "113",
-    "label": "晴",
-    "fetchedAt": 1783236431104
+    "weatherCode": "176",
+    "label": "雨",
+    "fetchedAt": 1783245092358
   },
   "goalTaskCompletions": {
     "goal_default_1": {
