@@ -1,0 +1,19 @@
+{
+  "date": "2026-07-06",
+  "weekday": "周一",
+  "metrics": {
+    "firstCheckIn": "--:--",
+    "completedTasks": "0/0",
+    "inspirationCount": "0",
+    "lastCheckIn": "--:--",
+    "activeTime": "0h",
+    "emptySlots": "0"
+  },
+  "timeline": [],
+  "weather": {
+    "temperature": 32,
+    "weatherCode": "113",
+    "label": "晴",
+    "fetchedAt": 1783322320181
+  }
+}
