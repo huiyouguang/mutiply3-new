@@ -1,6 +1,6 @@
 {
-  "leftSidebar": true,
-  "rightSidebar": true,
+  "leftSidebar": false,
+  "rightSidebar": false,
   "syncLeftRight": false,
   "enforceSameDelay": true,
   "sidebarDelay": 150,

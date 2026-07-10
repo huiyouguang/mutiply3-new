@@ -1163,19 +1163,18 @@ var require_common = __commonJS({
       return [sequence];
     }
     function extend2(target, source) {
-      var index, length, key, sourceKeys;
       if (source) {
-        sourceKeys = Object.keys(source);
-        for (index = 0, length = sourceKeys.length; index < length; index += 1) {
-          key = sourceKeys[index];
+        const sourceKeys = Object.keys(source);
+        for (let index = 0, length = sourceKeys.length; index < length; index += 1) {
+          const key = sourceKeys[index];
           target[key] = source[key];
         }
       }
       return target;
     }
     function repeat2(string, count) {
-      var result = "", cycle;
-      for (cycle = 0; cycle < count; cycle += 1) {
+      let result = "";
+      for (let cycle = 0; cycle < count; cycle += 1) {
         result += string;
       }
       return result;
@@ -1197,7 +1196,8 @@ var require_exception = __commonJS({
   "node_modules/js-yaml/lib/exception.js"(exports, module2) {
     "use strict";
     function formatError(exception, compact) {
-      var where = "", message = exception.reason || "(unknown reason)";
+      let where = "";
+      const message = exception.reason || "(unknown reason)";
       if (!exception.mark)
         return message;
       if (exception.mark.name) {
@@ -1236,9 +1236,9 @@ var require_snippet = __commonJS({
     "use strict";
     var common = require_common();
     function getLine(buffer, lineStart, lineEnd, position, maxLineLength) {
-      var head = "";
-      var tail = "";
-      var maxHalfLength = Math.floor(maxLineLength / 2) - 1;
+      let head = "";
+      let tail = "";
+      const maxHalfLength = Math.floor(maxLineLength / 2) - 1;
       if (position - lineStart > maxHalfLength) {
         head = " ... ";
         lineStart = position - maxHalfLength + head.length;
@@ -1268,11 +1268,11 @@ var require_snippet = __commonJS({
         options.linesBefore = 3;
       if (typeof options.linesAfter !== "number")
         options.linesAfter = 2;
-      var re = /\r?\n|\r|\0/g;
-      var lineStarts = [0];
-      var lineEnds = [];
-      var match;
-      var foundLineNo = -1;
+      const re = /\r?\n|\r|\0/g;
+      const lineStarts = [0];
+      const lineEnds = [];
+      let match;
+      let foundLineNo = -1;
       while (match = re.exec(mark.buffer)) {
         lineEnds.push(match.index);
         lineStarts.push(match.index + match[0].length);
@@ -1282,35 +1282,35 @@ var require_snippet = __commonJS({
       }
       if (foundLineNo < 0)
         foundLineNo = lineStarts.length - 1;
-      var result = "", i, line;
-      var lineNoLength = Math.min(mark.line + options.linesAfter, lineEnds.length).toString().length;
-      var maxLineLength = options.maxLength - (options.indent + lineNoLength + 3);
-      for (i = 1; i <= options.linesBefore; i++) {
+      let result = "";
+      const lineNoLength = Math.min(mark.line + options.linesAfter, lineEnds.length).toString().length;
+      const maxLineLength = options.maxLength - (options.indent + lineNoLength + 3);
+      for (let i = 1; i <= options.linesBefore; i++) {
         if (foundLineNo - i < 0)
           break;
-        line = getLine(
+        const line2 = getLine(
           mark.buffer,
           lineStarts[foundLineNo - i],
           lineEnds[foundLineNo - i],
           mark.position - (lineStarts[foundLineNo] - lineStarts[foundLineNo - i]),
           maxLineLength
         );
-        result = common.repeat(" ", options.indent) + padStart((mark.line - i + 1).toString(), lineNoLength) + " | " + line.str + "\n" + result;
+        result = common.repeat(" ", options.indent) + padStart((mark.line - i + 1).toString(), lineNoLength) + " | " + line2.str + "\n" + result;
       }
-      line = getLine(mark.buffer, lineStarts[foundLineNo], lineEnds[foundLineNo], mark.position, maxLineLength);
+      const line = getLine(mark.buffer, lineStarts[foundLineNo], lineEnds[foundLineNo], mark.position, maxLineLength);
       result += common.repeat(" ", options.indent) + padStart((mark.line + 1).toString(), lineNoLength) + " | " + line.str + "\n";
       result += common.repeat("-", options.indent + lineNoLength + 3 + line.pos) + "^\n";
-      for (i = 1; i <= options.linesAfter; i++) {
+      for (let i = 1; i <= options.linesAfter; i++) {
         if (foundLineNo + i >= lineEnds.length)
           break;
-        line = getLine(
+        const line2 = getLine(
           mark.buffer,
           lineStarts[foundLineNo + i],
           lineEnds[foundLineNo + i],
           mark.position - (lineStarts[foundLineNo] - lineStarts[foundLineNo + i]),
           maxLineLength
         );
-        result += common.repeat(" ", options.indent) + padStart((mark.line + i + 1).toString(), lineNoLength) + " | " + line.str + "\n";
+        result += common.repeat(" ", options.indent) + padStart((mark.line + i + 1).toString(), lineNoLength) + " | " + line2.str + "\n";
       }
       return result.replace(/\n$/, "");
     }
@@ -1341,7 +1341,7 @@ var require_type = __commonJS({
       "mapping"
     ];
     function compileStyleAliases(map) {
-      var result = {};
+      const result = {};
       if (map !== null) {
         Object.keys(map).forEach(function(style) {
           map[style].forEach(function(alias) {
@@ -1389,9 +1389,9 @@ var require_schema = __commonJS({
     var YAMLException = require_exception();
     var Type = require_type();
     function compileList(schema, name) {
-      var result = [];
+      const result = [];
       schema[name].forEach(function(currentType) {
-        var newIndex = result.length;
+        let newIndex = result.length;
         result.forEach(function(previousType, previousIndex) {
           if (previousType.tag === currentType.tag && previousType.kind === currentType.kind && previousType.multi === currentType.multi) {
             newIndex = previousIndex;
@@ -1402,7 +1402,7 @@ var require_schema = __commonJS({
       return result;
     }
     function compileMap() {
-      var result = {
+      const result = {
         scalar: {},
         sequence: {},
         mapping: {},
@@ -1413,7 +1413,7 @@ var require_schema = __commonJS({
           mapping: [],
           fallback: []
         }
-      }, index, length;
+      };
       function collectType(type) {
         if (type.multi) {
           result.multi[type.kind].push(type);
@@ -1422,7 +1422,7 @@ var require_schema = __commonJS({
           result[type.kind][type.tag] = result["fallback"][type.tag] = type;
         }
       }
-      for (index = 0, length = arguments.length; index < length; index += 1) {
+      for (let index = 0, length = arguments.length; index < length; index += 1) {
         arguments[index].forEach(collectType);
       }
       return result;
@@ -1431,8 +1431,8 @@ var require_schema = __commonJS({
       return this.extend(definition);
     }
     Schema.prototype.extend = function extend2(definition) {
-      var implicit = [];
-      var explicit = [];
+      let implicit = [];
+      let explicit = [];
       if (definition instanceof Type) {
         explicit.push(definition);
       } else if (Array.isArray(definition)) {
@@ -1461,7 +1461,7 @@ var require_schema = __commonJS({
           throw new YAMLException("Specified list of YAML types (or a single Type object) contains a non-Type object.");
         }
       });
-      var result = Object.create(Schema.prototype);
+      const result = Object.create(Schema.prototype);
       result.implicit = (this.implicit || []).concat(implicit);
       result.explicit = (this.explicit || []).concat(explicit);
       result.compiledImplicit = compileList(result, "implicit");
@@ -1538,7 +1538,7 @@ var require_null = __commonJS({
     function resolveYamlNull(data) {
       if (data === null)
         return true;
-      var max = data.length;
+      const max = data.length;
       return max === 1 && data === "~" || max === 4 && (data === "null" || data === "Null" || data === "NULL");
     }
     function constructYamlNull() {
@@ -1582,7 +1582,7 @@ var require_bool = __commonJS({
     function resolveYamlBoolean(data) {
       if (data === null)
         return false;
-      var max = data.length;
+      const max = data.length;
       return max === 4 && (data === "true" || data === "True" || data === "TRUE") || max === 5 && (data === "false" || data === "False" || data === "FALSE");
     }
     function constructYamlBoolean(data) {
@@ -1619,21 +1619,23 @@ var require_int = __commonJS({
     var common = require_common();
     var Type = require_type();
     function isHexCode(c) {
-      return 48 <= c && c <= 57 || 65 <= c && c <= 70 || 97 <= c && c <= 102;
+      return c >= 48 && c <= 57 || c >= 65 && c <= 70 || c >= 97 && c <= 102;
     }
     function isOctCode(c) {
-      return 48 <= c && c <= 55;
+      return c >= 48 && c <= 55;
     }
     function isDecCode(c) {
-      return 48 <= c && c <= 57;
+      return c >= 48 && c <= 57;
     }
     function resolveYamlInteger(data) {
       if (data === null)
         return false;
-      var max = data.length, index = 0, hasDigits = false, ch;
+      const max = data.length;
+      let index = 0;
+      let hasDigits = false;
       if (!max)
         return false;
-      ch = data[index];
+      let ch = data[index];
       if (ch === "-" || ch === "+") {
         ch = data[++index];
       }
@@ -1645,60 +1647,45 @@ var require_int = __commonJS({
           index++;
           for (; index < max; index++) {
             ch = data[index];
-            if (ch === "_")
-              continue;
             if (ch !== "0" && ch !== "1")
               return false;
             hasDigits = true;
           }
-          return hasDigits && ch !== "_";
+          return hasDigits && Number.isFinite(parseYamlInteger(data));
         }
         if (ch === "x") {
           index++;
           for (; index < max; index++) {
-            ch = data[index];
-            if (ch === "_")
-              continue;
             if (!isHexCode(data.charCodeAt(index)))
               return false;
             hasDigits = true;
           }
-          return hasDigits && ch !== "_";
+          return hasDigits && Number.isFinite(parseYamlInteger(data));
         }
         if (ch === "o") {
           index++;
           for (; index < max; index++) {
-            ch = data[index];
-            if (ch === "_")
-              continue;
             if (!isOctCode(data.charCodeAt(index)))
               return false;
             hasDigits = true;
           }
-          return hasDigits && ch !== "_";
+          return hasDigits && Number.isFinite(parseYamlInteger(data));
         }
       }
-      if (ch === "_")
-        return false;
       for (; index < max; index++) {
-        ch = data[index];
-        if (ch === "_")
-          continue;
         if (!isDecCode(data.charCodeAt(index))) {
           return false;
         }
         hasDigits = true;
       }
-      if (!hasDigits || ch === "_")
+      if (!hasDigits)
         return false;
-      return true;
+      return Number.isFinite(parseYamlInteger(data));
     }
-    function constructYamlInteger(data) {
-      var value = data, sign = 1, ch;
-      if (value.indexOf("_") !== -1) {
-        value = value.replace(/_/g, "");
-      }
-      ch = value[0];
+    function parseYamlInteger(data) {
+      let value = data;
+      let sign = 1;
+      let ch = value[0];
       if (ch === "-" || ch === "+") {
         if (ch === "-")
           sign = -1;
@@ -1716,6 +1703,9 @@ var require_int = __commonJS({
           return sign * parseInt(value.slice(2), 8);
       }
       return sign * parseInt(value, 10);
+    }
+    function constructYamlInteger(data) {
+      return parseYamlInteger(data);
     }
     function isInteger(object) {
       return Object.prototype.toString.call(object) === "[object Number]" && (object % 1 === 0 && !common.isNegativeZero(object));
@@ -1735,7 +1725,6 @@ var require_int = __commonJS({
         decimal: function(obj) {
           return obj.toString(10);
         },
-        /* eslint-disable max-len */
         hexadecimal: function(obj) {
           return obj >= 0 ? "0x" + obj.toString(16).toUpperCase() : "-0x" + obj.toString(16).toUpperCase().slice(1);
         }
@@ -1759,22 +1748,25 @@ var require_float = __commonJS({
     var Type = require_type();
     var YAML_FLOAT_PATTERN = new RegExp(
       // 2.5e4, 2.5 and integers
-      "^(?:[-+]?(?:[0-9][0-9_]*)(?:\\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?|\\.[0-9_]+(?:[eE][-+]?[0-9]+)?|[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$"
+      "^(?:[-+]?(?:[0-9]+)(?:\\.[0-9]*)?(?:[eE][-+]?[0-9]+)?|\\.[0-9]+(?:[eE][-+]?[0-9]+)?|[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$"
+    );
+    var YAML_FLOAT_SPECIAL_PATTERN = new RegExp(
+      "^(?:[-+]?\\.(?:inf|Inf|INF)|\\.(?:nan|NaN|NAN))$"
     );
     function resolveYamlFloat(data) {
       if (data === null)
         return false;
-      if (!YAML_FLOAT_PATTERN.test(data) || // Quick hack to not allow integers end with `_`
-      // Probably should update regexp & check speed
-      data[data.length - 1] === "_") {
+      if (!YAML_FLOAT_PATTERN.test(data)) {
         return false;
       }
-      return true;
+      if (Number.isFinite(parseFloat(data, 10))) {
+        return true;
+      }
+      return YAML_FLOAT_SPECIAL_PATTERN.test(data);
     }
     function constructYamlFloat(data) {
-      var value, sign;
-      value = data.replace(/_/g, "").toLowerCase();
-      sign = value[0] === "-" ? -1 : 1;
+      let value = data.toLowerCase();
+      const sign = value[0] === "-" ? -1 : 1;
       if ("+-".indexOf(value[0]) >= 0) {
         value = value.slice(1);
       }
@@ -1787,7 +1779,6 @@ var require_float = __commonJS({
     }
     var SCIENTIFIC_WITHOUT_DOT = /^[-+]?[0-9]+e/;
     function representYamlFloat(object, style) {
-      var res;
       if (isNaN(object)) {
         switch (style) {
           case "lowercase":
@@ -1818,7 +1809,7 @@ var require_float = __commonJS({
       } else if (common.isNegativeZero(object)) {
         return "-0.0";
       }
-      res = object.toString(10);
+      const res = object.toString(10);
       return SCIENTIFIC_WITHOUT_DOT.test(res) ? res.replace("e", ".e") : res;
     }
     function isFloat(object) {
@@ -1879,21 +1870,22 @@ var require_timestamp = __commonJS({
       return false;
     }
     function constructYamlTimestamp(data) {
-      var match, year, month, day, hour, minute, second, fraction = 0, delta = null, tz_hour, tz_minute, date;
-      match = YAML_DATE_REGEXP.exec(data);
+      let fraction = 0;
+      let delta = null;
+      let match = YAML_DATE_REGEXP.exec(data);
       if (match === null)
         match = YAML_TIMESTAMP_REGEXP.exec(data);
       if (match === null)
         throw new Error("Date resolve error");
-      year = +match[1];
-      month = +match[2] - 1;
-      day = +match[3];
+      const year = +match[1];
+      const month = +match[2] - 1;
+      const day = +match[3];
       if (!match[4]) {
         return new Date(Date.UTC(year, month, day));
       }
-      hour = +match[4];
-      minute = +match[5];
-      second = +match[6];
+      const hour = +match[4];
+      const minute = +match[5];
+      const second = +match[6];
       if (match[7]) {
         fraction = match[7].slice(0, 3);
         while (fraction.length < 3) {
@@ -1902,13 +1894,13 @@ var require_timestamp = __commonJS({
         fraction = +fraction;
       }
       if (match[9]) {
-        tz_hour = +match[10];
-        tz_minute = +(match[11] || 0);
-        delta = (tz_hour * 60 + tz_minute) * 6e4;
+        const tzHour = +match[10];
+        const tzMinute = +(match[11] || 0);
+        delta = (tzHour * 60 + tzMinute) * 6e4;
         if (match[9] === "-")
           delta = -delta;
       }
-      date = new Date(Date.UTC(year, month, day, hour, minute, second, fraction));
+      const date = new Date(Date.UTC(year, month, day, hour, minute, second, fraction));
       if (delta)
         date.setTime(date.getTime() - delta);
       return date;
@@ -1950,9 +1942,11 @@ var require_binary = __commonJS({
     function resolveYamlBinary(data) {
       if (data === null)
         return false;
-      var code, idx, bitlen = 0, max = data.length, map = BASE64_MAP;
-      for (idx = 0; idx < max; idx++) {
-        code = map.indexOf(data.charAt(idx));
+      let bitlen = 0;
+      const max = data.length;
+      const map = BASE64_MAP;
+      for (let idx = 0; idx < max; idx++) {
+        const code = map.indexOf(data.charAt(idx));
         if (code > 64)
           continue;
         if (code < 0)
@@ -1962,8 +1956,12 @@ var require_binary = __commonJS({
       return bitlen % 8 === 0;
     }
     function constructYamlBinary(data) {
-      var idx, tailbits, input = data.replace(/[\r\n=]/g, ""), max = input.length, map = BASE64_MAP, bits = 0, result = [];
-      for (idx = 0; idx < max; idx++) {
+      const input = data.replace(/[\r\n=]/g, "");
+      const max = input.length;
+      const map = BASE64_MAP;
+      let bits = 0;
+      const result = [];
+      for (let idx = 0; idx < max; idx++) {
         if (idx % 4 === 0 && idx) {
           result.push(bits >> 16 & 255);
           result.push(bits >> 8 & 255);
@@ -1971,7 +1969,7 @@ var require_binary = __commonJS({
         }
         bits = bits << 6 | map.indexOf(input.charAt(idx));
       }
-      tailbits = max % 4 * 6;
+      const tailbits = max % 4 * 6;
       if (tailbits === 0) {
         result.push(bits >> 16 & 255);
         result.push(bits >> 8 & 255);
@@ -1985,8 +1983,11 @@ var require_binary = __commonJS({
       return new Uint8Array(result);
     }
     function representYamlBinary(object) {
-      var result = "", bits = 0, idx, tail, max = object.length, map = BASE64_MAP;
-      for (idx = 0; idx < max; idx++) {
+      let result = "";
+      let bits = 0;
+      const max = object.length;
+      const map = BASE64_MAP;
+      for (let idx = 0; idx < max; idx++) {
         if (idx % 3 === 0 && idx) {
           result += map[bits >> 18 & 63];
           result += map[bits >> 12 & 63];
@@ -1995,7 +1996,7 @@ var require_binary = __commonJS({
         }
         bits = (bits << 8) + object[idx];
       }
-      tail = max % 3;
+      const tail = max % 3;
       if (tail === 0) {
         result += map[bits >> 18 & 63];
         result += map[bits >> 12 & 63];
@@ -2037,12 +2038,14 @@ var require_omap = __commonJS({
     function resolveYamlOmap(data) {
       if (data === null)
         return true;
-      var objectKeys = [], index, length, pair, pairKey, pairHasKey, object = data;
-      for (index = 0, length = object.length; index < length; index += 1) {
-        pair = object[index];
-        pairHasKey = false;
+      const objectKeys = [];
+      const object = data;
+      for (let index = 0, length = object.length; index < length; index += 1) {
+        const pair = object[index];
+        let pairHasKey = false;
         if (_toString.call(pair) !== "[object Object]")
           return false;
+        let pairKey;
         for (pairKey in pair) {
           if (_hasOwnProperty.call(pair, pairKey)) {
             if (!pairHasKey)
@@ -2080,13 +2083,13 @@ var require_pairs = __commonJS({
     function resolveYamlPairs(data) {
       if (data === null)
         return true;
-      var index, length, pair, keys, result, object = data;
-      result = new Array(object.length);
-      for (index = 0, length = object.length; index < length; index += 1) {
-        pair = object[index];
+      const object = data;
+      const result = new Array(object.length);
+      for (let index = 0, length = object.length; index < length; index += 1) {
+        const pair = object[index];
         if (_toString.call(pair) !== "[object Object]")
           return false;
-        keys = Object.keys(pair);
+        const keys = Object.keys(pair);
         if (keys.length !== 1)
           return false;
         result[index] = [keys[0], pair[keys[0]]];
@@ -2096,11 +2099,11 @@ var require_pairs = __commonJS({
     function constructYamlPairs(data) {
       if (data === null)
         return [];
-      var index, length, pair, keys, result, object = data;
-      result = new Array(object.length);
-      for (index = 0, length = object.length; index < length; index += 1) {
-        pair = object[index];
-        keys = Object.keys(pair);
+      const object = data;
+      const result = new Array(object.length);
+      for (let index = 0, length = object.length; index < length; index += 1) {
+        const pair = object[index];
+        const keys = Object.keys(pair);
         result[index] = [keys[0], pair[keys[0]]];
       }
       return result;
@@ -2122,8 +2125,8 @@ var require_set = __commonJS({
     function resolveYamlSet(data) {
       if (data === null)
         return true;
-      var key, object = data;
-      for (key in object) {
+      const object = data;
+      for (const key in object) {
         if (_hasOwnProperty.call(object, key)) {
           if (object[key] !== null)
             return false;
@@ -2179,31 +2182,30 @@ var require_loader = __commonJS({
     var CHOMPING_KEEP = 3;
     var PATTERN_NON_PRINTABLE = /[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x84\x86-\x9F\uFFFE\uFFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?:[^\uD800-\uDBFF]|^)[\uDC00-\uDFFF]/;
     var PATTERN_NON_ASCII_LINE_BREAKS = /[\x85\u2028\u2029]/;
-    var PATTERN_FLOW_INDICATORS = /[,\[\]\{\}]/;
-    var PATTERN_TAG_HANDLE = /^(?:!|!!|![a-z\-]+!)$/i;
-    var PATTERN_TAG_URI = /^(?:!|[^,\[\]\{\}])(?:%[0-9a-f]{2}|[0-9a-z\-#;\/\?:@&=\+\$,_\.!~\*'\(\)\[\]])*$/i;
+    var PATTERN_FLOW_INDICATORS = /[,\[\]{}]/;
+    var PATTERN_TAG_HANDLE = /^(?:!|!!|![0-9A-Za-z-]+!)$/;
+    var PATTERN_TAG_URI = /^(?:!|[^,\[\]{}])(?:%[0-9a-f]{2}|[0-9a-z\-#;/?:@&=+$,_.!~*'()\[\]])*$/i;
     function _class(obj) {
       return Object.prototype.toString.call(obj);
     }
-    function is_EOL(c) {
+    function isEol(c) {
       return c === 10 || c === 13;
     }
-    function is_WHITE_SPACE(c) {
+    function isWhiteSpace(c) {
       return c === 9 || c === 32;
     }
-    function is_WS_OR_EOL(c) {
+    function isWsOrEol(c) {
       return c === 9 || c === 32 || c === 10 || c === 13;
     }
-    function is_FLOW_INDICATOR(c) {
+    function isFlowIndicator(c) {
       return c === 44 || c === 91 || c === 93 || c === 123 || c === 125;
     }
     function fromHexCode(c) {
-      var lc;
-      if (48 <= c && c <= 57) {
+      if (c >= 48 && c <= 57) {
         return c - 48;
       }
-      lc = c | 32;
-      if (97 <= lc && lc <= 102) {
+      const lc = c | 32;
+      if (lc >= 97 && lc <= 102) {
         return lc - 97 + 10;
       }
       return -1;
@@ -2221,13 +2223,52 @@ var require_loader = __commonJS({
       return 0;
     }
     function fromDecimalCode(c) {
-      if (48 <= c && c <= 57) {
+      if (c >= 48 && c <= 57) {
         return c - 48;
       }
       return -1;
     }
     function simpleEscapeSequence(c) {
-      return c === 48 ? "\0" : c === 97 ? "\x07" : c === 98 ? "\b" : c === 116 ? "	" : c === 9 ? "	" : c === 110 ? "\n" : c === 118 ? "\v" : c === 102 ? "\f" : c === 114 ? "\r" : c === 101 ? "\x1B" : c === 32 ? " " : c === 34 ? '"' : c === 47 ? "/" : c === 92 ? "\\" : c === 78 ? "\x85" : c === 95 ? "\xA0" : c === 76 ? "\u2028" : c === 80 ? "\u2029" : "";
+      switch (c) {
+        case 48:
+          return "\0";
+        case 97:
+          return "\x07";
+        case 98:
+          return "\b";
+        case 116:
+          return "	";
+        case 9:
+          return "	";
+        case 110:
+          return "\n";
+        case 118:
+          return "\v";
+        case 102:
+          return "\f";
+        case 114:
+          return "\r";
+        case 101:
+          return "\x1B";
+        case 32:
+          return " ";
+        case 34:
+          return '"';
+        case 47:
+          return "/";
+        case 92:
+          return "\\";
+        case 78:
+          return "\x85";
+        case 95:
+          return "\xA0";
+        case 76:
+          return "\u2028";
+        case 80:
+          return "\u2029";
+        default:
+          return "";
+      }
     }
     function charFromCodepoint(c) {
       if (c <= 65535) {
@@ -2252,11 +2293,10 @@ var require_loader = __commonJS({
     }
     var simpleEscapeCheck = new Array(256);
     var simpleEscapeMap = new Array(256);
-    for (i = 0; i < 256; i++) {
+    for (let i = 0; i < 256; i++) {
       simpleEscapeCheck[i] = simpleEscapeSequence(i) ? 1 : 0;
       simpleEscapeMap[i] = simpleEscapeSequence(i);
     }
-    var i;
     function State(input, options) {
       this.input = input;
       this.filename = options["filename"] || null;
@@ -2265,6 +2305,8 @@ var require_loader = __commonJS({
       this.legacy = options["legacy"] || false;
       this.json = options["json"] || false;
       this.listener = options["listener"] || null;
+      this.maxDepth = typeof options["maxDepth"] === "number" ? options["maxDepth"] : 100;
+      this.maxMergeSeqLength = typeof options["maxMergeSeqLength"] === "number" ? options["maxMergeSeqLength"] : 20;
       this.implicitTypes = this.schema.compiledImplicit;
       this.typeMap = this.schema.compiledTypeMap;
       this.length = input.length;
@@ -2272,11 +2314,13 @@ var require_loader = __commonJS({
       this.line = 0;
       this.lineStart = 0;
       this.lineIndent = 0;
+      this.depth = 0;
       this.firstTabInLine = -1;
       this.documents = [];
+      this.anchorMapTransactions = [];
     }
     function generateError(state, message) {
-      var mark = {
+      const mark = {
         name: state.filename,
         buffer: state.input.slice(0, -1),
         // omit trailing \0
@@ -2295,21 +2339,86 @@ var require_loader = __commonJS({
         state.onWarning.call(null, generateError(state, message));
       }
     }
+    function storeAnchor(state, name, value) {
+      const transactions = state.anchorMapTransactions;
+      if (transactions.length !== 0) {
+        const transaction = transactions[transactions.length - 1];
+        if (!_hasOwnProperty.call(transaction, name)) {
+          transaction[name] = {
+            existed: _hasOwnProperty.call(state.anchorMap, name),
+            value: state.anchorMap[name]
+          };
+        }
+      }
+      state.anchorMap[name] = value;
+    }
+    function beginAnchorTransaction(state) {
+      state.anchorMapTransactions.push(/* @__PURE__ */ Object.create(null));
+    }
+    function commitAnchorTransaction(state) {
+      const transaction = state.anchorMapTransactions.pop();
+      const transactions = state.anchorMapTransactions;
+      if (transactions.length === 0)
+        return;
+      const parent = transactions[transactions.length - 1];
+      const names = Object.keys(transaction);
+      for (let index = 0, length = names.length; index < length; index += 1) {
+        const name = names[index];
+        if (!_hasOwnProperty.call(parent, name)) {
+          parent[name] = transaction[name];
+        }
+      }
+    }
+    function rollbackAnchorTransaction(state) {
+      const transaction = state.anchorMapTransactions.pop();
+      const names = Object.keys(transaction);
+      for (let index = names.length - 1; index >= 0; index -= 1) {
+        const entry = transaction[names[index]];
+        if (entry.existed) {
+          state.anchorMap[names[index]] = entry.value;
+        } else {
+          delete state.anchorMap[names[index]];
+        }
+      }
+    }
+    function snapshotState(state) {
+      return {
+        position: state.position,
+        line: state.line,
+        lineStart: state.lineStart,
+        lineIndent: state.lineIndent,
+        firstTabInLine: state.firstTabInLine,
+        tag: state.tag,
+        anchor: state.anchor,
+        kind: state.kind,
+        result: state.result
+      };
+    }
+    function restoreState(state, snapshot) {
+      state.position = snapshot.position;
+      state.line = snapshot.line;
+      state.lineStart = snapshot.lineStart;
+      state.lineIndent = snapshot.lineIndent;
+      state.firstTabInLine = snapshot.firstTabInLine;
+      state.tag = snapshot.tag;
+      state.anchor = snapshot.anchor;
+      state.kind = snapshot.kind;
+      state.result = snapshot.result;
+    }
     var directiveHandlers = {
       YAML: function handleYamlDirective(state, name, args) {
-        var match, major, minor;
         if (state.version !== null) {
           throwError(state, "duplication of %YAML directive");
         }
         if (args.length !== 1) {
           throwError(state, "YAML directive accepts exactly one argument");
         }
-        match = /^([0-9]+)\.([0-9]+)$/.exec(args[0]);
+        const match = /^([0-9]+)\.([0-9]+)$/.exec(args[0]);
         if (match === null) {
           throwError(state, "ill-formed argument of the YAML directive");
         }
-        major = parseInt(match[1], 10);
-        minor = parseInt(match[2], 10);
+        const major = parseInt(match[1], 10);
+        const minor = parseInt(match[2], 10);
         if (major !== 1) {
           throwError(state, "unacceptable YAML version of the document");
         }
@@ -2320,11 +2429,11 @@ var require_loader = __commonJS({
         }
       },
       TAG: function handleTagDirective(state, name, args) {
-        var handle, prefix;
+        let prefix;
         if (args.length !== 2) {
           throwError(state, "TAG directive accepts exactly two arguments");
         }
-        handle = args[0];
+        const handle = args[0];
         prefix = args[1];
         if (!PATTERN_TAG_HANDLE.test(handle)) {
           throwError(state, "ill-formed tag handle (first argument) of the TAG directive");
@@ -2344,13 +2453,12 @@ var require_loader = __commonJS({
       }
     };
     function captureSegment(state, start, end, checkJson) {
-      var _position, _length, _character, _result;
       if (start < end) {
-        _result = state.input.slice(start, end);
+        const _result = state.input.slice(start, end);
         if (checkJson) {
-          for (_position = 0, _length = _result.length; _position < _length; _position += 1) {
-            _character = _result.charCodeAt(_position);
-            if (!(_character === 9 || 32 <= _character && _character <= 1114111)) {
+          for (let _position = 0, _length = _result.length; _position < _length; _position += 1) {
+            const _character = _result.charCodeAt(_position);
+            if (!(_character === 9 || _character >= 32 && _character <= 1114111)) {
               throwError(state, "expected valid JSON character");
             }
           }
@@ -2361,13 +2469,12 @@ var require_loader = __commonJS({
       }
     }
     function mergeMappings(state, destination, source, overridableKeys) {
-      var sourceKeys, key, index, quantity;
       if (!common.isObject(source)) {
         throwError(state, "cannot merge mappings; the provided source object is unacceptable");
       }
-      sourceKeys = Object.keys(source);
-      for (index = 0, quantity = sourceKeys.length; index < quantity; index += 1) {
-        key = sourceKeys[index];
+      const sourceKeys = Object.keys(source);
+      for (let index = 0, quantity = sourceKeys.length; index < quantity; index += 1) {
+        const key = sourceKeys[index];
         if (!_hasOwnProperty.call(destination, key)) {
           setProperty(destination, key, source[key]);
           overridableKeys[key] = true;
@@ -2375,10 +2482,9 @@ var require_loader = __commonJS({
       }
     }
     function storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, valueNode, startLine, startLineStart, startPos) {
-      var index, quantity;
       if (Array.isArray(keyNode)) {
         keyNode = Array.prototype.slice.call(keyNode);
-        for (index = 0, quantity = keyNode.length; index < quantity; index += 1) {
+        for (let index = 0, quantity = keyNode.length; index < quantity; index += 1) {
           if (Array.isArray(keyNode[index])) {
             throwError(state, "nested arrays are not supported inside keys");
           }
@@ -2396,8 +2502,16 @@ var require_loader = __commonJS({
       }
       if (keyTag === "tag:yaml.org,2002:merge") {
         if (Array.isArray(valueNode)) {
-          for (index = 0, quantity = valueNode.length; index < quantity; index += 1) {
-            mergeMappings(state, _result, valueNode[index], overridableKeys);
+          if (valueNode.length > state.maxMergeSeqLength) {
+            throwError(state, "merge sequence length exceeded maxMergeSeqLength (" + state.maxMergeSeqLength + ")");
+          }
+          const seen = /* @__PURE__ */ new Set();
+          for (let index = 0, quantity = valueNode.length; index < quantity; index += 1) {
+            const src = valueNode[index];
+            if (seen.has(src))
+              continue;
+            seen.add(src);
+            mergeMappings(state, _result, src, overridableKeys);
           }
         } else {
           mergeMappings(state, _result, valueNode, overridableKeys);
@@ -2415,8 +2529,7 @@ var require_loader = __commonJS({
       return _result;
     }
     function readLineBreak(state) {
-      var ch;
-      ch = state.input.charCodeAt(state.position);
+      const ch = state.input.charCodeAt(state.position);
       if (ch === 10) {
         state.position++;
       } else if (ch === 13) {
@@ -2432,9 +2545,10 @@ var require_loader = __commonJS({
       state.firstTabInLine = -1;
     }
     function skipSeparationSpace(state, allowComments, checkIndent) {
-      var lineBreaks = 0, ch = state.input.charCodeAt(state.position);
+      let lineBreaks = 0;
+      let ch = state.input.charCodeAt(state.position);
       while (ch !== 0) {
-        while (is_WHITE_SPACE(ch)) {
+        while (isWhiteSpace(ch)) {
           if (ch === 9 && state.firstTabInLine === -1) {
             state.firstTabInLine = state.position;
           }
@@ -2445,7 +2559,7 @@ var require_loader = __commonJS({
             ch = state.input.charCodeAt(++state.position);
           } while (ch !== 10 && ch !== 13 && ch !== 0);
         }
-        if (is_EOL(ch)) {
+        if (isEol(ch)) {
           readLineBreak(state);
           ch = state.input.charCodeAt(state.position);
           lineBreaks++;
@@ -2464,12 +2578,12 @@ var require_loader = __commonJS({
       return lineBreaks;
     }
     function testDocumentSeparator(state) {
-      var _position = state.position, ch;
-      ch = state.input.charCodeAt(_position);
+      let _position = state.position;
+      let ch = state.input.charCodeAt(_position);
       if ((ch === 45 || ch === 46) && ch === state.input.charCodeAt(_position + 1) && ch === state.input.charCodeAt(_position + 2)) {
         _position += 3;
         ch = state.input.charCodeAt(_position);
-        if (ch === 0 || is_WS_OR_EOL(ch)) {
+        if (ch === 0 || isWsOrEol(ch)) {
           return true;
         }
       }
@@ -2483,14 +2597,21 @@ var require_loader = __commonJS({
       }
     }
     function readPlainScalar(state, nodeIndent, withinFlowCollection) {
-      var preceding, following, captureStart, captureEnd, hasPendingContent, _line, _lineStart, _lineIndent, _kind = state.kind, _result = state.result, ch;
-      ch = state.input.charCodeAt(state.position);
-      if (is_WS_OR_EOL(ch) || is_FLOW_INDICATOR(ch) || ch === 35 || ch === 38 || ch === 42 || ch === 33 || ch === 124 || ch === 62 || ch === 39 || ch === 34 || ch === 37 || ch === 64 || ch === 96) {
+      let captureStart;
+      let captureEnd;
+      let hasPendingContent;
+      let _line;
+      let _lineStart;
+      let _lineIndent;
+      const _kind = state.kind;
+      const _result = state.result;
+      let ch = state.input.charCodeAt(state.position);
+      if (isWsOrEol(ch) || isFlowIndicator(ch) || ch === 35 || ch === 38 || ch === 42 || ch === 33 || ch === 124 || ch === 62 || ch === 39 || ch === 34 || ch === 37 || ch === 64 || ch === 96) {
         return false;
       }
       if (ch === 63 || ch === 45) {
-        following = state.input.charCodeAt(state.position + 1);
-        if (is_WS_OR_EOL(following) || withinFlowCollection && is_FLOW_INDICATOR(following)) {
+        const following = state.input.charCodeAt(state.position + 1);
+        if (isWsOrEol(following) || withinFlowCollection && isFlowIndicator(following)) {
           return false;
         }
       }
@@ -2500,18 +2621,18 @@ var require_loader = __commonJS({
       hasPendingContent = false;
       while (ch !== 0) {
         if (ch === 58) {
-          following = state.input.charCodeAt(state.position + 1);
-          if (is_WS_OR_EOL(following) || withinFlowCollection && is_FLOW_INDICATOR(following)) {
+          const following = state.input.charCodeAt(state.position + 1);
+          if (isWsOrEol(following) || withinFlowCollection && isFlowIndicator(following)) {
             break;
           }
         } else if (ch === 35) {
-          preceding = state.input.charCodeAt(state.position - 1);
-          if (is_WS_OR_EOL(preceding)) {
+          const preceding = state.input.charCodeAt(state.position - 1);
+          if (isWsOrEol(preceding)) {
             break;
           }
-        } else if (state.position === state.lineStart && testDocumentSeparator(state) || withinFlowCollection && is_FLOW_INDICATOR(ch)) {
+        } else if (state.position === state.lineStart && testDocumentSeparator(state) || withinFlowCollection && isFlowIndicator(ch)) {
           break;
-        } else if (is_EOL(ch)) {
+        } else if (isEol(ch)) {
           _line = state.line;
           _lineStart = state.lineStart;
           _lineIndent = state.lineIndent;
@@ -2534,7 +2655,7 @@ var require_loader = __commonJS({
           captureStart = captureEnd = state.position;
           hasPendingContent = false;
         }
-        if (!is_WHITE_SPACE(ch)) {
+        if (!isWhiteSpace(ch)) {
           captureEnd = state.position + 1;
         }
         ch = state.input.charCodeAt(++state.position);
@@ -2548,8 +2669,9 @@ var require_loader = __commonJS({
       return false;
     }
     function readSingleQuotedScalar(state, nodeIndent) {
-      var ch, captureStart, captureEnd;
-      ch = state.input.charCodeAt(state.position);
+      let captureStart;
+      let captureEnd;
+      let ch = state.input.charCodeAt(state.position);
       if (ch !== 39) {
         return false;
       }
@@ -2568,7 +2690,7 @@ var require_loader = __commonJS({
           } else {
             return true;
           }
-        } else if (is_EOL(ch)) {
+        } else if (isEol(ch)) {
           captureSegment(state, captureStart, captureEnd, true);
           writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
           captureStart = captureEnd = state.position;
@@ -2576,14 +2698,18 @@ var require_loader = __commonJS({
           throwError(state, "unexpected end of the document within a single quoted scalar");
         } else {
           state.position++;
-          captureEnd = state.position;
+          if (!isWhiteSpace(ch)) {
+            captureEnd = state.position;
+          }
         }
       }
       throwError(state, "unexpected end of the stream within a single quoted scalar");
     }
     function readDoubleQuotedScalar(state, nodeIndent) {
-      var captureStart, captureEnd, hexLength, hexResult, tmp, ch;
-      ch = state.input.charCodeAt(state.position);
+      let captureStart;
+      let captureEnd;
+      let tmp;
+      let ch = state.input.charCodeAt(state.position);
       if (ch !== 34) {
         return false;
       }
@@ -2599,14 +2725,14 @@ var require_loader = __commonJS({
         } else if (ch === 92) {
           captureSegment(state, captureStart, state.position, true);
           ch = state.input.charCodeAt(++state.position);
-          if (is_EOL(ch)) {
+          if (isEol(ch)) {
             skipSeparationSpace(state, false, nodeIndent);
           } else if (ch < 256 && simpleEscapeCheck[ch]) {
             state.result += simpleEscapeMap[ch];
             state.position++;
           } else if ((tmp = escapedHexLen(ch)) > 0) {
-            hexLength = tmp;
-            hexResult = 0;
+            let hexLength = tmp;
+            let hexResult = 0;
             for (; hexLength > 0; hexLength--) {
               ch = state.input.charCodeAt(++state.position);
               if ((tmp = fromHexCode(ch)) >= 0) {
@@ -2621,7 +2747,7 @@ var require_loader = __commonJS({
             throwError(state, "unknown escape sequence");
           }
           captureStart = captureEnd = state.position;
-        } else if (is_EOL(ch)) {
+        } else if (isEol(ch)) {
           captureSegment(state, captureStart, captureEnd, true);
           writeFoldedLines(state, skipSeparationSpace(state, false, nodeIndent));
           captureStart = captureEnd = state.position;
@@ -2629,14 +2755,30 @@ var require_loader = __commonJS({
           throwError(state, "unexpected end of the document within a double quoted scalar");
         } else {
           state.position++;
-          captureEnd = state.position;
+          if (!isWhiteSpace(ch)) {
+            captureEnd = state.position;
+          }
         }
       }
       throwError(state, "unexpected end of the stream within a double quoted scalar");
     }
     function readFlowCollection(state, nodeIndent) {
-      var readNext = true, _line, _lineStart, _pos, _tag = state.tag, _result, _anchor = state.anchor, following, terminator, isPair, isExplicitPair, isMapping, overridableKeys = /* @__PURE__ */ Object.create(null), keyNode, keyTag, valueNode, ch;
-      ch = state.input.charCodeAt(state.position);
+      let readNext = true;
+      let _line;
+      let _lineStart;
+      let _pos;
+      const _tag = state.tag;
+      let _result;
+      const _anchor = state.anchor;
+      let terminator;
+      let isPair;
+      let isExplicitPair;
+      let isMapping;
+      const overridableKeys = /* @__PURE__ */ Object.create(null);
+      let keyNode;
+      let keyTag;
+      let valueNode;
+      let ch = state.input.charCodeAt(state.position);
       if (ch === 91) {
         terminator = 93;
         isMapping = false;
@@ -2649,7 +2791,7 @@ var require_loader = __commonJS({
         return false;
       }
       if (state.anchor !== null) {
-        state.anchorMap[state.anchor] = _result;
+        storeAnchor(state, state.anchor, _result);
       }
       ch = state.input.charCodeAt(++state.position);
       while (ch !== 0) {
@@ -2670,8 +2812,8 @@ var require_loader = __commonJS({
         keyTag = keyNode = valueNode = null;
         isPair = isExplicitPair = false;
         if (ch === 63) {
-          following = state.input.charCodeAt(state.position + 1);
-          if (is_WS_OR_EOL(following)) {
+          const following = state.input.charCodeAt(state.position + 1);
+          if (isWsOrEol(following)) {
             isPair = isExplicitPair = true;
             state.position++;
             skipSeparationSpace(state, true, nodeIndent);
@@ -2711,8 +2853,15 @@ var require_loader = __commonJS({
       throwError(state, "unexpected end of the stream within a flow collection");
     }
     function readBlockScalar(state, nodeIndent) {
-      var captureStart, folding, chomping = CHOMPING_CLIP, didReadContent = false, detectedIndent = false, textIndent = nodeIndent, emptyLines = 0, atMoreIndented = false, tmp, ch;
-      ch = state.input.charCodeAt(state.position);
+      let folding;
+      let chomping = CHOMPING_CLIP;
+      let didReadContent = false;
+      let detectedIndent = false;
+      let textIndent = nodeIndent;
+      let emptyLines = 0;
+      let atMoreIndented = false;
+      let tmp;
+      let ch = state.input.charCodeAt(state.position);
       if (ch === 124) {
         folding = false;
       } else if (ch === 62) {
@@ -2743,14 +2892,14 @@ var require_loader = __commonJS({
           break;
         }
       }
-      if (is_WHITE_SPACE(ch)) {
+      if (isWhiteSpace(ch)) {
         do {
           ch = state.input.charCodeAt(++state.position);
-        } while (is_WHITE_SPACE(ch));
+        } while (isWhiteSpace(ch));
         if (ch === 35) {
           do {
             ch = state.input.charCodeAt(++state.position);
-          } while (!is_EOL(ch) && ch !== 0);
+          } while (!isEol(ch) && ch !== 0);
         }
       }
       while (ch !== 0) {
@@ -2764,9 +2913,12 @@ var require_loader = __commonJS({
         if (!detectedIndent && state.lineIndent > textIndent) {
           textIndent = state.lineIndent;
         }
-        if (is_EOL(ch)) {
+        if (isEol(ch)) {
           emptyLines++;
           continue;
+        }
+        if (!detectedIndent && textIndent === 0) {
+          throwError(state, "missing indentation for block scalar");
         }
         if (state.lineIndent < textIndent) {
           if (chomping === CHOMPING_KEEP) {
@@ -2779,7 +2931,7 @@ var require_loader = __commonJS({
           break;
         }
         if (folding) {
-          if (is_WHITE_SPACE(ch)) {
+          if (isWhiteSpace(ch)) {
             atMoreIndented = true;
             state.result += common.repeat("\n", didReadContent ? 1 + emptyLines : emptyLines);
           } else if (atMoreIndented) {
@@ -2798,8 +2950,8 @@ var require_loader = __commonJS({
         didReadContent = true;
         detectedIndent = true;
         emptyLines = 0;
-        captureStart = state.position;
-        while (!is_EOL(ch) && ch !== 0) {
+        const captureStart = state.position;
+        while (!isEol(ch) && ch !== 0) {
           ch = state.input.charCodeAt(++state.position);
         }
         captureSegment(state, captureStart, state.position, false);
@@ -2807,13 +2959,16 @@ var require_loader = __commonJS({
       return true;
     }
     function readBlockSequence(state, nodeIndent) {
-      var _line, _tag = state.tag, _anchor = state.anchor, _result = [], following, detected = false, ch;
+      const _tag = state.tag;
+      const _anchor = state.anchor;
+      const _result = [];
+      let detected = false;
       if (state.firstTabInLine !== -1)
         return false;
       if (state.anchor !== null) {
-        state.anchorMap[state.anchor] = _result;
+        storeAnchor(state, state.anchor, _result);
       }
-      ch = state.input.charCodeAt(state.position);
+      let ch = state.input.charCodeAt(state.position);
       while (ch !== 0) {
         if (state.firstTabInLine !== -1) {
           state.position = state.firstTabInLine;
@@ -2822,8 +2977,8 @@ var require_loader = __commonJS({
         if (ch !== 45) {
           break;
         }
-        following = state.input.charCodeAt(state.position + 1);
-        if (!is_WS_OR_EOL(following)) {
+        const following = state.input.charCodeAt(state.position + 1);
+        if (!isWsOrEol(following)) {
           break;
         }
         detected = true;
@@ -2835,7 +2990,7 @@ var require_loader = __commonJS({
             continue;
           }
         }
-        _line = state.line;
+        const _line = state.line;
         composeNode(state, nodeIndent, CONTEXT_BLOCK_IN, false, true);
         _result.push(state.result);
         skipSeparationSpace(state, true, -1);
@@ -2856,21 +3011,33 @@ var require_loader = __commonJS({
       return false;
     }
     function readBlockMapping(state, nodeIndent, flowIndent) {
-      var following, allowCompact, _line, _keyLine, _keyLineStart, _keyPos, _tag = state.tag, _anchor = state.anchor, _result = {}, overridableKeys = /* @__PURE__ */ Object.create(null), keyTag = null, keyNode = null, valueNode = null, atExplicitKey = false, detected = false, ch;
+      let allowCompact;
+      let _keyLine;
+      let _keyLineStart;
+      let _keyPos;
+      const _tag = state.tag;
+      const _anchor = state.anchor;
+      const _result = {};
+      const overridableKeys = /* @__PURE__ */ Object.create(null);
+      let keyTag = null;
+      let keyNode = null;
+      let valueNode = null;
+      let atExplicitKey = false;
+      let detected = false;
       if (state.firstTabInLine !== -1)
         return false;
       if (state.anchor !== null) {
-        state.anchorMap[state.anchor] = _result;
+        storeAnchor(state, state.anchor, _result);
       }
-      ch = state.input.charCodeAt(state.position);
+      let ch = state.input.charCodeAt(state.position);
       while (ch !== 0) {
         if (!atExplicitKey && state.firstTabInLine !== -1) {
           state.position = state.firstTabInLine;
           throwError(state, "tab characters must not be used in indentation");
         }
-        following = state.input.charCodeAt(state.position + 1);
-        _line = state.line;
-        if ((ch === 63 || ch === 58) && is_WS_OR_EOL(following)) {
+        const following = state.input.charCodeAt(state.position + 1);
+        const _line = state.line;
+        if ((ch === 63 || ch === 58) && isWsOrEol(following)) {
           if (ch === 63) {
             if (atExplicitKey) {
               storeMappingPair(state, _result, overridableKeys, keyTag, keyNode, null, _keyLine, _keyLineStart, _keyPos);
@@ -2896,12 +3063,12 @@ var require_loader = __commonJS({
           }
           if (state.line === _line) {
             ch = state.input.charCodeAt(state.position);
-            while (is_WHITE_SPACE(ch)) {
+            while (isWhiteSpace(ch)) {
               ch = state.input.charCodeAt(++state.position);
             }
             if (ch === 58) {
               ch = state.input.charCodeAt(++state.position);
-              if (!is_WS_OR_EOL(ch)) {
+              if (!isWsOrEol(ch)) {
                 throwError(state, "a whitespace character is expected after the key-value separator within a block mapping");
               }
               if (atExplicitKey) {
@@ -2966,8 +3133,11 @@ var require_loader = __commonJS({
       return detected;
     }
     function readTagProperty(state) {
-      var _position, isVerbatim = false, isNamed = false, tagHandle, tagName, ch;
-      ch = state.input.charCodeAt(state.position);
+      let isVerbatim = false;
+      let isNamed = false;
+      let tagHandle;
+      let tagName;
+      let ch = state.input.charCodeAt(state.position);
       if (ch !== 33)
         return false;
       if (state.tag !== null) {
@@ -2984,7 +3154,7 @@ var require_loader = __commonJS({
       } else {
         tagHandle = "!";
       }
-      _position = state.position;
+      let _position = state.position;
       if (isVerbatim) {
         do {
           ch = state.input.charCodeAt(++state.position);
@@ -2996,7 +3166,7 @@ var require_loader = __commonJS({
           throwError(state, "unexpected end of the stream within a verbatim tag");
         }
       } else {
-        while (ch !== 0 && !is_WS_OR_EOL(ch)) {
+        while (ch !== 0 && !isWsOrEol(ch)) {
           if (ch === 33) {
             if (!isNamed) {
               tagHandle = state.input.slice(_position - 1, state.position + 1);
@@ -3038,16 +3208,15 @@ var require_loader = __commonJS({
       return true;
     }
     function readAnchorProperty(state) {
-      var _position, ch;
-      ch = state.input.charCodeAt(state.position);
+      let ch = state.input.charCodeAt(state.position);
       if (ch !== 38)
         return false;
       if (state.anchor !== null) {
         throwError(state, "duplication of an anchor property");
       }
       ch = state.input.charCodeAt(++state.position);
-      _position = state.position;
-      while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
+      const _position = state.position;
+      while (ch !== 0 && !isWsOrEol(ch) && !isFlowIndicator(ch)) {
         ch = state.input.charCodeAt(++state.position);
       }
       if (state.position === _position) {
@@ -3057,19 +3226,18 @@ var require_loader = __commonJS({
       return true;
     }
     function readAlias(state) {
-      var _position, alias, ch;
-      ch = state.input.charCodeAt(state.position);
+      let ch = state.input.charCodeAt(state.position);
       if (ch !== 42)
         return false;
       ch = state.input.charCodeAt(++state.position);
-      _position = state.position;
-      while (ch !== 0 && !is_WS_OR_EOL(ch) && !is_FLOW_INDICATOR(ch)) {
+      const _position = state.position;
+      while (ch !== 0 && !isWsOrEol(ch) && !isFlowIndicator(ch)) {
         ch = state.input.charCodeAt(++state.position);
       }
       if (state.position === _position) {
         throwError(state, "name of an alias node must contain at least one character");
       }
-      alias = state.input.slice(_position, state.position);
+      const alias = state.input.slice(_position, state.position);
       if (!_hasOwnProperty.call(state.anchorMap, alias)) {
         throwError(state, 'unidentified alias "' + alias + '"');
       }
@@ -3077,8 +3245,36 @@ var require_loader = __commonJS({
       skipSeparationSpace(state, true, -1);
       return true;
     }
+    function tryReadBlockMappingFromProperty(state, propertyStart, nodeIndent, flowIndent) {
+      const fallbackState = snapshotState(state);
+      beginAnchorTransaction(state);
+      restoreState(state, propertyStart);
+      state.tag = null;
+      state.anchor = null;
+      state.kind = null;
+      state.result = null;
+      if (readBlockMapping(state, nodeIndent, flowIndent) && state.kind === "mapping") {
+        commitAnchorTransaction(state);
+        return true;
+      }
+      rollbackAnchorTransaction(state);
+      restoreState(state, fallbackState);
+      return false;
+    }
     function composeNode(state, parentIndent, nodeContext, allowToSeek, allowCompact) {
-      var allowBlockStyles, allowBlockScalars, allowBlockCollections, indentStatus = 1, atNewLine = false, hasContent = false, typeIndex, typeQuantity, typeList, type, flowIndent, blockIndent;
+      let allowBlockScalars;
+      let allowBlockCollections;
+      let indentStatus = 1;
+      let atNewLine = false;
+      let hasContent = false;
+      let propertyStart = null;
+      let type;
+      let flowIndent;
+      let blockIndent;
+      if (state.depth >= state.maxDepth) {
+        throwError(state, "nesting exceeded maxDepth (" + state.maxDepth + ")");
+      }
+      state.depth += 1;
       if (state.listener !== null) {
         state.listener("open", state);
       }
@@ -3086,7 +3282,7 @@ var require_loader = __commonJS({
       state.anchor = null;
       state.kind = null;
       state.result = null;
-      allowBlockStyles = allowBlockScalars = allowBlockCollections = CONTEXT_BLOCK_OUT === nodeContext || CONTEXT_BLOCK_IN === nodeContext;
+      const allowBlockStyles = allowBlockScalars = allowBlockCollections = CONTEXT_BLOCK_OUT === nodeContext || CONTEXT_BLOCK_IN === nodeContext;
       if (allowToSeek) {
         if (skipSeparationSpace(state, true, -1)) {
           atNewLine = true;
@@ -3100,7 +3296,18 @@ var require_loader = __commonJS({
         }
       }
       if (indentStatus === 1) {
-        while (readTagProperty(state) || readAnchorProperty(state)) {
+        while (true) {
+          const ch = state.input.charCodeAt(state.position);
+          const propertyState = snapshotState(state);
+          if (atNewLine && (ch === 33 && state.tag !== null || ch === 38 && state.anchor !== null)) {
+            break;
+          }
+          if (!readTagProperty(state) && !readAnchorProperty(state)) {
+            break;
+          }
+          if (propertyStart === null) {
+            propertyStart = propertyState;
+          }
           if (skipSeparationSpace(state, true, -1)) {
             atNewLine = true;
             allowBlockCollections = allowBlockStyles;
@@ -3130,7 +3337,15 @@ var require_loader = __commonJS({
           if (allowBlockCollections && (readBlockSequence(state, blockIndent) || readBlockMapping(state, blockIndent, flowIndent)) || readFlowCollection(state, flowIndent)) {
             hasContent = true;
           } else {
-            if (allowBlockScalars && readBlockScalar(state, flowIndent) || readSingleQuotedScalar(state, flowIndent) || readDoubleQuotedScalar(state, flowIndent)) {
+            const ch = state.input.charCodeAt(state.position);
+            if (propertyStart !== null && allowBlockStyles && !allowBlockCollections && ch !== 124 && ch !== 62 && tryReadBlockMappingFromProperty(
+              state,
+              propertyStart,
+              propertyStart.position - propertyStart.lineStart,
+              flowIndent
+            )) {
+              hasContent = true;
+            } else if (allowBlockScalars && readBlockScalar(state, flowIndent) || readSingleQuotedScalar(state, flowIndent) || readDoubleQuotedScalar(state, flowIndent)) {
               hasContent = true;
             } else if (readAlias(state)) {
               hasContent = true;
@@ -3144,7 +3359,7 @@ var require_loader = __commonJS({
               }
             }
             if (state.anchor !== null) {
-              state.anchorMap[state.anchor] = state.result;
+              storeAnchor(state, state.anchor, state.result);
             }
           }
         } else if (indentStatus === 0) {
@@ -3153,19 +3368,19 @@ var require_loader = __commonJS({
       }
       if (state.tag === null) {
         if (state.anchor !== null) {
-          state.anchorMap[state.anchor] = state.result;
+          storeAnchor(state, state.anchor, state.result);
         }
       } else if (state.tag === "?") {
         if (state.result !== null && state.kind !== "scalar") {
           throwError(state, 'unacceptable node kind for !<?> tag; it should be "scalar", not "' + state.kind + '"');
         }
-        for (typeIndex = 0, typeQuantity = state.implicitTypes.length; typeIndex < typeQuantity; typeIndex += 1) {
+        for (let typeIndex = 0, typeQuantity = state.implicitTypes.length; typeIndex < typeQuantity; typeIndex += 1) {
           type = state.implicitTypes[typeIndex];
           if (type.resolve(state.result)) {
             state.result = type.construct(state.result);
             state.tag = type.tag;
             if (state.anchor !== null) {
-              state.anchorMap[state.anchor] = state.result;
+              storeAnchor(state, state.anchor, state.result);
             }
             break;
           }
@@ -3175,8 +3390,8 @@ var require_loader = __commonJS({
           type = state.typeMap[state.kind || "fallback"][state.tag];
         } else {
           type = null;
-          typeList = state.typeMap.multi[state.kind || "fallback"];
-          for (typeIndex = 0, typeQuantity = typeList.length; typeIndex < typeQuantity; typeIndex += 1) {
+          const typeList = state.typeMap.multi[state.kind || "fallback"];
+          for (let typeIndex = 0, typeQuantity = typeList.length; typeIndex < typeQuantity; typeIndex += 1) {
             if (state.tag.slice(0, typeList[typeIndex].tag.length) === typeList[typeIndex].tag) {
               type = typeList[typeIndex];
               break;
@@ -3194,17 +3409,20 @@ var require_loader = __commonJS({
         } else {
           state.result = type.construct(state.result, state.tag);
           if (state.anchor !== null) {
-            state.anchorMap[state.anchor] = state.result;
+            storeAnchor(state, state.anchor, state.result);
           }
         }
       }
       if (state.listener !== null) {
         state.listener("close", state);
       }
+      state.depth -= 1;
       return state.tag !== null || state.anchor !== null || hasContent;
     }
     function readDocument(state) {
-      var documentStart = state.position, _position, directiveName, directiveArgs, hasDirectives = false, ch;
+      const documentStart = state.position;
+      let hasDirectives = false;
+      let ch;
       state.version = null;
       state.checkLineBreaks = state.legacy;
       state.tagMap = /* @__PURE__ */ Object.create(null);
@@ -3217,29 +3435,29 @@ var require_loader = __commonJS({
         }
         hasDirectives = true;
         ch = state.input.charCodeAt(++state.position);
-        _position = state.position;
-        while (ch !== 0 && !is_WS_OR_EOL(ch)) {
+        let _position = state.position;
+        while (ch !== 0 && !isWsOrEol(ch)) {
           ch = state.input.charCodeAt(++state.position);
         }
-        directiveName = state.input.slice(_position, state.position);
-        directiveArgs = [];
+        const directiveName = state.input.slice(_position, state.position);
+        const directiveArgs = [];
         if (directiveName.length < 1) {
           throwError(state, "directive name must not be less than one character in length");
         }
         while (ch !== 0) {
-          while (is_WHITE_SPACE(ch)) {
+          while (isWhiteSpace(ch)) {
             ch = state.input.charCodeAt(++state.position);
           }
           if (ch === 35) {
             do {
               ch = state.input.charCodeAt(++state.position);
-            } while (ch !== 0 && !is_EOL(ch));
+            } while (ch !== 0 && !isEol(ch));
             break;
           }
-          if (is_EOL(ch))
+          if (isEol(ch))
             break;
           _position = state.position;
-          while (ch !== 0 && !is_WS_OR_EOL(ch)) {
+          while (ch !== 0 && !isWsOrEol(ch)) {
             ch = state.input.charCodeAt(++state.position);
           }
           directiveArgs.push(state.input.slice(_position, state.position));
@@ -3274,8 +3492,6 @@ var require_loader = __commonJS({
       }
       if (state.position < state.length - 1) {
         throwError(state, "end of the stream or a document separator is expected");
-      } else {
-        return;
       }
     }
     function loadDocuments(input, options) {
@@ -3289,8 +3505,8 @@ var require_loader = __commonJS({
           input = input.slice(1);
         }
       }
-      var state = new State(input, options);
-      var nullpos = input.indexOf("\0");
+      const state = new State(input, options);
+      const nullpos = input.indexOf("\0");
       if (nullpos !== -1) {
         state.position = nullpos;
         throwError(state, "null byte is not allowed in input");
@@ -3310,16 +3526,16 @@ var require_loader = __commonJS({
         options = iterator;
         iterator = null;
       }
-      var documents = loadDocuments(input, options);
+      const documents = loadDocuments(input, options);
       if (typeof iterator !== "function") {
         return documents;
       }
-      for (var index = 0, length = documents.length; index < length; index += 1) {
+      for (let index = 0, length = documents.length; index < length; index += 1) {
         iterator(documents[index]);
       }
     }
     function load(input, options) {
-      var documents = loadDocuments(input, options);
+      const documents = loadDocuments(input, options);
       if (documents.length === 0) {
         return void 0;
       } else if (documents.length === 1) {
@@ -3402,18 +3618,17 @@ var require_dumper = __commonJS({
     ];
     var DEPRECATED_BASE60_SYNTAX = /^[-+]?[0-9_]+(?::[0-9_]+)+(?:\.[0-9_]*)?$/;
     function compileStyleMap(schema, map) {
-      var result, keys, index, length, tag, style, type;
       if (map === null)
         return {};
-      result = {};
-      keys = Object.keys(map);
-      for (index = 0, length = keys.length; index < length; index += 1) {
-        tag = keys[index];
-        style = String(map[tag]);
+      const result = {};
+      const keys = Object.keys(map);
+      for (let index = 0, length = keys.length; index < length; index += 1) {
+        let tag = keys[index];
+        let style = String(map[tag]);
         if (tag.slice(0, 2) === "!!") {
           tag = "tag:yaml.org,2002:" + tag.slice(2);
         }
-        type = schema.compiledTypeMap["fallback"][tag];
+        const type = schema.compiledTypeMap["fallback"][tag];
         if (type && _hasOwnProperty.call(type.styleAliases, style)) {
           style = type.styleAliases[style];
         }
@@ -3422,8 +3637,9 @@ var require_dumper = __commonJS({
       return result;
     }
     function encodeHex(character) {
-      var string, handle, length;
-      string = character.toString(16).toUpperCase();
+      let handle;
+      let length;
+      const string = character.toString(16).toUpperCase();
       if (character <= 255) {
         handle = "x";
         length = 2;
@@ -3463,9 +3679,13 @@ var require_dumper = __commonJS({
       this.usedDuplicates = null;
     }
     function indentString(string, spaces) {
-      var ind = common.repeat(" ", spaces), position = 0, next2 = -1, result = "", line, length = string.length;
+      const ind = common.repeat(" ", spaces);
+      let position = 0;
+      let result = "";
+      const length = string.length;
       while (position < length) {
-        next2 = string.indexOf("\n", position);
+        let line;
+        const next2 = string.indexOf("\n", position);
         if (next2 === -1) {
           line = string.slice(position);
           position = length;
@@ -3483,9 +3703,8 @@ var require_dumper = __commonJS({
       return "\n" + common.repeat(" ", state.indent * level);
     }
     function testImplicitResolving(state, str) {
-      var index, length, type;
-      for (index = 0, length = state.implicitTypes.length; index < length; index += 1) {
-        type = state.implicitTypes[index];
+      for (let index = 0, length = state.implicitTypes.length; index < length; index += 1) {
+        const type = state.implicitTypes[index];
         if (type.resolve(str)) {
           return true;
         }
@@ -3496,30 +3715,39 @@ var require_dumper = __commonJS({
       return c === CHAR_SPACE || c === CHAR_TAB;
     }
     function isPrintable(c) {
-      return 32 <= c && c <= 126 || 161 <= c && c <= 55295 && c !== 8232 && c !== 8233 || 57344 <= c && c <= 65533 && c !== CHAR_BOM || 65536 <= c && c <= 1114111;
+      return c >= 32 && c <= 126 || c >= 161 && c <= 55295 && c !== 8232 && c !== 8233 || c >= 57344 && c <= 65533 && c !== CHAR_BOM || c >= 65536 && c <= 1114111;
     }
     function isNsCharOrWhitespace(c) {
-      return isPrintable(c) && c !== CHAR_BOM && c !== CHAR_CARRIAGE_RETURN && c !== CHAR_LINE_FEED;
+      return isPrintable(c) && c !== CHAR_BOM && // - b-char
+      c !== CHAR_CARRIAGE_RETURN && c !== CHAR_LINE_FEED;
     }
     function isPlainSafe(c, prev, inblock) {
-      var cIsNsCharOrWhitespace = isNsCharOrWhitespace(c);
-      var cIsNsChar = cIsNsCharOrWhitespace && !isWhitespace(c);
+      const cIsNsCharOrWhitespace = isNsCharOrWhitespace(c);
+      const cIsNsChar = cIsNsCharOrWhitespace && !isWhitespace(c);
       return (
         // ns-plain-safe
-        (inblock ? (
-          // c = flow-in
-          cIsNsCharOrWhitespace
-        ) : cIsNsCharOrWhitespace && c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET) && c !== CHAR_SHARP && !(prev === CHAR_COLON && !cIsNsChar) || isNsCharOrWhitespace(prev) && !isWhitespace(prev) && c === CHAR_SHARP || prev === CHAR_COLON && cIsNsChar
+        (inblock ? cIsNsCharOrWhitespace : cIsNsCharOrWhitespace && // - c-flow-indicator
+        c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET) && // ns-plain-char
+        c !== CHAR_SHARP && // false on '#'
+        !(prev === CHAR_COLON && !cIsNsChar) || // false on ': '
+        isNsCharOrWhitespace(prev) && !isWhitespace(prev) && c === CHAR_SHARP || // change to true on '[^ ]#'
+        prev === CHAR_COLON && cIsNsChar
       );
     }
     function isPlainSafeFirst(c) {
-      return isPrintable(c) && c !== CHAR_BOM && !isWhitespace(c) && c !== CHAR_MINUS && c !== CHAR_QUESTION && c !== CHAR_COLON && c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET && c !== CHAR_SHARP && c !== CHAR_AMPERSAND && c !== CHAR_ASTERISK && c !== CHAR_EXCLAMATION && c !== CHAR_VERTICAL_LINE && c !== CHAR_EQUALS && c !== CHAR_GREATER_THAN && c !== CHAR_SINGLE_QUOTE && c !== CHAR_DOUBLE_QUOTE && c !== CHAR_PERCENT && c !== CHAR_COMMERCIAL_AT && c !== CHAR_GRAVE_ACCENT;
+      return isPrintable(c) && c !== CHAR_BOM && !isWhitespace(c) && // - s-white
+      // - (c-indicator ::=
+      // “-” | “?” | “:” | “,” | “[” | “]” | “{” | “}”
+      c !== CHAR_MINUS && c !== CHAR_QUESTION && c !== CHAR_COLON && c !== CHAR_COMMA && c !== CHAR_LEFT_SQUARE_BRACKET && c !== CHAR_RIGHT_SQUARE_BRACKET && c !== CHAR_LEFT_CURLY_BRACKET && c !== CHAR_RIGHT_CURLY_BRACKET && // | “#” | “&” | “*” | “!” | “|” | “=” | “>” | “'” | “"”
+      c !== CHAR_SHARP && c !== CHAR_AMPERSAND && c !== CHAR_ASTERISK && c !== CHAR_EXCLAMATION && c !== CHAR_VERTICAL_LINE && c !== CHAR_EQUALS && c !== CHAR_GREATER_THAN && c !== CHAR_SINGLE_QUOTE && c !== CHAR_DOUBLE_QUOTE && // | “%” | “@” | “`”)
+      c !== CHAR_PERCENT && c !== CHAR_COMMERCIAL_AT && c !== CHAR_GRAVE_ACCENT;
     }
     function isPlainSafeLast(c) {
       return !isWhitespace(c) && c !== CHAR_COLON;
     }
     function codePointAt(string, pos) {
-      var first = string.charCodeAt(pos), second;
+      const first = string.charCodeAt(pos);
+      let second;
       if (first >= 55296 && first <= 56319 && pos + 1 < string.length) {
         second = string.charCodeAt(pos + 1);
         if (second >= 56320 && second <= 57343) {
@@ -3529,7 +3757,7 @@ var require_dumper = __commonJS({
       return first;
     }
     function needIndentIndicator(string) {
-      var leadingSpaceRe = /^\n* /;
+      const leadingSpaceRe = /^\n* /;
       return leadingSpaceRe.test(string);
     }
     var STYLE_PLAIN = 1;
@@ -3538,14 +3766,14 @@ var require_dumper = __commonJS({
     var STYLE_FOLDED = 4;
     var STYLE_DOUBLE = 5;
     function chooseScalarStyle(string, singleLineOnly, indentPerLevel, lineWidth, testAmbiguousType, quotingType, forceQuotes, inblock) {
-      var i;
-      var char = 0;
-      var prevChar = null;
-      var hasLineBreak = false;
-      var hasFoldableLine = false;
-      var shouldTrackWidth = lineWidth !== -1;
-      var previousLineBreak = -1;
-      var plain = isPlainSafeFirst(codePointAt(string, 0)) && isPlainSafeLast(codePointAt(string, string.length - 1));
+      let i;
+      let char = 0;
+      let prevChar = null;
+      let hasLineBreak = false;
+      let hasFoldableLine = false;
+      const shouldTrackWidth = lineWidth !== -1;
+      let previousLineBreak = -1;
+      let plain = isPlainSafeFirst(codePointAt(string, 0)) && isPlainSafeLast(codePointAt(string, string.length - 1));
       if (singleLineOnly || forceQuotes) {
         for (i = 0; i < string.length; char >= 65536 ? i += 2 : i++) {
           char = codePointAt(string, i);
@@ -3597,9 +3825,10 @@ var require_dumper = __commonJS({
             return state.quotingType === QUOTING_TYPE_DOUBLE ? '"' + string + '"' : "'" + string + "'";
           }
         }
-        var indent = state.indent * Math.max(1, level);
-        var lineWidth = state.lineWidth === -1 ? -1 : Math.max(Math.min(state.lineWidth, 40), state.lineWidth - indent);
-        var singleLineOnly = iskey || state.flowLevel > -1 && level >= state.flowLevel;
+        const indent = state.indent * Math.max(1, level);
+        const lineWidth = state.lineWidth === -1 ? -1 : Math.max(Math.min(state.lineWidth, 40), state.lineWidth - indent);
+        const singleLineOnly = iskey || // No block styles in flow mode.
+        state.flowLevel > -1 && level >= state.flowLevel;
         function testAmbiguity(string2) {
           return testImplicitResolving(state, string2);
         }
@@ -3629,28 +3858,29 @@ var require_dumper = __commonJS({
       }();
     }
     function blockHeader(string, indentPerLevel) {
-      var indentIndicator = needIndentIndicator(string) ? String(indentPerLevel) : "";
-      var clip = string[string.length - 1] === "\n";
-      var keep = clip && (string[string.length - 2] === "\n" || string === "\n");
-      var chomp = keep ? "+" : clip ? "" : "-";
+      const indentIndicator = needIndentIndicator(string) ? String(indentPerLevel) : "";
+      const clip = string[string.length - 1] === "\n";
+      const keep = clip && (string[string.length - 2] === "\n" || string === "\n");
+      const chomp = keep ? "+" : clip ? "" : "-";
       return indentIndicator + chomp + "\n";
     }
     function dropEndingNewline(string) {
       return string[string.length - 1] === "\n" ? string.slice(0, -1) : string;
     }
     function foldString(string, width) {
-      var lineRe = /(\n+)([^\n]*)/g;
-      var result = function() {
-        var nextLF = string.indexOf("\n");
+      const lineRe = /(\n+)([^\n]*)/g;
+      let result = function() {
+        let nextLF = string.indexOf("\n");
         nextLF = nextLF !== -1 ? nextLF : string.length;
         lineRe.lastIndex = nextLF;
         return foldLine(string.slice(0, nextLF), width);
       }();
-      var prevMoreIndented = string[0] === "\n" || string[0] === " ";
-      var moreIndented;
-      var match;
+      let prevMoreIndented = string[0] === "\n" || string[0] === " ";
+      let moreIndented;
+      let match;
       while (match = lineRe.exec(string)) {
-        var prefix = match[1], line = match[2];
+        const prefix = match[1];
+        const line = match[2];
         moreIndented = line[0] === " ";
         result += prefix + (!prevMoreIndented && !moreIndented && line !== "" ? "\n" : "") + foldLine(line, width);
         prevMoreIndented = moreIndented;
@@ -3660,10 +3890,13 @@ var require_dumper = __commonJS({
     function foldLine(line, width) {
       if (line === "" || line[0] === " ")
         return line;
-      var breakRe = / [^ ]/g;
-      var match;
-      var start = 0, end, curr = 0, next2 = 0;
-      var result = "";
+      const breakRe = / [^ ]/g;
+      let match;
+      let start = 0;
+      let end;
+      let curr = 0;
+      let next2 = 0;
+      let result = "";
       while (match = breakRe.exec(line)) {
         next2 = match.index;
         if (next2 - start > width) {
@@ -3682,12 +3915,11 @@ var require_dumper = __commonJS({
       return result.slice(1);
     }
     function escapeString(string) {
-      var result = "";
-      var char = 0;
-      var escapeSeq;
-      for (var i = 0; i < string.length; char >= 65536 ? i += 2 : i++) {
+      let result = "";
+      let char = 0;
+      for (let i = 0; i < string.length; char >= 65536 ? i += 2 : i++) {
         char = codePointAt(string, i);
-        escapeSeq = ESCAPE_SEQUENCES[char];
+        const escapeSeq = ESCAPE_SEQUENCES[char];
         if (!escapeSeq && isPrintable(char)) {
           result += string[i];
           if (char >= 65536)
@@ -3699,9 +3931,10 @@ var require_dumper = __commonJS({
       return result;
     }
     function writeFlowSequence(state, level, object) {
-      var _result = "", _tag = state.tag, index, length, value;
-      for (index = 0, length = object.length; index < length; index += 1) {
-        value = object[index];
+      let _result = "";
+      const _tag = state.tag;
+      for (let index = 0, length = object.length; index < length; index += 1) {
+        let value = object[index];
         if (state.replacer) {
           value = state.replacer.call(object, String(index), value);
         }
@@ -3715,9 +3948,10 @@ var require_dumper = __commonJS({
       state.dump = "[" + _result + "]";
     }
     function writeBlockSequence(state, level, object, compact) {
-      var _result = "", _tag = state.tag, index, length, value;
-      for (index = 0, length = object.length; index < length; index += 1) {
-        value = object[index];
+      let _result = "";
+      const _tag = state.tag;
+      for (let index = 0, length = object.length; index < length; index += 1) {
+        let value = object[index];
         if (state.replacer) {
           value = state.replacer.call(object, String(index), value);
         }
@@ -3737,15 +3971,17 @@ var require_dumper = __commonJS({
       state.dump = _result || "[]";
     }
     function writeFlowMapping(state, level, object) {
-      var _result = "", _tag = state.tag, objectKeyList = Object.keys(object), index, length, objectKey, objectValue, pairBuffer;
-      for (index = 0, length = objectKeyList.length; index < length; index += 1) {
-        pairBuffer = "";
+      let _result = "";
+      const _tag = state.tag;
+      const objectKeyList = Object.keys(object);
+      for (let index = 0, length = objectKeyList.length; index < length; index += 1) {
+        let pairBuffer = "";
         if (_result !== "")
           pairBuffer += ", ";
         if (state.condenseFlow)
           pairBuffer += '"';
-        objectKey = objectKeyList[index];
-        objectValue = object[objectKey];
+        const objectKey = objectKeyList[index];
+        let objectValue = object[objectKey];
         if (state.replacer) {
           objectValue = state.replacer.call(object, objectKey, objectValue);
         }
@@ -3765,7 +4001,9 @@ var require_dumper = __commonJS({
       state.dump = "{" + _result + "}";
     }
     function writeBlockMapping(state, level, object, compact) {
-      var _result = "", _tag = state.tag, objectKeyList = Object.keys(object), index, length, objectKey, objectValue, explicitPair, pairBuffer;
+      let _result = "";
+      const _tag = state.tag;
+      const objectKeyList = Object.keys(object);
       if (state.sortKeys === true) {
         objectKeyList.sort();
       } else if (typeof state.sortKeys === "function") {
@@ -3773,20 +4011,20 @@ var require_dumper = __commonJS({
       } else if (state.sortKeys) {
         throw new YAMLException("sortKeys must be a boolean or a function");
       }
-      for (index = 0, length = objectKeyList.length; index < length; index += 1) {
-        pairBuffer = "";
+      for (let index = 0, length = objectKeyList.length; index < length; index += 1) {
+        let pairBuffer = "";
         if (!compact || _result !== "") {
           pairBuffer += generateNextLine(state, level);
         }
-        objectKey = objectKeyList[index];
-        objectValue = object[objectKey];
+        const objectKey = objectKeyList[index];
+        let objectValue = object[objectKey];
         if (state.replacer) {
           objectValue = state.replacer.call(object, objectKey, objectValue);
         }
         if (!writeNode(state, level + 1, objectKey, true, true, true)) {
           continue;
         }
-        explicitPair = state.tag !== null && state.tag !== "?" || state.dump && state.dump.length > 1024;
+        const explicitPair = state.tag !== null && state.tag !== "?" || state.dump && state.dump.length > 1024;
         if (explicitPair) {
           if (state.dump && CHAR_LINE_FEED === state.dump.charCodeAt(0)) {
             pairBuffer += "?";
@@ -3813,10 +4051,9 @@ var require_dumper = __commonJS({
       state.dump = _result || "{}";
     }
     function detectType(state, object, explicit) {
-      var _result, typeList, index, length, type, style;
-      typeList = explicit ? state.explicitTypes : state.implicitTypes;
-      for (index = 0, length = typeList.length; index < length; index += 1) {
-        type = typeList[index];
+      const typeList = explicit ? state.explicitTypes : state.implicitTypes;
+      for (let index = 0, length = typeList.length; index < length; index += 1) {
+        const type = typeList[index];
         if ((type.instanceOf || type.predicate) && (!type.instanceOf || typeof object === "object" && object instanceof type.instanceOf) && (!type.predicate || type.predicate(object))) {
           if (explicit) {
             if (type.multi && type.representName) {
@@ -3828,7 +4065,8 @@ var require_dumper = __commonJS({
             state.tag = "?";
           }
           if (type.represent) {
-            style = state.styleMap[type.tag] || type.defaultStyle;
+            const style = state.styleMap[type.tag] || type.defaultStyle;
+            let _result;
             if (_toString.call(type.represent) === "[object Function]") {
               _result = type.represent(object, style);
             } else if (_hasOwnProperty.call(type.represent, style)) {
@@ -3849,13 +4087,14 @@ var require_dumper = __commonJS({
       if (!detectType(state, object, false)) {
         detectType(state, object, true);
       }
-      var type = _toString.call(state.dump);
-      var inblock = block;
-      var tagStr;
+      const type = _toString.call(state.dump);
+      const inblock = block;
       if (block) {
         block = state.flowLevel < 0 || state.flowLevel > level;
       }
-      var objectOrArray = type === "[object Object]" || type === "[object Array]", duplicateIndex, duplicate;
+      const objectOrArray = type === "[object Object]" || type === "[object Array]";
+      let duplicateIndex;
+      let duplicate;
       if (objectOrArray) {
         duplicateIndex = state.duplicates.indexOf(object);
         duplicate = duplicateIndex !== -1;
@@ -3909,7 +4148,7 @@ var require_dumper = __commonJS({
           throw new YAMLException("unacceptable kind of an object to dump " + type);
         }
         if (state.tag !== null && state.tag !== "?") {
-          tagStr = encodeURI(
+          let tagStr = encodeURI(
             state.tag[0] === "!" ? state.tag.slice(1) : state.tag
           ).replace(/!/g, "%21");
           if (state.tag[0] === "!") {
@@ -3925,17 +4164,18 @@ var require_dumper = __commonJS({
       return true;
     }
     function getDuplicateReferences(object, state) {
-      var objects = [], duplicatesIndexes = [], index, length;
+      const objects = [];
+      const duplicatesIndexes = [];
       inspectNode(object, objects, duplicatesIndexes);
-      for (index = 0, length = duplicatesIndexes.length; index < length; index += 1) {
+      const length = duplicatesIndexes.length;
+      for (let index = 0; index < length; index += 1) {
         state.duplicates.push(objects[duplicatesIndexes[index]]);
       }
       state.usedDuplicates = new Array(length);
     }
     function inspectNode(object, objects, duplicatesIndexes) {
-      var objectKeyList, index, length;
       if (object !== null && typeof object === "object") {
-        index = objects.indexOf(object);
+        const index = objects.indexOf(object);
         if (index !== -1) {
           if (duplicatesIndexes.indexOf(index) === -1) {
             duplicatesIndexes.push(index);
@@ -3943,13 +4183,13 @@ var require_dumper = __commonJS({
         } else {
           objects.push(object);
           if (Array.isArray(object)) {
-            for (index = 0, length = object.length; index < length; index += 1) {
-              inspectNode(object[index], objects, duplicatesIndexes);
+            for (let i = 0, length = object.length; i < length; i += 1) {
+              inspectNode(object[i], objects, duplicatesIndexes);
             }
           } else {
-            objectKeyList = Object.keys(object);
-            for (index = 0, length = objectKeyList.length; index < length; index += 1) {
-              inspectNode(object[objectKeyList[index]], objects, duplicatesIndexes);
+            const objectKeyList = Object.keys(object);
+            for (let i = 0, length = objectKeyList.length; i < length; i += 1) {
+              inspectNode(object[objectKeyList[i]], objects, duplicatesIndexes);
             }
           }
         }
@@ -3957,10 +4197,10 @@ var require_dumper = __commonJS({
     }
     function dump(input, options) {
       options = options || {};
-      var state = new State(options);
+      const state = new State(options);
       if (!state.noRefs)
         getDuplicateReferences(input, state);
-      var value = input;
+      let value = input;
       if (state.replacer) {
         value = state.replacer.call({ "": value }, "", value);
       }
@@ -5227,30 +5467,41 @@ var NoteChain = class {
     try {
       let content = "";
       let sourcePath = "";
+      let webUrl = "";
       let noteIcon = "puzzle";
       let displayText = "Note Preview";
-      let file = this.plugin.easyapi.file.get_tfile(notePath);
-      if (file instanceof import_obsidian2.TFile) {
-        displayText = file.basename;
-        if (file.extension === "base") {
-          noteIcon = "database";
-        } else if (file.extension === "canvas") {
-          noteIcon = "paintbrush";
-        } else {
-          content = await this.app.vault.read(file);
-          sourcePath = notePath;
-          const iconFromFrontmatter = this.plugin.editor.get_frontmatter(file, "icon");
-          if (iconFromFrontmatter && typeof iconFromFrontmatter === "string") {
-            noteIcon = iconFromFrontmatter;
-          }
-          const displayTextFromFrontmatter = this.plugin.editor.get_frontmatter(file, "display");
-          if (displayTextFromFrontmatter && typeof displayTextFromFrontmatter === "string") {
-            displayText = displayTextFromFrontmatter;
-          }
+      if (/^https?:\/\//i.test(notePath)) {
+        webUrl = notePath;
+        noteIcon = "globe";
+        try {
+          displayText = new URL(notePath).hostname;
+        } catch (e) {
+          displayText = notePath;
         }
       } else {
-        content = notePath;
-        displayText = notePath.split("/").pop() || notePath.split("\\").pop() || "Note Preview";
+        let file = this.plugin.easyapi.file.get_tfile(notePath);
+        if (file instanceof import_obsidian2.TFile) {
+          displayText = file.basename;
+          if (file.extension === "base") {
+            noteIcon = "database";
+          } else if (file.extension === "canvas") {
+            noteIcon = "paintbrush";
+          } else {
+            content = await this.app.vault.read(file);
+            sourcePath = notePath;
+            const iconFromFrontmatter = this.plugin.editor.get_frontmatter(file, "icon");
+            if (iconFromFrontmatter && typeof iconFromFrontmatter === "string") {
+              noteIcon = iconFromFrontmatter;
+            }
+            const displayTextFromFrontmatter = this.plugin.editor.get_frontmatter(file, "display");
+            if (displayTextFromFrontmatter && typeof displayTextFromFrontmatter === "string") {
+              displayText = displayTextFromFrontmatter;
+            }
+          }
+        } else {
+          content = notePath;
+          displayText = notePath.split("/").pop() || notePath.split("\\").pop() || "Note Preview";
+        }
       }
       let leaf = this.app.workspace.getRightLeaf(false);
       if (!leaf) {
@@ -5262,12 +5513,13 @@ var NoteChain = class {
         state: {
           content,
           sourcePath,
+          webUrl,
           noteIcon,
           displayText
         }
       });
       let view = leaf.view;
-      view.setContent(content, sourcePath);
+      view.setContent(content, sourcePath, webUrl);
     } catch (error) {
       new import_obsidian2.Notice(`Error opening note in modal: ${error.message}`);
     }
@@ -5358,7 +5610,7 @@ var NoteChain = class {
     }
     return true;
   }
-  async sugguster_note(notes = null, slice = 0, onlyname = false) {
+  async sugguster_note(notes = null, slice = 0, onlyname = false, new_value = false) {
     if (notes == null) {
       notes = this.sort_tfiles(
         this.app.vault.getFiles(),
@@ -5373,7 +5625,7 @@ var NoteChain = class {
         items = notes.map((f) => f.path.slice(slice));
       }
       let msg = this.plugin.utils.array_prefix_id(items);
-      let note = await this.plugin.easyapi.dialog_suggest(msg, notes);
+      let note = await this.plugin.easyapi.dialog_suggest(msg, notes, "", new_value);
       return note;
     } catch (error) {
       return null;
@@ -6170,8 +6422,8 @@ var NoteChain = class {
     }
     view.sort();
     if (view.ready) {
-      for (let path in view.fileItems) {
-        let item = view.fileItems[path];
+      for (let path3 in view.fileItems) {
+        let item = view.fileItems[path3];
         if (item.vChildren) {
           let files = item.vChildren._children.map((f) => f.file);
           files = this.sort_tfiles_by_chain(files);
@@ -6944,15 +7196,15 @@ var NCFileExplorer = class {
                 if (!element) {
                   return;
                 }
-                let path;
+                let path3;
                 if (element.classList.contains("nav-file-title-content")) {
                   element = element.closest(".nav-file-title");
                   if (!element) {
                     return;
                   }
                 }
-                path = element.getAttribute("data-path");
-                let target = dragManager2.app.vault.getAbstractFileByPath(path);
+                path3 = element.getAttribute("data-path");
+                let target = dragManager2.app.vault.getAbstractFileByPath(path3);
                 if (target instanceof import_obsidian3.TFolder || target.extension != "md") {
                   return;
                 }
@@ -8708,18 +8960,18 @@ var CanvasGraph = class {
       "edges": []
     };
     if (write) {
-      let path = this.path_md2canvas(tfile);
-      await this.write_canvas_file(res, path);
+      let path3 = this.path_md2canvas(tfile);
+      await this.write_canvas_file(res, path3);
     }
     return res;
   }
-  async write_canvas_file(canvas, path) {
+  async write_canvas_file(canvas, path3) {
     let msg = JSON.stringify(canvas);
-    let canvasFile = this.plugin.app.vault.getAbstractFileByPath(path);
+    let canvasFile = this.plugin.app.vault.getAbstractFileByPath(path3);
     if (canvasFile) {
       await this.plugin.app.vault.modify(canvasFile, msg);
     } else {
-      await this.plugin.app.vault.create(path, msg);
+      await this.plugin.app.vault.create(path3, msg);
     }
   }
   path_md2canvas(tfile) {
@@ -9266,8 +9518,8 @@ var cmd_longform4notechain = (plugin) => ({
     if (curr == null || curr.parent == null) {
       return;
     }
-    let path = curr.parent.path + "/" + curr.parent.name + ".md";
-    let dst = await nc.easyapi.file.get_tfile(path);
+    let path3 = curr.parent.path + "/" + curr.parent.name + ".md";
+    let dst = await nc.easyapi.file.get_tfile(path3);
     if (dst == null) {
       dst = await plugin.app.vault.create(
         curr.parent.path + "/" + curr.parent.name + ".md",
@@ -9487,8 +9739,8 @@ var create_new_note = (plugin) => ({
     if (name) {
       let curr = plugin.chain.current_note;
       if (curr && curr.parent) {
-        let path = curr.parent.path + "/" + name + ".md";
-        let dst = await plugin.easyapi.file.get_tfile(path);
+        let path3 = curr.parent.path + "/" + name + ".md";
+        let dst = await plugin.easyapi.file.get_tfile(path3);
         if (dst == null) {
           dst = await plugin.app.vault.create(
             curr.parent.path + "/" + name + ".md",
@@ -9953,8 +10205,10 @@ var cmd_open_note_in_view = (plugin) => ({
   name: plugin.strings.cmd_open_note_in_view,
   icon: "Panels Top Left",
   callback: async () => {
-    let note = await plugin.chain.sugguster_note();
-    if (note) {
+    let note = await plugin.chain.sugguster_note(null, 0, false, true);
+    if (typeof note === "string") {
+      plugin.chain.open_note_in_view(note);
+    } else {
       plugin.chain.open_note_in_view(note.path);
     }
   }
@@ -10025,8 +10279,8 @@ var cmd_generate_mcp_skill = (plugin) => ({
       });
       if (result.canceled || !result.filePath)
         return;
-      const fs = require("fs");
-      fs.writeFileSync(result.filePath, content, "utf8");
+      const fs2 = require("fs");
+      fs2.writeFileSync(result.filePath, content, "utf8");
       new import_obsidian9.Notice(`SKILL.md saved to ${result.filePath}`);
     } catch (e) {
       new import_obsidian9.Notice("Failed to save SKILL.md: " + ((_a = e == null ? void 0 : e.message) != null ? _a : e));
@@ -10460,12 +10714,36 @@ function addEvents(plugin) {
 
 // src/easyapi/gui/inputSuggester.ts
 var import_obsidian11 = require("obsidian");
+var LARGE_LIST_THRESHOLD = 500;
+var DEFAULT_LARGE_LIMIT = 100;
 var InputSuggester = class extends import_obsidian11.FuzzySuggestModal {
   constructor(app, displayItems, items, options = {}, new_value = false) {
     super(app);
-    this.displayItems = displayItems;
     this.items = items;
     this.new_value = new_value;
+    const n = Math.min(displayItems.length, items.length);
+    const entries = [];
+    let needsDisplayMap = false;
+    for (let i = 0; i < n; i++) {
+      if (displayItems[i] !== items[i])
+        needsDisplayMap = true;
+      entries.push({ item: items[i], text: displayItems[i] });
+    }
+    for (let i = n; i < items.length; i++) {
+      entries.push({ item: items[i], text: String(items[i]) });
+      needsDisplayMap = true;
+    }
+    this.searchEntries = entries;
+    if (needsDisplayMap) {
+      const map = /* @__PURE__ */ new Map();
+      for (const { item, text } of entries) {
+        if (!map.has(item))
+          map.set(item, text);
+      }
+      this.itemDisplay = map;
+    } else {
+      this.itemDisplay = null;
+    }
     this.promise = new Promise((resolve, reject) => {
       this.resolvePromise = resolve;
       this.rejectPromise = reject;
@@ -10484,6 +10762,9 @@ var InputSuggester = class extends import_obsidian11.FuzzySuggestModal {
       this.setPlaceholder(options.placeholder);
     if (options.limit)
       this.limit = options.limit;
+    else if (this.searchEntries.length > LARGE_LIST_THRESHOLD) {
+      this.limit = DEFAULT_LARGE_LIMIT;
+    }
     if (options.emptyStateText)
       this.emptyStateText = options.emptyStateText;
     this.open();
@@ -10499,14 +10780,44 @@ var InputSuggester = class extends import_obsidian11.FuzzySuggestModal {
     return newSuggester.promise;
   }
   getItemText(item) {
+    var _a;
     if (item === this.inputEl.value)
       return item;
-    return this.displayItems[this.items.indexOf(item)];
+    if (this.itemDisplay === null)
+      return item;
+    return (_a = this.itemDisplay.get(item)) != null ? _a : item;
   }
   getItems() {
     if (this.inputEl.value === "" || !this.new_value)
       return this.items;
     return [...this.items, this.inputEl.value];
+  }
+  getSuggestions(query) {
+    const pool = this.getSearchPool();
+    const cap = this.limit > 0 ? this.limit : DEFAULT_LARGE_LIMIT;
+    const trimmed = query.trim();
+    if (!trimmed) {
+      return pool.slice(0, cap).map((entry) => ({
+        item: entry.item,
+        match: { score: 0, matches: [] }
+      }));
+    }
+    const searchFn = (0, import_obsidian11.prepareSimpleSearch)(trimmed);
+    const scored = [];
+    for (const { item, text } of pool) {
+      const match = searchFn(text);
+      if (match)
+        scored.push({ item, match });
+    }
+    scored.sort((a, b) => b.match.score - a.match.score);
+    return scored.slice(0, cap);
+  }
+  getSearchPool() {
+    if (this.inputEl.value === "" || !this.new_value) {
+      return this.searchEntries;
+    }
+    const value = this.inputEl.value;
+    return [...this.searchEntries, { item: value, text: value }];
   }
   selectSuggestion(value, evt) {
     this.resolved = true;
@@ -11438,10 +11749,10 @@ var CardNavigatorModal = class extends import_obsidian16.Modal {
     this.initResizer(resizer);
     let initialItems = this.rootData;
     if (this.options.reveal) {
-      const path = this.findRevealPath(this.rootData, this.options.reveal);
-      if (path && path.length > 0) {
-        this.navigationStack = path.slice(0, -1);
-        initialItems = path[path.length - 1];
+      const path3 = this.findRevealPath(this.rootData, this.options.reveal);
+      if (path3 && path3.length > 0) {
+        this.navigationStack = path3.slice(0, -1);
+        initialItems = path3[path3.length - 1];
       }
     }
     this.renderUI(initialItems, this.navigationStack.length > 0, this.options.reveal);
@@ -11496,10 +11807,10 @@ var CardNavigatorModal = class extends import_obsidian16.Modal {
       revealBtn.onclick = () => {
         if (!this.options.reveal)
           return;
-        const path = this.findRevealPath(this.rootData, this.options.reveal);
-        if (path && path.length > 0) {
-          this.navigationStack = path.slice(0, -1);
-          const targetList = path[path.length - 1];
+        const path3 = this.findRevealPath(this.rootData, this.options.reveal);
+        if (path3 && path3.length > 0) {
+          this.navigationStack = path3.slice(0, -1);
+          const targetList = path3[path3.length - 1];
           this.renderUI(targetList, this.navigationStack.length > 0, this.options.reveal);
         }
       };
@@ -11689,8 +12000,8 @@ var CardNavigatorModal = class extends import_obsidian16.Modal {
     }
     return window.btoa(binary);
   }
-  guessImageMimeType(path) {
-    const lower = path.toLowerCase();
+  guessImageMimeType(path3) {
+    const lower = path3.toLowerCase();
     if (lower.endsWith(".png"))
       return "image/png";
     if (lower.endsWith(".jpg") || lower.endsWith(".jpeg"))
@@ -12897,38 +13208,38 @@ var File = class {
     var _a, _b;
     return (_b = (_a = this.api.nc) == null ? void 0 : _a.chain) == null ? void 0 : _b.get_last_activate_file(only_md, skip_conote);
   }
-  get_tfile(path, only_first = true) {
+  get_tfile(path3, only_first = true) {
     try {
-      if (!path) {
+      if (!path3) {
         return null;
       }
-      if (path instanceof import_obsidian18.TFile) {
-        return path;
+      if (path3 instanceof import_obsidian18.TFile) {
+        return path3;
       }
-      path = path.replace("![[", "").replace("[[", "").replace("]]", "");
-      if (path.includes("|")) {
-        path = path.split("|")[0] + ".md";
+      path3 = path3.replace("![[", "").replace("[[", "").replace("]]", "");
+      if (path3.includes("|")) {
+        path3 = path3.split("|")[0] + ".md";
       }
-      if (path.includes("#")) {
-        path = path.split("#")[0] + ".md";
+      if (path3.includes("#")) {
+        path3 = path3.split("#")[0] + ".md";
       }
-      if (path.includes("^")) {
-        path = path.split("^")[0] + ".md";
+      if (path3.includes("^")) {
+        path3 = path3.split("^")[0] + ".md";
       }
-      let tfile = this.app.vault.getFileByPath(path);
+      let tfile = this.app.vault.getFileByPath(path3);
       if (tfile) {
         return tfile;
       }
-      let tfiles = this.app.metadataCache.uniqueFileLookup.get(path.toLowerCase());
+      let tfiles = this.app.metadataCache.uniqueFileLookup.get(path3.toLowerCase());
       if (!tfiles) {
-        tfiles = this.app.metadataCache.uniqueFileLookup.get(path.toLowerCase() + ".md");
+        tfiles = this.app.metadataCache.uniqueFileLookup.get(path3.toLowerCase() + ".md");
         if (!tfiles) {
           return null;
         } else {
-          path = path + ".md";
+          path3 = path3 + ".md";
         }
       }
-      let ctfiles = tfiles.filter((x) => x.name == path);
+      let ctfiles = tfiles.filter((x) => x.name == path3);
       if (ctfiles.length > 0) {
         if (only_first) {
           return ctfiles[0];
@@ -12949,19 +13260,19 @@ var File = class {
     }
   }
   /** `fromSource`：相对嵌入时当前笔记的 `path`，供 `getFirstLinkpathDest`。 */
-  async read_tfile(path) {
+  async read_tfile(path3) {
     var _a;
-    if (path instanceof import_obsidian18.TFile) {
-      return await this.app.vault.cachedRead(path);
+    if (path3 instanceof import_obsidian18.TFile) {
+      return await this.app.vault.cachedRead(path3);
     }
-    let tfile = this.get_tfile(path);
+    let tfile = this.get_tfile(path3);
     if (!tfile) {
-      return path;
+      return path3;
     }
     let heading = null;
     let block_id = null;
-    if (typeof path === "string") {
-      const wi = path.match(/^!?\[\[([^\]]+)\]\]$/);
+    if (typeof path3 === "string") {
+      const wi = path3.match(/^!?\[\[([^\]]+)\]\]$/);
       if (wi) {
         const core = wi[1].split("|")[0].trim();
         const hashIdx = core.indexOf("#");
@@ -12990,14 +13301,14 @@ var File = class {
           return x;
         }
       }
-      return path;
+      return path3;
     }
     if (heading) {
       let res = await this.api.editor.get_heading_section(tfile, heading);
       if (res) {
         return res;
       }
-      return path;
+      return path3;
     }
     let ctx = await this.app.vault.cachedRead(tfile);
     return ctx;
@@ -13007,8 +13318,8 @@ var File = class {
     const raw = await this.read_tfile(tfile);
     return this.api.editor.expand_wiki_embeds_in_string(raw, maxDepth, /* @__PURE__ */ new Set());
   }
-  get_tfiles(path) {
-    let tfiles = this.get_tfile(path, false);
+  get_tfiles(path3) {
+    let tfiles = this.get_tfile(path3, false);
     if (tfiles instanceof import_obsidian18.TFile) {
       return [tfiles];
     }
@@ -13016,7 +13327,7 @@ var File = class {
       return tfiles;
     }
     const regex = /\[\[(.*?)\]\]/g;
-    const matches = typeof path === "string" ? path.match(regex) : [];
+    const matches = typeof path3 === "string" ? path3.match(regex) : [];
     if (matches) {
       let tfiles2 = [];
       for (const match of matches) {
@@ -13672,22 +13983,22 @@ var Templater = class {
         return this.temp_target_file;
       }
     }
-    const path = `note-chain-templater-target.md`;
-    const existed = this.ea.file.get_tfile(path);
+    const path3 = `note-chain-templater-target.md`;
+    const existed = this.ea.file.get_tfile(path3);
     if (existed) {
       this.temp_target_file = existed;
       return existed;
     }
     try {
-      this.temp_target_file = await this.app.vault.create(path, "");
+      this.temp_target_file = await this.app.vault.create(path3, "");
       return this.temp_target_file;
     } catch (e) {
-      const createdByOtherCall = this.app.vault.getFileByPath(path);
+      const createdByOtherCall = this.app.vault.getFileByPath(path3);
       if (createdByOtherCall) {
         this.temp_target_file = createdByOtherCall;
         return createdByOtherCall;
       }
-      throw new Error(`Failed to create templater temp target: ${path}`);
+      throw new Error(`Failed to create templater temp target: ${path3}`);
     }
   }
   // target_file：target>activate>template
@@ -13735,7 +14046,11 @@ var Templater = class {
     let templateFunc = await this.templater$1(runtime_template_file, active_file, target_file, extra = runtime_extra);
     if (templateFunc) {
       let res = [];
-      if (idx) {
+      if (idx != null) {
+        let is_number = typeof idx === "number";
+        if (typeof idx === "number") {
+          idx = [idx];
+        }
         for (let i of idx) {
           let block = blocks[i];
           if (block) {
@@ -13744,6 +14059,9 @@ var Templater = class {
           } else {
             res.push("");
           }
+        }
+        if (is_number) {
+          return res[0];
         }
       } else {
         for (let block of blocks) {
@@ -14049,6 +14367,10 @@ var Time = class {
     const digRe = /(?<![0-9])(\d{1,2}):?(\d{1,2})(?![0-9])/g;
     let dm;
     while ((dm = digRe.exec(text)) !== null) {
+      const afterDig = text.slice(dm.index + dm[0].length);
+      if (/^(?:分钟|分|小时|时|块钱|元钱?|万元|角|毛|块)/.test(afterDig)) {
+        continue;
+      }
       const hour = parseInt(dm[1], 10);
       const minute = parseInt(dm[2], 10);
       if (hour < 0 || hour > 23 || minute < 0 || minute > 59) {
@@ -14172,6 +14494,7 @@ var Time = class {
    * - 明天下午两点耗时2分钟打怪兽（耗时/花了等后为持续时间）
    * - 明天11:30到下午3点打怪兽（到/至/— 后为结束时刻，与开始同一天）
    * - 最近15分钟打架（「最近」紧接 {@link parse_minutes} 可解析的时长：结束为当前时刻对齐 {@link snapTimeToBase}，开始为 结束−时长）
+   * - 20分钟开会（行首时长须在时刻提取之前解析，避免「20」被当成 2:00）
    * - `base`：分钟对齐粒度（默认 5），与 {@link parse_time} / {@link extract_chinese_time} 一致
    * - `baseDate`：参考日（`YYYY-MM-DD` 或 `Moment`）；未传时为今日，用于默认 `date` 及 {@link extract_chinese_date} 中「明天」等相对语义
    * 
@@ -14206,6 +14529,13 @@ var Time = class {
         rest = (dr.suffix || "").trim();
       }
     }
+    if (!recentEndWindow) {
+      const leadDr = this.parse_minutes(rest);
+      if (!Number.isNaN(leadDr.duration) && leadDr.prefix.trim() === "") {
+        duration = leadDr.duration;
+        rest = (leadDr.suffix || "").trim();
+      }
+    }
     let startTime = null;
     const timeRes = this.extract_chinese_time(rest, true, base);
     if (timeRes == null ? void 0 : timeRes.time) {
@@ -14222,7 +14552,7 @@ var Time = class {
         rest = ((endRes.prefix || "") + " " + (endRes.suffix || "")).trim();
       }
     }
-    if (!recentEndWindow) {
+    if (!recentEndWindow && Number.isNaN(duration)) {
       const durationGlueLead = "\u5171\u8017\u65F6|\u5171\u82B1\u8D39|\u5171\u7528\u65F6|\u5171\u82B1\u4E86|\u8017\u65F6|\u82B1\u8D39|\u7528\u65F6|\u7528\u4E86|\u7528\u6389|\u82B1\u4E86|\u6301\u7EED|\u5927\u7EA6|\u5927\u6982|\u7EA6|\u5DEE\u4E0D\u591A";
       const durationGlueTrail = "\u5171\u8017\u65F6|\u5171\u82B1\u8D39|\u5171\u7528\u65F6|\u5171\u82B1\u4E86|\u8017\u65F6|\u82B1\u8D39|\u7528\u65F6|\u7528\u4E86|\u7528\u6389|\u82B1\u4E86|\u6301\u7EED|\u5927\u7EA6|\u5927\u6982|\u5DEE\u4E0D\u591A";
       const durationLead = new RegExp(`^(${durationGlueLead})\\s*`);
@@ -14604,14 +14934,14 @@ var _FsEditor = class {
     }
     return null;
   }
-  isPath(path) {
-    return this.fs.existsSync(path);
+  isPath(path3) {
+    return this.fs.existsSync(path3);
   }
-  isfile(path) {
-    return this.fs.existsSync(path) && this.fs.statSync(path).isFile();
+  isfile(path3) {
+    return this.fs.existsSync(path3) && this.fs.statSync(path3).isFile();
   }
-  isdir(path) {
-    return this.fs.existsSync(path) && this.fs.statSync(path).isDirectory();
+  isdir(path3) {
+    return this.fs.existsSync(path3) && this.fs.statSync(path3).isDirectory();
   }
   get_outfiles(tfile = this.easyapi.cfile) {
     if (tfile == null) {
@@ -14666,15 +14996,15 @@ var _FsEditor = class {
       return fallback;
     }
   }
-  async read_file(path, encoding = "utf8") {
-    const tfile = this.easyapi.file.get_tfile(path);
+  async read_file(path3, encoding = "utf8") {
+    const tfile = this.easyapi.file.get_tfile(path3);
     if (tfile) {
       if (encoding === "utf8" && this.readViaTemplaterExt(tfile.extension)) {
         return await this.readBinaryViaTemplater(tfile.path);
       }
       return await this.app.vault.read(tfile);
     }
-    const absPath = this.abspath(path, true) || path;
+    const absPath = this.abspath(path3, true) || path3;
     if (!this.isfile(absPath)) {
       return null;
     }
@@ -14687,19 +15017,19 @@ var _FsEditor = class {
     }
     return this.fs.readFileSync(absPath, encoding);
   }
-  list_dir(path, only_files = false, recursive = 0, exclude_hidden = true) {
-    path = this.abspath(path, true) || path;
-    if (this.isfile(path)) {
-      return [path];
+  list_dir(path3, only_files = false, recursive = 0, exclude_hidden = true) {
+    path3 = this.abspath(path3, true) || path3;
+    if (this.isfile(path3)) {
+      return [path3];
     }
-    if (!this.isdir(path)) {
+    if (!this.isdir(path3)) {
       return [];
     }
-    let names = this.fs.readdirSync(path);
+    let names = this.fs.readdirSync(path3);
     if (exclude_hidden) {
       names = names.filter((x) => !x.startsWith("."));
     }
-    const fullPaths = names.map((x) => path + "/" + x);
+    const fullPaths = names.map((x) => path3 + "/" + x);
     const files = [];
     const subdirs = [];
     for (const fp of fullPaths) {
@@ -14724,9 +15054,9 @@ var _FsEditor = class {
         return null;
       }
     }
-    for (let path of paths) {
-      if (this.isfile(path) || this.isdir(path)) {
-        return path;
+    for (let path3 of paths) {
+      if (this.isfile(path3) || this.isdir(path3)) {
+        return path3;
       }
     }
     return null;
@@ -14739,9 +15069,9 @@ var _FsEditor = class {
         return null;
       }
     }
-    for (let path of paths) {
-      if (this.isfile(path)) {
-        return path;
+    for (let path3 of paths) {
+      if (this.isfile(path3)) {
+        return path3;
       }
     }
     return null;
@@ -14754,61 +15084,61 @@ var _FsEditor = class {
         return null;
       }
     }
-    for (let path of paths) {
-      if (this.isdir(path)) {
-        return path;
+    for (let path3 of paths) {
+      if (this.isdir(path3)) {
+        return path3;
       }
     }
     return null;
   }
   async select_valid_dir(paths, prompt_if_null = false) {
     let xpaths = paths.filter((p) => this.isdir(p));
-    let path = null;
+    let path3 = null;
     if (xpaths.length > 0) {
-      path = await this.easyapi.dialog_suggest(xpaths, xpaths);
+      path3 = await this.easyapi.dialog_suggest(xpaths, xpaths);
     }
-    if (!path && prompt_if_null) {
-      path = await this.easyapi.dialog_prompt("Root of vault");
-      if (!this.isdir(path)) {
-        path = null;
+    if (!path3 && prompt_if_null) {
+      path3 = await this.easyapi.dialog_prompt("Root of vault");
+      if (!this.isdir(path3)) {
+        path3 = null;
       }
     }
-    return path;
+    return path3;
   }
-  mkdir_recursive(path) {
-    if (this.isdir(path)) {
+  mkdir_recursive(path3) {
+    if (this.isdir(path3)) {
       return true;
     }
-    let parent = this.path.dirname(path);
+    let parent = this.path.dirname(path3);
     if (!this.isdir(parent)) {
       this.mkdir_recursive(parent);
     }
-    this.fs.mkdirSync(path);
+    this.fs.mkdirSync(path3);
   }
   /**
   * 附件 src 到 dst，不在 vault 中，需要绝对路径
   * overwrite，复盖；mtime，新文件；
   */
   copy_file(src, dst, mode = "pass>overwrite>mtime") {
-    let fs = this.fs;
+    let fs2 = this.fs;
     mode = mode.split(">")[0];
-    if (!fs.existsSync(src)) {
+    if (!fs2.existsSync(src)) {
       return false;
     }
-    if (fs.existsSync(dst)) {
+    if (fs2.existsSync(dst)) {
       if (mode === "overwrite") {
-        fs.unlinkSync(dst);
-        fs.copyFileSync(src, dst);
+        fs2.unlinkSync(dst);
+        fs2.copyFileSync(src, dst);
         return true;
       } else if (mode === "mtime") {
-        if (fs.statSync(dst).mtimeMs < fs.statSync(src).mtimeMs) {
-          fs.unlinkSync(dst);
-          fs.copyFileSync(src, dst);
+        if (fs2.statSync(dst).mtimeMs < fs2.statSync(src).mtimeMs) {
+          fs2.unlinkSync(dst);
+          fs2.copyFileSync(src, dst);
           return true;
         }
       }
     } else {
-      fs.copyFileSync(src, dst);
+      fs2.copyFileSync(src, dst);
       return true;
     }
     return false;
@@ -14857,15 +15187,15 @@ var _FsEditor = class {
       }
     }
   }
-  delete_file_or_dir(path) {
-    if (this.isfile(path)) {
-      this.fs.unlinkSync(path);
-    } else if (this.isdir(path)) {
-      let items = this.list_dir(path, true);
+  delete_file_or_dir(path3) {
+    if (this.isfile(path3)) {
+      this.fs.unlinkSync(path3);
+    } else if (this.isdir(path3)) {
+      let items = this.list_dir(path3, true);
       for (let item of items) {
         this.delete_file_or_dir(item);
       }
-      this.fs.rmdirSync(path);
+      this.fs.rmdirSync(path3);
     }
   }
   remove_files_not_in_src(src, dst) {
@@ -14911,21 +15241,21 @@ var _FsEditor = class {
       this.remove_files_not_in_src(src, dst);
     }
   }
-  modify(path, callback, encoding = "utf8") {
-    let fs = this.fs;
-    if (!fs.existsSync(path)) {
+  modify(path3, callback, encoding = "utf8") {
+    let fs2 = this.fs;
+    if (!fs2.existsSync(path3)) {
       return;
     }
     ;
-    fs.readFile(
-      path,
+    fs2.readFile(
+      path3,
       encoding,
       (err, data) => {
         if (err) {
           return;
         }
-        let rs = callback(path, data);
-        fs.writeFile(path, rs, encoding, (err2) => {
+        let rs = callback(path3, data);
+        fs2.writeFile(path3, rs, encoding, (err2) => {
           return;
         });
       }
@@ -15067,6 +15397,7 @@ var NoteContentView = class extends import_obsidian24.ItemView {
     this.debounceTimer = null;
     this.noteIcon = "";
     this.displayText = "Note Preview";
+    this.webUrl = "";
     this.plugin = plugin;
     this.icon = "puzzle";
   }
@@ -15080,6 +15411,7 @@ var NoteContentView = class extends import_obsidian24.ItemView {
     return {
       content: this.content,
       sourcePath: this.sourcePath,
+      webUrl: this.webUrl,
       noteIcon: this.noteIcon,
       displayText: this.displayText
     };
@@ -15087,9 +15419,10 @@ var NoteContentView = class extends import_obsidian24.ItemView {
   async setState(state, result) {
     this.content = state.content;
     this.sourcePath = state.sourcePath;
+    this.webUrl = state.webUrl || "";
     this.noteIcon = state.noteIcon || "";
     this.displayText = state.displayText || "Note Preview";
-    await this.setContent(this.content, this.sourcePath);
+    await this.setContent(this.content, this.sourcePath, this.webUrl);
   }
   getIcon() {
     return this.noteIcon || "";
@@ -15111,7 +15444,40 @@ var NoteContentView = class extends import_obsidian24.ItemView {
     });
     import_obsidian24.MarkdownRenderer.render(this.app, "", div, "", this);
   }
-  async setContent(content, sourcePath) {
+  async setContent(content, sourcePath, webUrl = "") {
+    this.webUrl = webUrl;
+    if (this.webUrl) {
+      this.content = "";
+      this.sourcePath = "";
+      if (!this.noteIcon) {
+        this.noteIcon = "globe";
+      }
+      if (!this.displayText || this.displayText === "Note Preview") {
+        try {
+          this.displayText = new URL(this.webUrl).hostname;
+        } catch (e) {
+          this.displayText = this.webUrl;
+        }
+      }
+      const container2 = this.containerEl.children[1];
+      container2.empty();
+      container2.style.display = "flex";
+      container2.style.flexDirection = "column";
+      container2.style.height = "100%";
+      container2.style.overflow = "hidden";
+      const iframe = container2.createEl("iframe", {
+        cls: "nc-note-content-webview",
+        attr: {
+          src: this.webUrl,
+          sandbox: "allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+        }
+      });
+      iframe.style.flex = "1";
+      iframe.style.width = "100%";
+      iframe.style.border = "none";
+      this.updateIcon();
+      return;
+    }
     let cssClasses = null;
     if (sourcePath) {
       const cfile = this.plugin.easyapi.file.get_tfile(sourcePath);
@@ -15311,6 +15677,73 @@ function readHttpBody(req) {
       reject(error);
     });
   });
+}
+function readHttpBodyBuffer(req) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    req.on("data", (chunk) => {
+      chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+    });
+    req.on("end", () => resolve(Buffer.concat(chunks)));
+    req.on("error", reject);
+  });
+}
+function parseUrlEncoded(body) {
+  const out = {};
+  for (const part of body.split("&")) {
+    if (!part)
+      continue;
+    const idx = part.indexOf("=");
+    const key = decodeURIComponent(idx >= 0 ? part.slice(0, idx) : part).replace(/\+/g, " ");
+    const val = decodeURIComponent(idx >= 0 ? part.slice(idx + 1) : "").replace(/\+/g, " ");
+    out[key] = val;
+  }
+  return out;
+}
+function parseMultipartForm(body, contentType) {
+  const fields = {};
+  const files = [];
+  const m = /boundary=(?:"([^"]+)"|([^;]+))/i.exec(contentType || "");
+  const boundary = m ? (m[1] || m[2] || "").trim() : "";
+  if (!boundary) {
+    return { fields, files };
+  }
+  const marker = `--${boundary}`;
+  const text = body.toString("latin1");
+  const parts = text.split(marker);
+  for (const part of parts) {
+    let chunk = part.replace(/^\r\n/, "").replace(/\r\n--$/, "").replace(/--\r\n$/, "");
+    if (!chunk || chunk === "--")
+      continue;
+    chunk = chunk.replace(/^\r\n/, "").replace(/\r\n$/, "");
+    const sep = chunk.indexOf("\r\n\r\n");
+    if (sep < 0)
+      continue;
+    const headerBlock = chunk.slice(0, sep);
+    const dataLatin1 = chunk.slice(sep + 4);
+    const data = Buffer.from(dataLatin1, "latin1");
+    const nameMatch = /name="([^"]+)"/i.exec(headerBlock);
+    if (!nameMatch)
+      continue;
+    const name = nameMatch[1];
+    const fileMatch = /filename="([^"]*)"/i.exec(headerBlock);
+    const mimeMatch = /Content-Type:\s*([^\r\n]+)/i.exec(headerBlock);
+    if (fileMatch) {
+      files.push({
+        name,
+        filename: fileMatch[1],
+        mime: mimeMatch ? mimeMatch[1].trim() : "application/octet-stream",
+        data
+      });
+    } else {
+      fields[name] = data.toString("utf8");
+    }
+  }
+  return { fields, files };
+}
+function jsonResponse(res, status, data) {
+  res.writeHead(status, { "Content-Type": "application/json; charset=utf-8" });
+  res.end(JSON.stringify(data));
 }
 
 // src/server/mcpToolsList.ts
@@ -17819,11 +18252,3513 @@ var OnlineHttpHandlers = class {
   }
 };
 
+// src/server/oldbuddy/types.ts
+function isUserSender(sender) {
+  const s = String(sender != null ? sender : "").trim();
+  return s === "user" || s.startsWith("user_");
+}
+
+// src/server/oldbuddy/oldbuddyWebSocket.ts
+var crypto = require("crypto");
+var WS_GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
+var OldBuddyWebSocketHub = class {
+  constructor() {
+    this.clients = /* @__PURE__ */ new Set();
+  }
+  handleUpgrade(req, socket, head) {
+    const key = req.headers["sec-websocket-key"];
+    if (!key) {
+      socket.destroy();
+      return;
+    }
+    const accept = crypto.createHash("sha1").update(String(key) + WS_GUID).digest("base64");
+    const headers = [
+      "HTTP/1.1 101 Switching Protocols",
+      "Upgrade: websocket",
+      "Connection: Upgrade",
+      `Sec-WebSocket-Accept: ${accept}`,
+      "\r\n"
+    ].join("\r\n");
+    socket.write(headers);
+    socket.setTimeout(0);
+    socket.setNoDelay(true);
+    socket.setKeepAlive(true);
+    const client = { socket, buffer: Buffer.alloc(0) };
+    this.clients.add(client);
+    const onData = (chunk) => {
+      client.buffer = Buffer.concat([client.buffer, chunk]);
+      client.buffer = this.consumeFrames(client, client.buffer);
+    };
+    const cleanup = () => {
+      socket.removeListener("data", onData);
+      this.clients.delete(client);
+    };
+    socket.on("data", onData);
+    socket.on("close", cleanup);
+    socket.on("error", cleanup);
+  }
+  broadcast(payload) {
+    const text = JSON.stringify(payload);
+    const frame = this.encodeTextFrame(text);
+    for (const client of this.clients) {
+      try {
+        if (!client.socket.destroyed) {
+          client.socket.write(frame);
+        }
+      } catch (e) {
+        this.clients.delete(client);
+      }
+    }
+  }
+  closeAll() {
+    for (const client of this.clients) {
+      try {
+        client.socket.end();
+        client.socket.destroy();
+      } catch (e) {
+      }
+    }
+    this.clients.clear();
+  }
+  consumeFrames(client, buf) {
+    while (buf.length >= 2) {
+      const fin = (buf[0] & 128) !== 0;
+      const opcode = buf[0] & 15;
+      let payloadLen = buf[1] & 127;
+      let offset = 2;
+      if (payloadLen === 126) {
+        if (buf.length < 4)
+          return buf;
+        payloadLen = buf.readUInt16BE(2);
+        offset = 4;
+      } else if (payloadLen === 127) {
+        if (buf.length < 10)
+          return buf;
+        payloadLen = Number(buf.readBigUInt64BE(2));
+        offset = 10;
+      }
+      const masked = (buf[1] & 128) !== 0;
+      if (masked)
+        offset += 4;
+      if (buf.length < offset + payloadLen)
+        return buf;
+      let payload = buf.slice(offset, offset + payloadLen);
+      if (masked) {
+        const mask = buf.slice(offset - 4, offset);
+        for (let i = 0; i < payload.length; i++) {
+          payload[i] ^= mask[i % 4];
+        }
+      }
+      buf = buf.slice(offset + payloadLen);
+      if (opcode === 8) {
+        try {
+          client.socket.end();
+        } catch (e) {
+        }
+        this.clients.delete(client);
+        return buf;
+      }
+      if (opcode === 9) {
+        client.socket.write(this.encodePongFrame(payload));
+      }
+      if (!fin)
+        continue;
+    }
+    return buf;
+  }
+  encodeTextFrame(text) {
+    const payload = Buffer.from(text, "utf8");
+    return this.encodeFrame(1, payload, false);
+  }
+  encodePongFrame(payload) {
+    return this.encodeFrame(10, payload, false);
+  }
+  encodeFrame(opcode, payload, mask) {
+    let header = [128 | opcode];
+    const len = payload.length;
+    if (len < 126) {
+      header.push(len | (mask ? 128 : 0));
+    } else if (len < 65536) {
+      header.push(126 | (mask ? 128 : 0), len >> 8 & 255, len & 255);
+    } else {
+      header.push(127 | (mask ? 128 : 0));
+      const hi = Math.floor(len / 4294967296);
+      const lo = len >>> 0;
+      header.push(
+        hi >> 24 & 255,
+        hi >> 16 & 255,
+        hi >> 8 & 255,
+        hi & 255,
+        lo >> 24 & 255,
+        lo >> 16 & 255,
+        lo >> 8 & 255,
+        lo & 255
+      );
+    }
+    if (mask) {
+      const maskKey = crypto.randomBytes(4);
+      header.push(...maskKey);
+      const masked = Buffer.alloc(payload.length);
+      for (let i = 0; i < payload.length; i++) {
+        masked[i] = payload[i] ^ maskKey[i % 4];
+      }
+      return Buffer.concat([Buffer.from(header), masked]);
+    }
+    return Buffer.concat([Buffer.from(header), payload]);
+  }
+};
+
+// src/server/oldbuddy/oldbuddyStore.ts
+var fs = require("fs");
+var path = require("path");
+var crypto2 = require("crypto");
+var DEFAULT_TARGETS = [{ label: "local", text: "local" }];
+var DEFAULT_QUICK_COMMANDS = [{ label: "\u4F60\u662F\u8C01", text: "\u4F60\u662F\u8C01" }];
+var TARGETS_TEMPLATE = "nochain_oldbuddy_targets";
+var QUICK_COMMANDS_TEMPLATE = "nochain_oldbuddy_quick_commands";
+var QUERY_TEMPLATE = "nochain_oldbuddy_query";
+var SAVE_TEMPLATE = "nochain_oldbuddy_save";
+var REFERENCE_TEMPLATE = "nochain_oldbuddy_reference";
+var AVATAR_TEMPLATE = "nochain_oldbuddy_avatar";
+var MAX_MESSAGES = 5e3;
+var DEFAULT_REPLY_TEMPLATE = "nochain_oldbuddy_reply";
+var DEFAULT_TARGET = DEFAULT_TARGETS[0].text;
+var OldBuddyStore = class {
+  constructor(templater, configDir, replyTemplate = DEFAULT_REPLY_TEMPLATE) {
+    this.templater = templater;
+    this.replyTemplate = replyTemplate;
+    this.messages = [];
+    this.ws = new OldBuddyWebSocketHub();
+    this.loaded = false;
+    /** save 模板返回 true 的消息 id 不写入 messages.json（仅 vault/日志） */
+    this.vaultOnlyMessageIds = /* @__PURE__ */ new Set();
+    this.dataDir = path.join(configDir, "plugins", "note-chain", "oldbuddy-data");
+    this.uploadsDir = path.join(this.dataDir, "uploads");
+    this.messagesFile = path.join(this.dataDir, "messages.json");
+  }
+  getWebSocketHub() {
+    return this.ws;
+  }
+  ensureLoaded() {
+    if (this.loaded)
+      return;
+    this.loaded = true;
+    try {
+      fs.mkdirSync(this.uploadsDir, { recursive: true });
+    } catch (e) {
+    }
+    try {
+      if (fs.existsSync(this.messagesFile)) {
+        const raw = fs.readFileSync(this.messagesFile, "utf8");
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) {
+          this.messages = parsed;
+        }
+      }
+    } catch (e) {
+      console.warn("[oldbuddy] load messages failed:", e);
+    }
+  }
+  persist() {
+    try {
+      fs.mkdirSync(this.dataDir, { recursive: true });
+      const payload = this.messages.filter((m) => !this.vaultOnlyMessageIds.has(m.id));
+      fs.writeFileSync(this.messagesFile, JSON.stringify(payload, null, 2), "utf8");
+    } catch (e) {
+      console.warn("[oldbuddy] persist messages failed:", e);
+    }
+  }
+  newId() {
+    return `${Date.now()}_${crypto2.randomBytes(4).toString("hex")}`;
+  }
+  pushMessage(msg) {
+    this.messages.push(msg);
+    if (this.messages.length > MAX_MESSAGES) {
+      this.messages = this.messages.slice(-MAX_MESSAGES);
+    }
+    this.ws.broadcast(msg);
+    if (!this.templater.ea.file.get_tfile(SAVE_TEMPLATE)) {
+      this.persist();
+    } else {
+      void this.afterPushMessage(msg);
+    }
+    return msg;
+  }
+  /** save 模板返回 true 时标记为仅 vault，不写 messages.json */
+  async afterPushMessage(msg) {
+    const skipJson = await this.saveMessageViaScript(msg);
+    if (skipJson) {
+      this.vaultOnlyMessageIds.add(msg.id);
+    } else {
+      this.vaultOnlyMessageIds.delete(msg.id);
+    }
+    this.persist();
+  }
+  /** 可选：nochain_oldbuddy_save；返回 true 表示已写入 vault，跳过 messages.json */
+  async saveMessageViaScript(msg) {
+    const result = await this.invokeTemplaterOptional(SAVE_TEMPLATE, {
+      oldbuddy: {
+        action: "save",
+        message: msg,
+        messages: this.messages,
+        data_dir: this.dataDir,
+        messages_file: this.messagesFile
+      }
+    });
+    return isTemplaterTrue(result);
+  }
+  async listMessages(limit, before, target) {
+    this.ensureLoaded();
+    let list = [...this.messages];
+    const queried = await this.queryMessagesViaScript({
+      limit,
+      before: before || null,
+      target: target || null,
+      local: list
+    });
+    if (queried) {
+      list = mergeMessages(list, queried);
+    }
+    list.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime());
+    if (before) {
+      const beforeMs = Date.parse(before);
+      if (Number.isFinite(beforeMs)) {
+        list = list.filter((m) => new Date(m.timestamp).getTime() < beforeMs);
+      }
+    }
+    if (target) {
+      list = list.filter((m) => (m.target || DEFAULT_TARGET) === target);
+    }
+    const slice = list.slice(-Math.max(1, limit));
+    const hasMore = list.length > slice.length;
+    return { messages: slice, has_more: hasMore };
+  }
+  /** 可选：nochain_oldbuddy_query，返回 OldBuddyMessage[] 或 { messages: [] }，与本地记录合并 */
+  async queryMessagesViaScript(params) {
+    const extra = {
+      oldbuddy: {
+        action: "query",
+        limit: params.limit,
+        before: params.before,
+        target: params.target,
+        messages: params.local,
+        data_dir: this.dataDir,
+        messages_file: this.messagesFile
+      }
+    };
+    const result = await this.invokeTemplaterOptional(QUERY_TEMPLATE, extra);
+    let messages = normalizeMessages(result);
+    if (!messages && this.templater.ea.file.get_tfile(QUERY_TEMPLATE)) {
+      messages = await this.queryJournalMessagesFallback(params);
+    }
+    return (messages == null ? void 0 : messages.length) ? messages : null;
+  }
+  /** Templater 未返回有效结果时，直接从日志 infield 读取（与 nochain_oldbuddy_query 默认逻辑一致） */
+  async queryJournalMessagesFallback(params) {
+    const ea = this.templater.ea;
+    const app = this.templater.app;
+    const dailyRe = /^\d{4}-\d{2}-\d{2}$/;
+    const maxDays = 120;
+    const limit = Math.max(1, Math.min(500, params.limit || 10));
+    const before = params.before;
+    const targetFilter = params.target;
+    const msgTime = (m) => {
+      const t = Date.parse(String(m.timestamp || ""));
+      return Number.isFinite(t) ? t : 0;
+    };
+    const fieldsToMessage = (f, dateFallback) => {
+      if (!f.id)
+        return null;
+      return {
+        id: String(f.id),
+        sender: String(f.sender || "user"),
+        target: String(f.target || DEFAULT_TARGET),
+        timestamp: f.timestamp ? String(f.timestamp) : `${dateFallback}T00:00:00.000Z`,
+        type: String(f.type || "text"),
+        content: f.content != null ? String(f.content) : "",
+        extra_text: f.extra_text ? String(f.extra_text) : void 0,
+        file_name: f.file_name ? String(f.file_name) : void 0,
+        file_size: f.file_size != null && Number.isFinite(Number(f.file_size)) ? Number(f.file_size) : void 0,
+        card: f.card === "true"
+      };
+    };
+    let dailies = app.vault.getMarkdownFiles().filter((f) => dailyRe.test(f.basename)).sort((a, b) => a.basename.localeCompare(b.basename));
+    if (before) {
+      const day = before.slice(0, 10);
+      if (dailyRe.test(day)) {
+        dailies = dailies.filter((f) => f.basename <= day);
+      }
+    }
+    if (dailies.length > maxDays) {
+      dailies = dailies.slice(-maxDays);
+    }
+    const messages = [];
+    for (const tfile of dailies) {
+      let content = "";
+      try {
+        content = await app.vault.cachedRead(tfile);
+      } catch (e) {
+        continue;
+      }
+      const meta = app.metadataCache.getFileCache(tfile);
+      if (!(meta == null ? void 0 : meta.listItems))
+        continue;
+      for (const li of meta.listItems) {
+        const line = ea.editor.slice_by_position(content, li.position);
+        if (!/\bid::/.test(line))
+          continue;
+        if (!/\(s::ob\)|\[s:: ob\]|\[s::ob\]/.test(line))
+          continue;
+        const f = ea.editor.parse_list_dataview(line);
+        const m = fieldsToMessage(f, tfile.basename);
+        if (m && typeof m.content === "string") {
+          messages.push(m);
+        }
+      }
+    }
+    messages.sort((a, b) => msgTime(a) - msgTime(b));
+    let list = messages;
+    if (targetFilter) {
+      list = list.filter((m) => (m.target || DEFAULT_TARGET) === targetFilter);
+    }
+    if (before) {
+      const beforeMs = Date.parse(before);
+      if (Number.isFinite(beforeMs)) {
+        list = list.filter((m) => msgTime(m) < beforeMs);
+      }
+      list = list.slice(-limit);
+    } else {
+      const cap = Math.min(500, Math.max(limit * 5, limit));
+      list = list.slice(-cap);
+    }
+    return list.length ? list : null;
+  }
+  async invokeTemplaterOptional(templateName, extra) {
+    if (!this.templater.ea.file.get_tfile(templateName)) {
+      return null;
+    }
+    try {
+      return await this.templater.parse_templater(templateName, true, extra, 0, "");
+    } catch (e) {
+      console.warn(`[oldbuddy] ${templateName} failed:`, e);
+      return null;
+    }
+  }
+  getUploadsDir() {
+    this.ensureLoaded();
+    return this.uploadsDir;
+  }
+  saveUpload(fileBuf, originalName, mime) {
+    this.ensureLoaded();
+    const ext = path.extname(originalName || "") || guessExt(mime);
+    const base = sanitizeBaseName(path.basename(originalName || "file", ext)) || "file";
+    const fname = `${Date.now()}_${base}${ext}`;
+    const abs = path.join(this.uploadsDir, fname);
+    fs.writeFileSync(abs, fileBuf);
+    return { fname, abs, url: `/oldbuddy/uploads/${encodeURIComponent(fname)}` };
+  }
+  serveUploadFile(fname) {
+    this.ensureLoaded();
+    const safe = path.basename(fname);
+    if (!safe || safe.includes(".."))
+      return null;
+    const abs = path.join(this.uploadsDir, safe);
+    if (!fs.existsSync(abs))
+      return null;
+    return { data: fs.readFileSync(abs), mime: mimeFromExt(abs) };
+  }
+  async parseLabelTextTemplate(templateName, fallback) {
+    if (!this.templater.ea.file.get_tfile(templateName)) {
+      return fallback;
+    }
+    try {
+      const result = await this.templater.parse_templater(templateName, true, null, 0, "");
+      const items = normalizeLabelTextList(result);
+      return items.length ? items : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  }
+  /** 聊天对象 target；模板 nochain_oldbuddy_targets 不存在或为空时返回 [{ label: 'local', text: 'local' }] */
+  async parse_oldbuddy_targets() {
+    return this.parseLabelTextTemplate(TARGETS_TEMPLATE, DEFAULT_TARGETS);
+  }
+  async loadTargetsConfig() {
+    const items = await this.parse_oldbuddy_targets();
+    const targets = items.map((item) => ({
+      id: item.text || item.label,
+      label: item.label || item.text
+    }));
+    const first = items[0];
+    return {
+      default_target: first ? first.text || first.label : DEFAULT_TARGET,
+      targets
+    };
+  }
+  /** 快捷命令按 target 分组；模板返回 { [targetId]: [{ label, text }, ...], '*': [...] } */
+  async parse_oldbuddy_quick_commands_map() {
+    if (!this.templater.ea.file.get_tfile(QUICK_COMMANDS_TEMPLATE)) {
+      return { [DEFAULT_TARGET]: [...DEFAULT_QUICK_COMMANDS] };
+    }
+    try {
+      const result = await this.templater.parse_templater(QUICK_COMMANDS_TEMPLATE, true, null, 0, "");
+      const map = normalizeQuickCommandsByTarget(result);
+      return Object.keys(map).length ? map : { [DEFAULT_TARGET]: [...DEFAULT_QUICK_COMMANDS] };
+    } catch (e) {
+      return { [DEFAULT_TARGET]: [...DEFAULT_QUICK_COMMANDS] };
+    }
+  }
+  async loadQuickCommands(target) {
+    var _a, _b, _c, _d;
+    const map = await this.parse_oldbuddy_quick_commands_map();
+    const key = (target || DEFAULT_TARGET).trim() || DEFAULT_TARGET;
+    const items = (_d = (_c = (_b = (_a = map[key]) != null ? _a : map["*"]) != null ? _b : map["_default"]) != null ? _c : map[DEFAULT_TARGET]) != null ? _d : DEFAULT_QUICK_COMMANDS;
+    return labelTextItemsToCommands(items);
+  }
+  /** @ 引用列表；模板 nochain_oldbuddy_reference 返回 [{ label, text }, ...] */
+  async loadReferences(target, query) {
+    if (!this.templater.ea.file.get_tfile(REFERENCE_TEMPLATE)) {
+      return [];
+    }
+    try {
+      const result = await this.templater.parse_templater(REFERENCE_TEMPLATE, true, {
+        oldbuddy: {
+          action: "reference",
+          target: target || null,
+          query: query || ""
+        }
+      }, 0, "");
+      const items = normalizeLabelTextList(result);
+      if (!items.length) {
+        return [];
+      }
+      let list = labelTextItemsToCommands(items);
+      const q = (query || "").trim().toLowerCase();
+      if (q) {
+        list = list.filter(
+          (item) => item.label.toLowerCase().includes(q) || item.text.toLowerCase().includes(q)
+        );
+      }
+      return list;
+    } catch (e) {
+      console.warn("[oldbuddy] reference failed:", e);
+      return [];
+    }
+  }
+  /** 头像/昵称；模板 nochain_oldbuddy_avatar 返回 { user: ['我','a.png'], buddy: ['你','b.png'], ... } */
+  async loadAvatars(target) {
+    if (!this.templater.ea.file.get_tfile(AVATAR_TEMPLATE)) {
+      return {};
+    }
+    try {
+      const result = await this.templater.parse_templater(AVATAR_TEMPLATE, true, {
+        oldbuddy: {
+          action: "avatar",
+          target: target || null
+        }
+      }, 0, "");
+      return normalizeAvatarMap(result);
+    } catch (e) {
+      console.warn("[oldbuddy] avatar failed:", e);
+      return {};
+    }
+  }
+  async readVaultAsset(relPath) {
+    const safe = String(relPath || "").replace(/\\/g, "/").replace(/^\/+/, "");
+    if (!safe || safe.includes("..")) {
+      return null;
+    }
+    const tfile = this.templater.ea.file.get_tfile(safe);
+    if (!tfile) {
+      return null;
+    }
+    try {
+      const data = await this.templater.app.vault.readBinary(tfile);
+      return { data: Buffer.from(data), mime: mimeFromExt(tfile.path) };
+    } catch (e) {
+      return null;
+    }
+  }
+  async addTextMessage(params) {
+    this.ensureLoaded();
+    const userMsg = this.pushMessage({
+      id: this.newId(),
+      sender: params.sender || "user",
+      target: params.target || DEFAULT_TARGET,
+      timestamp: new Date().toISOString(),
+      type: "text",
+      content: params.content,
+      extra_text: params.extra_text
+    });
+    if (!params.skipReply && isUserSender(params.sender || "user")) {
+      await this.generateReply(userMsg, params.quick_cmd_id);
+    }
+    return userMsg;
+  }
+  async addFileMessage(params) {
+    this.ensureLoaded();
+    const userMsg = this.pushMessage({
+      id: this.newId(),
+      sender: params.sender || "user",
+      target: params.target || DEFAULT_TARGET,
+      timestamp: new Date().toISOString(),
+      type: params.type,
+      content: params.url,
+      extra_text: params.extra_text,
+      file_name: params.file_name,
+      file_size: params.file_size
+    });
+    if (isUserSender(params.sender || "user")) {
+      await this.generateReply(userMsg);
+    }
+    return userMsg;
+  }
+  /** 第三方 HTTP 推送；sender 为 user 时默认触发 reply（与页面发消息一致） */
+  async pushExternalMessage(params) {
+    var _a;
+    this.ensureLoaded();
+    const content = String((_a = params.content) != null ? _a : "").trim();
+    if (!content) {
+      throw new Error("content required");
+    }
+    const type = params.type || "text";
+    if (!["text", "image", "audio", "file"].includes(type)) {
+      throw new Error("invalid type");
+    }
+    const id = String(params.id || "").trim() || this.newId();
+    const existing = this.messages.findIndex((m) => m.id === id);
+    const msg = {
+      id,
+      sender: params.sender || "buddy",
+      target: params.target || DEFAULT_TARGET,
+      timestamp: params.timestamp || new Date().toISOString(),
+      type,
+      content
+    };
+    if (params.extra_text != null && String(params.extra_text).trim()) {
+      msg.extra_text = String(params.extra_text);
+    }
+    if (params.file_name != null && String(params.file_name).trim()) {
+      msg.file_name = String(params.file_name);
+    }
+    if (params.file_size != null && Number.isFinite(Number(params.file_size))) {
+      msg.file_size = Number(params.file_size);
+    }
+    if (params.card === true || params.card === "true" || params.card === 1) {
+      msg.card = true;
+    }
+    let userMsg;
+    if (existing >= 0) {
+      this.messages[existing] = msg;
+      if (this.messages.length > MAX_MESSAGES) {
+        this.messages = this.messages.slice(-MAX_MESSAGES);
+      }
+      this.ws.broadcast(msg);
+      if (!this.templater.ea.file.get_tfile(SAVE_TEMPLATE)) {
+        this.persist();
+      } else {
+        void this.afterPushMessage(msg);
+      }
+      userMsg = msg;
+    } else {
+      userMsg = this.pushMessage(msg);
+    }
+    const skipReply = params.skip_reply === true || params.skip_reply === "true";
+    if (!skipReply && isUserSender(params.sender || "buddy")) {
+      await this.generateReply(userMsg, params.quick_cmd_id);
+    }
+    return userMsg;
+  }
+  async generateReply(userMsg, quickCmdId) {
+    const targets = await this.loadTargetsConfig();
+    const targetCfg = targets.targets.find((t) => t.id === userMsg.target);
+    const template = (targetCfg == null ? void 0 : targetCfg.template) || this.replyTemplate;
+    const recent = this.messages.slice(-30);
+    let replyText = "";
+    try {
+      const extra = {
+        oldbuddy: {
+          message: userMsg,
+          history: recent,
+          target: userMsg.target,
+          quick_cmd_id: quickCmdId || ""
+        }
+      };
+      const result = await this.templater.parse_templater(template, true, extra, 0, "");
+      if (isTemplaterTrue(result)) {
+        return;
+      }
+      if (typeof result === "string" && result.trim()) {
+        replyText = result.trim();
+      } else if (Array.isArray(result) && result[0] != null && String(result[0]).trim()) {
+        replyText = String(result[0]).trim();
+      }
+    } catch (e) {
+      console.warn("[oldbuddy] templater reply failed:", e);
+    }
+    if (isTemplaterTrue(replyText)) {
+      return;
+    }
+    if (!replyText) {
+      if (userMsg.type === "text") {
+        replyText = `\u55EF\uFF0C\u6211\u542C\u5230\u4E86\uFF1A${userMsg.content}`;
+      } else if (userMsg.type === "image") {
+        replyText = "\u6536\u5230\u4F60\u7684\u56FE\u7247\u4E86\u3002";
+      } else if (userMsg.type === "audio") {
+        replyText = "\u6536\u5230\u4F60\u7684\u8BED\u97F3\u4E86\u3002";
+      } else {
+        replyText = `\u6536\u5230\u4F60\u7684${userMsg.file_name || "\u6587\u4EF6"}\u4E86\u3002`;
+      }
+    }
+    this.pushMessage({
+      id: this.newId(),
+      sender: "buddy",
+      target: userMsg.target,
+      timestamp: new Date().toISOString(),
+      type: "text",
+      content: replyText,
+      card: true
+    });
+  }
+  close() {
+    this.ws.closeAll();
+  }
+};
+function mergeMessages(...sources) {
+  const map = /* @__PURE__ */ new Map();
+  for (const list of sources) {
+    for (const m of list) {
+      if (m == null ? void 0 : m.id) {
+        map.set(m.id, m);
+      }
+    }
+  }
+  return Array.from(map.values()).sort(
+    (a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+  );
+}
+function normalizeMessages(result) {
+  const value = unwrapTemplaterValue(result);
+  if (value == null) {
+    return null;
+  }
+  let arr = null;
+  if (Array.isArray(value)) {
+    arr = value;
+  } else if (typeof value === "object" && Array.isArray(value.messages)) {
+    arr = value.messages;
+  }
+  if (!arr) {
+    return null;
+  }
+  const out = arr.filter(isValidMessage);
+  return out.length ? out : null;
+}
+function isValidMessage(m) {
+  if (!m || typeof m !== "object") {
+    return false;
+  }
+  const row = m;
+  return typeof row.id === "string" && typeof row.sender === "string" && typeof row.timestamp === "string" && typeof row.type === "string" && typeof row.content === "string";
+}
+function sanitizeBaseName(name) {
+  return name.replace(/[^a-zA-Z0-9._-]+/g, "_").slice(0, 80);
+}
+function labelTextItemsToCommands(items) {
+  return items.map((item, i) => ({
+    id: String(i),
+    label: item.label || item.text,
+    text: item.text || item.label
+  }));
+}
+function normalizeQuickCommandsByTarget(result) {
+  const value = unwrapTemplaterValue(result);
+  if (Array.isArray(value)) {
+    const items = normalizeLabelTextList(value);
+    return items.length ? { "*": items } : {};
+  }
+  if (value && typeof value === "object") {
+    const map = {};
+    for (const [key, val] of Object.entries(value)) {
+      const items = normalizeLabelTextList(val);
+      if (items.length) {
+        map[String(key).trim()] = items;
+      }
+    }
+    return map;
+  }
+  return {};
+}
+function isTemplaterTrue(result) {
+  const value = unwrapTemplaterValue(result);
+  if (value === true || value === 1) {
+    return true;
+  }
+  if (typeof value === "string") {
+    const s = value.trim().toLowerCase();
+    return s === "true" || s === "1";
+  }
+  return false;
+}
+function normalizeAvatarMap(result) {
+  var _a, _b, _c, _d, _e, _f, _g, _h;
+  const value = unwrapTemplaterValue(result);
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return {};
+  }
+  const out = {};
+  for (const [key, val] of Object.entries(value)) {
+    const id = String(key).trim();
+    if (!id)
+      continue;
+    if (Array.isArray(val) && val.length >= 1) {
+      out[id] = {
+        id,
+        name: String((_a = val[0]) != null ? _a : id).trim() || id,
+        avatar: val.length >= 2 ? String((_b = val[1]) != null ? _b : "").trim() : ""
+      };
+      continue;
+    }
+    if (val && typeof val === "object") {
+      const row = val;
+      const name = String((_e = (_d = (_c = row.name) != null ? _c : row.label) != null ? _d : row.nickname) != null ? _e : id).trim() || id;
+      const avatar = String((_h = (_g = (_f = row.avatar) != null ? _f : row.img) != null ? _g : row.text) != null ? _h : "").trim();
+      out[id] = { id, name, avatar };
+    }
+  }
+  return out;
+}
+function unwrapTemplaterValue(result) {
+  if (result == null || result === "") {
+    return null;
+  }
+  let value = result;
+  if (Array.isArray(value)) {
+    if (value.length === 1 && Array.isArray(value[0])) {
+      return value[0];
+    }
+    if (value.length === 1 && typeof value[0] === "string") {
+      value = value[0];
+    } else if (value.length > 0 && value.every((row) => row && typeof row === "object")) {
+      return value;
+    }
+  }
+  if (typeof value === "string") {
+    const s = value.trim();
+    if (!s)
+      return null;
+    try {
+      value = JSON.parse(s);
+    } catch (e) {
+      return null;
+    }
+  }
+  if (Array.isArray(value) && value.length === 1 && Array.isArray(value[0])) {
+    return value[0];
+  }
+  return value;
+}
+function normalizeLabelTextList(result) {
+  const value = unwrapTemplaterValue(result);
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  return value.map((row) => {
+    var _a, _b, _c;
+    return {
+      label: String((_a = row == null ? void 0 : row.label) != null ? _a : "").trim(),
+      text: String((_c = (_b = row == null ? void 0 : row.text) != null ? _b : row == null ? void 0 : row.label) != null ? _c : "").trim()
+    };
+  }).filter((row) => row.label || row.text);
+}
+function guessExt(mime) {
+  if (mime.includes("jpeg"))
+    return ".jpg";
+  if (mime.includes("png"))
+    return ".png";
+  if (mime.includes("gif"))
+    return ".gif";
+  if (mime.includes("webp"))
+    return ".webp";
+  if (mime.includes("webm"))
+    return ".webm";
+  if (mime.includes("ogg"))
+    return ".ogg";
+  if (mime.includes("mpeg") || mime.includes("mp3"))
+    return ".mp3";
+  if (mime.includes("wav"))
+    return ".wav";
+  return "";
+}
+function mimeFromExt(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  const map = {
+    ".html": "text/html; charset=utf-8",
+    ".css": "text/css; charset=utf-8",
+    ".js": "application/javascript; charset=utf-8",
+    ".json": "application/json; charset=utf-8",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".gif": "image/gif",
+    ".webp": "image/webp",
+    ".webm": "audio/webm",
+    ".ogg": "audio/ogg",
+    ".mp3": "audio/mpeg",
+    ".wav": "audio/wav",
+    ".yaml": "text/yaml; charset=utf-8",
+    ".yml": "text/yaml; charset=utf-8",
+    ".md": "text/markdown; charset=utf-8"
+  };
+  return map[ext] || "application/octet-stream";
+}
+
+// src/server/oldbuddyPageHtml.ts
+var OLDBUDDY_PAGE_HTML = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>OldBuddy \u8001\u53CB\u804A\u5929</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <style>
+:root {
+    --wechat-bg: #ededed;
+    --wechat-green: #95ec69;
+    --wechat-white: #ffffff;
+    --wechat-text: #111;
+    --wechat-meta: #888;
+    --input-bar-height: 80px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--wechat-bg);
+    color: var(--wechat-text);
+    overflow: hidden;
+}
+
+#chat-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    background: var(--wechat-bg);
+}
+
+#status-bar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 12px;
+    background: #f7f7f7;
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 13px;
+    position: relative;
+    z-index: 1000;
+}
+
+#status-settings-wrap {
+    position: relative;
+}
+
+#status-settings-toggle {
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#status-settings-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 8px 10px;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 1002;
+}
+
+#status-settings-menu.open {
+    display: block;
+}
+
+.status-setting-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    margin: 4px 0;
+    cursor: pointer;
+}
+
+#status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: gray;
+}
+
+#status-text {
+    color: var(--wechat-meta);
+}
+
+#current-target-chip {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+#chat-target {
+    margin-left: auto;
+    max-width: 160px;
+    font-size: 12px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+#messages {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 12px 10px calc(12px + var(--input-bar-height));
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    max-width: min(92%, 760px);
+    width: fit-content;
+}
+
+.message-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    max-width: 100%;
+}
+
+.message-row-user {
+    flex-direction: row;
+}
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #d8d8d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: #555;
+    user-select: none;
+}
+
+.message-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.message-body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: calc(100vw - 80px);
+}
+
+.message-nickname {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 4px;
+    line-height: 1.2;
+    padding: 0 2px;
+}
+
+.message.user .message-nickname {
+    text-align: right;
+}
+
+.message.user {
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+.message.buddy,
+.message.assistant,
+.message.system,
+.message.debug {
+    align-self: flex-start;
+    align-items: flex-start;
+}
+
+.message-time {
+    font-size: 11px;
+    color: var(--wechat-meta);
+    margin-bottom: 4px;
+    text-align: center;
+    align-self: stretch;
+    max-width: 100%;
+}
+
+.message.user .message-time {
+    text-align: right;
+}
+
+.message-target {
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.message-content {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--wechat-white);
+    word-break: break-word;
+    line-height: 1.45;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
+}
+
+.message.user .message-content {
+    background: var(--wechat-green);
+}
+
+.message-content.markdown-card {
+    min-width: min(92vw, 520px);
+    max-width: min(92vw, 680px);
+}
+
+.message-content.markdown p {
+    margin: 0.35em 0;
+}
+
+.message-content.markdown pre {
+    overflow: auto;
+    background: #f4f4f4;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.message-content.markdown code {
+    background: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+.message-image {
+    max-width: min(72vw, 320px);
+    border-radius: 6px;
+    display: block;
+    cursor: zoom-in;
+}
+
+.message-audio {
+    width: min(72vw, 280px);
+}
+
+.message-extra-text {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+#input-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    background: #f7f7f7;
+    border-top: 1px solid #dcdcdc;
+    z-index: 1001;
+}
+
+#left-buttons {
+    display: flex;
+    gap: 4px;
+}
+
+#left-buttons button,
+#send-text {
+    border: none;
+    background: transparent;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 6px;
+    line-height: 1;
+}
+
+#send-text {
+    font-size: 14px;
+    background: #07c160;
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 14px;
+    white-space: nowrap;
+}
+
+#send-text:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#text-input {
+    flex: 1;
+    min-height: 44px;
+    max-height: 140px;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 16px;
+    line-height: 1.35;
+    font-family: inherit;
+}
+
+#target-toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(var(--input-bar-height) + 24px);
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(0, 0, 0, 0.72);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 2000;
+}
+
+#target-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+#reference-picker {
+    position: fixed;
+    z-index: 2001;
+    max-height: min(40vh, 280px);
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
+    padding: 4px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.reference-picker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 10px 14px;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+}
+
+.reference-picker-item:hover,
+.reference-picker-item.active {
+    background: #f0f0f0;
+}
+
+.reference-picker-label {
+    font-size: 15px;
+    color: #111;
+}
+
+.reference-picker-sub {
+    font-size: 12px;
+    color: #888;
+}
+
+#quick-cmd-menu button:hover {
+    background: #f5f5f5;
+}
+
+@media (max-width: 600px) {
+    #chat-target {
+        max-width: 120px;
+    }
+
+    .message {
+        max-width: 92%;
+    }
+}
+
+/* \u6587\u4EF6\u83DC\u5355 */
+        #file-menu {
+            position: fixed;
+            bottom: calc(8px + var(--input-bar-height, 80px));
+            left: 10px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            display: none;
+            flex-direction: column;
+            z-index: 1001;
+        }
+
+        #file-menu button {
+            padding: 10px;
+            border: none;
+            background: #fff;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        #file-menu button:hover {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+<div id="chat-wrapper">
+        <div id="status-bar">
+            <div id="status-settings-wrap">
+                <button id="status-settings-toggle" title="\u6253\u5F00\u72B6\u6001\u8BBE\u7F6E">\u72B6\u6001\u8BBE\u7F6E</button>
+                <div id="status-settings-menu" aria-label="\u72B6\u6001\u8BBE\u7F6E">
+                    <label class="status-setting-item">
+                        <input id="target-filter-toggle" type="checkbox">
+                        <span>\u4EC5\u5F53\u524D\u5BF9\u8C61</span>
+                    </label>
+                    <label class="status-setting-item">
+                        <input id="time-filter-toggle" type="checkbox">
+                        <span>\u9690\u85CF\u65E7\u8BB0\u5F55</span>
+                    </label>
+                </div>
+            </div>
+            <div id="status-dot"></div>
+            <span id="status-text">\u79BB\u7EBF</span>
+            <span id="current-target-chip">\u672C\u5730</span>
+            <select id="chat-target" title="\u804A\u5929\u5BF9\u8C61">
+                <option value="local">local</option>
+            </select>
+        </div>
+        <div id="messages" role="log" aria-live="polite"></div>
+    </div>
+
+    <!-- \u79FB\u51FA #chat-wrapper \u5E76 fixed\uFF0C\u907F\u514D\u79FB\u52A8\u7AEF 100vh/dvh + overflow:hidden \u628A\u6574\u680F\u88C1\u5230\u5C4F\u5916 -->
+    <div id="input-bar">
+        <div id="left-buttons">
+            <button id="send-file">\u{1F4C1}</button>
+            <button id="send-audio">\u{1F3A4}</button>
+        </div>
+        <textarea id="text-input" placeholder="\u8F93\u5165\u6D88\u606F..." rows="1"></textarea>
+        <button id="send-text">\u53D1\u9001</button>
+    </div>
+
+    <div id="file-menu">
+        <button id="camera-btn">\u62CD\u7167</button>
+        <button id="gallery-btn">\u9009\u62E9\u56FE\u7247</button>
+        <button id="anyfile-btn">\u4E0A\u4F20\u6587\u4EF6</button>
+        <button id="location-btn" type="button" title="\u8BFB\u53D6\u5B9A\u4F4D\u5E76\u53D1\u9001\u7ECF\u7EAC\u5EA6">\u53D1\u9001\u4F4D\u7F6E</button>
+    </div>
+
+    <input type="file" id="camera-input" accept="image/*" capture="environment" style="display:none">
+    <input type="file" id="gallery-input" accept="image/*" style="display:none">
+    <input type="file" id="anyfile-input" style="display:none">
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", async () => {
+
+            const inputBarEl = document.getElementById('input-bar');
+            function syncInputBarHeight() {
+                if (!inputBarEl) return;
+                document.documentElement.style.setProperty(
+                    '--input-bar-height',
+                    inputBarEl.getBoundingClientRect().height + 'px'
+                );
+            }
+            syncInputBarHeight();
+            if (inputBarEl && typeof ResizeObserver !== 'undefined') {
+                new ResizeObserver(syncInputBarHeight).observe(inputBarEl);
+            }
+            window.addEventListener('resize', syncInputBarHeight);
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', syncInputBarHeight);
+                window.visualViewport.addEventListener('scroll', syncInputBarHeight);
+            }
+
+            const messagesContainer = document.getElementById('messages');
+            let currentSkip = 0, isLoading = false;
+
+            // ------------- WebSocket \u8FDE\u63A5 -------------
+            connectWS();
+
+            await createQuickCommandUI();
+
+            // \u7ED1\u5B9A\u70B9\u51FB\u4E8B\u4EF6\uFF08\u53D1\u9001\u6309\u94AE\uFF09
+            document.getElementById('send-text').onclick = async () => {
+                await sendTextMessage();
+            };
+
+            // \u684C\u9762\uFF1AEnter \u53D1\u9001\uFF0CShift+Enter \u6362\u884C\u3002\u624B\u673A\u65E0 Shift+Enter\uFF1AEnter \u76F4\u63A5\u6362\u884C\uFF0C\u70B9\u300C\u53D1\u9001\u300D\u53D1\u6D88\u606F\u3002
+            const textInput = document.getElementById('text-input');
+            const mqFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+            function syncEnterKeyHint() {
+                textInput.setAttribute('enterkeyhint', mqFinePointer.matches ? 'send' : 'enter');
+            }
+            syncEnterKeyHint();
+            if (typeof mqFinePointer.addEventListener === 'function') {
+                mqFinePointer.addEventListener('change', syncEnterKeyHint);
+            } else if (typeof mqFinePointer.addListener === 'function') {
+                mqFinePointer.addListener(syncEnterKeyHint);
+            }
+
+            textInput.addEventListener('keydown', async (e) => {
+                if (typeof isReferencePickerOpen === 'function' && isReferencePickerOpen()) return;
+                if (e.key !== 'Enter' || e.shiftKey) return;
+                if (!mqFinePointer.matches) return; /* \u89E6\u6478\u4E3A\u4E3B\uFF1A\u4E0D\u62E6\u622A\uFF0C\u7531\u7CFB\u7EDF\u63D2\u5165\u6362\u884C */
+                e.preventDefault();
+                const sendBtn = document.getElementById('send-text');
+                if (sendBtn.disabled) return;
+                await sendTextMessage();
+            });
+
+            // textarea \u81EA\u9002\u5E94\u9AD8\u5EA6\uFF08\u6700\u591A 6 \u884C\u5DE6\u53F3\uFF09\uFF1B\u79FB\u52A8\u7AEF WebKit \u5076\u53D1 scrollHeight=0\uFF0C\u987B\u4FDD\u5E95\u9AD8\u5EA6
+            textInput.addEventListener('input', () => autosizeTextInput(textInput));
+            autosizeTextInput(textInput);
+            syncInputBarHeight();
+
+            // ---------- \u6587\u4EF6\u83DC\u5355 ----------
+            const fileBtn = document.getElementById('send-file');
+            const fileMenu = document.getElementById('file-menu');
+            const closeFileMenu = () => { fileMenu.style.display = 'none'; };
+            fileBtn.onclick = () => { fileMenu.style.display = fileMenu.style.display === 'flex' ? 'none' : 'flex'; }
+            document.getElementById('camera-btn').onclick = () => { closeFileMenu(); document.getElementById('camera-input').click(); };
+            document.getElementById('gallery-btn').onclick = () => { closeFileMenu(); document.getElementById('gallery-input').click(); };
+            document.getElementById('anyfile-btn').onclick = () => { closeFileMenu(); document.getElementById('anyfile-input').click(); };
+            document.getElementById('location-btn').onclick = async () => {
+                closeFileMenu();
+                if (typeof sendLocationMessage === 'function') {
+                    await sendLocationMessage();
+                }
+            };
+
+            initUploadHandlers();
+            initReferencePicker();
+            if (typeof loadOldBuddyAvatars === 'function') {
+                await loadOldBuddyAvatars(getCurrentChatTarget());
+            }
+
+            // ---------- \u9996\u6B21\u52A0\u8F7D\u6700\u8FD1\u6D88\u606F ----------
+            await loadMessages(10); // \u9996\u6B21\u52A0\u8F7D\u6700\u8FD1 10 \u6761
+            // \u9996\u6B21\u52A0\u8F7D\u540E\u6EDA\u5230\u5E95\u90E8\uFF08\u663E\u793A\u6700\u65B0\u6D88\u606F\uFF09
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            // \u542F\u7528\u4E0A\u62C9\u52A0\u8F7D
+            setupScrollLoader(50);
+        });
+
+    <\/script>
+<script>
+let ws;
+function connectWS() {
+    ws = new WebSocket((location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/oldbuddy/ws");
+
+    ws.onopen = () => {
+        document.getElementById('status-dot').style.backgroundColor = 'green';
+        document.getElementById('status-text').textContent = '\u5728\u7EBF';
+    };
+
+    ws.onclose = () => {
+        document.getElementById('status-dot').style.backgroundColor = 'gray';
+        document.getElementById('status-text').textContent = '\u79BB\u7EBF';
+        // \u5C1D\u8BD5\u91CD\u8FDE
+        setTimeout(connectWS, 3000);
+    };
+
+    ws.onmessage = (event) => {
+        try {
+            const msg = JSON.parse(event.data);
+            appendMessage(msg); // \u4F7F\u7528\u65B0\u589E\u7684\u53BB\u91CD\u673A\u5236\u6E32\u67D3\u6D88\u606F
+        } catch (e) { console.error("WebSocket parse error:", e); }
+    };
+
+    ws.onerror = (e) => {
+        console.warn("WebSocket error", e);
+    };
+}
+
+// static/js/markdown.js
+// \u804A\u5929\u6C14\u6CE1\u7528 Markdown \u5B50\u96C6\u6E32\u67D3\uFF08\u5148\u8F6C\u4E49\u518D\u89E3\u6790\uFF0C\u964D\u4F4E XSS \u98CE\u9669\uFF09
+// \u652F\u6301\uFF1A\u6807\u9898 # / ## / ###\u3001\u5F15\u7528 >\u3001\u5206\u9694\u7EBF ---\u3001\u7C97\u659C\u4F53\u3001\u884C\u5185\u4EE3\u7801\u3001\u56F4\u680F\u4EE3\u7801\u5757\u3001\u94FE\u63A5\u3001\u5217\u8868\u3001\u5220\u9664\u7EBF ~~
+
+(function () {
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function renderInline(s) {
+    const linkPlaceholders = [];
+    const codePlaceholders = [];
+
+    // Links: [text](url)
+    s = s.replace(/\\[([^\\]]+)\\]\\((https?:\\/\\/[^\\s)]+)\\)/g, (m, text, url) => {
+      const key = \`@@MDLINKPLACEHOLDER\${linkPlaceholders.length}@@\`;
+      linkPlaceholders.push(
+        \`<a href="\${url}" target="_blank" rel="noopener noreferrer">\${text}</a>\`
+      );
+      return key;
+    });
+    // Autolink: https://...
+    s = s.replace(/(https?:\\/\\/[^\\s<]+)/g, (m, url) => {
+      return \`<a href="\${url}" target="_blank" rel="noopener noreferrer">\${url}</a>\`;
+    });
+
+    // Inline code: \`code\` (placeholder so bold/italic passes skip it)
+    s = s.replace(/\`([^\`\\n]+)\`/g, (m, code) => {
+      const key = \`@@MDCODEPLACEHOLDER\${codePlaceholders.length}@@\`;
+      codePlaceholders.push(\`<code>\${code}</code>\`);
+      return key;
+    });
+
+    // Strikethrough: ~~text~~
+    s = s.replace(/~~([^~]+)~~/g, "<del>$1</del>");
+
+    // Bold: **text** or __text__
+    s = s.replace(/\\*\\*([^\\n*][\\s\\S]*?[^\\n*])\\*\\*/g, "<strong>$1</strong>");
+    s = s.replace(/__([^\\n_][\\s\\S]*?[^\\n_])__/g, "<strong>$1</strong>");
+
+    // Italic: *text* or _text_ (skip _bsf_-like ASCII identifiers)
+    s = s.replace(/(^|[^\\*])\\*([^\\n*]+)\\*(?!\\*)/g, "$1<em>$2</em>");
+    s = s.replace(/(^|[^_\\w])_([^\\n_]+)_(?![_\\w])/g, (m, prefix, inner) => {
+      if (/^[A-Za-z0-9_]+$/.test(inner)) return m;
+      return \`\${prefix}<em>\${inner}</em>\`;
+    });
+
+    codePlaceholders.forEach((html, idx) => {
+      s = s.replaceAll(\`@@MDCODEPLACEHOLDER\${idx}@@\`, html);
+    });
+
+    // Restore markdown link placeholders (avoid autolink touching href attributes)
+    linkPlaceholders.forEach((html, idx) => {
+      s = s.replaceAll(\`@@MDLINKPLACEHOLDER\${idx}@@\`, html);
+    });
+
+    return s;
+  }
+
+  function renderMarkdown(md) {
+    const raw = md == null ? "" : String(md);
+    const src = raw.replace(/\\r\\n/g, "\\n");
+
+    const blocks = [];
+    const withPlaceholders = src.replace(/\`\`\`([a-zA-Z0-9_-]+)?\\n([\\s\\S]*?)\`\`\`/g, (m, lang, code) => {
+      const safeCode = escapeHtml(code).replace(/\\n$/, "");
+      const safeLang = lang ? String(lang) : "";
+      const html = \`<pre><code\${safeLang ? \` class="lang-\${escapeHtml(safeLang)}"\` : ""}>\${safeCode}</code></pre>\`;
+      const key = \`@@CODEBLOCK_\${blocks.length}@@\`;
+      blocks.push({ key, html });
+      return key;
+    });
+
+    let safe = escapeHtml(withPlaceholders);
+    const lines = safe.split("\\n");
+    let out = "";
+    let inUl = false;
+    let inOl = false;
+    let inBq = false;
+
+    function closeLists() {
+      if (inUl) { out += "</ul>"; inUl = false; }
+      if (inOl) { out += "</ol>"; inOl = false; }
+    }
+
+    function closeBlockquote() {
+      if (inBq) { out += "</blockquote>"; inBq = false; }
+    }
+
+    function closeAllBlocks() {
+      closeLists();
+      closeBlockquote();
+    }
+
+    for (const line of lines) {
+      if (/^@@CODEBLOCK_\\d+@@$/.test(line.trim())) {
+        closeAllBlocks();
+        out += line.trim();
+        continue;
+      }
+
+      if (inBq && line.trim() === "") {
+        closeBlockquote();
+        continue;
+      }
+
+      if (/^\\s*(?:---+|\\*\\*\\*+)\\s*$/.test(line)) {
+        closeAllBlocks();
+        out += '<hr class="md-hr">';
+        continue;
+      }
+
+      const hm = line.match(/^\\s*(#{1,3})\\s+(.+)$/);
+      if (hm) {
+        closeAllBlocks();
+        const lvl = hm[1].length;
+        out += \`<h\${lvl} class="md-h md-h\${lvl}">\${renderInline(hm[2])}</h\${lvl}>\`;
+        continue;
+      }
+
+      const bq = line.match(/^\\s*>\\s?(.*)$/);
+      if (bq) {
+        closeLists();
+        if (!inBq) { out += '<blockquote class="md-blockquote">'; inBq = true; }
+        const inner = bq[1];
+        if (inner.trim() === "") {
+          out += "<br>";
+        } else {
+          out += \`<div class="md-line md-bq-line">\${renderInline(inner)}</div>\`;
+        }
+        continue;
+      }
+
+      closeBlockquote();
+
+      const ul = line.match(/^\\s*[-*]\\s+(.*)$/);
+      const ol = line.match(/^\\s*(\\d+)\\.\\s+(.*)$/);
+
+      if (ul) {
+        if (inOl) { out += "</ol>"; inOl = false; }
+        if (!inUl) { out += "<ul>"; inUl = true; }
+        out += \`<li>\${renderInline(ul[1])}</li>\`;
+        continue;
+      }
+      if (ol) {
+        if (inUl) { out += "</ul>"; inUl = false; }
+        if (!inOl) { out += "<ol>"; inOl = true; }
+        out += \`<li>\${renderInline(ol[2])}</li>\`;
+        continue;
+      }
+
+      closeLists();
+      if (line.trim() === "") {
+        out += "<br>";
+      } else {
+        out += \`<div class="md-line">\${renderInline(line)}</div>\`;
+      }
+    }
+    closeAllBlocks();
+
+    for (const b of blocks) {
+      out = out.replaceAll(b.key, b.html);
+    }
+
+    return out;
+  }
+
+  window.renderMarkdown = renderMarkdown;
+})();
+
+
+// static/js/message.js
+
+let lastLoadedMessageId = null;
+let loadingMessages = false;
+let isLoading = false;
+let hasMore = true;
+const messagesContainer = document.getElementById('messages');
+const CHAT_TARGET_STORAGE_KEY = 'rochat.chatTarget';
+const FILTER_CURRENT_TARGET_STORAGE_KEY = 'rochat.filterCurrentTargetOnly';
+const FILTER_HIDE_OLDER_STORAGE_KEY = 'rochat.filterHideOlder';
+const FILTER_HIDE_OLDER_SINCE_STORAGE_KEY = 'rochat.filterHideOlderSince';
+const TARGET_TITLE_MAP = {};
+let TARGET_SWITCH_RULES = [];
+let DEFAULT_TARGET = 'local';
+let targetToastTimer = null;
+
+/** textarea \u81EA\u9002\u5E94\u9AD8\u5EA6\uFF081\uFF5E6 \u884C\uFF09\uFF1B\u53D1\u9001\u6E05\u7A7A\u540E\u987B\u518D\u8C03\u7528\u4EE5\u7F29\u56DE\u5355\u884C */
+function autosizeTextInput(input) {
+    if (!input) input = document.getElementById('text-input');
+    if (!input) return;
+    input.style.height = 'auto';
+    const cs = getComputedStyle(input);
+    const lineH = parseFloat(cs.lineHeight) || 22;
+    const padY = (parseFloat(cs.paddingTop) || 0) + (parseFloat(cs.paddingBottom) || 0);
+    const minH = Math.max(44, lineH + padY);
+    const maxH = Math.max(minH, 6 * lineH + padY);
+    const sh = input.scrollHeight;
+    input.style.height = Math.min(Math.max(sh, minH), maxH) + 'px';
+}
+
+function normalizeSwitchText(s) {
+    return (s || '').trim().toLowerCase().replace(/\\s+/g, '');
+}
+
+function detectSwitchTargetByText(text) {
+    const s = normalizeSwitchText(text);
+    if (!s) return null;
+    for (const rule of TARGET_SWITCH_RULES) {
+        if (s.includes(rule.phrase)) return rule.targetId;
+    }
+    return null;
+}
+
+function getCurrentChatTarget() {
+    const el = document.getElementById('chat-target');
+    return (el && el.value) ? el.value : DEFAULT_TARGET;
+}
+
+function targetTitle(target) {
+    return TARGET_TITLE_MAP[target] || target || '\u672C\u5730';
+}
+
+function updateTargetChip(target) {
+    const chip = document.getElementById('current-target-chip');
+    if (!chip) return;
+    chip.textContent = targetTitle(target);
+}
+
+function showTargetToast(text) {
+    let toast = document.getElementById('target-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'target-toast';
+        document.body.appendChild(toast);
+    }
+    toast.textContent = text;
+    toast.classList.add('show');
+    if (targetToastTimer) clearTimeout(targetToastTimer);
+    targetToastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 1200);
+}
+
+function setCurrentChatTarget(target, options = {}) {
+    const { notify = false } = options;
+    const el = document.getElementById('chat-target');
+    if (el && target) el.value = target;
+    if (!target) return;
+    localStorage.setItem(CHAT_TARGET_STORAGE_KEY, target);
+    updateTargetChip(target);
+    applyMessageTargetFilter();
+    if (typeof refreshQuickCommandMenu === 'function') {
+        refreshQuickCommandMenu(target);
+    }
+    if (typeof loadOldBuddyAvatars === 'function') {
+        loadOldBuddyAvatars(target).then(() => {
+            if (typeof refreshAllMessageAvatars === 'function') {
+                refreshAllMessageAvatars();
+            }
+        });
+    }
+    if (notify) showTargetToast(\`\u5DF2\u5207\u6362\u5230\uFF1A\${targetTitle(target)}\`);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initTargetConfig().then(() => {
+        const el = document.getElementById('chat-target');
+        const filterBtn = document.getElementById('target-filter-toggle');
+        const timeFilterBtn = document.getElementById('time-filter-toggle');
+        const settingsToggle = document.getElementById('status-settings-toggle');
+        const settingsMenu = document.getElementById('status-settings-menu');
+        if (!el) return;
+        const saved = localStorage.getItem(CHAT_TARGET_STORAGE_KEY);
+        if (saved) {
+            setCurrentChatTarget(saved, { notify: false });
+        } else {
+            setCurrentChatTarget(DEFAULT_TARGET, { notify: false });
+        }
+        const savedFilter = localStorage.getItem(FILTER_CURRENT_TARGET_STORAGE_KEY) === '1';
+        setFilterCurrentTargetOnly(savedFilter, { notify: false });
+        el.addEventListener('change', () => {
+            setCurrentChatTarget(el.value, { notify: true });
+        });
+        if (filterBtn) {
+            filterBtn.addEventListener('change', () => {
+                setFilterCurrentTargetOnly(!!filterBtn.checked, { notify: true });
+            });
+        }
+        const savedHideOlder = localStorage.getItem(FILTER_HIDE_OLDER_STORAGE_KEY) === '1';
+        const savedHideOlderSince = localStorage.getItem(FILTER_HIDE_OLDER_SINCE_STORAGE_KEY);
+        setHideOlderMessages(savedHideOlder, { notify: false, since: savedHideOlderSince });
+        if (timeFilterBtn) {
+            timeFilterBtn.addEventListener('change', () => {
+                setHideOlderMessages(!!timeFilterBtn.checked, { notify: true });
+            });
+        }
+        if (settingsToggle && settingsMenu) {
+            settingsToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                settingsMenu.classList.toggle('open');
+            });
+            settingsMenu.addEventListener('click', (e) => e.stopPropagation());
+            document.addEventListener('click', () => settingsMenu.classList.remove('open'));
+        }
+    });
+});
+
+function isFilterCurrentTargetOnly() {
+    const btn = document.getElementById('target-filter-toggle');
+    return !!(btn && btn.checked);
+}
+
+function setFilterCurrentTargetOnly(enabled, options = {}) {
+    const { notify = false } = options;
+    const btn = document.getElementById('target-filter-toggle');
+    if (!btn) return;
+    btn.checked = !!enabled;
+    localStorage.setItem(FILTER_CURRENT_TARGET_STORAGE_KEY, enabled ? '1' : '0');
+    applyMessageTargetFilter();
+    if (notify) {
+        showTargetToast(enabled ? '\u4EC5\u663E\u793A\u5F53\u524D\u5BF9\u8C61\u8BB0\u5F55' : '\u663E\u793A\u5168\u90E8\u5BF9\u8C61\u8BB0\u5F55');
+    }
+}
+
+function isHideOlderMessagesEnabled() {
+    const btn = document.getElementById('time-filter-toggle');
+    return !!(btn && btn.checked);
+}
+
+function getHideOlderSinceMs() {
+    const btn = document.getElementById('time-filter-toggle');
+    if (!btn) return null;
+    const raw = btn.dataset.sinceMs;
+    if (!raw) return null;
+    const ms = Number(raw);
+    return Number.isFinite(ms) ? ms : null;
+}
+
+function setHideOlderMessages(enabled, options = {}) {
+    const { notify = false, since = null } = options;
+    const btn = document.getElementById('time-filter-toggle');
+    if (!btn) return;
+    const useEnabled = !!enabled;
+    btn.checked = useEnabled;
+    if (useEnabled) {
+        let sinceMs = Date.now();
+        if (since) {
+            const parsed = Date.parse(since);
+            if (Number.isFinite(parsed)) sinceMs = parsed;
+        }
+        btn.dataset.sinceMs = String(sinceMs);
+        localStorage.setItem(FILTER_HIDE_OLDER_STORAGE_KEY, '1');
+        localStorage.setItem(FILTER_HIDE_OLDER_SINCE_STORAGE_KEY, new Date(sinceMs).toISOString());
+    } else {
+        delete btn.dataset.sinceMs;
+        localStorage.setItem(FILTER_HIDE_OLDER_STORAGE_KEY, '0');
+        localStorage.removeItem(FILTER_HIDE_OLDER_SINCE_STORAGE_KEY);
+    }
+    applyMessageTargetFilter();
+    if (notify) {
+        showTargetToast(useEnabled ? '\u5DF2\u9690\u85CF\u5F53\u524D\u65F6\u523B\u4E4B\u524D\u8BB0\u5F55' : '\u5DF2\u663E\u793A\u5168\u90E8\u65F6\u95F4\u8BB0\u5F55');
+    }
+}
+
+function messageTargetOfNode(node) {
+    const t = node.dataset.target || '';
+    if (t) return t;
+    // \u517C\u5BB9\u5386\u53F2\u6D88\u606F\uFF1A\u65E0 target \u89C6\u4F5C local
+    return 'local';
+}
+
+function applyMessageTargetFilter() {
+    const onlyCurrent = isFilterCurrentTargetOnly();
+    const cur = getCurrentChatTarget();
+    const hideOlder = isHideOlderMessagesEnabled();
+    const sinceMs = getHideOlderSinceMs();
+    const nodes = Array.from(messagesContainer.children);
+    for (const node of nodes) {
+        const mt = messageTargetOfNode(node);
+        let visible = !onlyCurrent || mt === cur;
+        if (visible && hideOlder && Number.isFinite(sinceMs)) {
+            const msgTs = Date.parse(node.dataset.timestamp || '');
+            visible = Number.isFinite(msgTs) ? msgTs >= sinceMs : true;
+        }
+        node.style.display = visible ? '' : 'none';
+    }
+    refreshTargetBadges();
+}
+
+async function initTargetConfig() {
+    const selectEl = document.getElementById('chat-target');
+    if (!selectEl) return;
+    try {
+        const res = await fetch('/oldbuddy/api/targets');
+        if (!res.ok) throw new Error('load /api/targets failed');
+        const cfg = await res.json();
+        const targets = Array.isArray(cfg.targets) ? cfg.targets : [];
+        DEFAULT_TARGET = cfg.default_target || DEFAULT_TARGET;
+
+        TARGET_SWITCH_RULES = [];
+        Object.keys(TARGET_TITLE_MAP).forEach((k) => delete TARGET_TITLE_MAP[k]);
+        selectEl.innerHTML = '';
+
+        for (const t of targets) {
+            const tid = String(t.id || '').trim();
+            if (!tid) continue;
+            const label = String(t.label || tid);
+            TARGET_TITLE_MAP[tid] = label;
+
+            const opt = document.createElement('option');
+            opt.value = tid;
+            opt.textContent = label;
+            selectEl.appendChild(opt);
+
+            const phrases = Array.isArray(t.switch_phrases) ? t.switch_phrases : [];
+            for (const phrase of phrases) {
+                const norm = normalizeSwitchText(String(phrase || ''));
+                if (norm) TARGET_SWITCH_RULES.push({ phrase: norm, targetId: tid });
+            }
+        }
+
+        if (!TARGET_TITLE_MAP[DEFAULT_TARGET]) {
+            const first = targets.find((t) => t && t.id)?.id;
+            if (first) DEFAULT_TARGET = String(first);
+        }
+    } catch (e) {
+        console.warn('[target] use fallback target options:', e);
+        if (!TARGET_TITLE_MAP.local) {
+            TARGET_TITLE_MAP.local = 'local';
+            const opt = document.createElement('option');
+            opt.value = 'local';
+            opt.textContent = 'local';
+            selectEl.appendChild(opt);
+        }
+        DEFAULT_TARGET = 'local';
+    }
+}
+/**
+ * \u4ECE\u540E\u7AEF\u52A0\u8F7D\u6D88\u606F
+ */
+// ---------- \u5386\u53F2\u6D88\u606F\u52A0\u8F7D ----------
+/**
+ * \u4ECE\u540E\u7AEF\u52A0\u8F7D\u5386\u53F2\u6D88\u606F\uFF08\u6BCF\u6B21\u52A0\u8F7D limit \u6761\uFF0C\u9ED8\u8BA4 10\uFF09
+ * - \u5C06\u5386\u53F2\u6D88\u606F\u6309\u65F6\u95F4\u4ECE\u65E7\u5230\u65B0\u63D2\u5165\u5230\u5BB9\u5668\u9876\u90E8\uFF08\u4FDD\u6301\u65E7 -> \u65B0 \u987A\u5E8F\uFF09
+ * - \u5728\u63D2\u5165\u524D\u8BB0\u5F55\u6EDA\u52A8\u9AD8\u5EA6\uFF0C\u63D2\u5165\u540E\u6062\u590D\u89C6\u56FE\u4F4D\u7F6E\uFF0C\u907F\u514D\u8DF3\u52A8
+ * - \u4F7F\u7528 isLoading / hasMore \u9501\u6765\u907F\u514D\u91CD\u590D\u8BF7\u6C42
+ */
+async function loadMessages(limit = 10) {
+    // \u5982\u679C\u6B63\u5728\u52A0\u8F7D\u6216\u5DF2\u7ECF\u6CA1\u6709\u66F4\u591A\uFF0C\u5219\u76F4\u63A5\u8FD4\u56DE
+    if (isLoading || !hasMore) return;
+    isLoading = true;
+
+    try {
+        // \u8BB0\u5F55\u5F53\u524D\u7B2C\u4E00\u4E2A\u53EF\u89C1\u8282\u70B9\uFF0C\u7528\u4E8E\u6062\u590D\u6EDA\u52A8\u4F4D\u7F6E
+        const firstVisible = messagesContainer.firstElementChild;
+        const firstVisibleOffset = firstVisible ? firstVisible.getBoundingClientRect().top : null;
+
+        // \u8BB0\u5F55\u65E7\u7684\u6EDA\u52A8\u9AD8\u5EA6\uFF08\u7528\u4E8E\u7B80\u5355\u6062\u590D\uFF09
+        const oldScrollHeight = messagesContainer.scrollHeight;
+        const oldScrollTop = messagesContainer.scrollTop;
+
+        // \u53D6\u51FA\u5F53\u524D\u5BB9\u5668\u6700\u9876\u90E8\u6D88\u606F\u7684 timestamp \u4F5C\u4E3A \`before\` \u53C2\u6570\uFF08\u5982\u679C\u5B58\u5728\uFF09
+        let before = null;
+        const firstMsg = messagesContainer.firstElementChild;
+        if (firstMsg && firstMsg.dataset && firstMsg.dataset.timestamp) {
+            before = firstMsg.dataset.timestamp;
+        }
+        const url = before ? \`/oldbuddy/api/messages?before=\${encodeURIComponent(before)}&limit=\${limit}\` : \`/oldbuddy/api/messages?limit=\${limit}\`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('\u52A0\u8F7D\u5931\u8D25: ' + res.status);
+
+        const data = await res.json();
+        // \u671F\u5F85 data.messages \u4E3A\u6570\u7EC4\uFF0Cdata.has_more \u4E3A bool\uFF08\u6839\u636E\u4F60\u7684\u540E\u7AEF\uFF09
+        const msgs = Array.isArray(data.messages) ? data.messages : [];
+
+        if (!msgs.length) {
+            hasMore = false;
+            return;
+        }
+
+        // \u89C4\u8303\u5316\u5E76\u6309\u65F6\u95F4\u964D\uFF08\u65B0 -> \u65E7\uFF09\u6392\u5E8F\uFF0C\u786E\u4FDD\u63D2\u5165\u987A\u5E8F\u6B63\u786E
+        msgs.sort((a, b) => {
+            const ta = a.timestamp ? new Date(a.timestamp).getTime() : 0;
+            const tb = b.timestamp ? new Date(b.timestamp).getTime() : 0;
+            return tb - ta;
+        });
+
+        // \u9010\u6761\u5728\u9876\u90E8\u63D2\u5165\uFF08\u65E7 -> \u65B0 \u987A\u5E8F\uFF09
+        // \u6CE8\u610F\uFF1A\u4F7F\u7528 prependMessage \u4FDD\u8BC1\u53BB\u91CD\u903B\u8F91\u4E0E render \u4E00\u81F4
+        for (let i = 0; i < msgs.length; i++) {
+            prependMessage(msgs[i]);
+        }
+
+        // \u66F4\u65B0 hasMore\uFF08\u517C\u5BB9\u540E\u7AEF\u8FD4\u56DE\u5B57\u6BB5\u540D\u4E0D\u540C\u7684\u60C5\u51B5\uFF09
+        if (typeof data.has_more !== 'undefined') {
+            hasMore = !!data.has_more;
+        } else if (msgs.length < limit) {
+            // \u5982\u679C\u540E\u7AEF\u6CA1\u6709\u8FD4\u56DE has_more\uFF0C\u4E14\u672C\u6B21\u8FD4\u56DE\u5C11\u4E8E\u8BF7\u6C42\u6570\u91CF\uFF0C\u5219\u8BA4\u4E3A\u6CA1\u6709\u66F4\u591A
+            hasMore = false;
+        } else {
+            hasMore = true;
+        }
+
+        // \u6062\u590D\u6EDA\u52A8\u4F4D\u7F6E\uFF1A\u65B9\u6CD5\u4E00\uFF08\u7B80\u5355\u4E14\u901A\u5E38\u6709\u6548\uFF09
+        // \u8BA9\u89C6\u56FE\u4FDD\u6301\u539F\u5148\u770B\u5230\u7684\u6D88\u606F\u5728\u540C\u4E00\u4F4D\u7F6E\uFF1A
+        // \u65B0\u7684 scrollHeight \u589E\u91CF = messagesContainer.scrollHeight - oldScrollHeight
+        // \u5C06 scrollTop \u589E\u52A0\u8FD9\u4E2A\u589E\u91CF\uFF08\u5373\u4FDD\u6301\u53EF\u89C6\u533A\u57DF\u76F8\u5BF9\u4E0D\u52A8\uFF09
+        const newScrollHeight = messagesContainer.scrollHeight;
+        const heightDiff = newScrollHeight - oldScrollHeight;
+        // \u4EC5\u5728\u7528\u6237\u4E0D\u5728\u5E95\u90E8\u65F6\u6062\u590D\u4F4D\u7F6E\uFF1B\u5982\u679C\u7528\u6237\u672C\u6765\u5728\u5E95\u90E8\uFF0C\u4FDD\u6301\u5E95\u90E8
+        const atBottom = (oldScrollHeight - oldScrollTop - messagesContainer.clientHeight) < 50;
+        if (!atBottom) {
+            messagesContainer.scrollTop = oldScrollTop + heightDiff;
+        } else {
+            // \u5982\u679C\u7528\u6237\u5728\u5E95\u90E8\uFF0C\u4FDD\u6301\u5728\u5E95\u90E8\uFF08\u907F\u514D\u52A0\u8F7D\u5386\u53F2\u65F6\u88AB\u62C9\u8D70\uFF09
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+    } catch (err) {
+        console.error('loadMessages error', err);
+    } finally {
+        isLoading = false;
+    }
+}
+
+
+/**
+ * \u4E3A messages \u5BB9\u5668\u6DFB\u52A0\u5411\u4E0A\u6EDA\u52A8\u5230\u9876\u81EA\u52A8\u52A0\u8F7D\u66F4\u591A\u7684\u903B\u8F91
+ * - \u5F53 scrollTop <= threshold \u65F6\u89E6\u53D1 loadMessages()
+ * - \u4F7F\u7528\u8282\u6D41\uFF08\u57FA\u4E8E isLoading\uFF09\u907F\u514D\u8FDE\u7EED\u89E6\u53D1
+ */
+/**
+ * \u66FF\u6362\u7528\uFF1A\u4E3A messages \u5BB9\u5668\u6DFB\u52A0\u5411\u4E0A\u6EDA\u52A8\u5230\u9876\u81EA\u52A8\u52A0\u8F7D\u66F4\u591A\u7684\u903B\u8F91\uFF08\u589E\u5F3A\u7248\uFF09
+ * - \u652F\u6301\u684C\u9762 scroll \u4E8B\u4EF6
+ * - \u652F\u6301\u89E6\u6478\u4E0B\u62C9\uFF08\u5F53\u5BB9\u5668\u5DF2\u5230\u9876\u90E8\u5E76\u5411\u4E0B\u62C9\u65F6\u89E6\u53D1\uFF09
+ * - \u4F7F\u7528 IntersectionObserver \u4F5C\u4E3A\u8865\u5145\uFF08\u5F53\u7B2C\u4E00\u4E2A\u6D88\u606F\u5143\u7D20\u8FDB\u5165\u89C6\u53E3\u9876\u90E8\u65F6\u89E6\u53D1\uFF09
+ *
+ * \u4F9D\u8D56\u5916\u90E8\u53D8\u91CF/\u51FD\u6570\uFF08\u4FDD\u6301\u4E0D\u53D8\uFF09\uFF1A
+ * - messagesContainer (DOM \u5143\u7D20)
+ * - isLoading (bool)
+ * - hasMore (bool)
+ * - loadMessages(limit)
+ *
+ * \u53C2\u6570\uFF1A
+ * - threshold: scrollTop \u5C0F\u4E8E\u7B49\u4E8E\u591A\u5C11 px \u65F6\u89E6\u53D1\uFF08\u684C\u9762/\u6EDA\u52A8\u68C0\u6D4B\uFF09
+ * - touchPullThreshold: \u624B\u6307\u4E0B\u62C9\u591A\u5C11 px \u65F6\u89E6\u53D1\uFF08\u89E6\u6478\u68C0\u6D4B\uFF09
+ */
+function setupScrollLoader(threshold = 50, touchPullThreshold = 60) {
+    if (!messagesContainer) return;
+
+    // --- \u684C\u9762 / \u5E38\u89C4\u6EDA\u52A8\u76D1\u542C\uFF08\u4FDD\u7559\uFF09 ---
+    function onScroll() {
+        // \u5F53\u6EDA\u52A8\u5230\u63A5\u8FD1\u9876\u90E8\u65F6\u89E6\u53D1\u52A0\u8F7D\uFF08threshold px\uFF09
+        if (messagesContainer.scrollTop <= threshold) {
+            if (!isLoading && hasMore) {
+                // \u8BF7\u6C42\u66F4\u591A\u5386\u53F2\u6D88\u606F
+                loadMessages(20);
+            }
+        }
+    }
+
+    messagesContainer.addEventListener('scroll', onScroll, { passive: true });
+
+    // --- \u89E6\u6478\u8BBE\u5907\u652F\u6301\uFF1A\u68C0\u6D4B\u201C\u4E0B\u62C9\u201D\u52A8\u4F5C ---
+    let touchStartY = null;
+    let touchStartScrollTop = null;
+    let touchTriggered = false;
+
+    function onTouchStart(e) {
+        if (!e.touches || e.touches.length === 0) return;
+        touchStartY = e.touches[0].clientY;
+        touchStartScrollTop = messagesContainer.scrollTop;
+        touchTriggered = false;
+    }
+
+    function onTouchMove(e) {
+        if (touchStartY === null) return;
+        const curY = (e.touches && e.touches[0]) ? e.touches[0].clientY : null;
+        if (curY === null) return;
+
+        const deltaY = curY - touchStartY; // \u5411\u4E0B\u4E3A\u6B63
+
+        // \u4EC5\u5728\u5BB9\u5668\u5DF2\u7ECF\u6EDA\u52A8\u5230\u9876\u90E8\uFF08\u6216\u975E\u5E38\u63A5\u8FD1\u9876\u90E8\uFF09\u65F6\uFF0C\u624D\u628A\u4E0B\u62C9\u89C6\u4E3A\u52A0\u8F7D\u5386\u53F2\u7684\u52A8\u4F5C
+        // \u4F7F\u7528\u5C0F\u7684\u5BB9\u5FCD\u503C\u786E\u4FDD\u8DE8\u6D4F\u89C8\u5668\u9002\u914D\uFF08\u4E00\u4E9B\u6D4F\u89C8\u5668\u4F1A\u6709\u5C0F\u6570/\u5F39\u6027\uFF09
+        const atTop = messagesContainer.scrollTop <= 2;
+
+        if (atTop && deltaY > touchPullThreshold && !touchTriggered) {
+            // \u6807\u8BB0\uFF0C\u907F\u514D\u540C\u4E00\u6B21\u4E0B\u62C9\u89E6\u53D1\u591A\u6B21
+            touchTriggered = true;
+            if (!isLoading && hasMore) {
+                loadMessages(20);
+            }
+        }
+        // \u4E0D\u963B\u6B62\u9ED8\u8BA4\u6EDA\u52A8\u884C\u4E3A\uFF08\u907F\u514D\u5F71\u54CD\u6D4F\u89C8\u5668\u7684\u539F\u751F\u56DE\u5F39\uFF09\uFF0C\u56E0\u6B64\u4E0D\u8C03\u7528 e.preventDefault()
+    }
+
+    function onTouchEnd(/*e*/) {
+        touchStartY = null;
+        touchStartScrollTop = null;
+        touchTriggered = false;
+    }
+
+    // \u6CE8\u610F\uFF1A\u4E0D\u628A touch \u76D1\u542C\u8BBE\u4E3A passive:true\uFF0C\u56E0\u4E3A\u6211\u4EEC\u5E76\u4E0D\u8C03\u7528 preventDefault\uFF0C\u4F46\u4FDD\u7559\u9ED8\u8BA4\u5373\u53EF
+    messagesContainer.addEventListener('touchstart', onTouchStart, { passive: true });
+    messagesContainer.addEventListener('touchmove', onTouchMove, { passive: true });
+    messagesContainer.addEventListener('touchend', onTouchEnd, { passive: true });
+    messagesContainer.addEventListener('touchcancel', onTouchEnd, { passive: true });
+
+    // --- IntersectionObserver \u5907\u9009\u65B9\u6848\uFF08\u5F53\u7B2C\u4E00\u4E2A\u6D88\u606F\u5143\u7D20\u8FDB\u5165\u89C6\u53E3\u9876\u90E8\u65F6\u89E6\u53D1\uFF09 ---
+    // \u8FD9\u5BF9\u4E8E\u67D0\u4E9B\u79FB\u52A8\u6D4F\u89C8\u5668 scroll/\u89E6\u6478\u4E8B\u4EF6\u884C\u4E3A\u5947\u602A\u7684\u60C5\u51B5\u975E\u5E38\u6709\u7528
+    let io = null;
+    try {
+        io = new IntersectionObserver((entries) => {
+            for (const entry of entries) {
+                // \u5F53\u7B2C\u4E00\u4E2A\u6D88\u606F\u5143\u7D20\u4E0E\u5BB9\u5668\u7684\u9876\u90E8\uFF08\u6216\u63A5\u8FD1\u9876\u90E8\uFF09\u76F8\u4EA4\u65F6\u89E6\u53D1\u52A0\u8F7D
+                if (entry.isIntersecting) {
+                    // \u8FDB\u4E00\u6B65\u9A8C\u8BC1\uFF1A\u786E\u4FDD\u5BB9\u5668\u7684 scrollTop \u63A5\u8FD1\u9876\u90E8
+                    if ((messagesContainer.scrollTop <= threshold + 2) && !isLoading && hasMore) {
+                        loadMessages(20);
+                    }
+                }
+            }
+        }, {
+            root: messagesContainer,
+            rootMargin: '0px 0px -90% 0px', // \u5143\u7D20\u8FDB\u5165\u9876\u90E8 10% \u53EF\u89C6\u533A\u57DF\u65F6\u89E6\u53D1\uFF08\u53EF\u8C03\uFF09
+            threshold: 0
+        });
+
+        // \u89C2\u5BDF\u5F53\u524D\u7B2C\u4E00\u4E2A\u5143\u7D20\uFF08\u82E5\u5B58\u5728\uFF09
+        const observeFirst = () => {
+            // \u53D6\u6D88\u4E4B\u524D\u7684\u89C2\u5BDF
+            io.disconnect();
+            const first = messagesContainer.firstElementChild;
+            if (first) io.observe(first);
+        };
+
+        // \u6BCF\u6B21\u63D2\u5165/\u79FB\u9664\u6D88\u606F\u65F6\u53EF\u80FD\u9700\u8981\u91CD\u65B0\u89C2\u5BDF\uFF08\u8FD9\u91CC\u505A\u4E2A\u7B80\u5355\u7684\u5468\u671F\u68C0\u6D4B\uFF09
+        // \u5982\u679C\u4F60\u5728 prependMessage/appendMessage \u4E2D\u6709 hook\uFF0C\u4E5F\u53EF\u4EE5\u76F4\u63A5\u5728\u90A3\u4E9B\u5730\u65B9\u8C03\u7528 observeFirst()
+        observeFirst();
+        // \u76D1\u542C\u5B50\u8282\u70B9\u53D8\u5316\u4EE5\u91CD\u65B0\u7ED1\u5B9A observer\uFF08\u8282\u7701\u8D44\u6E90\uFF0C\u53EA\u6709\u5F53 children \u53D8\u5316\u65F6\u624D\u91CD\u7F6E\uFF09
+        const mo = new MutationObserver((mutations) => {
+            // \u53EA\u5728 children \u53D1\u751F\u53D8\u5316\u7684\u65F6\u5019\u91CD\u65B0\u89C2\u5BDF\u7B2C\u4E00\u4E2A\u5143\u7D20
+            for (const m of mutations) {
+                if (m.type === 'childList') {
+                    observeFirst();
+                    break;
+                }
+            }
+        });
+        mo.observe(messagesContainer, { childList: true });
+    } catch (e) {
+        // \u82E5\u73AF\u5883\u4E0D\u652F\u6301 IntersectionObserver\uFF08\u6781\u5C11\u89C1\uFF09\uFF0C\u5FFD\u7565\u5373\u53EF
+        console.warn('IntersectionObserver not available or failed to init', e);
+    }
+
+    // --- \u53EF\u9009\uFF1A\u8FD4\u56DE\u4E00\u4E2A\u51FD\u6570\u7528\u4E8E\u89E3\u7ED1\u6240\u6709\u76D1\u542C\uFF08\u5982\u679C\u4F60\u9700\u8981\u5355\u5143\u6D4B\u8BD5\u6216\u9500\u6BC1\uFF09 ---
+    // \u4F8B\u5982\uFF1A const teardown = setupScrollLoader(...); teardown();
+    return function teardown() {
+        messagesContainer.removeEventListener('scroll', onScroll);
+        messagesContainer.removeEventListener('touchstart', onTouchStart);
+        messagesContainer.removeEventListener('touchmove', onTouchMove);
+        messagesContainer.removeEventListener('touchend', onTouchEnd);
+        messagesContainer.removeEventListener('touchcancel', onTouchEnd);
+        if (io) {
+            try { io.disconnect(); } catch (e) {}
+        }
+    };
+}
+
+/**
+ * sender \u4E3A user \u6216 user_* \u65F6\u89C6\u4F5C\u7528\u6237\u4FA7\uFF08\u53F3\u4FA7\u7EFF\u8272\u6C14\u6CE1\uFF09
+ */
+function isUserSender(sender) {
+    const s = String(sender ?? '').trim();
+    return s === 'user' || s.startsWith('user_');
+}
+
+function messageSenderClass(sender) {
+    if (isUserSender(sender)) return 'user';
+    const s = String(sender || '').trim();
+    return s || 'buddy';
+}
+
+/**
+ * \u662F\u5426\u4F7F\u7528\u300C\u5361\u7247\u300D\u5F0F Markdown \u6C14\u6CE1\uFF08\u66F4\u5BBD\u3001\u5C42\u6B21\u66F4\u6E05\u6670\uFF09
+ * - \u540E\u7AEF\u53EF\u8BBE msg.card === true
+ * - \u7CFB\u7EDF / \u8C03\u8BD5\u4FA7\u6D88\u606F\u9ED8\u8BA4\u6309\u5361\u7247\u5C55\u793A
+ */
+function useMarkdownCard(msg) {
+    if (msg.card === true || msg.card === "true" || msg.card === 1) return true;
+    const s = msg.sender || "";
+    return /^(system|debug)/.test(s);
+}
+
+/**
+ * \u6E32\u67D3\u5355\u6761\u6D88\u606F\uFF08\u652F\u6301 prependMessage \u4ECE\u65E7\u5230\u65B0\u52A0\u8F7D\u903B\u8F91\uFF09
+ */
+function renderMessage(msg) {
+    const div = document.createElement('div');
+    const mid = msg.id ?? (\`local_\${Date.now()}_\${Math.random().toString(36).slice(2, 8)}\`);
+    div.className = \`message \${messageSenderClass(msg.sender)}\`;
+    div.dataset.id = mid;
+    div.dataset.sender = msg.sender || '';
+    div.dataset.target = msg.target || '';
+
+    // ---------- \u65F6\u95F4 ----------
+    let t;
+    try {
+        t = msg.timestamp ? new Date(msg.timestamp) : new Date();
+    } catch (e) {
+        t = new Date();
+    }
+    div.dataset.timestamp = t.toISOString();
+
+    // \u9ED8\u8BA4\u65F6\u95F4\u8282\u70B9
+    const timeDiv = document.createElement('div');
+    timeDiv.className = 'message-time';
+    // \u5224\u65AD\u662F\u5426\u4E3A\u4ECA\u5929
+    const now = new Date();
+    const isToday =
+        t.getFullYear() === now.getFullYear() &&
+        t.getMonth() === now.getMonth() &&
+        t.getDate() === now.getDate();
+    if (isToday) {
+        // \u4ECA\u5929\uFF1A\u663E\u793A HH:MM
+        timeDiv.textContent = t.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    } else {
+        // \u975E\u4ECA\u5929\uFF1A\u663E\u793A YYYY-MM-DD HH:MM
+        const yyyy = t.getFullYear();
+        const mm = String(t.getMonth() + 1).padStart(2, '0');
+        const dd = String(t.getDate()).padStart(2, '0');
+        const hh = String(t.getHours()).padStart(2, '0');
+        const mi = String(t.getMinutes()).padStart(2, '0');
+        timeDiv.textContent = \`\${yyyy}-\${mm}-\${dd} \${hh}:\${mi}\`;
+    }
+    div.appendChild(timeDiv);
+
+    if (msg.target) {
+        const targetDiv = document.createElement('div');
+        targetDiv.className = 'message-target';
+        targetDiv.textContent = \`\u5BF9\u8C61\uFF1A\${targetTitle(msg.target)}\`;
+        div.appendChild(targetDiv);
+    }
+
+    // ---------- \u65F6\u95F4\u663E\u793A\u903B\u8F91 ----------
+    const first = Array.from(messagesContainer.children).find(el => el.dataset.id !== msg.id);
+    const last = Array.from([...messagesContainer.children].reverse()).find(el => el.dataset.id !== msg.id);
+
+    const FIVE_MIN = 5 * 60 * 1000;
+    const tMs = t.getTime();
+
+    if (first && last) {
+        const firstTime = new Date(first.dataset.timestamp).getTime();
+        const lastTime = new Date(last.dataset.timestamp).getTime();
+
+        if (tMs < firstTime) {
+            // \u5411\u524D\u63D2\u5165\uFF08\u52A0\u8F7D\u5386\u53F2\uFF09
+            if (firstTime - tMs < FIVE_MIN) {
+                // \u9690\u85CF firstElementChild \u7684\u65F6\u95F4
+                const oldTimeNode = first.querySelector('.message-time');
+                if (oldTimeNode) oldTimeNode.style.display = 'none';
+            }
+        } else if (tMs > lastTime) {
+            // \u5411\u540E\u63D2\u5165\uFF08\u5B9E\u65F6\u6D88\u606F\uFF09
+            if (tMs - lastTime < FIVE_MIN) {
+                // \u9690\u85CF\u5F53\u524D\u6D88\u606F\u7684\u65F6\u95F4
+                timeDiv.style.display = 'none';
+            }
+        }
+        // \u4E2D\u95F4\u63D2\u5165\uFF08\u66FF\u6362\u6216\u4E71\u5E8F\uFF09\u4FDD\u6301\u9ED8\u8BA4\u65F6\u95F4\u663E\u793A
+    }
+    // ---------- \u5185\u5BB9\u6E32\u67D3 ----------
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+
+    if (msg.type === 'text') {
+        if (typeof window.renderMarkdown === 'function') {
+            contentDiv.classList.add('markdown');
+            if (useMarkdownCard(msg)) contentDiv.classList.add('markdown-card');
+            contentDiv.innerHTML = window.renderMarkdown(msg.content);
+        } else {
+            contentDiv.textContent = msg.content;
+        }
+    } else if (msg.type === 'image') {
+        const img = document.createElement('img');
+        img.src = msg.content;
+        img.className = 'message-image';
+        contentDiv.appendChild(img);
+        img.addEventListener('click', () => showImagePreview(msg.content));
+
+        if (msg.extra_text) {
+            const extra = document.createElement('div');
+            extra.className = 'message-extra-text';
+            if (typeof window.renderMarkdown === 'function') {
+                extra.classList.add('markdown');
+                if (useMarkdownCard(msg)) extra.classList.add('markdown-card');
+                extra.innerHTML = window.renderMarkdown(msg.extra_text);
+            } else {
+                extra.textContent = msg.extra_text;
+            }
+            contentDiv.appendChild(extra);
+        }
+    } else if (msg.type === 'audio') {
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        audio.src = msg.content;
+        audio.className = 'message-audio';
+        contentDiv.appendChild(audio);
+
+        if (msg.extra_text) {
+            const extra = document.createElement('div');
+            extra.className = 'message-extra-text';
+            if (typeof window.renderMarkdown === 'function') {
+                extra.classList.add('markdown');
+                if (useMarkdownCard(msg)) extra.classList.add('markdown-card');
+                extra.innerHTML = window.renderMarkdown(msg.extra_text);
+            } else {
+                extra.textContent = msg.extra_text;
+            }
+            contentDiv.appendChild(extra);
+        }
+    } else if (msg.type === 'file') {
+        const link = document.createElement('a');
+        link.href = msg.content;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = msg.file_name || '\u4E0B\u8F7D\u6587\u4EF6';
+        if (msg.file_name) {
+            link.download = msg.file_name;
+        }
+        contentDiv.appendChild(link);
+
+        if (msg.file_size) {
+            const meta = document.createElement('div');
+            meta.className = 'message-extra-text';
+            meta.textContent = \`\u5927\u5C0F: \${msg.file_size} \u5B57\u8282\`;
+            contentDiv.appendChild(meta);
+        }
+
+        if (msg.extra_text) {
+            const extra = document.createElement('div');
+            extra.className = 'message-extra-text';
+            if (typeof window.renderMarkdown === 'function') {
+                extra.classList.add('markdown');
+                if (useMarkdownCard(msg)) extra.classList.add('markdown-card');
+                extra.innerHTML = window.renderMarkdown(msg.extra_text);
+            } else {
+                extra.textContent = msg.extra_text;
+            }
+            contentDiv.appendChild(extra);
+        }
+    } else {
+        contentDiv.textContent = msg.content || JSON.stringify(msg);
+    }
+
+    if (typeof wrapMessageWithAvatar === 'function') {
+        wrapMessageWithAvatar(div, msg, contentDiv);
+    } else {
+        div.appendChild(contentDiv);
+    }
+    return div;
+}
+
+/**
+ * \u76EE\u6807\u6807\u7B7E\u53BB\u91CD\u663E\u793A\uFF1A
+ * \u4EC5\u5F53 target \u76F8\u5BF9\u4E0A\u4E00\u6761\u53EF\u89C1\u6D88\u606F\u53D1\u751F\u53D8\u5316\u65F6\u663E\u793A\u201C\u5BF9\u8C61\uFF1Axxx\u201D\u3002
+ */
+function refreshTargetBadges() {
+    let prevTarget = null;
+    const nodes = Array.from(messagesContainer.children);
+    for (const node of nodes) {
+        if (node.style.display === 'none') continue;
+        const badge = node.querySelector('.message-target');
+        if (!badge) continue;
+        const target = node.dataset.target || '';
+        if (!target) {
+            badge.style.display = 'none';
+            continue;
+        }
+        if (target === prevTarget) {
+            badge.style.display = 'none';
+        } else {
+            badge.style.display = '';
+            prevTarget = target;
+        }
+    }
+}
+
+
+/**
+ * \u70B9\u51FB\u56FE\u7247\u65F6\u5F39\u51FA\u9884\u89C8\u5C42\uFF08\u5168\u5C4F\u653E\u5927\uFF09
+ */
+
+/**
+ * \u70B9\u51FB\u56FE\u7247\u65F6\u5F39\u51FA\u9884\u89C8\u5C42\uFF08\u517C\u5BB9 Firefox \u684C\u9762\uFF09
+ */
+function showImagePreview(src) {
+    // \u79FB\u9664\u65E7\u7684\u9884\u89C8\u5C42
+    const existing = document.getElementById('image-preview-overlay');
+    if (existing) existing.remove();
+
+    // \u521B\u5EFA\u906E\u7F69\u5C42
+    const overlay = document.createElement('div');
+    overlay.id = 'image-preview-overlay';
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.8)';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.zIndex = '9999';
+    overlay.style.cursor = 'zoom-out';
+    overlay.style.pointerEvents = 'auto';  // \u{1F539} \u786E\u4FDD\u70B9\u51FB\u6709\u6548
+
+    // \u521B\u5EFA\u653E\u5927\u56FE\u7247
+    const bigImg = document.createElement('img');
+    bigImg.src = src;
+    bigImg.style.maxWidth = '90vw';
+    bigImg.style.maxHeight = '90vh';
+    bigImg.style.borderRadius = '8px';
+    bigImg.style.boxShadow = '0 0 12px rgba(255,255,255,0.4)';
+    bigImg.style.transition = 'transform 0.2s ease';
+    bigImg.style.cursor = 'zoom-out';
+    bigImg.style.userSelect = 'none';
+    bigImg.style.pointerEvents = 'auto';
+
+    // \u{1F539} \u70B9\u51FB\u906E\u7F69\u5173\u95ED
+    overlay.addEventListener('click', (e) => {
+        // \u4EC5\u5F53\u70B9\u51FB\u80CC\u666F\u65F6\u5173\u95ED\uFF0C\u4E0D\u5728\u56FE\u7247\u4E0A\u5173\u95ED
+        if (e.target === overlay) {
+            overlay.remove();
+        }
+    }, true); // \u{1F539} \u6355\u83B7\u9636\u6BB5\uFF0C\u786E\u4FDD Firefox \u80FD\u89E6\u53D1
+
+    // \u{1F539} \u952E\u76D8 ESC \u5173\u95ED\uFF08\u684C\u9762\u7AEF\uFF09
+    function handleKey(e) {
+        if (e.key === 'Escape') {
+            overlay.remove();
+            document.removeEventListener('keydown', handleKey);
+        }
+    }
+    document.addEventListener('keydown', handleKey);
+
+    overlay.appendChild(bigImg);
+    document.body.appendChild(overlay);
+
+    // \u{1F539} \u7981\u6B62\u9875\u9762\u6EDA\u52A8\uFF08\u684C\u9762\u7AEF\u5E38\u89C1\u95EE\u9898\uFF09
+    document.body.style.overflow = 'hidden';
+
+    overlay.addEventListener('remove', () => {
+        document.body.style.overflow = '';
+    });
+}
+
+// \u67E5\u627E\u5DF2\u5B58\u5728\u7684\u6D88\u606F\u8282\u70B9
+function findMessageNode(id) {
+    if (!id) return null;
+    return messagesContainer.querySelector(\`[data-id="\${id}"]\`);
+}
+
+/**
+ * \u5411\u9876\u90E8\u63D2\u5165\u6D88\u606F
+ */
+function prependMessage(msg) {
+    const id = msg.id ?? null;
+    const existingNode = id ? findMessageNode(id) : null;
+    const node = renderMessage(msg);
+
+    if (existingNode) {
+        messagesContainer.replaceChild(node, existingNode); // \u66FF\u6362\u65E7\u8282\u70B9
+    } else {
+        messagesContainer.insertBefore(node, messagesContainer.firstChild);
+    }
+    applyMessageTargetFilter();
+}
+
+/**
+ * \u5411\u5E95\u90E8\u8FFD\u52A0\u6D88\u606F
+ */
+
+
+function appendMessage(msg) {
+    const id = msg.id ?? null;
+    const existingNode = id ? findMessageNode(id) : null;
+    const node = renderMessage(msg);
+
+    // \u8FFD\u52A0\u524D\u5224\u65AD\u7528\u6237\u662F\u5426\u5728\u5E95\u90E8\uFF08\u7528\u65E7 scrollHeight \u5224\u65AD\u624D\u51C6\u786E\uFF09
+    const wasAtBottom = (messagesContainer.scrollHeight - messagesContainer.scrollTop - messagesContainer.clientHeight) < 50;
+
+    if (existingNode) {
+        messagesContainer.replaceChild(node, existingNode); // \u66FF\u6362\u65E7\u8282\u70B9
+    } else {
+        messagesContainer.appendChild(node);
+    }
+    applyMessageTargetFilter();
+
+    // \u81EA\u52A8\u6EDA\u5230\u5E95\u90E8\uFF08\u4EC5\u5F53\u7528\u6237\u539F\u672C\u5728\u5E95\u90E8\u65F6\u624D\u6EDA\u52A8\uFF0C\u907F\u514D\u6253\u65AD\uFF09
+    if (wasAtBottom) messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+/** \u6D4F\u89C8\u5668 WGS84 \u2192 \u56FD\u5185\u5730\u56FE\u5E38\u7528\u5750\u6807\uFF08\u9AD8\u5FB7 GCJ-02\u3001\u767E\u5EA6 BD-09\uFF09 */
+const _EARTH_PI = Math.PI;
+const _X_PI = (_EARTH_PI * 3000) / 180;
+
+function _outOfChina(lng, lat) {
+    return lng < 72.004 || lng > 137.8347 || lat < 0.8293 || lat > 55.8271;
+}
+
+function _transformLat(lng, lat) {
+    let ret =
+        -100.0 +
+        2.0 * lng +
+        3.0 * lat +
+        0.2 * lat * lat +
+        0.1 * lng * lat +
+        0.2 * Math.sqrt(Math.abs(lng));
+    ret += ((20.0 * Math.sin(6.0 * lng * _EARTH_PI) + 20.0 * Math.sin(2.0 * lng * _EARTH_PI)) * 2.0) / 3.0;
+    ret += ((20.0 * Math.sin(lat * _EARTH_PI) + 40.0 * Math.sin((lat / 3.0) * _EARTH_PI)) * 2.0) / 3.0;
+    ret += ((160.0 * Math.sin((lat / 12.0) * _EARTH_PI) + 320 * Math.sin((lat * _EARTH_PI) / 30.0)) * 2.0) / 3.0;
+    return ret;
+}
+
+function _transformLng(lng, lat) {
+    let ret =
+        300.0 +
+        lng +
+        2.0 * lat +
+        0.1 * lng * lng +
+        0.1 * lng * lat +
+        0.1 * Math.sqrt(Math.abs(lng));
+    ret += ((20.0 * Math.sin(6.0 * lng * _EARTH_PI) + 20.0 * Math.sin(2.0 * lng * _EARTH_PI)) * 2.0) / 3.0;
+    ret += ((20.0 * Math.sin(lng * _EARTH_PI) + 40.0 * Math.sin((lng / 3.0) * _EARTH_PI)) * 2.0) / 3.0;
+    ret += ((150.0 * Math.sin((lng / 12.0) * _EARTH_PI) + 300.0 * Math.sin((lng / 30.0) * _EARTH_PI)) * 2.0) / 3.0;
+    return ret;
+}
+
+function wgs84ToGcj02(lng, lat) {
+    if (_outOfChina(lng, lat)) return [lng, lat];
+    const a = 6378245.0;
+    const ee = 0.00669342162296594323;
+    let dLat = _transformLat(lng - 105.0, lat - 35.0);
+    let dLng = _transformLng(lng - 105.0, lat - 35.0);
+    const radLat = (lat / 180.0) * _EARTH_PI;
+    let magic = Math.sin(radLat);
+    magic = 1 - ee * magic * magic;
+    const sqrtMagic = Math.sqrt(magic);
+    dLat = (dLat * 180.0) / (((a * (1 - ee)) / (magic * sqrtMagic)) * _EARTH_PI);
+    dLng = (dLng * 180.0) / ((a / sqrtMagic) * Math.cos(radLat) * _EARTH_PI);
+    return [lng + dLng, lat + dLat];
+}
+
+function gcj02ToBd09(lng, lat) {
+    const z = Math.sqrt(lng * lng + lat * lat) + 0.00002 * Math.sin(lat * _X_PI);
+    const theta = Math.atan2(lat, lng) + 0.000003 * Math.cos(lng * _X_PI);
+    return [z * Math.cos(theta) + 0.0065, z * Math.sin(theta) + 0.006];
+}
+
+function wgs84ToBd09(lng, lat) {
+    const [gjLng, gjLat] = wgs84ToGcj02(lng, lat);
+    if (_outOfChina(lng, lat)) return [gjLng, gjLat];
+    return gcj02ToBd09(gjLng, gjLat);
+}
+
+/**
+ * \u83B7\u53D6\u6D4F\u89C8\u5668\u5B9A\u4F4D\u5E76\u5199\u5165\u8F93\u5165\u6846\uFF08\u542B\u7ECF\u7EAC\u5EA6\u4E0E\u5730\u56FE\u94FE\u63A5\uFF09\uFF0C\u7531\u7528\u6237\u624B\u52A8\u70B9\u51FB\u53D1\u9001\u3002
+ * \u9700\u5728 HTTPS \u6216 localhost \u7B49\u5B89\u5168\u4E0A\u4E0B\u6587\u4E2D\uFF1B\u624B\u673A\u4F1A\u5F39\u51FA\u7CFB\u7EDF\u5B9A\u4F4D\u6388\u6743\u3002
+ */
+async function sendLocationMessage() {
+    const btn = document.getElementById('location-btn');
+    const input = document.getElementById('text-input');
+    if (!navigator.geolocation) {
+        alert('\u5F53\u524D\u6D4F\u89C8\u5668\u4E0D\u652F\u6301\u5B9A\u4F4D');
+        return;
+    }
+    const prev = btn ? btn.textContent : '';
+    if (btn) {
+        btn.disabled = true;
+        btn.textContent = '\u2026';
+    }
+    const buildContent = (lat, lng, acc, ts) => {
+        const lines = [
+            '\u{1F4CD} \u5F53\u524D\u4F4D\u7F6E',
+            \`\u7EAC\u5EA6: \${lat.toFixed(6)}\`,
+            \`\u7ECF\u5EA6: \${lng.toFixed(6)}\`,
+        ];
+        if (acc != null && Number.isFinite(acc)) {
+            lines.push(\`\u7CBE\u5EA6\u7EA6: \xB1\${Math.round(acc)} m\`);
+        }
+        if (ts) {
+            lines.push(\`\u5B9A\u4F4D\u65F6\u95F4: \${new Date(ts).toISOString()}\`);
+        }
+        const [gcjLng, gcjLat] = wgs84ToGcj02(lng, lat);
+        const [bdLng, bdLat] = wgs84ToBd09(lng, lat);
+        const nameQ = encodeURIComponent('\u5F53\u524D\u4F4D\u7F6E');
+        const osmUrl = \`https://www.openstreetmap.org/?mlat=\${lat}&mlon=\${lng}#map=16/\${lat}/\${lng}\`;
+        const amapUrl = \`https://uri.amap.com/marker?position=\${gcjLng},\${gcjLat}&name=\${nameQ}\`;
+        const baiduUrl = \`https://api.map.baidu.com/marker?location=\${bdLat},\${bdLng}&title=\${nameQ}&content=&output=html\`;
+        lines.push(\`[OpenStreetMap](\${osmUrl})\`);
+        lines.push(\`[\u9AD8\u5FB7\u5730\u56FE](\${amapUrl})\`);
+        lines.push(\`[\u767E\u5EA6\u5730\u56FE](\${baiduUrl})\`);
+        return lines.join('\\n');
+    };
+
+    await new Promise((resolve) => {
+        navigator.geolocation.getCurrentPosition(
+            (pos) => {
+                const { latitude, longitude, accuracy } = pos.coords;
+                const content = buildContent(latitude, longitude, accuracy, pos.timestamp);
+                if (input) {
+                    const prefix = input.value && input.value.trim() ? \`\${input.value}\\n\\n\` : '';
+                    input.value = \`\${prefix}\${content}\`;
+                    autosizeTextInput(input);
+                    input.focus();
+                }
+                resolve();
+            },
+            (err) => {
+                const msg =
+                    err && err.code === 1
+                        ? '\u5DF2\u62D2\u7EDD\u5B9A\u4F4D\u6743\u9650\uFF0C\u8BF7\u5728\u7CFB\u7EDF\u6216\u6D4F\u89C8\u5668\u8BBE\u7F6E\u4E2D\u5141\u8BB8\u672C\u7AD9\u4F7F\u7528\u4F4D\u7F6E\u3002'
+                        : err && err.code === 2
+                          ? '\u6682\u65F6\u65E0\u6CD5\u83B7\u53D6\u4F4D\u7F6E\u4FE1\u606F\u3002'
+                          : err && err.code === 3
+                            ? '\u5B9A\u4F4D\u8D85\u65F6\uFF0C\u8BF7\u91CD\u8BD5\u6216\u5230\u4FE1\u53F7\u8F83\u597D\u7684\u5730\u65B9\u518D\u8BD5\u3002'
+                            : \`\u5B9A\u4F4D\u5931\u8D25\uFF1A\${err && err.message ? err.message : '\u672A\u77E5\u9519\u8BEF'}\`;
+                alert(msg);
+                resolve();
+            },
+            { enableHighAccuracy: true, timeout: 20000, maximumAge: 60000 },
+        );
+    });
+
+    if (btn) {
+        btn.disabled = false;
+        btn.textContent = prev;
+    }
+}
+
+/**
+ * \u53D1\u9001\u6587\u672C\u6D88\u606F
+ */
+async function sendTextMessage() {
+    const input = document.getElementById('text-input');
+    const sendBtn = document.getElementById('send-text');
+    let content = input.value.trim();
+    if (!content) return;
+    const switchTarget = detectSwitchTargetByText(content);
+    if (switchTarget) {
+        setCurrentChatTarget(switchTarget, { notify: true });
+    }
+    const target = getCurrentChatTarget();
+
+    // \u9632\u91CD\u590D\u53D1\u9001\uFF1A\u7981\u7528\u6309\u94AE\u5E76\u89C6\u89C9\u63D0\u793A
+    sendBtn.disabled = true;
+    const prevBtnText = sendBtn.textContent;
+    sendBtn.textContent = '\u53D1\u9001\u4E2D...';
+
+    // \u6E05\u7A7A\u8F93\u5165\u6846\uFF08\u5148\u4FDD\u5B58\u5185\u5BB9\u4EE5\u9632\u540E\u7EED\u9700\u8981\u91CD\u8BD5\uFF09
+    input.value = '';
+    autosizeTextInput(input);
+
+    try {
+        const res = await fetch('/oldbuddy/api/message/text', {
+            method: 'POST',
+            body: new URLSearchParams({ content, sender: 'user', target })
+        });
+
+        if (!res.ok) {
+            // \u5982\u679C\u670D\u52A1\u5668\u8FD4\u56DE\u9519\u8BEF\uFF0C\u6062\u590D\u8F93\u5165\u6846\u5E76\u63D0\u793A
+            const text = await res.text().catch(() => '');
+            console.error('send text failed', res.status, text);
+            alert('\u53D1\u9001\u5931\u8D25\uFF1A\u670D\u52A1\u5668\u8FD4\u56DE\u9519\u8BEF');
+            // \u5C06\u5185\u5BB9\u653E\u56DE\u8F93\u5165\u6846\uFF08\u53EF\u9009\uFF09
+            input.value = content;
+            autosizeTextInput(input);
+            return;
+        }
+
+        const data = await res.json();
+        if (data && data.message) {
+            // \u628A\u670D\u52A1\u5668\u8FD4\u56DE\u7684\u6D88\u606F\u8FFD\u52A0\u5230\u9875\u9762\uFF08response + websocket \u53BB\u91CD\u4E00\u8D77\u751F\u6548\uFF09
+            appendMessage(data.message);
+        } else {
+            console.error('send text no message in response', data);
+            // \u5C06\u5185\u5BB9\u653E\u56DE\u8F93\u5165\u6846\uFF08\u53EF\u9009\uFF09
+            input.value = content;
+            autosizeTextInput(input);
+        }
+    } catch (e) {
+        console.error('sendTextMessage error', e);
+        alert('\u53D1\u9001\u5931\u8D25\uFF1A\u7F51\u7EDC\u6216\u5176\u4ED6\u9519\u8BEF');
+        // \u5C06\u5185\u5BB9\u653E\u56DE\u8F93\u5165\u6846\uFF08\u53EF\u9009\uFF09
+        input.value = content;
+        autosizeTextInput(input);
+    } finally {
+        // \u6062\u590D\u6309\u94AE
+        sendBtn.disabled = false;
+        sendBtn.textContent = prevBtnText;
+        // \u6EDA\u52A8\u7531 appendMessage \u8D1F\u8D23\uFF08\u6B64\u5904\u907F\u514D\u91CD\u590D\u8BA1\u7B97\u5BFC\u81F4\u5076\u53D1\u4E0D\u6EDA\u52A8\uFF09
+    }
+}
+
+
+// static/js/avatars.js \u2014 \u5934\u50CF/\u6635\u79F0\uFF08nochain_oldbuddy_avatar\uFF09
+
+let OLDBUDDY_AVATAR_MAP = {};
+
+function resolveAvatarUrl(path) {
+    if (!path) return '';
+    const p = String(path).trim();
+    if (!p) return '';
+    if (/^https?:\\/\\//i.test(p)) return p;
+    if (p.startsWith('/')) return p;
+    return \`/oldbuddy/api/vault_asset?path=\${encodeURIComponent(p)}\`;
+}
+
+function resolveSenderProfile(sender) {
+    const id = String(sender ?? '').trim() || 'buddy';
+    const map = OLDBUDDY_AVATAR_MAP || {};
+    if (map[id]) {
+        return { ...map[id], id };
+    }
+    if (typeof isUserSender === 'function' && isUserSender(id) && map.user) {
+        return { ...map.user, id };
+    }
+    if (map.buddy && (typeof isUserSender !== 'function' || !isUserSender(id))) {
+        return { ...map.buddy, id };
+    }
+    if (map['*']) {
+        return { ...map['*'], id };
+    }
+    return { id, name: id, avatar: '' };
+}
+
+function shouldShowNickname(sender, profile) {
+    if (!profile?.name) return false;
+    const s = String(sender ?? '').trim();
+    if (s === 'user') return false;
+    if (typeof isUserSender === 'function' && isUserSender(s)) return true;
+    return true;
+}
+
+function createMessageAvatarEl(profile) {
+    const wrap = document.createElement('div');
+    wrap.className = 'message-avatar';
+    const url = resolveAvatarUrl(profile.avatar);
+    const fallbackChar = (profile.name || profile.id || '?').slice(0, 1);
+
+    const showFallback = () => {
+        wrap.textContent = fallbackChar;
+        wrap.classList.add('message-avatar-fallback');
+        const img = wrap.querySelector('img');
+        if (img) img.remove();
+    };
+
+    if (url) {
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = profile.name || '';
+        img.loading = 'lazy';
+        img.addEventListener('error', showFallback, { once: true });
+        wrap.appendChild(img);
+    } else {
+        showFallback();
+    }
+    return wrap;
+}
+
+function wrapMessageWithAvatar(div, msg, contentDiv) {
+    const profile = resolveSenderProfile(msg.sender);
+    const row = document.createElement('div');
+    row.className = 'message-row';
+
+    const avatar = createMessageAvatarEl(profile);
+    const body = document.createElement('div');
+    body.className = 'message-body';
+
+    if (shouldShowNickname(msg.sender, profile)) {
+        const nick = document.createElement('div');
+        nick.className = 'message-nickname';
+        nick.textContent = profile.name;
+        body.appendChild(nick);
+    }
+
+    body.appendChild(contentDiv);
+
+    if (typeof isUserSender === 'function' && isUserSender(msg.sender)) {
+        row.classList.add('message-row-user');
+        row.appendChild(body);
+        row.appendChild(avatar);
+    } else {
+        row.appendChild(avatar);
+        row.appendChild(body);
+    }
+
+    div.appendChild(row);
+}
+
+async function loadOldBuddyAvatars(target) {
+    const tid =
+        target ||
+        (typeof getCurrentChatTarget === 'function' ? getCurrentChatTarget() : 'local');
+    try {
+        const res = await fetch(
+            \`/oldbuddy/api/avatars?target=\${encodeURIComponent(tid || 'local')}\`,
+        );
+        if (!res.ok) throw new Error('avatars fetch failed');
+        const data = await res.json();
+        OLDBUDDY_AVATAR_MAP = data.avatars && typeof data.avatars === 'object' ? data.avatars : {};
+    } catch (e) {
+        console.warn('[oldbuddy] load avatars failed', e);
+        OLDBUDDY_AVATAR_MAP = {};
+    }
+}
+
+function refreshAllMessageAvatars() {
+    const container = document.getElementById('messages');
+    if (!container) return;
+    container.querySelectorAll('.message').forEach((node) => {
+        const row = node.querySelector('.message-row');
+        if (!row) return;
+        const sender = node.dataset.sender || '';
+        const profile = resolveSenderProfile(sender);
+        const avatarWrap = row.querySelector('.message-avatar');
+        if (avatarWrap) {
+            const fresh = createMessageAvatarEl(profile);
+            avatarWrap.replaceWith(fresh);
+        }
+        const nick = row.querySelector('.message-nickname');
+        if (shouldShowNickname(sender, profile)) {
+            if (nick) {
+                nick.textContent = profile.name;
+            } else {
+                const body = row.querySelector('.message-body');
+                if (body) {
+                    const el = document.createElement('div');
+                    el.className = 'message-nickname';
+                    el.textContent = profile.name;
+                    body.insertBefore(el, body.firstChild);
+                }
+            }
+        } else if (nick) {
+            nick.remove();
+        }
+    });
+}
+
+
+// static/js/quick_commands.js
+let quickCmdMenu = null;
+
+function getQuickCommandTarget() {
+    return (typeof getCurrentChatTarget === "function")
+        ? getCurrentChatTarget()
+        : "local";
+}
+
+async function loadQuickCommandsForTarget(target) {
+    const url = \`/oldbuddy/api/quick_commands?target=\${encodeURIComponent(target || "local")}\`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("\u83B7\u53D6\u5FEB\u6377\u547D\u4EE4\u5931\u8D25");
+    const data = await res.json();
+    return data.commands ?? [];
+}
+
+function renderQuickCommandButtons(menu, cmds) {
+    menu.innerHTML = "";
+    cmds.forEach(cmd => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.textContent = cmd.label;
+        btn.dataset.cmdId = cmd.id;
+        btn.dataset.cmdText = cmd.text;
+        btn.style.cssText = \`
+            padding:8px; border:none; background:transparent; text-align:left;
+            cursor:pointer; width:100%;
+        \`;
+        btn.onmouseover = () => btn.style.background = "#f5f5f5";
+        btn.onmouseout = () => btn.style.background = "transparent";
+        btn.onclick = async (e) => {
+            e.stopPropagation();
+            menu.style.display = "none";
+            await sendQuickCommand(btn.dataset.cmdText, btn.dataset.cmdId);
+        };
+        menu.appendChild(btn);
+    });
+}
+
+async function refreshQuickCommandMenu(target) {
+    if (!quickCmdMenu) return;
+    const tid = target || getQuickCommandTarget();
+    try {
+        const cmds = await loadQuickCommandsForTarget(tid);
+        renderQuickCommandButtons(quickCmdMenu, cmds);
+    } catch (err) {
+        console.error("[quick_commands] \u5237\u65B0\u5931\u8D25\uFF1A", err);
+        quickCmdMenu.innerHTML = "";
+    }
+}
+
+async function createQuickCommandUI() {
+    const statusBar = document.getElementById("status-bar");
+    const quickBtn = document.createElement("button");
+    quickBtn.id = "quick-cmd-btn";
+    quickBtn.type = "button";
+    quickBtn.title = "\u5FEB\u6377\u547D\u4EE4";
+    quickBtn.textContent = "\u26A1";
+    quickBtn.style.cssText = \`
+        margin-right:8px; border:none; background:transparent; cursor:pointer;
+        font-size:16px; padding:0 6px; height:22px; display:flex; align-items:center;
+    \`;
+    const statusDot = document.getElementById("status-dot");
+    statusBar.insertBefore(quickBtn, statusDot);
+
+    const menu = document.createElement("div");
+    menu.id = "quick-cmd-menu";
+    menu.style.cssText = \`
+        position:absolute; top:34px; left:10px; background:#fff; border:1px solid #ccc;
+        border-radius:6px; display:none; flex-direction:column; z-index:1002; min-width:140px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.12); padding:6px 6px;
+    \`;
+    document.body.appendChild(menu);
+    quickCmdMenu = menu;
+
+    await refreshQuickCommandMenu(getQuickCommandTarget());
+
+    quickBtn.onclick = (e) => {
+        e.stopPropagation();
+        menu.style.display = menu.style.display === "none" ? "block" : "none";
+        const rect = quickBtn.getBoundingClientRect();
+        menu.style.left = \`\${Math.max(8, rect.left)}px\`;
+    };
+
+    document.addEventListener("click", () => { menu.style.display = "none"; });
+    menu.addEventListener("click", (e) => e.stopPropagation());
+}
+
+async function sendQuickCommand(text, cmdId = null) {
+    if (!text) return;
+    try {
+        const target = getQuickCommandTarget();
+        const res = await fetch('/oldbuddy/api/message/text', {
+            method: "POST",
+            body: new URLSearchParams({
+                content: text,
+                sender: "user",
+                quick_cmd_id: cmdId || "",
+                target
+            })
+        });
+        if (!res.ok) throw new Error("\u670D\u52A1\u5668\u8FD4\u56DE\u9519\u8BEF");
+        const data = await res.json();
+        if (data?.message && typeof appendMessage === "function") {
+            appendMessage(data.message);
+        }
+    } catch (err) {
+        console.error("[quick_commands] \u53D1\u9001\u5931\u8D25\uFF1A", err);
+        alert("\u53D1\u9001\u5FEB\u6377\u547D\u4EE4\u5931\u8D25");
+    }
+}
+
+
+// static/js/reference.js \u2014 \u8F93\u5165 @ \u65F6\u6D6E\u5C42\u9009\u62E9\u5F15\u7528\uFF08\u5FAE\u4FE1\u7FA4\u804A @ \u98CE\u683C\uFF09
+
+let referencePicker = null;
+let referencePickerOpen = false;
+let referenceItems = [];
+let referenceHighlight = 0;
+let referenceFetchTimer = null;
+let referenceMentionRange = null;
+
+function isReferencePickerOpen() {
+    return referencePickerOpen;
+}
+
+function getReferenceTarget() {
+    return typeof getCurrentChatTarget === 'function' ? getCurrentChatTarget() : 'local';
+}
+
+/** \u5149\u6807\u524D\u6B63\u5728\u8F93\u5165\u7684 @ \u7247\u6BB5\uFF1B\u65E0\u5219 null */
+function getActiveMention(input) {
+    if (!input) return null;
+    const pos = input.selectionStart;
+    if (pos == null) return null;
+    const before = input.value.slice(0, pos);
+    const match = before.match(/(^|[\\s\\u3000\\n])@([^\\s@\\u3000\\n]*)$/);
+    if (!match) return null;
+    const query = match[2] || '';
+    const start = pos - query.length - 1;
+    return { query, start, end: pos };
+}
+
+function ensureReferencePicker() {
+    if (referencePicker) return referencePicker;
+    const el = document.createElement('div');
+    el.id = 'reference-picker';
+    el.setAttribute('role', 'listbox');
+    el.style.display = 'none';
+    document.body.appendChild(el);
+    referencePicker = el;
+    return el;
+}
+
+function positionReferencePicker(input) {
+    const picker = ensureReferencePicker();
+    const inputBar = document.getElementById('input-bar');
+    const rect = input.getBoundingClientRect();
+    const barRect = inputBar ? inputBar.getBoundingClientRect() : rect;
+    picker.style.left = \`\${Math.max(8, rect.left)}px\`;
+    picker.style.width = \`\${Math.min(320, Math.max(200, rect.width))}px\`;
+    picker.style.bottom = \`\${window.innerHeight - barRect.top + 6}px\`;
+}
+
+function hideReferencePicker() {
+    referencePickerOpen = false;
+    referenceMentionRange = null;
+    referenceHighlight = 0;
+    if (referencePicker) {
+        referencePicker.style.display = 'none';
+        referencePicker.innerHTML = '';
+    }
+}
+
+function renderReferencePicker(items) {
+    const picker = ensureReferencePicker();
+    picker.innerHTML = '';
+    referenceItems = items;
+    referenceHighlight = 0;
+
+    if (!items.length) {
+        hideReferencePicker();
+        return;
+    }
+
+    items.forEach((item, idx) => {
+        const row = document.createElement('button');
+        row.type = 'button';
+        row.className = 'reference-picker-item';
+        row.setAttribute('role', 'option');
+        row.dataset.index = String(idx);
+        row.innerHTML = \`<span class="reference-picker-label">\${escapeHtml(item.label)}</span>\` +
+            (item.text && item.text !== item.label
+                ? \`<span class="reference-picker-sub">\${escapeHtml(item.text)}</span>\`
+                : '');
+        row.onclick = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            applyReferenceItem(item);
+        };
+        picker.appendChild(row);
+    });
+
+    updateReferenceHighlight();
+    picker.style.display = 'block';
+    referencePickerOpen = true;
+}
+
+function updateReferenceHighlight() {
+    if (!referencePicker) return;
+    const rows = referencePicker.querySelectorAll('.reference-picker-item');
+    rows.forEach((row, i) => {
+        row.classList.toggle('active', i === referenceHighlight);
+    });
+    const active = rows[referenceHighlight];
+    if (active && typeof active.scrollIntoView === 'function') {
+        active.scrollIntoView({ block: 'nearest' });
+    }
+}
+
+function escapeHtml(s) {
+    return String(s || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function applyReferenceItem(item) {
+    const input = document.getElementById('text-input');
+    if (!input || !referenceMentionRange) return;
+    const insert = \`@\${item.label} \`;
+    const val = input.value;
+    const { start, end } = referenceMentionRange;
+    input.value = val.slice(0, start) + insert + val.slice(end);
+    const newPos = start + insert.length;
+    input.setSelectionRange(newPos, newPos);
+    if (typeof autosizeTextInput === 'function') {
+        autosizeTextInput(input);
+    }
+    hideReferencePicker();
+    input.focus();
+}
+
+async function fetchReferences(query) {
+    const target = getReferenceTarget();
+    const url = \`/oldbuddy/api/reference?target=\${encodeURIComponent(target)}&query=\${encodeURIComponent(query || '')}\`;
+    const res = await fetch(url);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return Array.isArray(data.references) ? data.references : [];
+}
+
+function scheduleReferenceFetch(input, mention) {
+    if (referenceFetchTimer) clearTimeout(referenceFetchTimer);
+    referenceMentionRange = { start: mention.start, end: mention.end, query: mention.query };
+    referenceFetchTimer = setTimeout(async () => {
+        referenceFetchTimer = null;
+        const inputNow = document.getElementById('text-input');
+        if (!inputNow) return;
+        const active = getActiveMention(inputNow);
+        if (!active) {
+            hideReferencePicker();
+            return;
+        }
+        referenceMentionRange = { start: active.start, end: active.end, query: active.query };
+        positionReferencePicker(inputNow);
+        try {
+            const items = await fetchReferences(active.query);
+            if (!getActiveMention(inputNow)) {
+                hideReferencePicker();
+                return;
+            }
+            renderReferencePicker(items);
+        } catch (e) {
+            console.warn('[reference] fetch failed', e);
+            hideReferencePicker();
+        }
+    }, 120);
+}
+
+function onReferenceInput() {
+    const input = document.getElementById('text-input');
+    if (!input) return;
+    const mention = getActiveMention(input);
+    if (!mention) {
+        hideReferencePicker();
+        return;
+    }
+    positionReferencePicker(input);
+    scheduleReferenceFetch(input, mention);
+}
+
+function onReferenceKeydown(e) {
+    if (!referencePickerOpen || !referenceItems.length) return false;
+    if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        referenceHighlight = (referenceHighlight + 1) % referenceItems.length;
+        updateReferenceHighlight();
+        return true;
+    }
+    if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        referenceHighlight = (referenceHighlight - 1 + referenceItems.length) % referenceItems.length;
+        updateReferenceHighlight();
+        return true;
+    }
+    if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        e.stopPropagation();
+        const item = referenceItems[referenceHighlight];
+        if (item) applyReferenceItem(item);
+        return true;
+    }
+    if (e.key === 'Escape') {
+        e.preventDefault();
+        hideReferencePicker();
+        return true;
+    }
+    return false;
+}
+
+function initReferencePicker() {
+    const input = document.getElementById('text-input');
+    if (!input) return;
+
+    input.addEventListener('input', onReferenceInput);
+    input.addEventListener('click', onReferenceInput);
+    input.addEventListener('keyup', onReferenceInput);
+    input.addEventListener('keydown', (e) => {
+        if (onReferenceKeydown(e)) return;
+    }, true);
+
+    document.addEventListener('click', (e) => {
+        if (!referencePickerOpen) return;
+        if (referencePicker && referencePicker.contains(e.target)) return;
+        if (e.target === input) return;
+        hideReferencePicker();
+    });
+
+    window.addEventListener('resize', () => {
+        if (referencePickerOpen && input) positionReferencePicker(input);
+    });
+}
+
+
+// static/js/upload.js
+
+// ---------- \u56FE\u7247\u4E0A\u4F20\uFF08\u9884\u89C8 + \u6587\u5B57\u7EC4\u5408\u53D1\u9001\uFF09 ----------
+async function handleImageFile(file) {
+    if (!file) return;
+    const previewOverlay = document.createElement('div');
+    previewOverlay.style.position = 'fixed'; previewOverlay.style.top = '0'; previewOverlay.style.left = '0';
+    previewOverlay.style.width = '100%'; previewOverlay.style.height = '100%';
+    previewOverlay.style.background = 'rgba(0,0,0,0.6)'; previewOverlay.style.display = 'flex';
+    previewOverlay.style.flexDirection = 'column'; previewOverlay.style.alignItems = 'center';
+    previewOverlay.style.justifyContent = 'center'; previewOverlay.style.zIndex = '2000';
+
+    const img = document.createElement('img'); img.src = URL.createObjectURL(file);
+    img.style.maxWidth = '80%'; img.style.maxHeight = '50%'; img.style.borderRadius = '8px';
+    previewOverlay.appendChild(img);
+
+    const textInput = document.createElement('input'); textInput.type = 'text'; textInput.placeholder = '\u8F93\u5165\u6587\u5B57...';
+    textInput.style.marginTop = '10px'; textInput.style.padding = '8px 12px'; textInput.style.width = '60%'; textInput.style.borderRadius = '20px';
+    previewOverlay.appendChild(textInput);
+
+    const btnWrapper = document.createElement('div'); btnWrapper.style.marginTop = '10px';
+    const sendBtn = document.createElement('button'); sendBtn.textContent = '\u53D1\u9001';
+    const cancelBtn = document.createElement('button'); cancelBtn.textContent = '\u53D6\u6D88';
+    btnWrapper.appendChild(sendBtn); btnWrapper.appendChild(cancelBtn);
+    previewOverlay.appendChild(btnWrapper);
+    document.body.appendChild(previewOverlay);
+
+    cancelBtn.onclick = () => { document.body.removeChild(previewOverlay); }
+    sendBtn.onclick = async () => {
+        const formData = new FormData(); formData.append('file', file); formData.append('sender', 'user');
+        if (typeof getCurrentChatTarget === 'function') formData.append('target', getCurrentChatTarget());
+        const extra_text = textInput.value.trim(); if (extra_text) formData.append('extra_text', extra_text);
+        try { const res = await fetch('/oldbuddy/api/message/image', { method: 'POST', body: formData }); const data = await res.json(); if (data && data.message) appendMessage(data.message); }
+        catch (e) { console.error(e); alert('\u4E0A\u4F20\u5931\u8D25'); }
+        document.body.removeChild(previewOverlay);
+    };
+}
+
+// ---------- \u4EFB\u610F\u6587\u4EF6\u4E0A\u4F20\uFF08\u5F39\u7A97 + \u6587\u5B57\u7EC4\u5408\u53D1\u9001\uFF09 ----------
+async function handleAnyFile(file, inputEl) {
+    if (!file) return;
+
+    const previewOverlay = document.createElement('div');
+    previewOverlay.style.position = 'fixed'; previewOverlay.style.top = '0'; previewOverlay.style.left = '0';
+    previewOverlay.style.width = '100%'; previewOverlay.style.height = '100%';
+    previewOverlay.style.background = 'rgba(0,0,0,0.6)'; previewOverlay.style.display = 'flex';
+    previewOverlay.style.flexDirection = 'column'; previewOverlay.style.alignItems = 'center';
+    previewOverlay.style.justifyContent = 'center'; previewOverlay.style.zIndex = '2000';
+
+    const fileInfo = document.createElement('div');
+    fileInfo.textContent = \`\u6587\u4EF6: \${file.name}\`;
+    fileInfo.style.background = '#fff';
+    fileInfo.style.padding = '10px 14px';
+    fileInfo.style.borderRadius = '8px';
+    previewOverlay.appendChild(fileInfo);
+
+    const textInput = document.createElement('input'); textInput.type = 'text'; textInput.placeholder = '\u8F93\u5165\u9644\u52A0\u6587\u5B57...';
+    textInput.style.marginTop = '10px'; textInput.style.padding = '8px 12px'; textInput.style.width = '60%'; textInput.style.borderRadius = '20px';
+    previewOverlay.appendChild(textInput);
+
+    const btnWrapper = document.createElement('div'); btnWrapper.style.marginTop = '10px';
+    const sendBtn = document.createElement('button'); sendBtn.textContent = '\u53D1\u9001';
+    const cancelBtn = document.createElement('button'); cancelBtn.textContent = '\u53D6\u6D88';
+    btnWrapper.appendChild(sendBtn); btnWrapper.appendChild(cancelBtn);
+    previewOverlay.appendChild(btnWrapper);
+    document.body.appendChild(previewOverlay);
+
+    cancelBtn.onclick = () => {
+        if (inputEl) inputEl.value = '';
+        document.body.removeChild(previewOverlay);
+    };
+    sendBtn.onclick = async () => {
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('sender', 'user');
+        if (typeof getCurrentChatTarget === 'function') formData.append('target', getCurrentChatTarget());
+        const extra_text = textInput.value.trim(); if (extra_text) formData.append('extra_text', extra_text);
+        try { const res = await fetch('/oldbuddy/api/message/file', { method: 'POST', body: formData }); const data = await res.json(); if (data && data.message) appendMessage(data.message); }
+        catch (e) { console.error(e); alert('\u6587\u4EF6\u4E0A\u4F20\u5931\u8D25'); }
+        if (inputEl) inputEl.value = '';
+        document.body.removeChild(previewOverlay);
+    };
+}
+
+
+async function initUploadHandlers() {
+    document.getElementById('camera-input').onchange = (e) => handleImageFile(e.target.files[0]);
+    document.getElementById('gallery-input').onchange = (e) => handleImageFile(e.target.files[0]);
+
+    // ---------- \u4EFB\u610F\u6587\u4EF6\u4E0A\u4F20 ----------
+    document.getElementById('anyfile-input').onchange = async (e) => {
+        const inputEl = e.target;
+        const file = inputEl.files[0];
+        if (!file) return;
+        await handleAnyFile(file, inputEl);
+    };
+
+    // ---------- \u8BED\u97F3\u5F55\u97F3 ----------
+    let mediaRecorder, audioChunks = [], isRecording = false;
+    const audioBtn = document.getElementById('send-audio');
+    audioBtn.onclick = async () => {
+        if (!isRecording) {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream); audioChunks = [];
+                mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
+                mediaRecorder.onstop = async () => {
+                    const blob = new Blob(audioChunks, { type: 'audio/webm' });
+                    const formData = new FormData(); formData.append('file', blob, \`record_\${Date.now()}.webm\`); formData.append('sender', 'user');
+                    if (typeof getCurrentChatTarget === 'function') formData.append('target', getCurrentChatTarget());
+                    try { const res = await fetch('/oldbuddy/api/message/audio', { method: 'POST', body: formData }); const data = await res.json(); if (data && data.message) appendMessage(data.message); }
+                    catch (e) { console.error(e); alert('\u5F55\u97F3\u4E0A\u4F20\u5931\u8D25'); }
+                };
+                mediaRecorder.start(); isRecording = true; audioBtn.textContent = '\u23F9 \u505C\u6B62';
+            } catch (err) { console.error(err); alert('\u65E0\u6CD5\u8BBF\u95EE\u9EA6\u514B\u98CE'); }
+        } else { mediaRecorder.stop(); isRecording = false; audioBtn.textContent = '\u{1F3A4}'; }
+    };
+}
+
+
+
+<\/script>
+</body>
+</html>`;
+
+// src/server/oldbuddy/oldbuddyHttp.ts
+var BASE = "/oldbuddy";
+var OldBuddyHttpHandlers = class {
+  constructor(store) {
+    this.store = store;
+  }
+  matches(pathname) {
+    if (!pathname)
+      return false;
+    return pathname === BASE || pathname.startsWith(`${BASE}/`);
+  }
+  handleUpgrade(req, socket, head) {
+    this.store.getWebSocketHub().handleUpgrade(req, socket, head);
+  }
+  isWebSocketPath(pathname) {
+    return pathname === `${BASE}/ws`;
+  }
+  async handle(req, res, parsedUrl) {
+    var _a, _b, _c, _d, _e, _f, _g, _h;
+    const pathname = parsedUrl.pathname || "";
+    if (!this.matches(pathname))
+      return false;
+    const sub = pathname.slice(BASE.length).replace(/^\//, "") || "";
+    if ((sub === "" || sub === "index.html") && req.method === "GET") {
+      this.handleOldBuddyPage(req, res);
+      return true;
+    }
+    if (sub.startsWith("uploads/") && req.method === "GET") {
+      const fname = decodeURIComponent(sub.slice("uploads/".length));
+      await this.serveUpload(res, fname);
+      return true;
+    }
+    if (sub === "api/targets" && req.method === "GET") {
+      jsonResponse(res, 200, await this.store.loadTargetsConfig());
+      return true;
+    }
+    if (sub === "api/quick_commands" && req.method === "GET") {
+      const target = (_a = parsedUrl.query) == null ? void 0 : _a.target;
+      jsonResponse(res, 200, { commands: await this.store.loadQuickCommands(target) });
+      return true;
+    }
+    if (sub === "api/reference" && req.method === "GET") {
+      const target = (_b = parsedUrl.query) == null ? void 0 : _b.target;
+      const query = (_c = parsedUrl.query) == null ? void 0 : _c.query;
+      jsonResponse(res, 200, {
+        references: await this.store.loadReferences(target, query)
+      });
+      return true;
+    }
+    if (sub === "api/avatars" && req.method === "GET") {
+      const target = (_d = parsedUrl.query) == null ? void 0 : _d.target;
+      jsonResponse(res, 200, { avatars: await this.store.loadAvatars(target) });
+      return true;
+    }
+    if (sub === "api/vault_asset" && req.method === "GET") {
+      const rel = (_e = parsedUrl.query) == null ? void 0 : _e.path;
+      await this.serveVaultAsset(res, rel || "");
+      return true;
+    }
+    if (sub === "api/messages" && req.method === "GET") {
+      const limit = Math.min(100, Math.max(1, parseInt(String(((_f = parsedUrl.query) == null ? void 0 : _f.limit) || "10"), 10) || 10));
+      const before = (_g = parsedUrl.query) == null ? void 0 : _g.before;
+      const target = (_h = parsedUrl.query) == null ? void 0 : _h.target;
+      jsonResponse(res, 200, await this.store.listMessages(limit, before || null, target || null));
+      return true;
+    }
+    if (sub === "api/message/text" && req.method === "POST") {
+      await this.handleTextMessage(req, res);
+      return true;
+    }
+    if (sub === "api/message/image" && req.method === "POST") {
+      await this.handleUploadMessage(req, res, "image");
+      return true;
+    }
+    if (sub === "api/message/audio" && req.method === "POST") {
+      await this.handleUploadMessage(req, res, "audio");
+      return true;
+    }
+    if (sub === "api/message/file" && req.method === "POST") {
+      await this.handleUploadMessage(req, res, "file");
+      return true;
+    }
+    if (sub === "push_message" && req.method === "POST") {
+      await this.handlePushMessage(req, res);
+      return true;
+    }
+    jsonResponse(res, 404, { error: "Not Found", path: pathname });
+    return true;
+  }
+  handleOldBuddyPage(_req, res) {
+    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+    res.end(OLDBUDDY_PAGE_HTML);
+  }
+  async handleTextMessage(req, res) {
+    try {
+      const body = await readHttpBody(req);
+      const ct = String(req.headers["content-type"] || "");
+      const fields = ct.includes("application/json") ? JSON.parse(body || "{}") : parseUrlEncoded(body);
+      const content = String(fields.content || "").trim();
+      if (!content) {
+        jsonResponse(res, 400, { error: "content required" });
+        return;
+      }
+      const message = await this.store.addTextMessage({
+        content,
+        sender: fields.sender || "user",
+        target: fields.target || "local",
+        extra_text: fields.extra_text,
+        quick_cmd_id: fields.quick_cmd_id
+      });
+      jsonResponse(res, 200, { message });
+    } catch (e) {
+      jsonResponse(res, 500, { error: e.message || "send failed" });
+    }
+  }
+  async handleUploadMessage(req, res, type) {
+    var _a;
+    try {
+      const ct = String(req.headers["content-type"] || "");
+      if (!ct.includes("multipart/form-data")) {
+        jsonResponse(res, 400, { error: "multipart/form-data required" });
+        return;
+      }
+      const body = await readHttpBodyBuffer(req);
+      const { fields, files } = parseMultipartForm(body, ct);
+      const file = files.find((f) => f.name === "file") || files[0];
+      if (!file || !((_a = file.data) == null ? void 0 : _a.length)) {
+        jsonResponse(res, 400, { error: "file required" });
+        return;
+      }
+      const saved = this.store.saveUpload(file.data, file.filename || "upload", file.mime || "application/octet-stream");
+      const message = await this.store.addFileMessage({
+        type,
+        url: saved.url,
+        sender: fields.sender || "user",
+        target: fields.target || "local",
+        extra_text: fields.extra_text,
+        file_name: file.filename || void 0,
+        file_size: file.data.length
+      });
+      jsonResponse(res, 200, { message });
+    } catch (e) {
+      jsonResponse(res, 500, { error: e.message || "upload failed" });
+    }
+  }
+  async handlePushMessage(req, res) {
+    try {
+      const body = await readHttpBody(req);
+      const ct = String(req.headers["content-type"] || "");
+      let fields;
+      if (ct.includes("application/json")) {
+        fields = JSON.parse(body || "{}");
+        if (fields.message && typeof fields.message === "object") {
+          fields = fields.message;
+        }
+      } else {
+        fields = parseUrlEncoded(body);
+      }
+      const message = await this.store.pushExternalMessage({
+        content: String(fields.content || ""),
+        sender: fields.sender != null ? String(fields.sender) : void 0,
+        target: fields.target != null ? String(fields.target) : void 0,
+        type: fields.type != null ? String(fields.type) : void 0,
+        extra_text: fields.extra_text != null ? String(fields.extra_text) : void 0,
+        file_name: fields.file_name != null ? String(fields.file_name) : void 0,
+        file_size: fields.file_size != null ? Number(fields.file_size) : void 0,
+        card: fields.card,
+        id: fields.id != null ? String(fields.id) : void 0,
+        timestamp: fields.timestamp != null ? String(fields.timestamp) : void 0,
+        skip_reply: fields.skip_reply,
+        quick_cmd_id: fields.quick_cmd_id != null ? String(fields.quick_cmd_id) : void 0
+      });
+      jsonResponse(res, 200, { ok: true, message });
+    } catch (e) {
+      const msg = (e == null ? void 0 : e.message) || "push failed";
+      const status = msg === "content required" || msg === "invalid type" ? 400 : 500;
+      jsonResponse(res, status, { ok: false, error: msg });
+    }
+  }
+  async serveVaultAsset(res, relPath) {
+    const file = await this.store.readVaultAsset(relPath);
+    if (!file) {
+      res.writeHead(404);
+      res.end("Not Found");
+      return;
+    }
+    res.writeHead(200, { "Content-Type": file.mime, "Cache-Control": "public, max-age=3600" });
+    res.end(file.data);
+  }
+  async serveUpload(res, fname) {
+    const file = this.store.serveUploadFile(fname);
+    if (!file) {
+      res.writeHead(404);
+      res.end("Not Found");
+      return;
+    }
+    res.writeHead(200, { "Content-Type": file.mime, "Cache-Control": "public, max-age=86400" });
+    res.end(file.data);
+  }
+};
+
 // src/server/httpServer.ts
 var http2 = require("http");
 var url3 = require("url");
 var HTTPServer = class {
-  constructor(app, templater, host = "0.0.0.0", port = 3e3) {
+  constructor(app, templater, configDir, host = "0.0.0.0", port = 3e3) {
     this.server = null;
     /** 合并并发 stop，且避免对同一 server 调用两次 close() */
     this.stopPromise = null;
@@ -17833,6 +21768,8 @@ var HTTPServer = class {
     this.port = port;
     this.mcp = new MCPHttpHandlers(app, templater, this.sseConnections, () => this.port);
     this.online = new OnlineHttpHandlers(app);
+    this.oldbuddyStore = new OldBuddyStore(templater, configDir);
+    this.oldbuddy = new OldBuddyHttpHandlers(this.oldbuddyStore);
   }
   start() {
     return new Promise((resolve, reject) => {
@@ -17886,6 +21823,7 @@ var HTTPServer = class {
             await this.online.handleOnlineMedia(req, res, parsedUrl);
           } else if (parsedUrl.pathname === "/online/api/textarea-exec" && req.method === "POST") {
             await this.online.handleOnlineTextareaExec(req, res);
+          } else if (await this.oldbuddy.handle(req, res, parsedUrl)) {
           } else {
             console.warn(`Unknown route: ${req.method} ${parsedUrl.pathname}`);
             res.writeHead(404, { "Content-Type": "application/json" });
@@ -17910,6 +21848,18 @@ var HTTPServer = class {
           console.error("HTTP Server error:", error);
           reject(error);
         }
+      });
+      this.server.on("upgrade", (req, socket, head) => {
+        try {
+          const parsed = url3.parse(req.url || "", true);
+          if (this.oldbuddy.isWebSocketPath(parsed.pathname)) {
+            this.oldbuddy.handleUpgrade(req, socket, head);
+            return;
+          }
+        } catch (e) {
+          console.error("[oldbuddy] websocket upgrade failed:", e);
+        }
+        socket.destroy();
       });
     });
   }
@@ -18012,6 +21962,7 @@ var HTTPServer = class {
         }
       }
       this.sseConnections.clear();
+      this.oldbuddyStore.close();
       if (typeof srv.closeAllConnections === "function") {
         srv.closeAllConnections();
       }
@@ -19384,7 +23335,7 @@ ${ctx}`;
       }
     }
     let prompts = await ea.tpl.parse_templater(prompt, false, { tfile, cfile, prompt });
-    prompt = prompts.filter((x) => typeof x == "string").join("\n");
+    prompt = (Array.isArray(prompts) ? prompts : [prompts]).filter((x) => typeof x === "string").join("\n");
     if (tfile instanceof import_obsidian30.TFile && ea.editor.get_frontmatter(tfile, "reference", "link") != false) {
       let refFiles = [tfile];
       for (let xfile of xrefiles) {
@@ -19814,6 +23765,7 @@ ${codeText == null ? void 0 : codeText.trim()}
 };
 
 // main.ts
+var path2 = require("path");
 var NoteChainPlugin = class extends import_obsidian31.Plugin {
   constructor() {
     super(...arguments);
@@ -19862,9 +23814,12 @@ var NoteChainPlugin = class extends import_obsidian31.Plugin {
     this.strings = new Strings();
     this.dailyjob = new DailyJob(this);
     this.webviewerllm = new WebViewerLLMModule(this);
+    const vaultRoot = this.app.vault.adapter.basePath;
+    const configDirAbs = path2.join(vaultRoot, this.app.vault.configDir);
     this.httpServer = new HTTPServer(
       this.app,
       this.easyapi.tpl,
+      configDirAbs,
       this.settings.notechain.httpServerHost,
       this.settings.notechain.httpServerPort
     );

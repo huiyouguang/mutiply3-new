@@ -1,0 +1,35 @@
+{
+  "dataPath": "bamboo-review",
+  "enableMarkdownSync": true,
+  "sectionConfig": {
+    "order": [
+      "themeEffect",
+      "todo",
+      "timeline",
+      "goals"
+    ],
+    "enabled": [
+      "themeEffect",
+      "timeline",
+      "goals",
+      "todo"
+    ],
+    "visible": [
+      "themeEffect",
+      "timeline",
+      "goals",
+      "todo"
+    ],
+    "custom": [],
+    "themes": {
+      "themeEffect": "bamboo",
+      "timeline": "bamboo",
+      "goals": "bamboo",
+      "todo": "bamboo"
+    }
+  },
+  "themePath": "竹林复盘主题",
+  "noisePath": "",
+  "noiseItems": [],
+  "syncPaletteToObsidian": true
+}

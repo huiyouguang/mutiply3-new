@@ -19,37 +19,37 @@
       "applyToFiles": false
     },
     "03Life os": {
-      "backgroundColor": "#ffe6f2",
-      "textColor": "#e91e63",
+      "backgroundColor": "#1a2e52",
+      "textColor": "#e6ecff",
       "isBold": true,
-      "isItalic": true,
-      "opacity": 0.6,
+      "isItalic": false,
+      "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
     "04成长": {
-      "backgroundColor": "#ffab91",
-      "textColor": "#2962ff",
+      "backgroundColor": "#1d3561",
+      "textColor": "#edf2ff",
       "isBold": true,
-      "isItalic": true,
-      "opacity": 0.7,
+      "isItalic": false,
+      "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
     "08数据库": {
-      "backgroundColor": "#ab47bc",
-      "textColor": "#ff9800",
+      "backgroundColor": "#243a6b",
+      "textColor": "#f0f5ff",
       "isBold": true,
       "isItalic": true,
-      "opacity": 0.7,
-      "applyToSubfolders": false,
-      "applyToFiles": false
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
     },
     "工作": {
-      "backgroundColor": "#ffffff",
-      "textColor": "#000000",
-      "isBold": false,
-      "isItalic": false,
+      "backgroundColor": "#274073",
+      "textColor": "#f2f6ff",
+      "isBold": true,
+      "isItalic": true,
       "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
@@ -64,20 +64,20 @@
       "applyToFiles": true
     },
     "canvas": {
-      "backgroundColor": "#ab47bc",
-      "textColor": "#ff9800",
+      "backgroundColor": "#213766",
+      "textColor": "#e6edff",
       "isBold": true,
       "isItalic": true,
-      "opacity": 0.7,
-      "applyToSubfolders": false,
-      "applyToFiles": false
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
     },
     "Clippings": {
-      "backgroundColor": "#f0ffd6",
-      "textColor": "#7cb342",
+      "backgroundColor": "#2e447a",
+      "textColor": "#f7faff",
       "isBold": true,
       "isItalic": true,
-      "opacity": 0.6,
+      "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
@@ -91,29 +91,29 @@
       "applyToFiles": true
     },
     "Templates": {
-      "backgroundColor": "#ffe0b2",
-      "textColor": "#f4511e",
+      "backgroundColor": "#1a2e55",
+      "textColor": "#dce8ff",
       "isBold": true,
       "isItalic": true,
-      "opacity": 0.6,
+      "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
     "thino": {
-      "backgroundColor": "#fcd34d",
-      "textColor": "#1e40af",
+      "backgroundColor": "#17284a",
+      "textColor": "#d1dfff",
       "isBold": true,
       "isItalic": true,
-      "opacity": 0.7,
+      "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
     "04成长/知识管理/004 注会": {
-      "backgroundColor": "#e0f7ff",
-      "textColor": "#00a3cc",
+      "backgroundColor": "#1e335f",
+      "textColor": "#eaf1ff",
       "isBold": true,
-      "isItalic": true,
-      "opacity": 0.6,
+      "isItalic": false,
+      "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
@@ -125,6 +125,78 @@
       "opacity": 0.7,
       "applyToSubfolders": false,
       "applyToFiles": false
+    },
+    "TaskNotes": {
+      "backgroundColor": "#1f3565",
+      "textColor": "#e8f0ff",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "Excalidraw": {
+      "backgroundColor": "#253e70",
+      "textColor": "#f0f4ff",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "01 主页": {
+      "backgroundColor": "#162544",
+      "textColor": "#e0e8ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "00 Inbox": {
+      "backgroundColor": "#131b3a",
+      "textColor": "#d7e7ff",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "bamboo-review": {
+      "backgroundColor": "#2a3f6d",
+      "textColor": "#f5f8ff",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "04成长/知识管理/002 司法考试": {
+      "backgroundColor": "#eaf4ff",
+      "textColor": "#16355f",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "04成长/知识管理/003 中级": {
+      "backgroundColor": "#1e335f",
+      "textColor": "#eaf1ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "插件 7.7z": {
+      "backgroundColor": "#101a32",
+      "textColor": "#aab8ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
     }
   },
   "presets": {
@@ -415,6 +487,312 @@
       "opacity": 0.7,
       "applyToSubfolders": false,
       "applyToFiles": false
+    },
+    "001 浅蓝｜浅色": {
+      "backgroundColor": "#eaf4ff",
+      "textColor": "#16355f",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "002 清爽｜浅色": {
+      "backgroundColor": "#e4f0ff",
+      "textColor": "#183a66",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "003 生活感｜浅色": {
+      "backgroundColor": "#ddebff",
+      "textColor": "#1a3f70",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "004 成长蓝｜浅色": {
+      "backgroundColor": "#d6e6ff",
+      "textColor": "#1d4580",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "005 数据库｜浅色": {
+      "backgroundColor": "#cce0ff",
+      "textColor": "#225092",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "006 工作区｜浅色": {
+      "backgroundColor": "#dde9ff",
+      "textColor": "#1a3f75",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "007 精读库｜浅色": {
+      "backgroundColor": "#d0dcff",
+      "textColor": "#1e4888",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "008 画布｜浅色": {
+      "backgroundColor": "#c8d5ff",
+      "textColor": "#25529e",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "009 摘录｜浅色": {
+      "backgroundColor": "#d9e6ff",
+      "textColor": "#1a3f70",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "010 绘图｜浅色": {
+      "backgroundColor": "#c5d8ff",
+      "textColor": "#2858a5",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "011 任务｜浅色": {
+      "backgroundColor": "#d1e0ff",
+      "textColor": "#204c8a",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "012 模板｜浅色": {
+      "backgroundColor": "#e0ecff",
+      "textColor": "#183a66",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "013 轻笔记｜浅色": {
+      "backgroundColor": "#e6f1ff",
+      "textColor": "#16355f",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "014 插件｜浅色": {
+      "backgroundColor": "#edf5ff",
+      "textColor": "#143055",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "015 题库主｜浅色": {
+      "backgroundColor": "#f2f7ff",
+      "textColor": "#122a48",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "016 题库副｜浅色": {
+      "backgroundColor": "#f5f9ff",
+      "textColor": "#102540",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "017 配置文件｜浅色": {
+      "backgroundColor": "#f8fbff",
+      "textColor": "#0e1f38",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "001 深空｜深色": {
+      "backgroundColor": "#131b3a",
+      "textColor": "#d7e7ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "002 靛蓝｜深色": {
+      "backgroundColor": "#162544",
+      "textColor": "#e0e8ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "003 星蓝｜深色": {
+      "backgroundColor": "#1a2e52",
+      "textColor": "#e6ecff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "004 远航｜深色": {
+      "backgroundColor": "#1d3561",
+      "textColor": "#edf2ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "005 渊库｜深色": {
+      "backgroundColor": "#243a6b",
+      "textColor": "#f0f5ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "006 商务｜深色": {
+      "backgroundColor": "#1e335f",
+      "textColor": "#eaf1ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "007 精读｜深色": {
+      "backgroundColor": "#274073",
+      "textColor": "#f2f6ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "008 绘境｜深色": {
+      "backgroundColor": "#2a3f6d",
+      "textColor": "#f5f8ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "009 撷录｜深色": {
+      "backgroundColor": "#213766",
+      "textColor": "#e6edff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "010 草图｜深色": {
+      "backgroundColor": "#2e447a",
+      "textColor": "#f7faff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "011 待办｜深色": {
+      "backgroundColor": "#253e70",
+      "textColor": "#f0f4ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "012 范式｜深色": {
+      "backgroundColor": "#1f3565",
+      "textColor": "#e8f0ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "013 随笔｜深色": {
+      "backgroundColor": "#1a2e55",
+      "textColor": "#dce8ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "014 工具｜深色": {
+      "backgroundColor": "#17284a",
+      "textColor": "#d1dfff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "015 题库深｜深色": {
+      "backgroundColor": "#14223f",
+      "textColor": "#c5d8ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "016 题库浅｜深色": {
+      "backgroundColor": "#121e38",
+      "textColor": "#b8ccff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "017 内核｜深色": {
+      "backgroundColor": "#101a32",
+      "textColor": "#aab8ff",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
     }
   },
   "presetOrder": [
@@ -449,6 +827,40 @@
     "紫橙撞色",
     "蓝绿撞撞",
     "粉蓝撞撞",
-    "黄绿撞撞"
+    "黄绿撞撞",
+    "001 浅蓝｜浅色",
+    "002 清爽｜浅色",
+    "003 生活感｜浅色",
+    "004 成长蓝｜浅色",
+    "005 数据库｜浅色",
+    "006 工作区｜浅色",
+    "007 精读库｜浅色",
+    "008 画布｜浅色",
+    "009 摘录｜浅色",
+    "010 绘图｜浅色",
+    "011 任务｜浅色",
+    "012 模板｜浅色",
+    "013 轻笔记｜浅色",
+    "014 插件｜浅色",
+    "015 题库主｜浅色",
+    "016 题库副｜浅色",
+    "017 配置文件｜浅色",
+    "001 深空｜深色",
+    "002 靛蓝｜深色",
+    "003 星蓝｜深色",
+    "004 远航｜深色",
+    "005 渊库｜深色",
+    "006 商务｜深色",
+    "007 精读｜深色",
+    "008 绘境｜深色",
+    "009 撷录｜深色",
+    "010 草图｜深色",
+    "011 待办｜深色",
+    "012 范式｜深色",
+    "013 随笔｜深色",
+    "014 工具｜深色",
+    "015 题库深｜深色",
+    "016 题库浅｜深色",
+    "017 内核｜深色"
   ]
 }

@@ -1,5 +1,7 @@
 {
   "openExternalURLs": true,
   "enableAdblocking": true,
-  "searchEngine": "bing"
+  "searchEngine": "bing",
+  "homepage": "https://go.itab.link/",
+  "markdownPath": "Clippings"
 }

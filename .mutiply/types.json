@@ -29,6 +29,7 @@
     "TQ_show_start_date": "checkbox",
     "完成状态": "multitext",
     "结束日期": "date",
-    "TQ_show_toolbar": "checkbox"
+    "TQ_show_toolbar": "checkbox",
+    "updated": "date"
   }
 }

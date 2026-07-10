@@ -107,16 +107,25 @@
 .theme-dark {
     --dtb-bg-color: var(--dtb-bg-color-dark, rgb(31 30 30 / 0.38));
 }
+body.dtb-enabled:not(.is-mobile):not(.is-translucent) .workspace {
+    background: transparent !important;
+}
+
+body.dtb-enabled:is(.mod-macos,.adaptive-mode-off):not(.is-mobile) .workspace:not(.is-left-sidedock-open):not(.is-right-sidedock-open) {
+    background: transparent !important;
+}
+
 .dtb-enabled .workspace::before {
-    background-image: var(--dtb-bg-image);
-    background-size: var(--dtb-bg-size);
-    background-repeat: no-repeat;
-    background-position: center;
-    filter: blur(var(--dtb-blur-depth)) brightness(var(--dtb-brightness)) saturate(var(--dtb-saturate));
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
+    background-image: var(--dtb-bg-image) !important;
+    background-size: var(--dtb-bg-size) !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-color: transparent !important;
+    filter: blur(var(--dtb-blur-depth)) brightness(var(--dtb-brightness)) saturate(var(--dtb-saturate)) !important;
+    content: "" !important;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 0 !important;
 }
 
 /* 针对工作区其他部分的修改 */
@@ -129,7 +138,8 @@
 .dtb-enabled .titlebar-button-container.mod-right,
 .dtb-enabled .status-bar,
 .dtb-enabled .workspace-ribbon::before,
-.dtb-enabled .workspace-ribbon {
+.dtb-enabled .workspace-ribbon,
+.dtb-enabled .workspace-tab-container {
     background-color: var(--dtb-bg-color) !important;
 }
 

@@ -1,0 +1,181 @@
+/* 
+   标签页样式 - 防插件/背景图干扰版
+   在Style Settings中搜索"标签页样式"即可找到调节项
+*/
+
+/* 变量定义（固定值，减少变量冲突） */
+:root {
+  --tab-bar-bg: #000000;
+  --tab-bar-border: #333333;
+  --tab-bar-shadow: rgba(0, 0, 0, 0.3);
+  
+  --inactive-bg: #000000;
+  --inactive-text: #ffff00;
+  --inactive-border: #333333;
+  --inactive-radius: 6px;
+  
+  --hover-bg: #333333;
+  --hover-border: #555555;
+  --hover-scale: 1.02;
+  
+  --active-bg: #000000;
+  --active-border: #87ceeb;
+  --active-shadow: rgba(135, 206, 235, 0.3);
+  --active-text: #ffff00;
+  --active-scale: 1.03;
+  
+  --anim-duration: 0.3s;
+  --enable-anim: 1;
+}
+
+/* @settings
+name: 标签页样式
+id: tab-styles
+settings:
+  - id: tab-bar-bg
+    title: 标签栏背景色
+    type: color
+    default: '#000000'
+  - id: tab-bar-border
+    title: 标签栏边框色
+    type: color
+    default: '#333333'
+  - id: inactive-bg
+    title: 非活动标签背景
+    type: color
+    default: '#000000'
+  - id: inactive-text
+    title: 非活动标签文字色
+    type: color
+    default: '#ffff00'
+  - id: inactive-border
+    title: 非活动标签边框
+    type: color
+    default: '#333333'
+  - id: inactive-radius
+    title: 标签圆角大小
+    type: number
+    default: 6
+    min: 0
+    max: 12
+    step: 1
+  - id: hover-bg
+    title: 悬停标签背景
+    type: color
+    default: '#333333'
+  - id: hover-border
+    title: 悬停标签边框
+    type: color
+    default: '#555555'
+  - id: hover-scale
+    title: 悬停缩放比例
+    type: number
+    default: 1.02
+    min: 1.0
+    max: 1.1
+    step: 0.01
+  - id: active-bg
+    title: 活动标签背景
+    type: color
+    default: '#000000'
+  - id: active-border
+    title: 活动标签边框
+    type: color
+    default: '#87ceeb'
+  - id: active-shadow
+    title: 活动标签阴影
+    type: color
+    default: 'rgba(135, 206, 235, 0.3)'
+  - id: active-text
+    title: 活动标签文字色
+    type: color
+    default: '#ffff00'
+  - id: active-scale
+    title: 活动标签缩放
+    type: number
+    default: 1.03
+    min: 1.0
+    max: 1.1
+    step: 0.01
+  - id: anim-duration
+    title: 动画时长(秒)
+    type: number
+    default: 0.3
+    min: 0.1
+    max: 1.0
+    step: 0.1
+  - id: enable-anim
+    title: 启用动画
+    type: toggle
+    default: true
+*/
+
+/* 标签栏（最高优先级） */
+body .workspace-tab-header-container {
+  background-color: var(--tab-bar-bg) !important;
+  border-bottom: 1px solid var(--tab-bar-border) !important;
+  box-shadow: 0 1px 2px var(--tab-bar-shadow) !important;
+  padding: 0 6px !important;
+  position: relative !important;
+  z-index: 999 !important;
+}
+
+/* 标签基础（高权重+不透明+文字描边） */
+body .workspace-tab-header {
+  background-color: var(--inactive-bg) !important;
+  color: var(--inactive-text) !important;
+  border-radius: var(--inactive-radius) var(--inactive-radius) 0 0 !important;
+  margin: 4px 2px 0 !important;
+  border: 1px solid var(--inactive-border) !important;
+  padding: 0 12px !important;
+  transform-origin: bottom center;
+  transition: all calc(var(--anim-duration) * var(--enable-anim)) ease !important;
+  /* 防背景穿透 */
+  background-clip: padding-box !important;
+  /* 文字永远清晰 */
+  text-shadow: 0 0 2px rgba(0,0,0,0.8), 0 1px 1px rgba(0,0,0,0.5) !important;
+  -webkit-font-smoothing: antialiased !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+/* 标签文字容器 */
+body .workspace-tab-header-inner {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* 悬停 */
+body .workspace-tab-header:hover {
+  background-color: var(--hover-bg) !important;
+  border-color: var(--hover-border) !important;
+  transform: scale(var(--hover-scale)) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4) !important;
+}
+
+/* 活动标签（固定黑色背景，不随主题变） */
+body .workspace-tab-header.is-active {
+  background-color: var(--active-bg) !important;
+  border: 2px solid var(--active-border) !important;
+  box-shadow: 0 0 0 1px var(--active-border), 0 3px 8px var(--active-shadow) !important;
+  z-index: 100 !important;
+  color: var(--active-text) !important;
+  margin-bottom: -1px !important;
+  transform: scale(var(--active-scale)) !important;
+}
+
+/* 关闭按钮（永远可见） */
+body .workspace-tab-header .close-button {
+  color: var(--inactive-text) !important;
+  opacity: 0.8 !important;
+  transition: all calc(var(--anim-duration) * 0.7) ease !important;
+  text-shadow: 0 0 1px rgba(0,0,0,0.8) !important;
+}
+body .workspace-tab-header:hover .close-button {
+  opacity: 1 !important;
+}
+body .workspace-tab-header.is-active .close-button {
+  color: var(--active-text) !important;
+  opacity: 1 !important;
+}

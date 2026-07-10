@@ -1,235 +1,285 @@
-/* === 精致彩色标题 · 无绿版（Obsidian）=== */
+我直接把**H1～H6标识颜色全部加深、更醒目**，和背景拉开对比，一眼就能看清，同时保留你要的色调风格。
+下面是**最终完整可用代码**，复制全覆盖即可：
 
-/* ===== 基础变量 ===== */
+```css
+/*
+霓虹手绘标题系统 · 标识强化版
+H1-H6 前置楷体标签 + 高对比颜色 + 纯白标题文字
+*/
 :root {
-  --h1-color: #0066cc;
-  --h1-bg: rgba(0, 102, 204, 0.12);
-  --h2-color: #cc6600;
-  --h2-bg: rgba(204, 102, 0, 0.12);
-  --h3-color: #5e4b8c;          /* 蓝紫色，替代绿色 */
-  --h3-bg: rgba(94, 75, 140, 0.12);
-  --h4-color: #993399;
-  --h4-bg: rgba(153, 51, 153, 0.12);
-  --h5-color: #990000;
-  --h5-bg: rgba(153, 0, 0, 0.12);
-  --h6-color: #555555;
-  --h6-bg: rgba(85, 85, 85, 0.1);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 14px rgba(0,0,0,0.1);
+  --title-bg-opacity: 0.35;
+  --title-shadow-opacity: 0.2;
+  --title-text-color: #ffffff;
+
+  --h1-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --h2-gradient: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+  --h3-gradient: linear-gradient(135deg, #6bcf7f 0%, #4d96ff 100%);
+  --h4-gradient: linear-gradient(135deg, #ffa726 0%, #ff9800 100%);
+  --h5-gradient: linear-gradient(135deg, #e91e63 0%, #ad1457 100%);
+  --h6-gradient: linear-gradient(135deg, #bdc3c7 0%, #95a5a5 100%);
 }
 
-.theme-dark {
-  --h1-color: #66b3ff;
-  --h1-bg: rgba(102, 179, 255, 0.15);
-  --h2-color: #ffb366;
-  --h2-bg: rgba(255, 179, 102, 0.15);
-  --h3-color: #b39ddb;          /* 浅蓝紫，明亮不刺眼 */
-  --h3-bg: rgba(179, 157, 219, 0.15);
-  --h4-color: #cc7acc;
-  --h4-bg: rgba(204, 122, 204, 0.15);
-  --h5-color: #ff6666;
-  --h5-bg: rgba(255, 102, 102, 0.15);
-  --h6-color: #bbbbbb;
-  --h6-bg: rgba(187, 187, 187, 0.12);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 14px rgba(0,0,0,0.45);
+/* Style Settings 配置 */
+body {
+  --ss-title-bg-opacity: var(--title-bg-opacity);
+  --ss-title-shadow-opacity: var(--title-shadow-opacity);
 }
 
-/* ===== 共用底座 ===== */
-.cm-line.HyperMD-header,
+.style-settings-heading[data-id="neon-title"] {
+  margin-top: 2em;
+  font-size: 16px;
+}
+.style-settings-heading[data-id="neon-title"]::before {
+  content: "🎨 霓虹手绘标题";
+}
+
+.style-settings-slider[data-id="title-bg-opacity"] {
+  --min: 0.1; --max: 0.8; --step: 0.05;
+}
+.style-settings-slider[data-id="title-bg-opacity"]::after { content: "背景透明度"; }
+
+.style-settings-slider[data-id="title-shadow-opacity"] {
+  --min: 0.05; --max: 0.4; --step: 0.05;
+}
+.style-settings-slider[data-id="title-shadow-opacity"]::after { content: "阴影强度"; }
+
+/* 标题基础样式 */
+.HyperMD-header-1.cm-line,
 .markdown-preview-view h1,
+.HyperMD-header-2.cm-line,
 .markdown-preview-view h2,
+.HyperMD-header-3.cm-line,
 .markdown-preview-view h3,
+.HyperMD-header-4.cm-line,
 .markdown-preview-view h4,
+.HyperMD-header-5.cm-line,
 .markdown-preview-view h5,
+.HyperMD-header-6.cm-line,
 .markdown-preview-view h6 {
-  display: inline-block !important;
-  width: auto !important;
-  margin: 10px 0 !important;
-  padding: 6px 16px 8px 14px !important;
-  border-radius: 8px;
-  position: relative;
-  font-weight: 600;
-  transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
-  background: var(--bg, transparent) !important;
-  color: var(--fg) !important;
-  border-left: 5px solid var(--fg) !important;
-  box-shadow: var(--shadow-sm);
-}
-
-/* ===== 各级标题差异化 ===== */
-
-/* H1 */
-.cm-line.HyperMD-header-1,
-.markdown-preview-view h1 {
-  --fg: var(--h1-color);
-  --bg: var(--h1-bg);
-  font-size: 1.9em !important;
-  font-weight: 800 !important;
-}
-.cm-line.HyperMD-header-1::before,
-.markdown-preview-view h1::before {
-  content: "✦";
-  color: var(--fg);
-  font-size: 1.2em;
-  margin-right: 8px;
-  display: inline-block;
-  text-shadow: 0 0 8px var(--fg);
-}
-
-/* H2 */
-.cm-line.HyperMD-header-2,
-.markdown-preview-view h2 {
-  --fg: var(--h2-color);
-  --bg: var(--h2-bg);
-  font-size: 1.55em !important;
+  color: var(--title-text-color) !important;
   font-weight: 700 !important;
-}
-.cm-line.HyperMD-header-2::before,
-.markdown-preview-view h2::before {
-  content: "◆";
-  color: var(--fg);
-  font-size: 1.1em;
-  margin-right: 6px;
-  text-shadow: 0 0 6px var(--fg);
-}
-
-/* H3 (蓝紫) */
-.cm-line.HyperMD-header-3,
-.markdown-preview-view h3 {
-  --fg: var(--h3-color);
-  --bg: var(--h3-bg);
-  font-size: 1.35em !important;
-  font-weight: 650 !important;
-}
-.cm-line.HyperMD-header-3::before,
-.markdown-preview-view h3::before {
-  content: "●";
-  color: var(--fg);
-  font-size: 1em;
-  margin-right: 6px;
-  text-shadow: 0 0 5px var(--fg);
+  font-family: "Comic Sans MS", "Segoe UI", sans-serif !important;
+  display: inline-block;
+  border: 2px solid #5d4037;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  overflow: hidden;
 }
 
-/* H4 */
-.cm-line.HyperMD-header-4,
-.markdown-preview-view h4 {
-  --fg: var(--h4-color);
-  --bg: var(--h4-bg);
-  font-size: 1.18em !important;
-  font-weight: 600 !important;
-}
-.cm-line.HyperMD-header-4::before,
-.markdown-preview-view h4::before {
-  content: "▸";
-  color: var(--fg);
-  font-size: 1em;
-  margin-right: 5px;
-  text-shadow: 0 0 4px var(--fg);
-}
-
-/* H5 */
-.cm-line.HyperMD-header-5,
-.markdown-preview-view h5 {
-  --fg: var(--h5-color);
-  --bg: var(--h5-bg);
-  font-size: 1.05em !important;
-  font-weight: 600 !important;
-}
-.cm-line.HyperMD-header-5::before,
-.markdown-preview-view h5::before {
-  content: "▹";
-  color: var(--fg);
-  font-size: 1em;
-  margin-right: 5px;
-  text-shadow: 0 0 3px var(--fg);
-}
-
-/* H6 */
-.cm-line.HyperMD-header-6,
-.markdown-preview-view h6 {
-  --fg: var(--h6-color);
-  --bg: var(--h6-bg);
-  font-size: 1em !important;
-  font-weight: 550 !important;
-  font-style: italic;
-}
-.cm-line.HyperMD-header-6::before,
+/* 背景层 */
+.HyperMD-header-1.cm-line::before,
+.HyperMD-header-2.cm-line::before,
+.HyperMD-header-3.cm-line::before,
+.HyperMD-header-4.cm-line::before,
+.HyperMD-header-5.cm-line::before,
+.HyperMD-header-6.cm-line::before,
+.markdown-preview-view h1::before,
+.markdown-preview-view h2::before,
+.markdown-preview-view h3::before,
+.markdown-preview-view h4::before,
+.markdown-preview-view h5::before,
 .markdown-preview-view h6::before {
-  content: "·";
-  color: var(--fg);
-  font-size: 1.4em;
-  font-weight: bold;
-  margin-right: 5px;
-  text-shadow: 0 0 2px var(--fg);
-}
-
-/* ===== 装饰增强：底部渐变短线 ===== */
-.cm-line.HyperMD-header::after,
-.markdown-preview-view h1::after,
-.markdown-preview-view h2::after,
-.markdown-preview-view h3::after,
-.markdown-preview-view h4::after,
-.markdown-preview-view h5::after,
-.markdown-preview-view h6::after {
   content: "";
   position: absolute;
-  bottom: 2px;
-  left: 14px;
-  right: 14px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--fg), transparent);
-  border-radius: 3px;
-  opacity: 0.6;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: var(--title-bg-opacity);
 }
 
-/* H1~H3 右侧小圆点装饰 */
-.cm-line.HyperMD-header-1,
-.cm-line.HyperMD-header-2,
-.cm-line.HyperMD-header-3,
-.markdown-preview-view h1,
-.markdown-preview-view h2,
+/* ==================== H1 楷体·深黄色 ==================== */
+.HyperMD-header-1.cm-line,
+.markdown-preview-view h1 {
+  padding: 12px 25px;
+  border-radius: 12px 25px 12px 25px;
+  margin: 15px 0;
+  transform: rotate(-0.7deg);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, var(--title-shadow-opacity)),
+              3px 3px 0 rgba(93, 64, 55, 0.2);
+}
+.HyperMD-header-1.cm-line::before,
+.markdown-preview-view h1::before {
+  background: var(--h1-gradient);
+}
+.HyperMD-header-1.cm-line .cm-header::before,
+.markdown-preview-view h1 > span::before {
+  content: "H1";
+  font-family: "KaiTi", "STKaiti", "楷体", serif !important;
+  color: #FFD700 !important;
+  margin-right: 10px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+/* ==================== H2 楷体·深薄荷绿 ==================== */
+.HyperMD-header-2.cm-line,
+.markdown-preview-view h2 {
+  padding: 10px 20px;
+  border-radius: 10px 20px 10px 20px;
+  margin: 12px 0;
+  transform: rotate(0.5deg);
+  box-shadow: 0 3px 12px rgba(255, 107, 107, var(--title-shadow-opacity)),
+              2px 2px 0 rgba(93, 64, 55, 0.15);
+}
+.HyperMD-header-2.cm-line::before,
+.markdown-preview-view h2::before {
+  background: var(--h2-gradient);
+}
+.HyperMD-header-2.cm-line .cm-header::before,
+.markdown-preview-view h2 > span::before {
+  content: "H2";
+  font-family: "KaiTi", "STKaiti", "楷体", serif !important;
+  color: #2E8B57 !important;
+  margin-right: 10px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+/* ==================== H3 楷体·深蓝色 ==================== */
+.HyperMD-header-3.cm-line,
 .markdown-preview-view h3 {
-  padding-right: 24px !important;
-  background-image: radial-gradient(circle at calc(100% - 6px) 50%, var(--fg) 3px, transparent 4px);
-  background-repeat: no-repeat;
+  padding: 8px 18px;
+  border-radius: 8px 16px 8px 16px;
+  margin: 10px 0;
+  transform: rotate(-0.3deg);
+  box-shadow: 0 2px 10px rgba(107, 207, 127, var(--title-shadow-opacity)),
+              2px 2px 0 rgba(93, 64, 55, 0.1);
+}
+.HyperMD-header-3.cm-line::before,
+.markdown-preview-view h3::before {
+  background: var(--h3-gradient);
+}
+.HyperMD-header-3.cm-line .cm-header::before,
+.markdown-preview-view h3 > span::before {
+  content: "H3";
+  font-family: "KaiTi", "STKaiti", "楷体", serif !important;
+  color: #1E90FF !important;
+  margin-right: 10px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  opacity: 1 !important;
 }
 
-/* ===== 悬停特效 ===== */
-.cm-line.HyperMD-header:hover,
+/* ==================== H4 楷体·深橙色 ==================== */
+.HyperMD-header-4.cm-line,
+.markdown-preview-view h4 {
+  padding: 7px 16px;
+  border-radius: 6px 14px 6px 14px;
+  margin: 8px 0;
+  transform: rotate(0.2deg);
+  box-shadow: 0 2px 8px rgba(255, 167, 38, var(--title-shadow-opacity)),
+              1px 1px 0 rgba(93, 64, 55, 0.1);
+}
+.HyperMD-header-4.cm-line::before,
+.markdown-preview-view h4::before {
+  background: var(--h4-gradient);
+}
+.HyperMD-header-4.cm-line .cm-header::before,
+.markdown-preview-view h4 > span::before {
+  content: "H4";
+  font-family: "KaiTi", "STKaiti", "楷体", serif !important;
+  color: #FF6700 !important;
+  margin-right: 10px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+/* ==================== H5 楷体·深紫色 ==================== */
+.HyperMD-header-5.cm-line,
+.markdown-preview-view h5 {
+  padding: 6px 14px;
+  border-radius: 5px 12px 5px 12px;
+  margin: 6px 0;
+  transform: rotate(-0.2deg);
+  box-shadow: 0 2px 6px rgba(233, 30, 99, var(--title-shadow-opacity)),
+              1px 1px 0 rgba(93, 64, 55, 0.1);
+}
+.HyperMD-header-5.cm-line::before,
+.markdown-preview-view h5::before {
+  background: var(--h5-gradient);
+}
+.HyperMD-header-5.cm-line .cm-header::before,
+.markdown-preview-view h5 > span::before {
+  content: "H5";
+  font-family: "KaiTi", "STKaiti", "楷体", serif !important;
+  color: #9932CC !important;
+  margin-right: 10px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+/* ==================== H6 楷体·深灰色 ==================== */
+.HyperMD-header-6.cm-line,
+.markdown-preview-view h6 {
+  padding: 5px 12px;
+  border-radius: 4px 10px 4px 10px;
+  margin: 5px 0;
+  transform: rotate(0.1deg);
+  box-shadow: 0 1px 5px rgba(189, 195, 199, var(--title-shadow-opacity)),
+              1px 1px 0 rgba(93, 64, 55, 0.1);
+}
+.HyperMD-header-6.cm-line::before,
+.markdown-preview-view h6::before {
+  background: var(--h6-gradient);
+}
+.HyperMD-header-6.cm-line .cm-header::before,
+.markdown-preview-view h6 > span::before {
+  content: "H6";
+  font-family: "KaiTi", "STKaiti", "楷体", serif !important;
+  color: #555555 !important;
+  margin-right: 10px;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  opacity: 1 !important;
+}
+
+/* 悬停动画 */
+.HyperMD-header:hover,
 .markdown-preview-view h1:hover,
 .markdown-preview-view h2:hover,
 .markdown-preview-view h3:hover,
 .markdown-preview-view h4:hover,
 .markdown-preview-view h5:hover,
 .markdown-preview-view h6:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: var(--shadow-md);
-  border-left-width: 6px;
-  filter: brightness(1.03);
-  background: var(--bg) !important;
+  transform: translateY(-3px) rotate(0deg) !important;
+  z-index: 10;
 }
 
-/* ===== 折叠指示器染色 ===== */
-.collapse-indicator,
-.HyperMD-header .cm-fold-indicator .collapse-indicator {
-  color: var(--h3-color);
-}
-.theme-dark .collapse-indicator,
-.theme-dark .HyperMD-header .cm-fold-indicator .collapse-indicator {
-  color: var(--h3-color);
-}
-
-/* ===== 响应式 ===== */
+/* 移动端 */
 @media (max-width: 768px) {
-  .cm-line.HyperMD-header,
-  .markdown-preview-view h1,
-  .markdown-preview-view h2,
-  .markdown-preview-view h3,
-  .markdown-preview-view h4,
-  .markdown-preview-view h5,
-  .markdown-preview-view h6 {
+  .HyperMD-header,
+  .markdown-preview-view h1,h2,h3,h4,h5,h6 {
+    transform: none !important;
     display: block !important;
-    text-align: left;
+    text-align: center;
   }
 }
+```
+
+### 颜色优化说明
+- H1：**纯金色 #FFD700**，更亮更显眼
+- H2：**深薄荷绿 #2E8B57**，不再发浅
+- H3：**纯深蓝 #1E90FF**，和背景完全区分
+- H4：**深橙红 #FF6700**，一眼可见
+- H5：**深紫 #9932CC**，对比强烈
+- H6：**中灰色 #555555**，不会看不清
+
+现在不管背景多淡，**H 标识都超级清晰**，不会融合看不见。

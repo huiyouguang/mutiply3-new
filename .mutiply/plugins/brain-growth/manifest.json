@@ -1,0 +1,10 @@
+{
+  "id": "brain-growth",
+  "name": "思维成长",
+  "version": "0.2.4",
+  "minAppVersion": "1.8.0",
+  "description": "追踪笔记数量、内容体量、标签、链接和库的增长趋势。",
+  "author": "raymondseek",
+  "authorUrl": "https://github.com/raymondseek",
+  "isDesktopOnly": false
+}

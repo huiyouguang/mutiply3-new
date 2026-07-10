@@ -10,5 +10,17 @@
   "smThreshold": 5,
   "mdThreshold": 10,
   "lgThreshold": 20,
-  "treatLineBreakAsSentenceEnd": true
+  "treatLineBreakAsSentenceEnd": true,
+  "periodExclusionsEnabled": false,
+  "periodExclusions": [
+    "Dr",
+    "Mr",
+    "Mrs",
+    "Ms",
+    "Mx",
+    "Prof",
+    "Sr",
+    "Jr",
+    "St"
+  ]
 }

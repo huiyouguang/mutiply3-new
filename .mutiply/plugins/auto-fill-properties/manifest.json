@@ -1,0 +1,9 @@
+{
+  "id": "auto-fill-properties",
+  "name": "Auto Fill Properties",
+  "description": "自动填充笔记属性，支持预设方案和基于同文件夹现有文件属性的智能筛选",
+  "version": "1.0.0",
+  "author": "guochenfa",
+  "minAppVersion": "0.12.0",
+  "isDesktopOnly": false
+}

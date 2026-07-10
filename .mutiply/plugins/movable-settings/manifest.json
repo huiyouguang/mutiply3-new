@@ -1,9 +1,0 @@
-{
-	"id": "movable-settings",
-	"name": "Movable Settings",
-	"version": "1.0.0",
-	"minAppVersion": "1.0.0",
-	"description": "Open settings in a movable floating window, allowing you to see changes in real-time behind the settings panel.",
-	"author": "Guo Chenfa",
-	"isDesktopOnly": false
-}

@@ -78,15 +78,6 @@
       "key": "D"
     }
   ],
-  "obsidian-hover-editor:convert-active-pane-to-popover": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "V"
-    }
-  ],
   "markdown-prettifier:markdown-prettifier-run": [
     {
       "modifiers": [
@@ -324,15 +315,6 @@
     }
   ],
   "Enhanced editing:edit-jiucuo": [],
-  "editor:insert-footnote": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "J"
-    }
-  ],
   "editor:insert-wikilink": [
     {
       "modifiers": [
@@ -342,15 +324,6 @@
     }
   ],
   "file-explorer:new-file-in-new-pane": [],
-  "dynamic-theme-background:fetch-random-wallpaper": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "H"
-    }
-  ],
   "Enhanced editing:add-lines": [
     {
       "modifiers": [
@@ -388,47 +361,6 @@
     }
   ],
   "note-chain:move_none_level": [],
-  "editing-toolbar:toggle-highlight": [
-    {
-      "modifiers": [
-        "Mod",
-        "Shift"
-      ],
-      "key": "G"
-    }
-  ],
-  "editor:set-heading-1": [
-    {
-      "modifiers": [
-        "Shift"
-      ],
-      "key": "1"
-    }
-  ],
-  "editor:set-heading-2": [
-    {
-      "modifiers": [
-        "Shift"
-      ],
-      "key": "2"
-    }
-  ],
-  "editor:set-heading-3": [
-    {
-      "modifiers": [
-        "Shift"
-      ],
-      "key": "3"
-    }
-  ],
-  "editor:set-heading-4": [
-    {
-      "modifiers": [
-        "Shift"
-      ],
-      "key": "4"
-    }
-  ],
   "editing-toolbar:ai-toolbox-table": [
     {
       "modifiers": [
@@ -455,6 +387,131 @@
         "Shift"
       ],
       "key": "Z"
+    }
+  ],
+  "editor:set-heading-1": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "1"
+    }
+  ],
+  "editor:set-heading-2": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "2"
+    }
+  ],
+  "editor:set-heading-3": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "3"
+    }
+  ],
+  "editor:set-heading-4": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "4"
+    }
+  ],
+  "editor:set-heading-5": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "5"
+    }
+  ],
+  "editor:set-heading": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "X"
+    }
+  ],
+  "obsidian-admonition:insert-admonition": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "A"
+    }
+  ],
+  "note-chain:move_next_level": [],
+  "obsidian-auto-link-title:auto-link-title-normal-paste": [],
+  "callout-editor:edit-callout": [
+    {
+      "modifiers": [
+        "Ctrl"
+      ],
+      "key": "W"
+    }
+  ],
+  "obsidian-admonition:insert-callout": [
+    {
+      "modifiers": [
+        "Alt",
+        "Shift"
+      ],
+      "key": "1"
+    }
+  ],
+  "editor:toggle-source": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "S"
+    }
+  ],
+  "obsidian-zoom:zoom-in": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "="
+    }
+  ],
+  "obsidian-zoom:zoom-out": [
+    {
+      "modifiers": [
+        "Alt"
+      ],
+      "key": "-"
+    }
+  ],
+  "dynamic-theme-background:toggle-dtb": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "Q"
+    }
+  ],
+  "dynamic-theme-background:next-background": [
+    {
+      "modifiers": [
+        "Ctrl",
+        "Shift"
+      ],
+      "key": "X"
     }
   ]
 }

@@ -12,13 +12,20 @@
       "hiddenFileProperties": [],
       "navigationBanner": null,
       "periodicNotesFolder": "",
-      "shortcuts": [],
+      "shortcuts": [
+        {
+          "type": "search",
+          "name": "99记",
+          "query": "99记",
+          "provider": "internal"
+        }
+      ],
       "navRainbow": {
-        "mode": "none",
+        "mode": "foreground",
         "balanceHueLuminance": true,
-        "separateThemeColors": false,
+        "separateThemeColors": true,
         "shortcuts": {
-          "enabled": false,
+          "enabled": true,
           "firstColor": "#ef4444",
           "lastColor": "#8b5cf6",
           "darkFirstColor": "#ef4444",
@@ -26,7 +33,7 @@
           "transitionStyle": "rgb"
         },
         "recent": {
-          "enabled": false,
+          "enabled": true,
           "firstColor": "#ef4444",
           "lastColor": "#8b5cf6",
           "darkFirstColor": "#ef4444",
@@ -39,26 +46,26 @@
           "lastColor": "#8b5cf6",
           "darkFirstColor": "#fb7185",
           "darkLastColor": "#c084fc",
-          "transitionStyle": "hue",
-          "scope": "root"
+          "transitionStyle": "rgb",
+          "scope": "all"
         },
         "tags": {
-          "enabled": false,
+          "enabled": true,
           "firstColor": "#ef4444",
           "lastColor": "#8b5cf6",
           "darkFirstColor": "#fb7185",
           "darkLastColor": "#c084fc",
           "transitionStyle": "hue",
-          "scope": "root"
+          "scope": "all"
         },
         "properties": {
-          "enabled": false,
+          "enabled": true,
           "firstColor": "#ef4444",
           "lastColor": "#8b5cf6",
           "darkFirstColor": "#fb7185",
           "darkLastColor": "#c084fc",
           "transitionStyle": "hue",
-          "scope": "root"
+          "scope": "all"
         }
       }
     }
@@ -75,6 +82,9 @@
     "useFloatingToolbars": "synced",
     "dualPane": "synced",
     "dualPaneOrientation": "synced",
+    "narrowSidebarLayout": "synced",
+    "narrowSidebarTriggerMode": "synced",
+    "narrowSidebarCustomWidth": "synced",
     "paneTransitionDuration": "synced",
     "toolbarVisibility": "synced",
     "pinNavigationBanner": "synced",
@@ -110,9 +120,12 @@
   },
   "dualPane": false,
   "dualPaneOrientation": "horizontal",
+  "narrowSidebarLayout": "singlePane",
+  "narrowSidebarTriggerMode": "fitPanes",
+  "narrowSidebarCustomWidth": 350,
   "showTooltips": true,
   "showTooltipPath": true,
-  "showTooltipWordCount": false,
+  "showTooltipWordCount": true,
   "desktopBackground": "primary",
   "desktopScale": 1,
   "mobileScale": 1,
@@ -129,6 +142,7 @@
     "list": {
       "back": true,
       "search": true,
+      "reveal": false,
       "descendants": true,
       "sort": true,
       "appearance": true,
@@ -144,21 +158,26 @@
   "deleteAttachments": "ask",
   "moveFileConflicts": "ask",
   "externalIconProviders": {
-    "bootstrap-icons": true
+    "bootstrap-icons": true,
+    "phosphor": true,
+    "material-icons": true
   },
   "checkForUpdatesOnStart": true,
   "pinNavigationBanner": true,
   "showNoteCount": true,
   "separateNoteCounts": true,
-  "showIndentGuides": false,
+  "showIndentGuides": true,
+  "navCountLeaderStyle": "none",
   "rootLevelSpacing": 0,
-  "navIndent": 16,
+  "navIndent": 11,
   "navItemHeight": 28,
   "navItemHeightScaleText": true,
-  "collapseBehavior": "all",
+  "collapseBehavior": "folders-only",
   "smartCollapse": true,
+  "excludeVaultRootFromCollapse": false,
+  "collapseOtherBranchesOnExpand": false,
   "autoSelectFirstFileOnFocusChange": false,
-  "autoExpandNavItems": false,
+  "autoExpandNavItems": true,
   "springLoadedFolders": true,
   "springLoadedFoldersInitialDelay": 0.5,
   "springLoadedFoldersSubsequentDelay": 0.5,
@@ -170,9 +189,9 @@
   "hideRecentNotes": "none",
   "pinRecentNotesWithShortcuts": false,
   "recentNotesCount": 5,
-  "showFolderIcons": true,
-  "showRootFolder": true,
-  "inheritFolderColors": true,
+  "showFolderIcons": false,
+  "showRootFolder": false,
+  "inheritFolderColors": false,
   "folderSortOrder": "alpha-asc",
   "enableFolderNotes": true,
   "folderNoteType": "markdown",
@@ -182,7 +201,8 @@
   "enableFolderNoteLinks": true,
   "hideFolderNoteInList": true,
   "pinCreatedFolderNote": false,
-  "openFolderNotesInNewTab": false,
+  "folderNoteOpenLocation": "current-tab",
+  "showNearestFolderNoteInSidebar": true,
   "showTags": true,
   "showTagIcons": true,
   "showAllTagsFolder": true,
@@ -211,6 +231,8 @@
   "noteGrouping": "date",
   "showSelectedNavigationPills": false,
   "stickyGroupHeaders": true,
+  "showFolderGroupPaths": true,
+  "showCurrentFolderFilesAtBottom": false,
   "filterPinnedByFolder": false,
   "compactItemHeight": 28,
   "compactItemHeightScaleText": true,
@@ -221,7 +243,7 @@
   "quickActionPinNote": true,
   "quickActionOpenInNewTab": false,
   "hideDrawingPreviewImages": true,
-  "useFrontmatterMetadata": false,
+  "useFrontmatterMetadata": true,
   "frontmatterIconField": "icon",
   "frontmatterColorField": "color",
   "frontmatterBackgroundField": "background",
@@ -233,11 +255,12 @@
   "showFileBackgroundUnfinishedTask": true,
   "unfinishedTaskBackgroundColor": "#ef000050",
   "showFileIcons": true,
-  "useFolderIconForFiles": false,
+  "useFolderIconForFiles": true,
   "showFilenameMatchIcons": false,
   "fileNameIconMap": {},
   "showCategoryIcons": false,
   "fileTypeIconMap": {},
+  "fileTypeIconPreset": "none",
   "fileNameRows": 1,
   "useFolderColorForTitles": false,
   "showFilePreview": true,
@@ -245,7 +268,7 @@
   "skipCodeBlocksInPreview": true,
   "stripHtmlInPreview": true,
   "stripLatexInPreview": true,
-  "previewRows": 2,
+  "previewRows": 3,
   "previewProperties": [],
   "previewPropertiesFallback": true,
   "showFeatureImage": true,
@@ -258,24 +281,25 @@
   "showFileTags": true,
   "colorFileTags": true,
   "prioritizeColoredFileTags": true,
-  "showFileTagAncestors": false,
-  "showFileTagsInCompactMode": false,
+  "showFileTagAncestors": true,
+  "showFileTagsInCompactMode": true,
   "showFileProperties": true,
   "colorFileProperties": true,
   "prioritizeColoredFileProperties": true,
-  "showFilePropertiesInCompactMode": false,
-  "showPropertiesOnSeparateRows": false,
+  "showFilePropertiesInCompactMode": true,
+  "showPropertiesOnSeparateRows": true,
   "enablePropertyInternalLinks": true,
   "enablePropertyExternalLinks": true,
-  "showWordCount": false,
-  "wordCountPlacement": "title",
+  "textCountDisplay": "words",
+  "textCountPlacement": "title",
+  "characterCountSpaces": "include",
   "wordCountTargetProperty": "word-goal",
   "showWordCountPercentage": false,
   "showFileDate": true,
   "alphabeticalDateMode": "modified",
   "showParentFolder": true,
-  "showParentFolderFullPath": false,
-  "parentFolderClickRevealsFile": false,
+  "showParentFolderFullPath": true,
+  "parentFolderClickRevealsFile": true,
   "showParentFolderColor": false,
   "showParentFolderIcon": false,
   "calendarEnabled": true,
@@ -338,6 +362,12 @@
     "pane:end": [
       {
         "key": "End",
+        "modifiers": []
+      }
+    ],
+    "pane:rename": [
+      {
+        "key": "Enter",
         "modifiers": []
       }
     ],
@@ -412,6 +442,22 @@
         "key": "ArrowDown",
         "modifiers": [
           "Shift"
+        ]
+      }
+    ],
+    "list:manual-sort-up": [
+      {
+        "key": "ArrowUp",
+        "modifiers": [
+          "Mod"
+        ]
+      }
+    ],
+    "list:manual-sort-down": [
+      {
+        "key": "ArrowDown",
+        "modifiers": [
+          "Mod"
         ]
       }
     ],
@@ -507,7 +553,7 @@
     "#404040",
     "#404040"
   ],
-  "lastShownVersion": "3.0.0",
+  "lastShownVersion": "3.2.2",
   "rootFolderOrder": [],
   "rootTagOrder": [],
   "rootPropertyOrder": []

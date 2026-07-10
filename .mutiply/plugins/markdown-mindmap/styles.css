@@ -1,0 +1,700 @@
+/* Markdown Mindmap — container, toolbar, nodes, note modal. Uses Obsidian theme vars where it can. */
+
+/* Legible hover tint: the dark surface nudged toward the accent. Used instead of
+   --background-modifier-hover, which some themes set to a light colour that washes
+   out the light row/toolbar text. Anchored to --background-primary so --text-normal
+   stays readable in any theme. */
+.mm-wrap,
+.modal.mm-modal {
+  --mm-hover: color-mix(
+    in srgb,
+    var(--background-primary),
+    var(--interactive-accent) 18%
+  );
+}
+
+.mm-wrap {
+  position: relative;
+  height: 900px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--background-primary);
+}
+.mm-wrap:fullscreen {
+  height: 100%;
+  border-radius: 0;
+}
+
+/* vertical sidebar pinned to the left edge of the stage */
+.mm-toolbar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  z-index: 3;
+  width: 224px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 8px;
+  padding: 12px;
+  overflow-y: auto;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22);
+  font-size: 12px;
+}
+
+/* header: title on the left, collapse control hugging the right edge */
+.mm-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.mm-toolbar .mm-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--text-normal);
+}
+.mm-bartoggle {
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
+/* collapsed: shrink to just the header toggle and stop covering the stage */
+.mm-toolbar.mm-bar-collapsed {
+  width: auto;
+  bottom: auto;
+  gap: 0;
+  padding: 8px;
+  overflow: visible;
+}
+.mm-toolbar.mm-bar-collapsed > *:not(.mm-head) {
+  display: none;
+}
+.mm-toolbar.mm-bar-collapsed .mm-head {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+.mm-toolbar.mm-bar-collapsed .mm-title {
+  display: none;
+}
+
+.mm-search {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+}
+.mm-search:focus {
+  outline: none;
+  border-color: var(--interactive-accent);
+}
+
+/* multiselect filter: a labelled group of toggle chips. Sections are set apart by
+   whitespace and their uppercase label, not rules, to keep the rail calm. */
+.mm-fltgroup,
+.mm-viewgroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  padding-top: 8px;
+}
+.mm-fltlabel {
+  flex-basis: 100%;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-size: 9px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.mm-toolbar .mm-chip {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  line-height: 1.5;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--background-modifier-border);
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease,
+    border-color 0.12s ease;
+}
+.mm-toolbar .mm-chip:hover {
+  background: var(--mm-hover);
+  color: var(--text-normal);
+}
+.mm-toolbar .mm-chip.on {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+  font-weight: 600;
+}
+.mm-viewselect {
+  flex-basis: 100%;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  border: 1px solid var(--background-modifier-border);
+  text-overflow: ellipsis;
+}
+/* Saved-views actions read as one control: full-width Save, then an equal
+   Edit/Delete pair under the dropdown. Bordered so they hold shape even when
+   disabled (no view selected) instead of floating loose in the rail. */
+.mm-viewgroup .mm-viewsave {
+  flex-basis: 100%;
+  text-align: center;
+  border-color: var(--background-modifier-border);
+}
+.mm-viewgroup button:not(.mm-viewsave) {
+  flex: 1 1 0;
+  text-align: center;
+  border-color: var(--background-modifier-border);
+}
+
+/* Action buttons (Save / Edit / Delete / Reset) recede: ghost until hovered,
+   left-aligned, so filter chips lead the eye. */
+.mm-toolbar button {
+  font-size: 12px;
+  text-align: left;
+  padding: 5px 9px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid transparent;
+  box-shadow: none;
+  transition:
+    background-color 0.12s ease,
+    color 0.12s ease;
+}
+.mm-toolbar button:hover {
+  background: var(--mm-hover);
+  color: var(--text-normal);
+}
+.mm-toolbar button.on {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+.mm-toolbar button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.mm-toolbar button:disabled:hover {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+/* footer: utilities pinned to the bottom, set off by a rule so the gap above reads as deliberate */
+.mm-foot {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+/* a labelled action cluster mirrors the filter groups above; its buttons split
+   the row evenly (like the Edit/Delete pair) and stay bordered so the footer
+   reads as deliberate controls, not a loose stack. */
+.mm-actiongroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.mm-foot .mm-actiongroup button {
+  flex: 1 1 0;
+  text-align: center;
+  border-color: var(--background-modifier-border);
+}
+/* global utilities share one line: Reset hugs the left, Help the right */
+.mm-utilrow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* focus banner: the label ellipsises, the ✕ always stays visible at the right */
+.mm-toolbar .mm-focus-ticket {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+.mm-toolbar .mm-focus-ticket:hover {
+  background: var(--interactive-accent-hover);
+  color: var(--text-on-accent);
+}
+.mm-toolbar .mm-focus-ticket.mm-hidden {
+  display: none;
+}
+.mm-focus-label {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mm-focus-x {
+  flex: 0 0 auto;
+  opacity: 0.85;
+}
+.mm-toolbar .mm-icon {
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  padding: 4px 8px;
+}
+/* help reads as a faint grey link, not a button */
+.mm-toolbar button.mm-help {
+  align-self: flex-start;
+  padding: 2px 0;
+  font-size: 11px;
+  color: var(--text-faint);
+  text-decoration: underline;
+}
+.mm-toolbar button.mm-help:hover {
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.mm-stage {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+}
+.mm-stage.mm-drag {
+  cursor: grabbing;
+}
+.mm-wrap svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.mm-colhead {
+  fill: var(--text-muted);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.mm-link {
+  fill: none;
+  opacity: 0.3;
+}
+.mm-link.mm-dim {
+  opacity: 0.05;
+}
+.mm-link.mm-hot {
+  opacity: 0.95;
+}
+/* secondary "also serves" edge: dashed + fainter; .mm-also.mm-dim/.mm-hot out-specify the base */
+.mm-link.mm-also {
+  stroke-dasharray: 5 5;
+  opacity: 0.18;
+}
+.mm-link.mm-also.mm-dim {
+  opacity: 0.03;
+}
+.mm-link.mm-also.mm-hot {
+  opacity: 0.75;
+}
+
+.mm-node {
+  cursor: pointer;
+}
+.mm-node.mm-dim {
+  opacity: 0.18;
+}
+.mm-node .mm-box {
+  stroke-width: 1.5;
+}
+.mm-node.mm-sel .mm-box {
+  stroke-width: 3;
+}
+/* search hit (Miro-style): bright outline + lift over dimmed siblings */
+.mm-node.mm-hit {
+  opacity: 1;
+}
+.mm-node.mm-hit .mm-box {
+  stroke-width: 3;
+  filter: drop-shadow(0 0 6px var(--interactive-accent));
+}
+.mm-t1 {
+  font-weight: 700;
+  fill: var(--text-normal);
+}
+.mm-t2 {
+  fill: var(--text-muted);
+  font-size: 10.5px;
+}
+.mm-meta {
+  fill: var(--text-faint);
+  font-size: 9.5px;
+}
+/* node value pills (card.labels): colored chips along the bottom strip */
+.mm-label {
+  stroke-width: 1;
+}
+.mm-label-t {
+  font-weight: 600;
+  text-anchor: middle;
+}
+.mm-track {
+  fill: var(--background-modifier-border);
+}
+.mm-barlbl {
+  fill: var(--text-faint);
+  font-size: 9px;
+  font-weight: 700;
+}
+.mm-toggle {
+  cursor: pointer;
+}
+.mm-toggle circle {
+  fill: var(--background-secondary);
+  stroke: var(--text-faint);
+}
+.mm-toggle:hover circle {
+  fill: var(--mm-hover);
+  stroke: var(--text-normal);
+}
+.mm-toggle text {
+  fill: var(--text-normal);
+  font-size: 13px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+/* a contracted subtree: accent-filled + so it's obvious at a glance */
+.mm-toggle.mm-collapsed circle {
+  fill: var(--interactive-accent);
+  stroke: var(--interactive-accent);
+}
+.mm-toggle.mm-collapsed text {
+  fill: var(--text-on-accent);
+}
+
+/* note modal */
+.modal.mm-modal {
+  width: min(760px, 92vw);
+  transform-origin: center;
+}
+/* keep the close button above the sticky header (z-index:2) so it isn't covered */
+.modal.mm-modal .modal-close-button {
+  z-index: 3;
+}
+.mm-prompt-input {
+  width: 100%;
+  margin: 4px 0 14px;
+}
+.mm-prompt-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+.mm-note-head {
+  border-left: 3px solid var(--mm-accent, var(--interactive-accent));
+  padding: 2px 0 12px 14px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  /* keep badge + title pinned while the note body scrolls under it.
+     box-shadow covers the modal's top padding so content can't peek above. */
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--background-primary);
+  box-shadow: 0 -24px 0 var(--background-primary);
+}
+.mm-note-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.mm-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--mm-accent, var(--interactive-accent));
+  color: var(--text-on-accent);
+}
+.mm-note-title {
+  margin: 2px 0 6px;
+  font-size: 18px;
+}
+.mm-note-file {
+  color: var(--text-faint);
+  font-size: 12px;
+  font-family: var(--font-monospace);
+  margin: -2px 0 6px;
+}
+.mm-note-sub {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.mm-note-meta {
+  color: var(--text-faint);
+  font-size: 12px;
+  margin-top: 3px;
+}
+.mm-note-bars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.mm-note-pill {
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  border: 1px solid var(--mm-cat, var(--text-faint));
+  color: var(--mm-cat, var(--text-muted));
+}
+.mm-note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.mm-note-props {
+  margin: 4px 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.mm-note-props-title {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-size: 9.5px;
+  margin-bottom: 6px;
+}
+.mm-note-props table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.mm-note-props th,
+.mm-note-props td {
+  padding: 4px 8px;
+  border-top: 1px solid var(--background-modifier-border);
+  vertical-align: top;
+}
+.mm-note-props th {
+  width: 34%;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-align: left;
+}
+.mm-note-props td {
+  color: var(--text-normal);
+  word-break: break-word;
+}
+
+/* linked nodes: parents + children, click to jump the dialog */
+.mm-note-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 4px 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.mm-note-linkgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 200px;
+  flex: 1 1 200px;
+}
+.mm-note-linklabel {
+  color: var(--text-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.mm-link-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-left: 3px solid var(--mm-accent, var(--interactive-accent));
+}
+.mm-link-row:hover {
+  background: var(--mm-hover);
+  border-color: var(--mm-accent, var(--interactive-accent));
+}
+.mm-link-row.mm-link-sec {
+  border-left-style: dashed;
+}
+.mm-link-lvl {
+  color: var(--text-faint);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.mm-link-title {
+  color: var(--text-normal);
+  font-size: 12.5px;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mm-link-tag {
+  color: var(--text-faint);
+  font-size: 9px;
+  font-style: italic;
+}
+
+.mm-note {
+  padding: 8px 0 12px;
+}
+.mm-note > :first-child {
+  margin-top: 0;
+}
+.mm-note > :last-child {
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* ponytail: subtree toggles redraw the SVG tree, so CSS can animate entering opacity/scale and any persistent geometry only. */
+  .mm-chip,
+  .mm-toolbar button,
+  .mm-link-row {
+    transition:
+      background-color 300ms ease,
+      border-color 300ms ease,
+      color 300ms ease;
+  }
+
+  .mm-link,
+  .mm-node {
+    transition:
+      opacity 300ms ease,
+      transform 300ms ease;
+  }
+
+  .mm-node {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .mm-node .mm-box,
+  .mm-toggle circle,
+  .mm-toggle text {
+    transition:
+      fill 300ms ease,
+      stroke 300ms ease,
+      stroke-width 300ms ease,
+      filter 300ms ease,
+      height 300ms ease,
+      y 300ms ease;
+  }
+
+  .modal.mm-modal {
+    animation: mm-modal-in 150ms ease-out both;
+  }
+
+  .modal-container.mm-modal-host .modal-bg {
+    animation: mm-modal-bg-in 300ms ease-out both;
+  }
+
+  .modal-container.mod-closing .modal.mm-modal,
+  .modal-container.is-closing .modal.mm-modal {
+    animation: mm-modal-out 300ms ease-in both;
+  }
+
+  .modal-container.mm-modal-host.mod-closing .modal-bg,
+  .modal-container.mm-modal-host.is-closing .modal-bg {
+    animation: mm-modal-bg-out 300ms ease-in both;
+  }
+
+  @starting-style {
+    .mm-node {
+      opacity: 0;
+      transform: scaleY(0.97);
+    }
+
+    .mm-link {
+      opacity: 0;
+    }
+
+    .modal.mm-modal {
+      opacity: 0;
+      transform: scale(0.985);
+    }
+  }
+}
+
+/* No reduced-motion override needed: every mindmap animation/transition lives in
+   the @media (prefers-reduced-motion: no-preference) block above, so under "reduce"
+   none of them apply in the first place. */
+
+@keyframes mm-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes mm-modal-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.985);
+  }
+}
+
+@keyframes mm-modal-bg-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mm-modal-bg-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

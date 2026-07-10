@@ -1,0 +1,85 @@
+/* @settings
+name: 正文文本颜色设置
+id: text-color-settings
+settings:
+  - id: text-normal-color
+    title: 正文文本颜色
+    type: variable-themed-color
+    format: hex
+    default-light: '#333333'
+    default-dark: '#e0e0e0'
+    description: 文章正文的主要文字颜色
+  - id: text-muted-color
+    title: 次要文本颜色
+    type: variable-themed-color
+    format: hex
+    default-light: '#666666'
+    default-dark: '#888888'
+    description: 注释、引用、时间戳等次要文字颜色
+  - id: text-accent-color
+    title: 强调文本颜色
+    type: variable-themed-color
+    format: hex
+    default-light: '#0066cc'
+    default-dark: '#4da6ff'
+    description: 链接、高亮关键词等强调文字颜色
+  - id: text-title-color
+    title: 标题文本颜色
+    type: variable-themed-color
+    format: hex
+    default-light: '#1a1a1a'
+    default-dark: '#ffffff'
+    description: 各级标题的文字颜色
+*/
+
+.workspace .markdown-preview-view,
+.workspace .markdown-rendered {
+  --text-normal: var(--text-normal-color) !important;
+  --text-muted: var(--text-muted-color) !important;
+  --text-accent: var(--text-accent-color) !important;
+}
+
+.workspace .markdown-preview-view p,
+.workspace .markdown-rendered p {
+  color: var(--text-normal-color) !important;
+}
+
+.workspace .markdown-preview-view h1,
+.workspace .markdown-preview-view h2,
+.workspace .markdown-preview-view h3,
+.workspace .markdown-preview-view h4,
+.workspace .markdown-preview-view h5,
+.workspace .markdown-preview-view h6,
+.workspace .markdown-rendered h1,
+.workspace .markdown-rendered h2,
+.workspace .markdown-rendered h3,
+.workspace .markdown-rendered h4,
+.workspace .markdown-rendered h5,
+.workspace .markdown-rendered h6 {
+  color: var(--text-title-color) !important;
+}
+
+.workspace .markdown-preview-view a,
+.workspace .markdown-rendered a {
+  color: var(--text-accent-color) !important;
+}
+
+.workspace .markdown-preview-view .tag,
+.workspace .markdown-rendered .tag {
+  color: var(--text-muted-color) !important;
+}
+
+.workspace .markdown-preview-view blockquote,
+.workspace .markdown-rendered blockquote {
+  color: var(--text-muted-color) !important;
+}
+
+.workspace .markdown-source-view .cm-line {
+  color: var(--text-normal-color) !important;
+}
+
+.workspace .cm-s-obsidian .cm-variable,
+.workspace .cm-s-obsidian .cm-property,
+.workspace .cm-s-obsidian .cm-keyword {
+  color: var(--text-normal-color) !important;
+}

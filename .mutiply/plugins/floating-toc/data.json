@@ -1,5 +1,5 @@
 {
-  "ignoreHeaders": "6",
+  "ignoreHeaders": "4\n5\n6",
   "ignoreTopHeader": false,
   "positionStyle": "right",
   "isLoadOnMobile": true,
@@ -8,9 +8,9 @@
   "isTooltip": true,
   "defaultCollapsedLevel": 6,
   "expandAllSubheadings": false,
-  "isDefaultHide": false,
+  "isDefaultHide": true,
   "enableHeadingNowrap": true,
-  "barStyle": "enable-edge-style",
+  "barStyle": "enable-bold-bar",
   "enableBarHeadingText": false,
   "enableContentOffset": false,
   "enableDragReorder": false

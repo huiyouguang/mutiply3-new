@@ -2,5 +2,14 @@
   "showInstructions": true,
   "showDeletePrompt": true,
   "saveOnSwitch": false,
-  "saveOnChange": false
+  "saveOnChange": false,
+  "workspaceSettings": false,
+  "systemDarkMode": false,
+  "globalSettings": {},
+  "activeWorkspaceDesktop": "常用",
+  "activeWorkspaceMobile": "",
+  "reloadLivePreview": false,
+  "workspaceSwitcherRibbon": false,
+  "modeSwitcherRibbon": false,
+  "replaceNativeRibbon": false
 }

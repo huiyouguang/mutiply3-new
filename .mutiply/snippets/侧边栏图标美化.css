@@ -1,0 +1,79 @@
+/* @settings
+name: 侧边栏图标美化
+id: sidebar-icon-beautify
+settings:
+  - id: sidebar-icon-hover-bg-color
+    title: 悬停背景色
+    type: variable-themed-color
+    format: hex
+    default-light: '#e0e0e0'
+    default-dark: '#3a3a3a'
+    description: 鼠标悬停时图标的背景颜色
+  - id: sidebar-icon-active-bg-color
+    title: 选中背景色
+    type: variable-themed-color
+    format: hex
+    default-light: '#d0d0d0'
+    default-dark: '#444444'
+    description: 图标被选中时的背景颜色
+  - id: sidebar-icon-border-radius
+    title: 图标圆角
+    type: variable-number
+    default: 8
+    unit: px
+    description: 悬停/选中时背景的圆角大小
+  - id: sidebar-icon-opacity
+    title: 图标不透明度
+    type: variable-number
+    default: 0.7
+    unit: ""
+    description: 未选中图标颜色的不透明度（0-1）
+  - id: sidebar-icon-active-opacity
+    title: 选中图标不透明度
+    type: variable-number
+    default: 1
+    unit: ""
+    description: 选中图标颜色的不透明度（0-1）
+*/
+
+.workspace-ribbon {
+  background-color: transparent !important;
+}
+
+.workspace-ribbon:before {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.workspace-ribbon .side-dock-actions {
+  padding: 4px !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.workspace-ribbon .side-dock-action {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 4px !important;
+  transition: all 0.2s ease !important;
+}
+
+.workspace-ribbon .side-dock-action .clickable-icon {
+  background-color: transparent !important;
+  opacity: var(--sidebar-icon-opacity) !important;
+  transition: all 0.2s ease !important;
+}
+
+.workspace-ribbon .side-dock-action:hover .clickable-icon {
+  background-color: var(--sidebar-icon-hover-bg-color) !important;
+  opacity: 1 !important;
+  border-radius: var(--sidebar-icon-border-radius) !important;
+}
+
+.workspace-ribbon .side-dock-action.is-active .clickable-icon {
+  background-color: var(--sidebar-icon-active-bg-color) !important;
+  opacity: var(--sidebar-icon-active-opacity) !important;
+  color: var(--accent-color) !important;
+  border-radius: var(--sidebar-icon-border-radius) !important;
+}
