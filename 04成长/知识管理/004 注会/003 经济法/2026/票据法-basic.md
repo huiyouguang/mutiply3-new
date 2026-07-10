@@ -21,7 +21,7 @@ NextNote: "[[票据法]]"
 words:
   2026-05-25: 10002
   2026-07-03: 10018
-  2026-07-10: 10083
+  2026-07-10: 10186
 ---
 
 # 票据法
@@ -508,6 +508,69 @@ words:
 
 
 ---
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710164731461.png)
 
 
 
+
+
+---
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710164924940.png)
+
+
+
+---
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710165031633.png)
+
+
+
+
+
+
+
+# 主观题
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710165232228.png)
+
+---
+
+
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710170215947.png)
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710170309786.png)
+
+---
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710170625958.png)
+
+---
+
+
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710170725831.png)
+
+
+
+---
+## 抗辩
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710170819225.png)
+
+
+
+---
+
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710171134830.png)
+
+---
