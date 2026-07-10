@@ -21,6 +21,7 @@ NextNote: "[[票据法]]"
 words:
   2026-05-25: 10002
   2026-07-03: 10018
+  2026-07-10: 10083
 ---
 
 # 票据法
@@ -462,3 +463,51 @@ words:
 - 电子支付
     - ![](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260502133136818.png)
     - ![](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260502133213789.png)
+
+
+
+
+
+
+# 串讲班
+
+
+易混内容
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710163211244.png)
+
+---
+
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710163248176.png)
+
+
+---
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710163342009.png)
+
+
+
+
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710163437829.png)
+
+
+
+
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710164531592.png)
+
+
+
+---
+![image.png](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260710164616362.png)
+
+
+
+
+---
+
+
+
