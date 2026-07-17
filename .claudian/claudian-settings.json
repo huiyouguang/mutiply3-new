@@ -1,0 +1,53 @@
+{
+  "userName": "mutiply",
+  "permissionMode": "yolo",
+  "model": "mimo-v2.5",
+  "thinkingBudget": "none",
+  "effortLevel": "none",
+  "serviceTier": "default",
+  "enableAutoTitleGeneration": true,
+  "titleGenerationModel": "",
+  "excludedTags": [],
+  "mediaFolder": "",
+  "systemPrompt": "",
+  "persistentExternalContextPaths": [],
+  "sharedEnvironmentVariables": "",
+  "envSnippets": [],
+  "customContextLimits": {},
+  "customModelAliases": {},
+  "keyboardNavigation": {
+    "scrollUpKey": "w",
+    "scrollDownKey": "s",
+    "focusInputKey": "i"
+  },
+  "requireCommandOrControlEnterToSend": false,
+  "locale": "zh-CN",
+  "providerConfigs": {
+    "mimo": {
+      "enabled": true,
+      "billingMode": "token-plan",
+      "apiKey": "",
+      "cluster": "cn",
+      "model": "mimo-v2.5"
+    }
+  },
+  "settingsProvider": "mimo",
+  "savedProviderModel": {
+    "mimo": "mimo-v2.5"
+  },
+  "savedProviderEffort": {
+    "mimo": "none"
+  },
+  "savedProviderServiceTier": {},
+  "savedProviderThinkingBudget": {
+    "mimo": "none"
+  },
+  "savedProviderPermissionMode": {},
+  "lastCustomModel": "",
+  "maxTabs": 3,
+  "enableAutoScroll": true,
+  "deferMathRenderingDuringStreaming": true,
+  "expandFileEditsByDefault": false,
+  "chatViewPlacement": "right-sidebar",
+  "hiddenProviderCommands": {}
+}
