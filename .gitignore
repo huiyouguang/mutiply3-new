@@ -94,7 +94,6 @@ credentials*
 
 # 媒体/大文件（可选，不影响同步）
 *.png
-*.jpg
 *.jpeg
 *.gif
 *.mp4
