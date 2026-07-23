@@ -1,0 +1,487 @@
+/* ===========================================================
+   Obsidian 全场景果冻涟漪动画整合包
+   包含：侧边栏文件树 + 编辑器（源码/阅读模式）
+   修正：Callout 内保留手动换行，正文不受影响
+=========================================================== */
+
+:root {
+    /* ========== 全局通用参数 ========== */
+    --speed-fast: 0.18s;
+    --speed-base: 0.32s;
+    --speed-slow: 0.6s;
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --ease-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* 全局发光色彩系统 */
+    --glow-color: rgba(88, 166, 255, 0.22);
+    --glow-color-strong: rgba(88, 166, 255, 0.4);
+    --glow-color-subtle: rgba(88, 166, 255, 0.08);
+    --shadow-ambient: rgba(0, 0, 0, 0.1);
+
+    /* ========== 编辑器默认：大振幅参数 ========== */
+    --hover-shift: 14px;
+    --hover-scale: 1.03;
+    --hover-radius: 12px;
+}
+
+/* ===========================================================
+   1. 全局容器 GPU 加速（编辑器+侧边栏通用）
+=========================================================== */
+.cm-editor,
+.cm-scroller,
+.cm-content,
+.markdown-preview-view,
+.nav-files-container,
+.nav-folder-children {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+.cm-content,
+.nav-files-container {
+    contain: layout style paint;
+}
+
+/* ===========================================================
+   2. 侧边栏文件树动画（文件夹+文件行 适配窄布局）
+=========================================================== */
+/* 侧边栏单独覆盖小幅度参数，避免溢出边界 */
+.nav-folder-title,
+.nav-file-title {
+    --hover-shift: 6px;
+    --hover-scale: 1.01;
+    --hover-radius: 8px;
+
+    position: relative;
+    overflow: visible;
+    border-radius: var(--hover-radius);
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    isolation: isolate;
+    padding-inline: 6px !important;
+
+    background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--glow-color-subtle) 20%,
+        var(--glow-color) 50%,
+        var(--glow-color-subtle) 80%,
+        transparent 100%
+    );
+    background-size: 220% 100%;
+    background-position: -180% 0;
+
+    transition:
+        transform 0.4s var(--ease-spring),
+        background-position var(--speed-slow) var(--ease-smooth),
+        box-shadow var(--speed-fast) var(--ease-smooth),
+        filter var(--speed-fast) var(--ease-smooth),
+        z-index 0.1s;
+    z-index: 1;
+    will-change: transform, opacity;
+}
+
+/* 侧边栏行 聚光水晕 */
+.nav-folder-title::before,
+.nav-file-title::before {
+    content: '';
+    position: absolute;
+    inset: -3px -8px;
+    border-radius: calc(var(--hover-radius) + 4px);
+    pointer-events: none;
+    z-index: -1;
+
+    background: radial-gradient(
+        ellipse at 0% 50%,
+        var(--glow-color-strong) 0%,
+        var(--glow-color-subtle) 55%,
+        transparent 85%
+    );
+    opacity: 0;
+    transform: translate3d(-10px, 0, 0) scale(0.85);
+    transition:
+        transform 0.4s var(--ease-spring),
+        opacity var(--speed-fast) var(--ease-smooth);
+    will-change: transform, opacity;
+}
+
+/* 侧边栏行 悬停触发果冻动画 */
+.nav-folder-title:hover,
+.nav-file-title:hover {
+    animation: jelly-wiggle 0.65s both;
+    background-position: 120% 0;
+    filter: brightness(1.03) saturate(1.02);
+    z-index: 10;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 4px 15px var(--shadow-ambient),
+        0 8px 25px rgba(88, 166, 255, 0.08);
+}
+.nav-folder-title:hover::before,
+.nav-file-title:hover::before {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* 侧边栏行内图标+文字微动效 */
+.nav-folder-title .nav-icon,
+.nav-folder-title .nav-folder-title-content,
+.nav-file-title .nav-icon,
+.nav-file-title .nav-file-title-content {
+    display: inline-block;
+    transition:
+        transform var(--speed-fast) var(--ease-spring),
+        text-shadow var(--speed-fast) ease;
+    will-change: transform;
+}
+.nav-folder-title:hover .nav-icon,
+.nav-folder-title:hover .nav-folder-title-content,
+.nav-file-title:hover .nav-icon,
+.nav-file-title:hover .nav-file-title-content {
+    transform: translateY(-0.6px);
+    text-shadow: 0 1px 3px rgba(88, 166, 255, 0.2);
+}
+
+/* 侧边栏相邻行涟漪扩散 */
+.nav-folder-title:hover ~ .nav-folder-title,
+.nav-folder-title:hover ~ .nav-file-title,
+.nav-file-title:hover ~ .nav-folder-title,
+.nav-file-title:hover ~ .nav-file-title {
+    animation: ripple-subtle-down 0.6s var(--speed-fast) both;
+}
+.nav-folder-title:has(~ .nav-folder-title:hover),
+.nav-folder-title:has(~ .nav-file-title:hover),
+.nav-file-title:has(~ .nav-folder-title:hover),
+.nav-file-title:has(~ .nav-file-title:hover) {
+    animation: ripple-subtle-up 0.6s var(--speed-fast) both;
+}
+
+/* ===========================================================
+   3. 编辑器行动画（源码模式+阅读模式 大振幅版）
+=========================================================== */
+.cm-line,
+.markdown-preview-view p,
+.markdown-preview-view li,
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6,
+.markdown-preview-view blockquote {
+    position: relative;
+    overflow: visible;
+    border-radius: var(--hover-radius);
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    isolation: isolate;
+
+    background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--glow-color-subtle) 20%,
+        var(--glow-color) 50%,
+        var(--glow-color-subtle) 80%,
+        transparent 100%
+    );
+    background-size: 220% 100%;
+    background-position: -180% 0;
+
+    transition:
+        transform 0.4s var(--ease-spring),
+        background-position var(--speed-slow) var(--ease-smooth),
+        box-shadow var(--speed-fast) var(--ease-smooth),
+        filter var(--speed-fast) var(--ease-smooth),
+        z-index 0.1s;
+    z-index: 1;
+    will-change: transform, opacity;
+}
+
+/* 编辑器行 聚光水晕 */
+.cm-line::before,
+.markdown-preview-view p::before,
+.markdown-preview-view li::before,
+.markdown-preview-view h1::before,
+.markdown-preview-view h2::before,
+.markdown-preview-view h3::before,
+.markdown-preview-view h4::before,
+.markdown-preview-view h5::before,
+.markdown-preview-view h6::before,
+.markdown-preview-view blockquote::before {
+    content: '';
+    position: absolute;
+    inset: -5px -18px;
+    border-radius: calc(var(--hover-radius) + 5px);
+    pointer-events: none;
+    z-index: -1;
+
+    background: radial-gradient(
+        ellipse at 0% 50%,
+        var(--glow-color-strong) 0%,
+        var(--glow-color-subtle) 55%,
+        transparent 85%
+    );
+    opacity: 0;
+    transform: translate3d(-18px, 0, 0) scale(0.85);
+    transition:
+        transform 0.4s var(--ease-spring),
+        opacity var(--speed-fast) var(--ease-smooth);
+    will-change: transform, opacity;
+}
+
+/* 编辑器行 悬停触发大振幅果冻动画 */
+.cm-line:hover,
+.markdown-preview-view p:hover,
+.markdown-preview-view li:hover,
+.markdown-preview-view h1:hover,
+.markdown-preview-view h2:hover,
+.markdown-preview-view h3:hover,
+.markdown-preview-view h4:hover,
+.markdown-preview-view h5:hover,
+.markdown-preview-view h6:hover,
+.markdown-preview-view blockquote:hover {
+    animation: jelly-wiggle 0.7s both;
+    background-position: 120% 0;
+    filter: brightness(1.04) saturate(1.03);
+    z-index: 10;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.06),
+        0 8px 24px var(--shadow-ambient),
+        0 16px 42px rgba(88, 166, 255, 0.1);
+}
+.cm-line:hover::before,
+.markdown-preview-view p:hover::before,
+.markdown-preview-view li:hover::before,
+.markdown-preview-view h1:hover::before,
+.markdown-preview-view h2:hover::before,
+.markdown-preview-view h3:hover::before,
+.markdown-preview-view h4:hover::before,
+.markdown-preview-view h5:hover::before,
+.markdown-preview-view h6:hover::before,
+.markdown-preview-view blockquote:hover::before {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* 编辑器行内文字微动效 */
+.cm-line span,
+.markdown-preview-view p > *,
+.markdown-preview-view li > * {
+    display: inline-block;
+    transition:
+        transform var(--speed-fast) var(--ease-spring),
+        text-shadow var(--speed-fast) ease;
+    will-change: transform;
+}
+.cm-line:hover span,
+.markdown-preview-view p:hover > *,
+.markdown-preview-view li:hover > * {
+    transform: translateY(-1px);
+    text-shadow: 0 2px 4px rgba(88, 166, 255, 0.25);
+}
+
+/* 编辑器相邻行涟漪扩散 */
+.cm-line:hover ~ .cm-line {
+    animation: ripple-subtle-down 0.65s var(--speed-fast) both;
+}
+.cm-line:has(~ .cm-line:hover) {
+    animation: ripple-subtle-up 0.65s var(--speed-fast) both;
+}
+
+/* 编辑器当前激活行 强化效果 */
+.cm-activeLine {
+    position: relative;
+    border-radius: var(--hover-radius);
+    transition:
+        transform var(--speed-base) var(--ease-spring),
+        box-shadow var(--speed-fast) var(--ease-smooth);
+}
+.cm-activeLine::after {
+    content: '';
+    position: absolute;
+    left: -12px;
+    top: 8%;
+    bottom: 8%;
+    width: 4px;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, var(--glow-color-strong), var(--glow-color-subtle));
+    transform: scaleY(0.2);
+    opacity: 0.4;
+    transition:
+        transform var(--speed-base) var(--ease-spring),
+        opacity var(--speed-fast) var(--ease-smooth);
+    will-change: transform, opacity;
+}
+.cm-activeLine:hover::after {
+    opacity: 1;
+    transform: scaleY(1);
+}
+.cm-activeLine:hover {
+    transform: translate3d(14px, 0, 0) scale(1.015);
+    box-shadow:
+        inset 0 0 0 1px var(--glow-color),
+        0 0 22px var(--glow-color-subtle),
+        0 12px 36px var(--shadow-ambient);
+}
+
+/* 编辑器行号联动反馈 */
+.cm-gutterElement {
+    transition: transform var(--speed-fast) var(--ease-spring), color var(--speed-fast) ease;
+    will-change: transform;
+}
+.cm-activeLine .cm-gutterElement {
+    transform: translateX(5px);
+    color: var(--glow-color-strong);
+}
+
+/* 光标与选区优化 */
+.cm-cursor {
+    transition: transform var(--speed-fast) var(--ease-spring);
+}
+.cm-activeLine:hover .cm-cursor {
+    transform: scaleY(1.15);
+}
+.cm-selectionBackground {
+    border-radius: 4px;
+    transition: border-radius var(--speed-fast) ease;
+}
+
+/* ===========================================================
+   4. 阅读模式布局适配
+=========================================================== */
+.markdown-preview-view p,
+.markdown-preview-view li {
+    padding: 2px 0 2px 6px;
+    margin: 0;
+}
+.markdown-preview-view p + p {
+    margin-top: 0.3em;
+}
+.markdown-preview-view li + li {
+    margin-top: 0.15em;
+}
+
+/* ===========================================================
+   5. 共用物理动画关键帧（自动适配两边的幅度参数）
+=========================================================== */
+@keyframes jelly-wiggle {
+    0% {
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) skewX(0deg);
+    }
+    15% {
+        transform: translate3d(var(--hover-shift), 0, 0) scale3d(var(--hover-scale), 0.93, 1) skewX(2.5deg);
+    }
+    30% {
+        transform: translate3d(calc(var(--hover-shift) * 0.35), 0, 0) scale3d(0.985, 1.04, 1) skewX(-1.8deg);
+    }
+    45% {
+        transform: translate3d(calc(var(--hover-shift) * 1.15), 0, 0) scale3d(1.012, 0.985, 1) skewX(1deg);
+    }
+    60% {
+        transform: translate3d(calc(var(--hover-shift) * 0.97), 0, 0) scale3d(0.997, 1.005, 1) skewX(-0.4deg);
+    }
+    80%, 100% {
+        transform: translate3d(var(--hover-shift), 0, 0) scale3d(var(--hover-scale), 1, 1) skewX(0deg);
+    }
+}
+
+@keyframes ripple-subtle-down {
+    0% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1) skewX(0deg); }
+    30% { transform: translate3d(calc(var(--hover-shift) * 0.28), 0.3px, 0) scale3d(1.005, 0.988, 1) skewX(0.8deg); }
+    60% { transform: translate3d(calc(var(--hover-shift) * -0.08), -0.15px, 0) scale3d(0.997, 1.002, 1) skewX(-0.3deg); }
+    100% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1) skewX(0deg); }
+}
+
+@keyframes ripple-subtle-up {
+    0% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1) skewX(0deg); }
+    30% { transform: translate3d(calc(var(--hover-shift) * -0.21), -0.6px, 0) scale3d(0.997, 0.992, 1) skewX(-0.8deg); }
+    60% { transform: translate3d(calc(var(--hover-shift) * 0.06), 0.3px, 0) scale3d(1.002, 1.002, 1) skewX(0.3deg); }
+    100% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1) skewX(0deg); }
+}
+
+/* ===========================================================
+   文件栏左侧彩色竖线标记
+   说明：只在文件/文件夹悬停或激活时显示彩色竖线
+=========================================================== */
+:root {
+    /* 左侧竖线颜色 */
+    --file-bar-line-color: rgba(88, 166, 255, 0.9);
+    --file-bar-line-hover-color: rgba(138, 43, 226, 0.9);
+    --file-bar-line-active-color: rgba(255, 88, 120, 0.9);
+
+    /* 竖线粗细 */
+    --file-bar-line-width: 3px;
+
+    /* 竖线左侧距离 */
+    --file-bar-line-left: 0px;
+
+    /* 竖线圆角 */
+    --file-bar-line-radius: 999px;
+}
+
+/* 文件栏容器基础样式 */
+.nav-files-container {
+    position: relative;
+    padding-left: 0 !important;
+}
+
+/* 每一行文件/文件夹左侧插入彩色竖线 */
+.nav-folder-title,
+.nav-file-title {
+    position: relative;
+    padding-left: calc(var(--file-bar-line-width) + 10px) !important;
+}
+
+.nav-folder-title::before,
+.nav-file-title::before {
+    content: '';
+    position: absolute;
+    left: var(--file-bar-line-left);
+    top: 10%;
+    bottom: 10%;
+    width: var(--file-bar-line-width);
+    border-radius: var(--file-bar-line-radius);
+    background: var(--file-bar-line-color);
+    opacity: 0.6;
+    transform: scaleY(0.5);
+    transition:
+        transform 0.32s var(--ease-spring),
+        opacity 0.32s ease,
+        background 0.32s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* 悬停时竖线变亮、变高 */
+.nav-folder-title:hover::before,
+.nav-file-title:hover::before {
+    background: var(--file-bar-line-hover-color);
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* 当前激活文件/文件夹使用强调色 */
+.nav-folder-title.is-active::before,
+.nav-file-title.is-active::before {
+    background: var(--file-bar-line-active-color);
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* 兼容其他主题的 active 类 */
+.nav-folder-title.active::before,
+.nav-file-title.active::before {
+    background: var(--file-bar-line-active-color);
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* ===========================================================
+   【关键修改】仅让 Callout（标注块）内的段落保留手动换行
+   不影响正文段落或其他元素
+=========================================================== */
+.callout p {
+    white-space: pre-line !important;   /* 保留换行，合并多余空格 */
+}

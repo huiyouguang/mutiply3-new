@@ -1,0 +1,223 @@
+/* ============================================================
+   状态栏 - 独立色块 + 》分割符 + 流动霓虹
+   ============================================================ */
+
+.status-bar {
+  /* ----- 定位 ----- */
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 5px !important;
+  z-index: 99999 !important;
+
+  /* ----- 尺寸变量 ----- */
+  --segment-radius: 12px;
+  --segment-padding-x: 14px;
+  --bar-height: 40px;
+  --font-size: 15px;
+  --font-family: "JetBrains Mono", "Fira Code", monospace;
+
+  /* ----- 配色（柔和霓虹感） ----- */
+  --color-1: #89b4fa;
+  --color-2: #f9e2af;
+  --color-3: #cba6f7;
+  --color-4: #94e2d5;
+  --color-5: #f38ba8;
+
+  /* ----- 自身透明 ----- */
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  
+  height: var(--bar-height) !important;
+  padding: 0 !important;
+  
+  font-family: var(--font-family) !important;
+  font-size: var(--font-size) !important;
+  font-weight: 600;
+  line-height: 1;
+  
+  border-radius: var(--segment-radius) !important;
+  
+  /* ===== 流动霓虹边框 ===== */
+  box-shadow: 
+    0 0 6px 3px rgba(255, 107, 107, 0.30),
+    0 0 16px 6px rgba(255, 215, 0, 0.18),
+    0 0 30px 10px rgba(77, 150, 255, 0.12) !important;
+  
+  animation: neon-flow-shadow 4s ease-in-out infinite alternate;
+}
+
+/* ----- 霓虹流动动画 ----- */
+@keyframes neon-flow-shadow {
+  0% {
+    box-shadow: 
+      0 0 6px 3px rgba(255, 107, 107, 0.40),
+      0 0 18px 6px rgba(255, 215, 0, 0.22),
+      0 0 32px 10px rgba(77, 150, 255, 0.18) !important;
+  }
+  33% {
+    box-shadow: 
+      0 0 6px 3px rgba(255, 215, 0, 0.40),
+      0 0 18px 6px rgba(107, 203, 119, 0.22),
+      0 0 32px 10px rgba(255, 107, 107, 0.18) !important;
+  }
+  66% {
+    box-shadow: 
+      0 0 6px 3px rgba(77, 150, 255, 0.40),
+      0 0 18px 6px rgba(155, 89, 182, 0.22),
+      0 0 32px 10px rgba(107, 203, 119, 0.18) !important;
+  }
+  100% {
+    box-shadow: 
+      0 0 6px 3px rgba(155, 89, 182, 0.40),
+      0 0 18px 6px rgba(255, 107, 107, 0.22),
+      0 0 32px 10px rgba(77, 150, 255, 0.18) !important;
+  }
+}
+
+/* ============================================================
+   内部容器
+   ============================================================ */
+.status-bar-items,
+.status-bar-items-left,
+.status-bar-items-right {
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  height: 100%;
+  background: transparent !important;
+}
+
+/* ============================================================
+   每个模块：独立色块 + 》分割符
+   ============================================================ */
+.status-bar-item {
+  /* --- 布局 --- */
+  margin: 0 !important;
+  padding: 0 calc(var(--segment-padding-x) + 18px) !important;
+  padding-left: var(--segment-padding-x) !important;
+  height: 100%;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px;
+  
+  color: #1a1a2e !important;
+  font-weight: 600;
+  border-radius: var(--segment-radius) !important;
+  
+  /* ===== 轻微重叠，保留递进感 ===== */
+  margin-right: -4px !important;
+  
+  position: relative;
+  z-index: 1;
+  
+  /* 物理阴影 */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  
+  transition: filter 0.2s ease, transform 0.15s ease !important;
+  
+  /* 确保文字不被截断 */
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* ----- 每个模块右侧的 》分割符（用 ::after 实现） ----- */
+.status-bar-item::after {
+  content: '»' !important;
+  position: absolute !important;
+  right: 4px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: inline-block !important;
+  font-size: 18px !important;
+  font-weight: 300 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25) !important;
+  
+  /* 让分割符与文字基线对齐 */
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* ----- 最后一段不显示 》分割符 ----- */
+.status-bar-item:last-child::after {
+  display: none !important;
+}
+
+/* ----- 独立一段：没有分割符 ----- */
+.status-bar-item:only-child::after {
+  display: none !important;
+}
+
+/* ============================================================
+   循环配色
+   ============================================================ */
+.status-bar-item:nth-child(5n+1) { background-color: var(--color-1) !important; }
+.status-bar-item:nth-child(5n+2) { background-color: var(--color-2) !important; }
+.status-bar-item:nth-child(5n+3) { background-color: var(--color-3) !important; }
+.status-bar-item:nth-child(5n+4) { background-color: var(--color-4) !important; }
+.status-bar-item:nth-child(5n+5) { background-color: var(--color-5) !important; }
+
+/* ============================================================
+   悬停效果
+   ============================================================ */
+.status-bar-item:hover {
+  filter: brightness(1.08) saturate(1.05) 
+          drop-shadow(0 4px 8px rgba(0, 0, 0, 0.16)) !important;
+  transform: translateY(-1px) translateZ(0);
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* ============================================================
+   隐藏 Obsidian 默认分隔符
+   ============================================================ */
+.status-bar-item::before,
+.status-bar-item-separator {
+  display: none !important;
+  content: none !important;
+}
+
+/* ============================================================
+   修复右侧分组
+   ============================================================ */
+.status-bar-items-right .status-bar-item:first-child {
+  margin-left: 0 !important;
+}
+
+/* ============================================================
+   深色主题
+   ============================================================ */
+.theme-dark .status-bar-item {
+  color: #11111b !important;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+.theme-dark .status-bar-item::after {
+  color: rgba(255, 255, 255, 0.90) !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.40) !important;
+}
+.theme-dark .status-bar-item:hover {
+  filter: brightness(1.12) saturate(1.1) 
+          drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35)) !important;
+}
+
+/* ============================================================
+   浅色主题
+   ============================================================ */
+.theme-light .status-bar-item {
+  color: #1a1a2e !important;
+  filter: saturate(0.85) drop-shadow(0 1px 3px rgba(0, 0, 0, 0.06));
+}
+.theme-light .status-bar-item::after {
+  color: rgba(255, 255, 255, 0.80) !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15) !important;
+}
+.theme-light .status-bar-item:hover {
+  filter: saturate(1) brightness(1.05) 
+          drop-shadow(0 3px 8px rgba(0, 0, 0, 0.10)) !important;
+}

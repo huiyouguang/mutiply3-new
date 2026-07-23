@@ -1,8 +1,0 @@
-{
-  "hyphenate": true,
-  "greedyFallback": true,
-  "minSpacingRatio": 0.9,
-  "tightPenaltyThreshold": 1,
-  "minWidth": 100,
-  "maxCacheEntries": 1000
-}

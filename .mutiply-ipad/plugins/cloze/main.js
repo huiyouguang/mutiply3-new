@@ -396,7 +396,7 @@ var ClozePlugin = class extends import_obsidian3.Plugin {
     this.isSourceHide = false;
     this.isPreviewHide = true;
     this.clozeSelector = () => {
-      const selectors = [".cloze-span"];
+      const selectors = [".cloze-span", ".cloze"];
       if (this.settings.includeHighlighted) {
         selectors.push("mark");
         selectors.push(".cm-highlight");
@@ -628,24 +628,24 @@ var ClozePlugin = class extends import_obsidian3.Plugin {
   }
   initClozeMouseOverReveal($cloze) {
     this.registerDomEvent($cloze, "mouseenter", (event) => {
-      if (this.isPreviewMode()) {
+      if (this.canRevealCloze()) {
         this.setClozeOnHover($cloze, true);
       }
     });
     this.registerDomEvent($cloze, "mouseleave", (event) => {
-      if (this.isPreviewMode()) {
+      if (this.canRevealCloze()) {
         this.setClozeOnHover($cloze, false);
       }
     });
   }
   initPageClickEvent() {
     this.registerDomEvent(document, "click", (event) => {
-      if (this.isPreviewMode()) {
+      if (this.canRevealCloze()) {
         this.toggleHide(utils_default.getClozeEl(event.target));
       }
     });
     this.registerDomEvent(document, "contextmenu", (event) => {
-      if (this.isPreviewMode()) {
+      if (this.canRevealCloze()) {
         this.onRightClick(event, utils_default.getClozeEl(event.target));
       }
     });
@@ -687,8 +687,23 @@ var ClozePlugin = class extends import_obsidian3.Plugin {
       return true;
     return view.getMode() === "preview";
   }
+  isLivePreviewMode() {
+    const view = this.app.workspace.getActiveViewOfType(import_obsidian3.MarkdownView);
+    if (view == null)
+      return false;
+    const mode = view.getMode();
+    const state = view.getState();
+    return mode === "source" && state.source === false;
+  }
+  canRevealCloze() {
+    return this.isPreviewMode() || this.isLivePreviewMode();
+  }
   isAllHide() {
-    return this.isPreviewMode() ? this.isPreviewHide : this.isSourceHide;
+    if (this.isPreviewMode())
+      return this.isPreviewHide;
+    if (this.isLivePreviewMode())
+      return this.isPreviewHide;
+    return this.isSourceHide;
   }
   // Extract and verify tags - works in both preview and edit mode
   checkTags() {
@@ -753,6 +768,12 @@ var ClozePlugin = class extends import_obsidian3.Plugin {
       return;
     if (this.isPreviewMode()) {
       const nodeContainers = leafContainer.querySelectorAll(".markdown-preview-view");
+      nodeContainers.forEach((nodeContainer) => {
+        this.toggleAllHide(nodeContainer, !this.isPreviewHide);
+      });
+      this.isPreviewHide = !this.isPreviewHide;
+    } else if (this.isLivePreviewMode()) {
+      const nodeContainers = leafContainer.querySelectorAll(".markdown-source-view");
       nodeContainers.forEach((nodeContainer) => {
         this.toggleAllHide(nodeContainer, !this.isPreviewHide);
       });

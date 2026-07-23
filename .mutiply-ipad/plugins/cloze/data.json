@@ -4,7 +4,7 @@
   "selectorTag": "#",
   "includeHighlighted": true,
   "includeUnderlined": true,
-  "includeBolded": false,
+  "includeBolded": true,
   "includeItalics": true,
   "includeBracketed": true,
   "includeCurlyBrackets": true,
@@ -12,7 +12,7 @@
   "editorMenuAddCloze": true,
   "editorMenuAddClozeWithHint": true,
   "editorMenuRemoveCloze": false,
-  "hintStrategy": 2,
+  "hintStrategy": 0,
   "hintCount": 20,
   "hintPercentage": 0
 }
