@@ -1,0 +1,950 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "ai-tagger-universe",
+        "version": "1.0.0",
+        "title": "AI Tagger Universe",
+        "description": "AI Tagger Universe Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "1.0.17",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "ℹ️",
+                    "target": "ℹ️"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "💡",
+                    "target": "💡"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Failed to parse URL:",
+                    "target": "解析URL失败："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Error refreshing tag network:",
+                    "target": "刷新标签网络时出错："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "[AI Tagger Debug] Tags before updateNoteTags:",
+                    "target": "[AI标签调试] 更新笔记标签前的标签："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "[AI Tagger Debug] Result from updateNoteTags:",
+                    "target": "[AI标签调试] 更新笔记标签的结果："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Model name (e.g., mistral, llama2, gpt-3.5-turbo)",
+                    "target": "模型名称（例如：mistral、llama2、gpt-3.5-turbo）"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "No file selected",
+                    "target": "未选择文件"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "Loading visualization...",
+                    "target": "正在加载可视化..."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "No tags found in your vault. Add some tags first!",
+                    "target": "在您的仓库中未找到标签。请先添加一些标签！"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "Error refreshing visualization.",
+                    "target": "刷新可视化时出错。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "Error loading visualization. Please try again.",
+                    "target": "加载可视化时出错。请重试。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "Failed to load visualization library. Please check your internet connection.",
+                    "target": "加载可视化库失败。请检查您的互联网连接。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "Error loading visualization library.",
+                    "target": "加载可视化库时出错。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "Error: D3.js library not loaded",
+                    "target": "错误：D3.js库未加载"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "Rendering network...",
+                    "target": "正在渲染网络..."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTooltip",
+                    "source": "Show/Hide API Key",
+                    "target": "显示/隐藏API密钥"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Metadata update timeout, continuing anyway",
+                    "target": "元数据更新超时，继续执行"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Error in metadata change handler:",
+                    "target": "元数据更改处理程序出错："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Error triggering metadata change:",
+                    "target": "触发元数据更改时出错："
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "No valid tags to add",
+                    "target": "没有有效的标签可添加"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Failed to open tag analytics",
+                    "target": "打开标签分析失败"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Please open a note before clearing tags",
+                    "target": "请先打开笔记再清除标签"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Failed to update tags: No result returned",
+                    "target": "更新标签失败：未返回结果"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Failed to complete batch processing",
+                    "target": "批量处理失败"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Please open a note before analyzing",
+                    "target": "请先打开笔记再进行分析"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Failed to analyze note. Please check console for details.",
+                    "target": "分析笔记失败。请查看控制台了解详情。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "mod-cta tag-dedup-close-btn",
+                    "target": "mod-cta tag-dedup-close-btn"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "excluded-info-text muted",
+                    "target": "excluded-info-text muted"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "tag-network-legend-color low",
+                    "target": "tag-network-legend-color low"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "tag-network-legend-color medium",
+                    "target": "tag-network-legend-color medium"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "tag-network-legend-color high",
+                    "target": "tag-network-legend-color high"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "tag-network-doc-panel tag-network-doc-panel-hidden",
+                    "target": "tag-network-doc-panel tag-network-doc-panel-hidden"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "content",
+                    "source": "Simple connection test",
+                    "target": "简单连接测试"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "content",
+                    "source": "Hello",
+                    "target": "你好"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "如果您觉得这个插件有用，请考虑支持我",
+                    "target": "如果您觉得这个插件有用，请考虑支持我"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "库中标签系统的使用统计和健康指标。",
+                    "target": "库中标签系统的使用统计和健康指标。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "节点大小代表标签频率。连接表示同时出现在笔记中的标签。",
+                    "target": "节点大小代表标签频率。连接表示同时出现在笔记中的标签。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "定义可重用的标签集，快速应用到笔记。",
+                    "target": "定义可重用的标签集，快速应用到笔记。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "查找并合并相似标签，保持库整洁有序。",
+                    "target": "查找并合并相似标签，保持库整洁有序。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "If you find this plugin useful, please consider supporting me",
+                    "target": "如果您觉得这个插件有用，请考虑支持我"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Node size represents tag frequency. Connections represent tags that appear together in notes.",
+                    "target": "节点大小代表标签频率。连接代表笔记中同时出现的标签。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Define reusable tag sets for quick application to notes.",
+                    "target": "定义可重复使用的标签集，以便快速应用到笔记中。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Find and merge similar tags to keep your vault organized.",
+                    "target": "查找并合并相似标签，保持你的知识库整洁有序。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Unknown error",
+                    "target": "未知错误"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Connection timeout, please check if the local LLM service is running",
+                    "target": "连接超时，请检查本地 LLM 服务是否正在运行"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Network error, please check if the local service is accessible",
+                    "target": "网络错误，请检查本地服务是否可访问"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Invalid response format from local service",
+                    "target": "本地服务返回的响应格式无效"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Unknown error occurred during connection test",
+                    "target": "连接测试期间发生未知错误"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Connection timeout: Please check your network status",
+                    "target": "连接超时：请检查您的网络状态"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Network error: Unable to reach the API endpoint",
+                    "target": "网络错误：无法访问API端点"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Authentication failed: Please verify your API key",
+                    "target": "认证失败：请验证您的API密钥"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "API endpoint not found: Please verify the URL",
+                    "target": "API端点未找到：请验证URL"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Skipped: Note has no frontmatter",
+                    "target": "已跳过：笔记没有frontmatter"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "No valid frontmatter",
+                    "target": "没有有效的frontmatter"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "No tags to clear",
+                    "target": "没有要清除的标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "No valid tags to add",
+                    "target": "没有要添加的有效标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "No tags found",
+                    "target": "未找到标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "No hierarchical tags found",
+                    "target": "未找到层级标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "No frontmatter found",
+                    "target": "未找到frontmatter"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "YAML parse error",
+                    "target": "YAML 解析错误"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Invalid tag names",
+                    "target": "无效的标签名称"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Old and new tag names are the same",
+                    "target": "新旧标签名称相同"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "No predefined tags available",
+                    "target": "没有可用的预定义标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "No analysis results available",
+                    "target": "没有可用的分析结果"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "No valid tags were found or generated",
+                    "target": "未找到或生成有效标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tags",
+                    "target": "标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Excalidraw",
+                    "target": "Excalidraw"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "success",
+                    "source": "已在 {count} 个文件中重命名标签",
+                    "target": "已在 {count} 个文件中重命名标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "success",
+                    "source": "Renamed tag in {count} files",
+                    "target": "已在 {count} 个文件中重命名标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "summary",
+                    "source": "概要",
+                    "target": "概要"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "summary",
+                    "source": "Summary",
+                    "target": "Summary"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Search: ",
+                    "target": "搜索："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Frequency: ",
+                    "target": "频率："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "LLM 设置",
+                    "target": "LLM 设置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "标签设置",
+                    "target": "标签设置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "支持",
+                    "target": "支持"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "界面",
+                    "target": "界面"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "批量重命名标签",
+                    "target": "批量重命名标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "标签分析仪表板",
+                    "target": "标签分析仪表板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "标签网络可视化",
+                    "target": "标签网络可视化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "标签模板",
+                    "target": "标签模板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "智能标签去重",
+                    "target": "智能标签去重"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "LLM Settings",
+                    "target": "LLM 设置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Tagging Settings",
+                    "target": "标签设置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Support",
+                    "target": "支持"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Interface",
+                    "target": "界面"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Bulk Rename Tag",
+                    "target": "批量重命名标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Tag Analytics Dashboard",
+                    "target": "标签分析仪表盘"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Tag Network Visualization",
+                    "target": "标签网络可视化"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Smart Tag Deduplication",
+                    "target": "智能标签去重"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "warning",
+                    "source": "警告",
+                    "target": "警告"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "warning",
+                    "source": "Warning",
+                    "target": "警告"
+                }
+            ],
+            "regex": [
+                {
+                    "source": "log(`[AI Tagger Debug] ${message}`, data);\n      } else {\n        console.log(`[AI Tagger Debug] ${message}`)",
+                    "target": "log(`[AI Tagger Debug] ${message}`, data);\n      } else {\n        console.log(`[AI Tagger Debug] ${message}`)"
+                },
+                {
+                    "source": "log(`[AI Tagger Debug] ${message}`, data);\n    } else {\n      console.log(`[AI Tagger Debug] ${message}`)",
+                    "target": "log(`[AI Tagger Debug] ${message}`, data);\n    } else {\n      console.log(`[AI Tagger Debug] ${message}`)"
+                },
+                {
+                    "source": "Notice(`Tags saved to ${filePath}`, 3e3);\n        } catch (error) {\n          const message = error instanceof Error ? error.message : \"Unknown error\";\n          new import_obsidian4.Notice(`Error saving tags: ${message}`, 3e3);\n          throw new TagError(`Failed to save tags: ${message}`)",
+                    "target": "Notice(`Tags saved to ${filePath}`, 3e3);\n        } catch (error) {\n          const message = error instanceof Error ? error.message : \"Unknown error\";\n          new import_obsidian4.Notice(`Error saving tags: ${message}`, 3e3);\n          throw new TagError(`Failed to save tags: ${message}`)"
+                },
+                {
+                    "source": "log(\n        `${plugin.t.messages.generateTagsForFolderConfirm.replace(\"{count}\", String(filesInFolder.length))}`\n      )",
+                    "target": "log(\n        `${plugin.t.messages.generateTagsForFolderConfirm.replace(\"{count}\", String(filesInFolder.length))}`\n      )"
+                },
+                {
+                    "source": "log(\n        `${plugin.t.messages.generateTagsForVaultConfirm.replace(\"{count}\", String(files.length))}`\n      )",
+                    "target": "log(\n        `${plugin.t.messages.generateTagsForVaultConfirm.replace(\"{count}\", String(files.length))}`\n      )"
+                },
+                {
+                    "source": "setTitle(`${plugin.t.commands.aiTagSelectedNotes.replace(\"{count}\", String(markdownFiles.length))}`)",
+                    "target": "setTitle(`${plugin.t.commands.aiTagSelectedNotes.replace(\"{count}\", String(markdownFiles.length))}`)"
+                },
+                {
+                    "source": "log(\n                `${plugin.t.messages.generateTagsForSelectedConfirm.replace(\"{count}\", String(markdownFiles.length))}`\n              )",
+                    "target": "log(\n                `${plugin.t.messages.generateTagsForSelectedConfirm.replace(\"{count}\", String(markdownFiles.length))}`\n              )"
+                },
+                {
+                    "source": "log(\n        `${plugin.t.messages.clearTagsForFolderConfirm.replace(\"{count}\", String(filesInFolder.length))}`\n      )",
+                    "target": "log(\n        `${plugin.t.messages.clearTagsForFolderConfirm.replace(\"{count}\", String(filesInFolder.length))}`\n      )"
+                },
+                {
+                    "source": "Notice(`${plugin.t.messages.tagsClearedFrom.replace(\"{count}\", String(result.successCount))}`)",
+                    "target": "Notice(`${plugin.t.messages.tagsClearedFrom.replace(\"{count}\", String(result.successCount))}`)"
+                },
+                {
+                    "source": "setText(\"No file selected\")",
+                    "target": "setText(\"No file selected\")"
+                },
+                {
+                    "source": "setText(`Selected: ${file.name}`)",
+                    "target": "setText(`Selected: ${file.name}`)"
+                },
+                {
+                    "source": "Notice(`${this.t.tagImportExport.importError}: ${msg}`)",
+                    "target": "Notice(`${this.t.tagImportExport.importError}: ${msg}`)"
+                },
+                {
+                    "source": "setText(`${this.currentIndex + 1} / ${this.groups.length}`)",
+                    "target": "setText(`${this.currentIndex + 1} / ${this.groups.length}`)"
+                },
+                {
+                    "source": "Notice(`Error: ${result.message}`)",
+                    "target": "Notice(`Error: ${result.message}`)"
+                },
+                {
+                    "source": "setPlaceholder(\"Model name (e.g., mistral, llama2, gpt-3.5-turbo)\")",
+                    "target": "setPlaceholder(\"Model name (e.g., mistral, llama2, gpt-3.5-turbo)\")"
+                },
+                {
+                    "source": "setTooltip(\"Show/Hide API Key\")",
+                    "target": "setTooltip(\"Show/Hide API Key\")"
+                },
+                {
+                    "source": "setText(\"Loading visualization...\")",
+                    "target": "setText(\"Loading visualization...\")"
+                },
+                {
+                    "source": "setText(\"No tags found in your vault. Add some tags first!\")",
+                    "target": "setText(\"No tags found in your vault. Add some tags first!\")"
+                },
+                {
+                    "source": "setText(\"Error refreshing visualization.\")",
+                    "target": "setText(\"Error refreshing visualization.\")"
+                },
+                {
+                    "source": "setText(\"Failed to load visualization library. Please check your internet connection.\")",
+                    "target": "setText(\"Failed to load visualization library. Please check your internet connection.\")"
+                },
+                {
+                    "source": "setText(\"Error loading visualization library.\")",
+                    "target": "setText(\"Error loading visualization library.\")"
+                },
+                {
+                    "source": "setText(\"Error: D3.js library not loaded\")",
+                    "target": "setText(\"Error: D3.js library not loaded\")"
+                },
+                {
+                    "source": "setText(\"Rendering network...\")",
+                    "target": "setText(\"Rendering network...\")"
+                },
+                {
+                    "source": "setText(`${this.t.tagNetwork.documentsWithTag}: ${d.label} (${docs.length})`)",
+                    "target": "setText(`${this.t.tagNetwork.documentsWithTag}: ${d.label} (${docs.length})`)"
+                },
+                {
+                    "source": "Notice(`${Math.round(processedCount / totalFiles * 100)}%`)",
+                    "target": "Notice(`${Math.round(processedCount / totalFiles * 100)}%`)"
+                },
+                {
+                    "source": "Notice(`Cleared ${successCount} notes`)",
+                    "target": "Notice(`Cleared ${successCount} notes`)"
+                },
+                {
+                    "source": "textContent = \"\"",
+                    "target": "textContent = \"\""
+                },
+                {
+                    "source": "name = \"\"",
+                    "target": "name = \"\""
+                },
+                {
+                    "source": "name: \"openai\"",
+                    "target": "name: \"openai\""
+                },
+                {
+                    "source": "name: \"openai-compatible\"",
+                    "target": "name: \"openai-compatible\""
+                },
+                {
+                    "source": "name: \"deepseek\"",
+                    "target": "name: \"deepseek\""
+                },
+                {
+                    "source": "name: \"aliyun\"",
+                    "target": "name: \"aliyun\""
+                },
+                {
+                    "source": "name: \"claude\"",
+                    "target": "name: \"claude\""
+                },
+                {
+                    "source": "name: \"groq\"",
+                    "target": "name: \"groq\""
+                },
+                {
+                    "source": "name: \"vertex\"",
+                    "target": "name: \"vertex\""
+                },
+                {
+                    "source": "name: \"openrouter\"",
+                    "target": "name: \"openrouter\""
+                },
+                {
+                    "source": "name: \"bedrock\"",
+                    "target": "name: \"bedrock\""
+                },
+                {
+                    "source": "name: \"requesty\"",
+                    "target": "name: \"requesty\""
+                },
+                {
+                    "source": "name: \"cohere\"",
+                    "target": "name: \"cohere\""
+                },
+                {
+                    "source": "name: \"grok\"",
+                    "target": "name: \"grok\""
+                },
+                {
+                    "source": "name: \"mistral\"",
+                    "target": "name: \"mistral\""
+                },
+                {
+                    "source": "name: \"glm\"",
+                    "target": "name: \"glm\""
+                },
+                {
+                    "source": "name: \"mimo\"",
+                    "target": "name: \"mimo\""
+                },
+                {
+                    "source": "name: \"minimax\"",
+                    "target": "name: \"minimax\""
+                },
+                {
+                    "source": "text: `${title}`",
+                    "target": "text: `${title}`"
+                },
+                {
+                    "source": "name = \"YAMLException\"",
+                    "target": "name = \"YAMLException\""
+                },
+                {
+                    "source": "name = \"TagError\"",
+                    "target": "name = \"TagError\""
+                },
+                {
+                    "source": "name: \"target-tag\"",
+                    "target": "name: \"target-tag\""
+                },
+                {
+                    "source": "text: `#${tagInfo.tag}`",
+                    "target": "text: `#${tagInfo.tag}`"
+                },
+                {
+                    "source": "text: ` (${this.t.tagDeduplication.keepTag})`",
+                    "target": "text: ` (${this.t.tagDeduplication.keepTag})`"
+                },
+                {
+                    "source": "name = `tags-export-${new Date().toISOString().split(\"T\")[0]}.csv`",
+                    "target": "name = `tags-export-${new Date().toISOString().split(\"T\")[0]}.csv`"
+                },
+                {
+                    "source": "name = `tags-export-${new Date().toISOString().split(\"T\")[0]}.json`",
+                    "target": "name = `tags-export-${new Date().toISOString().split(\"T\")[0]}.json`"
+                },
+                {
+                    "source": "description: \"\\u5982\\u679C\\u60A8\\u89C9\\u5F97\\u8FD9\\u4E2A\\u63D2\\u4EF6\\u6709\\u7528\\uFF0C\\u8BF7\\u8003\\u8651\\u652F\\u6301\\u6211\"",
+                    "target": "description: \"\\u5982\\u679C\\u60A8\\u89C9\\u5F97\\u8FD9\\u4E2A\\u63D2\\u4EF6\\u6709\\u7528\\uFF0C\\u8BF7\\u8003\\u8651\\u652F\\u6301\\u6211\""
+                },
+                {
+                    "source": "name: \"\\u91CD\\u547D\\u540D\"",
+                    "target": "name: \"\\u91CD\\u547D\\u540D\""
+                },
+                {
+                    "source": "description: \"\\u5E93\\u4E2D\\u6807\\u7B7E\\u7CFB\\u7EDF\\u7684\\u4F7F\\u7528\\u7EDF\\u8BA1\\u548C\\u5065\\u5EB7\\u6307\\u6807\\u3002\"",
+                    "target": "description: \"\\u5E93\\u4E2D\\u6807\\u7B7E\\u7CFB\\u7EDF\\u7684\\u4F7F\\u7528\\u7EDF\\u8BA1\\u548C\\u5065\\u5EB7\\u6307\\u6807\\u3002\""
+                },
+                {
+                    "source": "description: \"\\u8282\\u70B9\\u5927\\u5C0F\\u4EE3\\u8868\\u6807\\u7B7E\\u9891\\u7387\\u3002\\u8FDE\\u63A5\\u8868\\u793A\\u540C\\u65F6\\u51FA\\u73B0\\u5728\\u7B14\\u8BB0\\u4E2D\\u7684\\u6807\\u7B7E\\u3002\"",
+                    "target": "description: \"\\u8282\\u70B9\\u5927\\u5C0F\\u4EE3\\u8868\\u6807\\u7B7E\\u9891\\u7387\\u3002\\u8FDE\\u63A5\\u8868\\u793A\\u540C\\u65F6\\u51FA\\u73B0\\u5728\\u7B14\\u8BB0\\u4E2D\\u7684\\u6807\\u7B7E\\u3002\""
+                },
+                {
+                    "source": "description: \"\\u5B9A\\u4E49\\u53EF\\u91CD\\u7528\\u7684\\u6807\\u7B7E\\u96C6\\uFF0C\\u5FEB\\u901F\\u5E94\\u7528\\u5230\\u7B14\\u8BB0\\u3002\"",
+                    "target": "description: \"\\u5B9A\\u4E49\\u53EF\\u91CD\\u7528\\u7684\\u6807\\u7B7E\\u96C6\\uFF0C\\u5FEB\\u901F\\u5E94\\u7528\\u5230\\u7B14\\u8BB0\\u3002\""
+                },
+                {
+                    "source": "description: \"\\u67E5\\u627E\\u5E76\\u5408\\u5E76\\u76F8\\u4F3C\\u6807\\u7B7E\\uFF0C\\u4FDD\\u6301\\u5E93\\u6574\\u6D01\\u6709\\u5E8F\\u3002\"",
+                    "target": "description: \"\\u67E5\\u627E\\u5E76\\u5408\\u5E76\\u76F8\\u4F3C\\u6807\\u7B7E\\uFF0C\\u4FDD\\u6301\\u5E93\\u6574\\u6D01\\u6709\\u5E8F\\u3002\""
+                },
+                {
+                    "source": "description: \"If you find this plugin useful, please consider supporting me\"",
+                    "target": "description: \"If you find this plugin useful, please consider supporting me\""
+                },
+                {
+                    "source": "name: \"Rename\"",
+                    "target": "name: \"Rename\""
+                },
+                {
+                    "source": "description: \"Node size represents tag frequency. Connections represent tags that appear together in notes.\"",
+                    "target": "description: \"Node size represents tag frequency. Connections represent tags that appear together in notes.\""
+                },
+                {
+                    "source": "description: \"Define reusable tag sets for quick application to notes.\"",
+                    "target": "description: \"Define reusable tag sets for quick application to notes.\""
+                },
+                {
+                    "source": "description: \"Find and merge similar tags to keep your vault organized.\"",
+                    "target": "description: \"Find and merge similar tags to keep your vault organized.\""
+                },
+                {
+                    "source": "text: `${this.plugin.t.dropdowns.ollama}: http://localhost:11434/v1/chat/completions`",
+                    "target": "text: `${this.plugin.t.dropdowns.ollama}: http://localhost:11434/v1/chat/completions`"
+                },
+                {
+                    "source": "text: `${this.plugin.t.dropdowns.localai}: http://localhost:8080/v1/chat/completions`",
+                    "target": "text: `${this.plugin.t.dropdowns.localai}: http://localhost:8080/v1/chat/completions`"
+                },
+                {
+                    "source": "text: `${this.plugin.t.dropdowns.lmStudio}: http://localhost:1234/v1/chat/completions`",
+                    "target": "text: `${this.plugin.t.dropdowns.lmStudio}: http://localhost:1234/v1/chat/completions`"
+                },
+                {
+                    "source": "text: `${this.plugin.t.dropdowns.jan}: http://localhost:1337/v1/chat/completions`",
+                    "target": "text: `${this.plugin.t.dropdowns.jan}: http://localhost:1337/v1/chat/completions`"
+                },
+                {
+                    "source": "text: `${this.plugin.t.dropdowns.koboldcpp}: http://localhost:5001/v1/chat/completions`",
+                    "target": "text: `${this.plugin.t.dropdowns.koboldcpp}: http://localhost:5001/v1/chat/completions`"
+                },
+                {
+                    "source": "name: \"Tags\"",
+                    "target": "name: \"Tags\""
+                },
+                {
+                    "source": "name: \"images\"",
+                    "target": "name: \"images\""
+                },
+                {
+                    "source": "name: \"audio\"",
+                    "target": "name: \"audio\""
+                },
+                {
+                    "source": "name: \"Excalidraw\"",
+                    "target": "name: \"Excalidraw\""
+                },
+                {
+                    "source": "name: \"textgenerator\"",
+                    "target": "name: \"textgenerator\""
+                },
+                {
+                    "source": "name: \"attachments\"",
+                    "target": "name: \"attachments\""
+                },
+                {
+                    "source": "name: \".obsidian\"",
+                    "target": "name: \".obsidian\""
+                },
+                {
+                    "source": "text: \"\\xD7\"",
+                    "target": "text: \"\\xD7\""
+                },
+                {
+                    "source": "text: `${this.plugin.settings.excludedFolders.length} ${this.plugin.t.settings.tagging.patternsConfigured}`",
+                    "target": "text: `${this.plugin.settings.excludedFolders.length} ${this.plugin.t.settings.tagging.patternsConfigured}`"
+                },
+                {
+                    "source": "textContent = \"\\u2139\\uFE0F\"",
+                    "target": "textContent = \"\\u2139\\uFE0F\""
+                },
+                {
+                    "source": "textContent = \"\\u{1F4A1}\"",
+                    "target": "textContent = \"\\u{1F4A1}\""
+                },
+                {
+                    "source": "text: \"Search: \"",
+                    "target": "text: \"Search: \""
+                },
+                {
+                    "source": "text: `${this.t.tagNetwork.repulsionStrength}: `",
+                    "target": "text: `${this.t.tagNetwork.repulsionStrength}: `"
+                },
+                {
+                    "source": "text: \"300\"",
+                    "target": "text: \"300\""
+                },
+                {
+                    "source": "text: `${this.t.tagNetwork.linkDistance}: `",
+                    "target": "text: `${this.t.tagNetwork.linkDistance}: `"
+                },
+                {
+                    "source": "text: \"100\"",
+                    "target": "text: \"100\""
+                },
+                {
+                    "source": "text: \"Frequency: \"",
+                    "target": "text: \"Frequency: \""
+                },
+                {
+                    "source": "textContent = `Frequency: ${d.frequency}`",
+                    "target": "textContent = `Frequency: ${d.frequency}`"
+                },
+                {
+                    "source": "textContent = `Connected to ${connectedNodes} other tags`",
+                    "target": "textContent = `Connected to ${connectedNodes} other tags`"
+                },
+                {
+                    "source": "text: `#${tag.name}`",
+                    "target": "text: `#${tag.name}`"
+                },
+                {
+                    "source": "textContent = `#${tag.name}`",
+                    "target": "textContent = `#${tag.name}`"
+                },
+                {
+                    "source": "text: `... +${orphanedTags.length - 20} more`",
+                    "target": "text: `... +${orphanedTags.length - 20} more`"
+                },
+                {
+                    "source": "text: `${this.t.tagAnalytics.untaggedNotesSection} (${data.untaggedNotes.length})`",
+                    "target": "text: `${this.t.tagAnalytics.untaggedNotesSection} (${data.untaggedNotes.length})`"
+                },
+                {
+                    "source": "text: `... +${data.untaggedNotes.length - 10} more`",
+                    "target": "text: `... +${data.untaggedNotes.length - 10} more`"
+                },
+                {
+                    "source": "text: `${this.t.tagAnalytics.notesWithTag}: #${this.tagName}`",
+                    "target": "text: `${this.t.tagAnalytics.notesWithTag}: #${this.tagName}`"
+                }
+            ]
+        }
+    }
+}

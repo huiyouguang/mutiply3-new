@@ -1,0 +1,83 @@
+/**************************************/
+/* 纯功能型 WYSIWYG 优化 - 无颜色干预 */
+/**************************************/
+
+/* === 核心输入优化 === */
+.cm-s-obsidian .CodeMirror-line {
+    font-weight: 400; /* 保持字体一致性 */
+}
+
+/* === 列表系统优化 === */
+/* 1. 基础列表符号（修复输入中断问题） */
+.cm-formatting-list {
+    opacity: 0.7 !important;
+    margin-right: 2px;
+}
+
+/* 2. 无序列表：将 "-" 替换为 • 但不影响输入 */
+.cm-formatting-list-ul {
+    position: relative;
+    color: transparent !important; /* 隐藏原生横线 */
+    width: 8px; /* 固定宽度防止光标偏移 */
+}
+.cm-formatting-list-ul::after {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+    pointer-events: none; /* 确保点击穿透 */
+}
+
+/* 3. 有序列表：保持数字可见 */
+.cm-formatting-list-ol {
+    opacity: 0.8;
+}
+
+/* 4. 任务列表：固定复选框间距 */
+.cm-formatting-task {
+    margin-right: 4px !important;
+}
+
+/* === Markdown 符号动态可见性 === */
+/* 非活动行淡化语法符号 */
+.CodeMirror-line:not(.CodeMirror-activeline) 
+.cm-formatting:not(.cm-formatting-list, .cm-formatting-task) {
+    opacity: 0.3;
+    transition: opacity 0.15s ease;
+}
+
+/* 悬停时临时显示符号 */
+.CodeMirror-line:hover .cm-formatting {
+    opacity: 0.6 !important;
+}
+
+/* === 块级元素优化 === */
+/* 1. 引用块：仅保留左侧线 */
+.HyperMD-quote {
+    border-left: 2px solid var(--background-modifier-border);
+    padding-left: 12px;
+    margin-left: 2px;
+}
+
+/* 2. 代码块：极简衬底 */
+.HyperMD-codeblock {
+    background-color: var(--background-code);
+    border-radius: 2px;
+}
+
+/* === 交互增强 === */
+/* 1. 光标所在行微调 */
+.CodeMirror-activeline-background {
+    background-color: var(--background-primary-alt) !important;
+}
+
+/* 2. 标签保持原生样式仅加圆角 */
+.cm-hashtag {
+    border-radius: 12px;
+    padding: 0 4px;
+}
+
+/* 3. 链接不修饰 */
+.cm-url, .cm-link {
+    text-decoration: none !important;
+}

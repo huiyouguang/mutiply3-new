@@ -1,0 +1,954 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "metadata-auto-classifier",
+        "version": "1.0.0",
+        "title": "Metadata Auto Classifier",
+        "description": "Metadata Auto Classifier Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "1.12.9",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Get your API key here",
+                    "target": "在此获取您的 API 密钥"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "textContent",
+                    "source": "Requires ChatGPT Pro subscription",
+                    "target": "需要 ChatGPT Pro 订阅"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "confirm",
+                    "source": "Are you sure you want to disconnect?",
+                    "target": "您确定要断开连接吗？"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[API Error] Request failed",
+                    "target": "[API 错误] 请求失败"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[API Error] Server error",
+                    "target": "[API 错误] 服务器错误"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[API Error] Client error",
+                    "target": "[API 错误] 客户端错误"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[API Streaming Error]",
+                    "target": "[API 流式错误]"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[API Streaming Error] Request failed",
+                    "target": "[API 流式错误] 请求失败"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "Failed to setup commands",
+                    "target": "设置命令失败"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "OAuth callback server stopped",
+                    "target": "OAuth 回调服务器已停止"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "[Codex] Tokens refreshed successfully",
+                    "target": "[Codex] 令牌刷新成功"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "Migrated codexConnection to Codex provider oauth field",
+                    "target": "已将 codexConnection 迁移至 Codex 提供者的 oauth 字段"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Cancel",
+                    "target": "取消"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Save",
+                    "target": "保存"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Values that the AI can use as suggestions",
+                    "target": "AI 可用作建议的值"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Add custom instructions to provide more context for classification.",
+                    "target": "添加自定义指令以提供更多分类上下文。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Maximum count",
+                    "target": "最大数量"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Available options",
+                    "target": "可用选项"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Custom classification rules",
+                    "target": "自定义分类规则"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Frontmatters",
+                    "target": "前置元数据"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Option1, Option2, Option3...",
+                    "target": "选项1、选项2、选项3..."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Enter specific classification rules or additional context here...",
+                    "target": "在此输入具体的分类规则或其他上下文..."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTooltip",
+                    "source": "Browse files",
+                    "target": "浏览文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "custom-prompt-container mac-custom-prompt-container",
+                    "target": "custom-prompt-container mac-custom-prompt-container"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "popular-models-container mac-grid-container",
+                    "target": "popular-models-container mac-grid-container"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "model-option mac-model-option",
+                    "target": "model-option mac-model-option"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "model-option custom-option mac-model-option",
+                    "target": "model-option custom-option mac-model-option"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "button-container mac-button-container",
+                    "target": "button-container mac-button-container"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Select the provider for this model.",
+                    "target": "为此模型选择提供商。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "The name of the model you want to display in the interface.",
+                    "target": "您希望在界面中显示的模型名称。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "The identifier of the model from your provider. Typically a short name without spaces.",
+                    "target": "来自您的提供商的模型标识符。通常是一个不带空格的短名称。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Add a model to get started",
+                    "target": "添加一个模型以开始使用"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Select a predefined provider",
+                    "target": "选择一个预定义的提供商"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "The complete API URL including endpoint (e.g., https://api.openai.com/v1/chat/completions)",
+                    "target": "完整的 API URL，包括端点（例如，https://api.openai.com/v1/chat/completions）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "Your API key for this provider",
+                    "target": "您为此提供商准备的 API 密钥"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "OAuth authentication requires the desktop app.",
+                    "target": "OAuth 身份验证需要桌面应用程序。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "desc",
+                    "source": "If you find Auto Classifier valuable, consider supporting its development!",
+                    "target": "如果您觉得 Auto Classifier 有价值，请考虑支持其开发！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Array of classified tags or categories",
+                    "target": "分类标签或类别的数组"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "A number between 0 and 1 indicating confidence in the classification",
+                    "target": "一个介于 0 和 1 之间的数字，表示分类的置信度"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Classify content and return structured metadata",
+                    "target": "对内容进行分类并返回结构化元数据"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Array of classification tags or metadata values",
+                    "target": "分类标签或元数据值的数组"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Confidence score from 0 to 1",
+                    "target": "置信度分数，范围从0到1"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Pick only from the reference list. Match exactly, including case and slashes.\nValid: [\"technology/ai\"]\nInvalid: [\"string\"], [\"Technology\"], [\"technology - ai\"]",
+                    "target": "仅从参考列表中选取。精确匹配，包括大小写和斜杠。\n有效：[\"technology/ai\"]\n无效：[\"string\"]、[\"Technology\"]、[\"technology - ai\"]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Float between 0 and 1. Do not exceed 1. Use lower value if uncertain.\nValid: 0.83\nInvalid: 1.23, \"high\"",
+                    "target": "0到1之间的浮点数。不要超过1。如果不确定，请使用较低的值。\n有效：0.83\n无效：1.23、\"high\""
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Array of classified tags or categories from the reference list",
+                    "target": "来自参考列表的分类标签或类别数组"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Confidence score between 0 and 1",
+                    "target": "0到1之间的置信度分数"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Display name is required",
+                    "target": "显示名称为必填项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Model ID is required",
+                    "target": "模型ID为必填项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Provider is required",
+                    "target": "提供商为必填项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Provider name is required. Please enter a name for your provider.",
+                    "target": "提供商名称为必填项。请为您的提供商输入一个名称。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "API URL is required. Please enter a valid API endpoint URL.",
+                    "target": "需要提供API URL。请输入有效的API端点URL。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Please enter a valid URL (e.g., https://api.example.com/v1/chat/completions)",
+                    "target": "请输入有效的URL（例如：https://api.example.com/v1/chat/completions）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "message",
+                    "source": "Please connect your account before saving.",
+                    "target": "请先连接您的账户再保存。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "OpenAI",
+                    "target": "OpenAI"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "GPT-4.1 Mini",
+                    "target": "GPT-4.1 Mini"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Custom Provider",
+                    "target": "自定义提供商"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "GPT-4 Turbo",
+                    "target": "GPT-4 Turbo"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "GPT-3.5 Turbo",
+                    "target": "GPT-3.5 Turbo"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Anthropic",
+                    "target": "Anthropic"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Claude Opus 4",
+                    "target": "Claude Opus 4"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Claude Sonnet 4",
+                    "target": "Claude Sonnet 4"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Claude Sonnet 3.7",
+                    "target": "Claude Sonnet 3.7"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "OpenRouter",
+                    "target": "OpenRouter"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Llama 4 Maverick (Free)",
+                    "target": "Llama 4 Maverick（免费）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Llama 4 Scout (Free)",
+                    "target": "Llama 4 Scout（免费）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Auto (Best for prompt)",
+                    "target": "自动（最适合提示）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Ollama",
+                    "target": "Ollama"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Llama 3.1 8B",
+                    "target": "Llama 3.1 8B"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Llama 3.2 3B",
+                    "target": "Llama 3.2 3B"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Llama 3.3 70B",
+                    "target": "Llama 3.3 70B"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Qwen2.5 7B",
+                    "target": "Qwen2.5 7B"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "DeepSeek",
+                    "target": "DeepSeek"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "LM Studio",
+                    "target": "LM Studio"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Qwen2.5 7B Instruct",
+                    "target": "Qwen2.5 7B Instruct"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Meta Llama 3.1 8B Instruct",
+                    "target": "Meta Llama 3.1 8B Instruct"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Ministral 8B Instruct",
+                    "target": "Ministral 8B Instruct"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Codex",
+                    "target": "Codex"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "GPT-5.2 (Recommended)",
+                    "target": "GPT-5.2（推荐）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Classification Rule",
+                    "target": "分类规则"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Provider",
+                    "target": "提供商"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Display name",
+                    "target": "显示名称"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Model ID",
+                    "target": "模型 ID"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "No models configured",
+                    "target": "未配置任何模型"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Provider Preset",
+                    "target": "提供商预设"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Provider Name",
+                    "target": "提供商名称"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "API URL",
+                    "target": "API URL"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "API Key",
+                    "target": "API 密钥"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Authentication",
+                    "target": "身份验证"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Name",
+                    "target": "名称"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Link Type",
+                    "target": "链接类型"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Overwrite",
+                    "target": "覆盖"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Support Auto Classifier",
+                    "target": "支持自动分类器"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Enter display name",
+                    "target": "输入显示名称"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Enter model ID",
+                    "target": "输入模型 ID"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Enter provider name",
+                    "target": "输入提供商名称"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Enter API key",
+                    "target": "输入 API 密钥"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Enter name",
+                    "target": "输入名称"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Popular models",
+                    "target": "热门模型"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Choose from commonly used models or enter custom model details.",
+                    "target": "从常用模型中选择或输入自定义模型详情。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Custom model",
+                    "target": "自定义模型"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Models",
+                    "target": "模型"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "+ Add model",
+                    "target": "+ 添加模型"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Test",
+                    "target": "测试"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Edit",
+                    "target": "编辑"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Delete",
+                    "target": "删除"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Provider settings",
+                    "target": "提供商设置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Providers",
+                    "target": "提供商"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "+ Add provider",
+                    "target": "+ 添加提供商"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "API configuration",
+                    "target": "API 配置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Buy Me a Coffee",
+                    "target": "请我喝杯咖啡"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "+ Add frontmatter",
+                    "target": "+ 添加前置元数据"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "tooltip",
+                    "source": "Edit Frontmatter",
+                    "target": "编辑前置元数据"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "tooltip",
+                    "source": "Delete Frontmatter",
+                    "target": "删除前置元数据"
+                }
+            ],
+            "regex": [
+                {
+                    "source": "error(`[${this.prefix}] error | ${e}${o}`)",
+                    "target": "error(`[${this.prefix}] error | ${e}${o}`)"
+                },
+                {
+                    "source": "error(\"[API Streaming Error]\",new Error(`HTTP ${r.status}: ${r.text}`)),new b(`Streaming request failed (HTTP ${r.status}): ${r.text}`,r.status,r.text)}let a=mt(r.text),l=\"\";for(let c of a){if(c.type===\"error\")",
+                    "target": "error(\"[API Streaming Error]\",new Error(`HTTP ${r.status}: ${r.text}`)),new b(`Streaming request failed (HTTP ${r.status}): ${r.text}`,r.status,r.text)}let a=mt(r.text),l=\"\";for(let c of a){if(c.type===\"error\")"
+                },
+                {
+                    "source": "error(\"[API Streaming Error] Request failed\",i),new Error(`Streaming request failed: ${i.message}`))}throw i!=null?i:new Error(\"Streaming request failed after all retries\")",
+                    "target": "error(\"[API Streaming Error] Request failed\",i),new Error(`Streaming request failed: ${i.message}`))}throw i!=null?i:new Error(\"Streaming request failed after all retries\")"
+                },
+                {
+                    "source": "setTitle(`Edit Setting: ${this.localState.name}`)",
+                    "target": "setTitle(`Edit Setting: ${this.localState.name}`)"
+                },
+                {
+                    "source": "setName(\"Maximum count\")",
+                    "target": "setName(\"Maximum count\")"
+                },
+                {
+                    "source": "setName(\"Available options\")",
+                    "target": "setName(\"Available options\")"
+                },
+                {
+                    "source": "setDesc(\"Values that the AI can use as suggestions\")",
+                    "target": "setDesc(\"Values that the AI can use as suggestions\")"
+                },
+                {
+                    "source": "setTooltip(\"Browse files\")",
+                    "target": "setTooltip(\"Browse files\")"
+                },
+                {
+                    "source": "setPlaceholder(\"Option1, Option2, Option3...\")",
+                    "target": "setPlaceholder(\"Option1, Option2, Option3...\")"
+                },
+                {
+                    "source": "setName(\"Custom classification rules\")",
+                    "target": "setName(\"Custom classification rules\")"
+                },
+                {
+                    "source": "setDesc(\"Add custom instructions to provide more context for classification.\")",
+                    "target": "setDesc(\"Add custom instructions to provide more context for classification.\")"
+                },
+                {
+                    "source": "setPlaceholder(\"Enter specific classification rules or additional context here...\")",
+                    "target": "setPlaceholder(\"Enter specific classification rules or additional context here...\")"
+                },
+                {
+                    "source": "name:\"GPT-4.1 Mini\"",
+                    "target": "name:\"GPT-4.1 Mini\""
+                },
+                {
+                    "source": "description:\"Array of classified tags or categories\"",
+                    "target": "description:\"Array of classified tags or categories\""
+                },
+                {
+                    "source": "description:\"A number between 0 and 1 indicating confidence in the classification\"",
+                    "target": "description:\"A number between 0 and 1 indicating confidence in the classification\""
+                },
+                {
+                    "source": "description:\"Classify content and return structured metadata\"",
+                    "target": "description:\"Classify content and return structured metadata\""
+                },
+                {
+                    "source": "description:\"Array of classification tags or metadata values\"",
+                    "target": "description:\"Array of classification tags or metadata values\""
+                },
+                {
+                    "source": "description:\"Confidence score from 0 to 1\"",
+                    "target": "description:\"Confidence score from 0 to 1\""
+                },
+                {
+                    "source": "description:`Pick only from the reference list. Match exactly, including case and slashes.\nValid: [\"technology/ai\"]\nInvalid: [\"string\"], [\"Technology\"], [\"technology - ai\"]`",
+                    "target": "description:`Pick only from the reference list. Match exactly, including case and slashes.\nValid: [\"technology/ai\"]\nInvalid: [\"string\"], [\"Technology\"], [\"technology - ai\"]`"
+                },
+                {
+                    "source": "description:`Float between 0 and 1. Do not exceed 1. Use lower value if uncertain.\nValid: 0.83\nInvalid: 1.23, \"high\"`",
+                    "target": "description:`Float between 0 and 1. Do not exceed 1. Use lower value if uncertain.\nValid: 0.83\nInvalid: 1.23, \"high\"`"
+                },
+                {
+                    "source": "description:\"Array of classified tags or categories from the reference list\"",
+                    "target": "description:\"Array of classified tags or categories from the reference list\""
+                },
+                {
+                    "source": "description:\"Confidence score between 0 and 1\"",
+                    "target": "description:\"Confidence score between 0 and 1\""
+                },
+                {
+                    "source": "name:\"Custom Provider\"",
+                    "target": "name:\"Custom Provider\""
+                },
+                {
+                    "source": "name:\"GPT-4 Turbo\"",
+                    "target": "name:\"GPT-4 Turbo\""
+                },
+                {
+                    "source": "name:\"GPT-3.5 Turbo\"",
+                    "target": "name:\"GPT-3.5 Turbo\""
+                },
+                {
+                    "source": "name:\"Claude Opus 4\"",
+                    "target": "name:\"Claude Opus 4\""
+                },
+                {
+                    "source": "name:\"Claude Sonnet 4\"",
+                    "target": "name:\"Claude Sonnet 4\""
+                },
+                {
+                    "source": "name:\"Claude Sonnet 3.7\"",
+                    "target": "name:\"Claude Sonnet 3.7\""
+                },
+                {
+                    "source": "name:\"Llama 4 Maverick (Free)\"",
+                    "target": "name:\"Llama 4 Maverick (Free)\""
+                },
+                {
+                    "source": "name:\"Llama 4 Scout (Free)\"",
+                    "target": "name:\"Llama 4 Scout (Free)\""
+                },
+                {
+                    "source": "name:\"Auto (Best for prompt)\"",
+                    "target": "name:\"Auto (Best for prompt)\""
+                },
+                {
+                    "source": "name:\"Llama 3.1 8B\"",
+                    "target": "name:\"Llama 3.1 8B\""
+                },
+                {
+                    "source": "name:\"Llama 3.2 3B\"",
+                    "target": "name:\"Llama 3.2 3B\""
+                },
+                {
+                    "source": "name:\"Llama 3.3 70B\"",
+                    "target": "name:\"Llama 3.3 70B\""
+                },
+                {
+                    "source": "name:\"Qwen2.5 7B\"",
+                    "target": "name:\"Qwen2.5 7B\""
+                },
+                {
+                    "source": "name:\"LM Studio\"",
+                    "target": "name:\"LM Studio\""
+                },
+                {
+                    "source": "name:\"Qwen2.5 7B Instruct\"",
+                    "target": "name:\"Qwen2.5 7B Instruct\""
+                },
+                {
+                    "source": "name:\"Meta Llama 3.1 8B Instruct\"",
+                    "target": "name:\"Meta Llama 3.1 8B Instruct\""
+                },
+                {
+                    "source": "name:\"Ministral 8B Instruct\"",
+                    "target": "name:\"Ministral 8B Instruct\""
+                },
+                {
+                    "source": "name:\"GPT-5.2 (Recommended)\"",
+                    "target": "name:\"GPT-5.2 (Recommended)\""
+                },
+                {
+                    "source": "text:`${e}\n\n${t}`",
+                    "target": "text:`${e}\n\n${t}`"
+                },
+                {
+                    "source": "name:`Fetch frontmatter: ${e}`",
+                    "target": "name:`Fetch frontmatter: ${e}`"
+                },
+                {
+                    "source": "name:\"Classification Rule\"",
+                    "target": "name:\"Classification Rule\""
+                },
+                {
+                    "source": "text:\"Popular models\"",
+                    "target": "text:\"Popular models\""
+                },
+                {
+                    "source": "text:\"Choose from commonly used models or enter custom model details.\"",
+                    "target": "text:\"Choose from commonly used models or enter custom model details.\""
+                },
+                {
+                    "source": "text:\"Custom model\"",
+                    "target": "text:\"Custom model\""
+                },
+                {
+                    "source": "name:\"Display name\"",
+                    "target": "name:\"Display name\""
+                },
+                {
+                    "source": "name:\"Model ID\"",
+                    "target": "name:\"Model ID\""
+                },
+                {
+                    "source": "text:\"+ Add model\"",
+                    "target": "text:\"+ Add model\""
+                },
+                {
+                    "source": "name:\"No models configured\"",
+                    "target": "name:\"No models configured\""
+                },
+                {
+                    "source": "text:\"Provider settings\"",
+                    "target": "text:\"Provider settings\""
+                },
+                {
+                    "source": "name:\"Provider Preset\"",
+                    "target": "name:\"Provider Preset\""
+                },
+                {
+                    "source": "name:\"Provider Name\"",
+                    "target": "name:\"Provider Name\""
+                },
+                {
+                    "source": "name:\"API URL\"",
+                    "target": "name:\"API URL\""
+                },
+                {
+                    "source": "name:\"API Key\"",
+                    "target": "name:\"API Key\""
+                },
+                {
+                    "source": "textContent=\"Get your API key here\"",
+                    "target": "textContent=\"Get your API key here\""
+                },
+                {
+                    "source": "textContent=\"Requires ChatGPT Pro subscription\"",
+                    "target": "textContent=\"Requires ChatGPT Pro subscription\""
+                },
+                {
+                    "source": "text:\"+ Add provider\"",
+                    "target": "text:\"+ Add provider\""
+                },
+                {
+                    "source": "text:\"API configuration\"",
+                    "target": "text:\"API configuration\""
+                },
+                {
+                    "source": "name:\"Link Type\"",
+                    "target": "name:\"Link Type\""
+                },
+                {
+                    "source": "name:\"Support Auto Classifier\"",
+                    "target": "name:\"Support Auto Classifier\""
+                },
+                {
+                    "source": "text:\"Buy Me a Coffee\"",
+                    "target": "text:\"Buy Me a Coffee\""
+                },
+                {
+                    "source": "text:\"+ Add frontmatter\"",
+                    "target": "text:\"+ Add frontmatter\""
+                },
+                {
+                    "source": "name:`Fetch frontmatter: ${t}`",
+                    "target": "name:`Fetch frontmatter: ${t}`"
+                }
+            ]
+        }
+    }
+}

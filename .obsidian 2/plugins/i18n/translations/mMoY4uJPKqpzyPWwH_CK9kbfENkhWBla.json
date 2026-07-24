@@ -1,0 +1,588 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "callout-manager",
+        "version": "1.0.0",
+        "title": "Callout Manager",
+        "description": "Callout Manager Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "1.1.0",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "title",
+                    "source": "Callout Manager Settings",
+                    "target": "标注管理器设置"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": "The ",
+                    "target": "该"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": " callout",
+                    "target": "标注"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": " has ",
+                    "target": "拥有"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": " and ",
+                    "target": "和"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": "is using the icon ",
+                    "target": "正在使用图标"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": "an invalid color (",
+                    "target": "无效颜色（"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": "the color ",
+                    "target": "颜色"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": "built-in callouts",
+                    "target": "内置标注"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": "custom callouts you created",
+                    "target": "您创建的自定义标注"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "appendText",
+                    "source": "CSS snippet ",
+                    "target": "CSS 片段"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Reset Callout",
+                    "target": "重置标注"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Are you sure?",
+                    "target": "确定吗？"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Manage Callouts",
+                    "target": "管理标注"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Change the callout icon.",
+                    "target": "更改标注图标。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Change the color of the callout.",
+                    "target": "更改标注颜色。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "This is how you will refer to your callout in Markdown.",
+                    "target": "这是在 Markdown 中引用标注的方式。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Create or edit Markdown callouts.",
+                    "target": "创建或编辑 Markdown 标注。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Find callouts in custom CSS snippets.",
+                    "target": "在自定义 CSS 片段中查找标注。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setDesc",
+                    "source": "Reset all the changes you made to callouts.",
+                    "target": "重置对标注所做的所有更改。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Dark Color",
+                    "target": "深色"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Light Color",
+                    "target": "浅色"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Callout Name",
+                    "target": "标注名称"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Manage Callouts",
+                    "target": "管理标注"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Callout Detection",
+                    "target": "标注检测"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "What's New",
+                    "target": "新功能"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Reset Callout Settings",
+                    "target": "重置标注设置"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Reset Custom Callouts",
+                    "target": "重置自定义标注"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Search icons...",
+                    "target": "搜索图标..."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Preview Markdown...",
+                    "target": "预览 Markdown..."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Filter callouts...",
+                    "target": "筛选标注..."
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTooltip",
+                    "source": "Delete Callout",
+                    "target": "删除标注"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTooltip",
+                    "source": "New Callout",
+                    "target": "新建标注"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTooltip",
+                    "source": "More Changelogs",
+                    "target": "更多更新日志"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "Unable to fetch Obsidian stylesheet.",
+                    "target": "无法获取 Obsidian 样式表。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Edit callouts",
+                    "target": "编辑标注"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "subtitle",
+                    "source": "New Callout",
+                    "target": "新建标注"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "This callout has been configured using the plugin's data.json file. To prevent unintentional changes to the configuration, you need to edit it manually.",
+                    "target": "此标注已使用插件的 data.json 文件进行配置。为防止对配置进行意外更改，您需要手动编辑它。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Alternatively, you can reset the callout by clicking the button below twice.",
+                    "target": "或者，您可以通过点击下方按钮两次来重置此标注。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Change the name of this callout.",
+                    "target": "更改此标注的名称。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "This will not update any references in your notes!",
+                    "target": "这不会更新您笔记中的任何引用！"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "About this Callout",
+                    "target": "关于此标注"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "No callouts found.",
+                    "target": "未找到标注。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Your search query ",
+                    "target": "您的搜索查询 "
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": " did not return any results.",
+                    "target": " 未返回任何结果。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Try searching:",
+                    "target": "尝试搜索："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "By name: ",
+                    "target": "按名称："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "By icon: ",
+                    "target": "按图标："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Built-in callouts: ",
+                    "target": "内置标注："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Snippet callouts: ",
+                    "target": "片段标注："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "from:my snippet",
+                    "target": "from:my snippet"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Custom callouts: ",
+                    "target": "Custom callouts: "
+                }
+            ],
+            "regex": [
+                {
+                    "source": "setTooltip(`Back to ${this.layers[this.layers.length - 1].title}`)",
+                    "target": "setTooltip(`Back to ${this.layers[this.layers.length - 1].title}`)"
+                },
+                {
+                    "source": "setButtonText(\"Reset Callout\")",
+                    "target": "setButtonText(\"Reset Callout\")"
+                },
+                {
+                    "source": "setButtonText(\"Are you sure?\")",
+                    "target": "setButtonText(\"Are you sure?\")"
+                },
+                {
+                    "source": "setPlaceholder(\"Search icons...\")",
+                    "target": "setPlaceholder(\"Search icons...\")"
+                },
+                {
+                    "source": "setName(\"Dark Color\")",
+                    "target": "setName(\"Dark Color\")"
+                },
+                {
+                    "source": "setName(`Light Color`)",
+                    "target": "setName(`Light Color`)"
+                },
+                {
+                    "source": "setDesc(\"Change the callout icon.\")",
+                    "target": "setDesc(\"Change the callout icon.\")"
+                },
+                {
+                    "source": "setDesc(\"Change the color of the callout.\")",
+                    "target": "setDesc(\"Change the color of the callout.\")"
+                },
+                {
+                    "source": "appendText(\"The \")",
+                    "target": "appendText(\"The \")"
+                },
+                {
+                    "source": "appendText(\" callout\")",
+                    "target": "appendText(\" callout\")"
+                },
+                {
+                    "source": "appendText(\" has \")",
+                    "target": "appendText(\" has \")"
+                },
+                {
+                    "source": "appendText(\" and \")",
+                    "target": "appendText(\" and \")"
+                },
+                {
+                    "source": "appendText(\". It is one of the built-in callouts.\")",
+                    "target": "appendText(\". It is one of the built-in callouts.\")"
+                },
+                {
+                    "source": "appendText(\". It was added to Obsidian by the \")",
+                    "target": "appendText(\". It was added to Obsidian by the \")"
+                },
+                {
+                    "source": "appendText(\". The callout comes from:\")",
+                    "target": "appendText(\". The callout comes from:\")"
+                },
+                {
+                    "source": "appendText(\"is using the icon \")",
+                    "target": "appendText(\"is using the icon \")"
+                },
+                {
+                    "source": "appendText(\"an invalid color (\")",
+                    "target": "appendText(\"an invalid color (\")"
+                },
+                {
+                    "source": "appendText(\"the color \")",
+                    "target": "appendText(\"the color \")"
+                },
+                {
+                    "source": "appendText(\"built-in callouts\")",
+                    "target": "appendText(\"built-in callouts\")"
+                },
+                {
+                    "source": "appendText(\"custom callouts you created\")",
+                    "target": "appendText(\"custom callouts you created\")"
+                },
+                {
+                    "source": "appendText(\"CSS snippet \")",
+                    "target": "appendText(\"CSS snippet \")"
+                },
+                {
+                    "source": "setPlaceholder(\"Preview Markdown...\")",
+                    "target": "setPlaceholder(\"Preview Markdown...\")"
+                },
+                {
+                    "source": "setTooltip(\"Delete Callout\")",
+                    "target": "setTooltip(\"Delete Callout\")"
+                },
+                {
+                    "source": "setName(\"Callout Name\")",
+                    "target": "setName(\"Callout Name\")"
+                },
+                {
+                    "source": "setDesc(\"This is how you will refer to your callout in Markdown.\")",
+                    "target": "setDesc(\"This is how you will refer to your callout in Markdown.\")"
+                },
+                {
+                    "source": "setPlaceholder(\"Filter callouts...\")",
+                    "target": "setPlaceholder(\"Filter callouts...\")"
+                },
+                {
+                    "source": "setTooltip(\"New Callout\")",
+                    "target": "setTooltip(\"New Callout\")"
+                },
+                {
+                    "source": "setName(\"Manage Callouts\")",
+                    "target": "setName(\"Manage Callouts\")"
+                },
+                {
+                    "source": "setDesc(\"Create or edit Markdown callouts.\")",
+                    "target": "setDesc(\"Create or edit Markdown callouts.\")"
+                },
+                {
+                    "source": "setButtonText(\"Manage Callouts\")",
+                    "target": "setButtonText(\"Manage Callouts\")"
+                },
+                {
+                    "source": "setName(\"Callout Detection\")",
+                    "target": "setName(\"Callout Detection\")"
+                },
+                {
+                    "source": "setDesc(\"Find callouts in custom CSS snippets.\")",
+                    "target": "setDesc(\"Find callouts in custom CSS snippets.\")"
+                },
+                {
+                    "source": "setName(\"What's New\")",
+                    "target": "setName(\"What's New\")"
+                },
+                {
+                    "source": "setDesc(`Version ${this.plugin.manifest.version}`)",
+                    "target": "setDesc(`Version ${this.plugin.manifest.version}`)"
+                },
+                {
+                    "source": "setTooltip(\"More Changelogs\")",
+                    "target": "setTooltip(\"More Changelogs\")"
+                },
+                {
+                    "source": "setName(\"Reset Callout Settings\")",
+                    "target": "setName(\"Reset Callout Settings\")"
+                },
+                {
+                    "source": "setDesc(\"Reset all the changes you made to callouts.\")",
+                    "target": "setDesc(\"Reset all the changes you made to callouts.\")"
+                },
+                {
+                    "source": "setName(\"Reset Custom Callouts\")",
+                    "target": "setName(\"Reset Custom Callouts\")"
+                },
+                {
+                    "source": "text: \"This callout has been configured using the plugin's data.json file. To prevent unintentional changes to the configuration, you need to edit it manually.\"",
+                    "target": "text: \"This callout has been configured using the plugin's data.json file. To prevent unintentional changes to the configuration, you need to edit it manually.\""
+                },
+                {
+                    "source": "text: \"Alternatively, you can reset the callout by clicking the button below twice.\"",
+                    "target": "text: \"Alternatively, you can reset the callout by clicking the button below twice.\""
+                },
+                {
+                    "source": "text: `There ${pluralIs} ${previewLimitOverage} more ${pluralIcon} to show. Refine your search to see more.`",
+                    "target": "text: `There ${pluralIs} ${previewLimitOverage} more ${pluralIcon} to show. Refine your search to see more.`"
+                },
+                {
+                    "source": "text: \"Change the name of this callout.\"",
+                    "target": "text: \"Change the name of this callout.\""
+                },
+                {
+                    "source": "text: \"This will not update any references in your notes!\"",
+                    "target": "text: \"This will not update any references in your notes!\""
+                },
+                {
+                    "source": "text: \"About this Callout\"",
+                    "target": "text: \"About this Callout\""
+                },
+                {
+                    "source": "text: `${source.snippet}.css`",
+                    "target": "text: `${source.snippet}.css`"
+                },
+                {
+                    "source": "text: \"Appearance\"",
+                    "target": "text: \"Appearance\""
+                },
+                {
+                    "source": "textContent = \"Create\"",
+                    "target": "textContent = \"Create\""
+                },
+                {
+                    "source": "text: \"No callouts found.\"",
+                    "target": "text: \"No callouts found.\""
+                },
+                {
+                    "source": "text: \"Your search query \"",
+                    "target": "text: \"Your search query \""
+                },
+                {
+                    "source": "text: \"\"",
+                    "target": "text: \"\""
+                },
+                {
+                    "source": "text: \" did not return any results.\"",
+                    "target": "text: \" did not return any results.\""
+                },
+                {
+                    "source": "text: \"Try searching:\"",
+                    "target": "text: \"Try searching:\""
+                },
+                {
+                    "source": "text: \"By name: \"",
+                    "target": "text: \"By name: \""
+                },
+                {
+                    "source": "text: \"warning\"",
+                    "target": "text: \"warning\""
+                },
+                {
+                    "source": "text: \"By icon: \"",
+                    "target": "text: \"By icon: \""
+                },
+                {
+                    "source": "text: \"icon:check\"",
+                    "target": "text: \"icon:check\""
+                },
+                {
+                    "source": "text: \"Built-in callouts: \"",
+                    "target": "text: \"Built-in callouts: \""
+                },
+                {
+                    "source": "text: \"from:obsidian\"",
+                    "target": "text: \"from:obsidian\""
+                },
+                {
+                    "source": "text: \"Snippet callouts: \"",
+                    "target": "text: \"Snippet callouts: \""
+                },
+                {
+                    "source": "text: \"from:my snippet\"",
+                    "target": "text: \"from:my snippet\""
+                },
+                {
+                    "source": "text: \"Custom callouts: \"",
+                    "target": "text: \"Custom callouts: \""
+                },
+                {
+                    "source": "text: \"from:custom\"",
+                    "target": "text: \"from:custom\""
+                },
+                {
+                    "source": "text: `Find built-in Obsidian callouts${method === \"\" ? \"\" : \" \"}${method}.`",
+                    "target": "text: `Find built-in Obsidian callouts${method === \"\" ? \"\" : \" \"}${method}.`"
+                },
+                {
+                    "source": "name: \"Edit callouts\"",
+                    "target": "name: \"Edit callouts\""
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "prefix": {
+    "bg": "bg",
+    "color": "col"
+  },
+  "customTemplate": "",
+  "customStyleSettings": "",
+  "exportToCSS": true,
+  "defaultColors": {
+    "bg": {
+      "themeDark": "#ffffff00",
+      "themeLight": "#ffffff00"
+    },
+    "color": {
+      "themeDark": "#ffffff00",
+      "themeLight": "#ffffff00"
+    }
+  },
+  "includeStyleInExport": false
+}

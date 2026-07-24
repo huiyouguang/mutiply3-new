@@ -1,0 +1,248 @@
+/* ========================================
+   标签页样式 - 性能优化版（轻量GPU加速）
+   ======================================== */
+
+/* ---------- 变量（与之前完全一致，兼容Style Settings） ---------- */
+:root {
+  --tab-bar-bg: #000000;
+  --tab-bar-border: #333333;
+  --tab-bar-shadow: rgba(0, 0, 0, 0.3);
+  
+  --inactive-bg: #000000;
+  --inactive-text: #ffff00;
+  --inactive-border: #333333;
+  --inactive-radius: 6px;
+  
+  --hover-bg: #333333;
+  --hover-border: #555555;
+  --hover-scale: 1.02;       /* 保留但本版不再使用缩放，可忽略 */
+  
+  --active-bg: #000000;
+  --active-border: #87ceeb;
+  --active-shadow: rgba(135, 206, 235, 0.3);
+  --active-text: #ffff00;
+  --active-scale: 1.03;      /* 仅活动标签使用，已优化 */
+  
+  --anim-duration: 0.25s;    /* 适当减短，更跟手 */
+  --enable-anim: 1;
+}
+
+/* @settings 同上（略）... 保持原样，可复制之前的settings块 */
+
+/* ========================================
+   1. 精准GPU加速（仅关键元素）
+   ======================================== */
+/* 标签栏容器保持静态，不强制层 */
+.workspace-tab-header-container {
+  transform: translateZ(0);  /* 仅防抖动，不创建新层 */
+}
+
+/* 只有活动标签才启用完整GPU加速 */
+.workspace-tab-header.is-active {
+  will-change: transform, box-shadow;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* 编辑器滚动容器（内容滚动频繁）启用加速 */
+.cm-scroller,
+.markdown-preview-view {
+  will-change: scroll-position;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ========================================
+   2. 标签栏 - 左对齐（不变）
+   ======================================== */
+body .workspace-tab-header-container {
+  background-color: var(--tab-bar-bg) !important;
+  border-bottom: 1px solid var(--tab-bar-border) !important;
+  box-shadow: 0 1px 2px var(--tab-bar-shadow) !important;
+  padding: 0 6px !important;
+  z-index: 999 !important;
+}
+
+body .workspace-tab-header-container-inner {
+  justify-content: flex-start !important;
+  gap: 2px;
+  padding: 0px 0 0px 5px;
+  margin: 5px 0 2px -2px;
+}
+
+/* ========================================
+   3. 标签基础（移除transform过渡，只变颜色）
+   ======================================== */
+body .workspace-tab-header {
+  background-color: var(--inactive-bg) !important;
+  color: var(--inactive-text) !important;
+  border-radius: var(--inactive-radius) var(--inactive-radius) 0 0 !important;
+  margin: 4px 2px 0 !important;
+  border: 1px solid var(--inactive-border) !important;
+  padding: 0 12px !important;
+  /* 不再对transform做过渡，只过渡颜色和阴影 */
+  transition: 
+    background-color calc(var(--anim-duration) * var(--enable-anim)) ease,
+    border-color calc(var(--anim-duration) * var(--enable-anim)) ease,
+    box-shadow calc(var(--anim-duration) * var(--enable-anim)) ease,
+    opacity calc(var(--anim-duration) * 0.6 * var(--enable-anim)) ease !important;
+  background-clip: padding-box !important;
+  text-shadow: 0 0 2px rgba(0,0,0,0.8), 0 1px 1px rgba(0,0,0,0.5) !important;
+  -webkit-font-smoothing: antialiased !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+body .workspace-tab-header-inner {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* ========================================
+   4. 悬停（无缩放，只变颜色，性能友好）
+   ======================================== */
+body .workspace-tab-header:hover {
+  background-color: var(--hover-bg) !important;
+  border-color: var(--hover-border) !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+  /* 不再 scale */
+}
+
+/* ========================================
+   5. 活动标签 - 专注外发光（轻量单层阴影）
+   ======================================== */
+body .workspace-tab-header.is-active {
+  background-color: var(--active-bg) !important;
+  border: 2px solid var(--active-border) !important;
+  /* 单层外发光 + 轻微投影，不再叠加多层 */
+  box-shadow: 
+    0 0 12px var(--active-shadow),   /* 外发光 */
+    0 2px 6px rgba(0,0,0,0.4) !important; /* 小立体感 */
+  z-index: 100 !important;
+  color: var(--active-text) !important;
+  margin-bottom: -1px !important;
+  /* 保留缩放，但用will-change优化 */
+  transform: scale(var(--active-scale)) translateZ(0) !important;
+  transition: 
+    transform calc(var(--anim-duration) * 0.8) ease,
+    box-shadow calc(var(--anim-duration) * 0.8) ease,
+    border-color calc(var(--anim-duration) * 0.8) ease !important;
+}
+
+/* ========================================
+   6. 编辑器外框（仅边框，无内阴影）
+   ======================================== */
+.workspace-leaf.mod-active .markdown-preview-view,
+.workspace-leaf.mod-active .cm-scroller {
+  border: 4px solid var(--active-border) !important;
+  border-radius: 4px;
+  transition: border-color calc(var(--anim-duration) * 0.5) ease !important;
+  /* 去掉 box-shadow: inset，省性能 */
+}
+
+/* 保留原Focus写法兼容，但已由上方覆盖 */
+.markdown-preview-view:focus,
+.view-content > .markdown-source-view.mod-cm6 > .cm-editor > .cm-scroller:focus-within {
+  border: 4px solid var(--active-border) !important;
+}
+
+/* ========================================
+   7. 关闭按钮（更快淡入淡出）
+   ======================================== */
+body .workspace-tab-header .close-button {
+  color: var(--inactive-text) !important;
+  opacity: 0 !important;
+  transition: opacity calc(var(--anim-duration) * 0.5) ease !important;
+  text-shadow: 0 0 1px rgba(0,0,0,0.8) !important;
+  transform: scale(0.85);
+}
+body .workspace-tab-header:hover .close-button {
+  opacity: 0.8 !important;
+}
+body .workspace-tab-header.is-active .close-button {
+  color: var(--active-text) !important;
+  opacity: 1 !important;
+}
+
+/* 新建标签按钮微调 */
+.workspace .mod-root .workspace-tab-header-new-tab {
+  margin-left: 4px;
+}
+.workspace .mod-root .workspace-tab-header-new-tab .clickable-icon {
+  transform: scale(0.8) translate(0, 1px);
+}
+
+/* 渐变遮罩（来自Compact Tabs，保持但轻量） */
+.workspace .mod-root .workspace-tab-header:not(.is-active):hover .workspace-tab-header-inner-close-button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: linear-gradient(to right, transparent, var(--tab-bar-bg)) !important;
+  right: 100%;
+  height: 1em;
+  width: 1em;
+  pointer-events: none;
+}
+
+/* ========================================
+   8. 标签树视图（原样保留，性能无关）
+   ======================================== */
+.workspace-leaf-content[data-type="tag"]>.tag-container>div {
+  display: flex !important;
+  flex-flow: row wrap;
+  gap: 4px;
+  justify-content: flex-start;
+  align-content: flex-start;
+  &>div:first-of-type { display: none !important; }
+  &>.tree-item {
+    overflow: auto;
+    border: 0.5px solid var(--background-modifier-border);
+    border-radius: 6px;
+    text-align: center;
+  }
+  .tree-item:not(.is-collapsed) {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 4px;
+    justify-content: flex-start;
+    align-content: flex-start;
+    position: relative;
+    .tree-item-children {
+      width: 100%;
+      display: flex;
+      flex-flow: row wrap;
+      gap: 4px;
+      justify-content: flex-start;
+      align-content: flex-start;
+      position: relative;
+      margin: 6px;
+      &>div:first-of-type { display: none; }
+    }
+    .tree-item-self, .tree-item {
+      overflow: auto;
+      position: relative;
+      display: flex;
+      gap: 4px;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+    }
+    .tree-item:has(span) {
+      border: 0.5px solid var(--background-modifier-border);
+      border-radius: 6px;
+    }
+  }
+  .tree-item-self.is-clickable:hover {
+    background-color: transparent;
+  }
+}
+.workspace-leaf-content[data-type="tag"]>.tag-container>div .tree-item{
+  &:nth-of-type(6n + 1) .tree-item-inner-text { color: #54478C; }
+  &:nth-of-type(6n + 2) .tree-item-inner-text { color: #2C699A; }
+  &:nth-of-type(6n + 3) .tree-item-inner-text { color: #048BA8; }
+  &:nth-of-type(6n + 4) .tree-item-inner-text { color: #0DB39E; }
+  &:nth-of-type(6n + 5) .tree-item-inner-text { color: #16DB93; }
+  &:nth-of-type(6n + 6) .tree-item-inner-text { color: #83E377; }
+}

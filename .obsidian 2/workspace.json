@@ -1,0 +1,350 @@
+{
+  "main": {
+    "id": "929044414500c6ef",
+    "type": "split",
+    "children": [
+      {
+        "id": "ec1ba4f8d92c86a4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "12e0fb19c5a685ae",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "963a39b77a035e5b",
+    "type": "split",
+    "children": [
+      {
+        "id": "1670e7e8e25dff28",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "063ddc247870ad1c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "b0f06f9725a3451b",
+            "type": "leaf",
+            "state": {
+              "type": "notebook-navigator",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "notebook-navigator"
+            }
+          },
+          {
+            "id": "f32c66a84981e5a3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          },
+          {
+            "id": "48bf4e04d91cd34e",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "recent-files"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 595.5086555480957
+  },
+  "right": {
+    "id": "1eeabe721bfa615c",
+    "type": "split",
+    "children": [
+      {
+        "id": "adf2a2e115a738af",
+        "type": "tabs",
+        "dimension": 51.10521662245801,
+        "children": [
+          {
+            "id": "b9300c107b96873a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "003 中级/003 中级.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "lucide-ghost",
+              "title": "outgoing-link"
+            }
+          },
+          {
+            "id": "5eb2bf9fca99d698",
+            "type": "leaf",
+            "state": {
+              "type": "quiet-outline",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "quiet-outline"
+            }
+          },
+          {
+            "id": "50da6464b97ce5cd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "c717c05b60e1c7ad",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "f45c399e9d03ca68",
+            "type": "leaf",
+            "state": {
+              "type": "git-history-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "git-history-view"
+            }
+          },
+          {
+            "id": "6d1a6364494cb8d8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "TaskNotes/01 task/注会刷题计划.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "注会刷题计划 的反向链接列表"
+            }
+          },
+          {
+            "id": "b6af02defc486a66",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "advanced-tables-toolbar"
+            }
+          },
+          {
+            "id": "d038dec87a0416fc",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
+            "id": "436d68e5659daf40",
+            "type": "leaf",
+            "state": {
+              "type": "tag-group-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "tag-group-view"
+            }
+          },
+          {
+            "id": "47ebb2ab01daf777",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "f049a01113006af8",
+            "type": "leaf",
+            "state": {
+              "type": "thino_view",
+              "state": {},
+              "icon": "Memos",
+              "title": "Thino"
+            }
+          }
+        ],
+        "currentTab": 7
+      },
+      {
+        "id": "9b40b38c0273ea3e",
+        "type": "tabs",
+        "dimension": 26.702033598585327,
+        "children": [
+          {
+            "id": "16f821bb0ae7704d",
+            "type": "leaf",
+            "state": {
+              "type": "keep-the-rhythm",
+              "state": {},
+              "icon": "calendar-days",
+              "title": "Keep the Rhythm"
+            }
+          }
+        ]
+      },
+      {
+        "id": "8ef6ff5894fca940",
+        "type": "tabs",
+        "dimension": 22.19274977895667,
+        "children": [
+          {
+            "id": "dc6bda4a9ef5eda7",
+            "type": "leaf",
+            "state": {
+              "type": "notebook-navigator-calendar",
+              "state": {},
+              "icon": "notebook-navigator",
+              "title": "日历"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 456.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新建数据库": false,
+      "command-palette:打开命令面板": false,
+      "workspaces:管理工作区布局": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "obsidian42-brat:BRAT": false,
+      "cloze:Toggle all clozes": false,
+      "keep-the-rhythm:Keep the Rhythm": false,
+      "obsidian-memos:Thino": false,
+      "obsidian-memos:Thino Super": false,
+      "obsidian-git:Open Git source control": false,
+      "css-editor:Open CSS editor quick switcher": false,
+      "i18n:common.i18n": false,
+      "notebook-navigator:笔记本导航器": false,
+      "float-search:Search obsidian in modal view": false,
+      "sidebar-highlights:Open highlights": false,
+      "cmdr:切换浅色/深色模式": false,
+      "tag-group-manager:标签概览": false,
+      "pexels-banner:🚩 Pixel Banner Menu": false,
+      "auto-fill-properties:Auto Fill Properties": false,
+      "focus-time:打开专注时间仪表盘": false,
+      "smart-note-creator:Smart Note Creator": false,
+      "obsidian-statusbar-pomo:Start pomodoro": false,
+      "iconic:打开规则书": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-task-progress-bar:打开 Task Genius 视图": false
+    }
+  },
+  "active": "063ddc247870ad1c",
+  "lastOpenFiles": [
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_14_19.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_09_12.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_09_10.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_09_07.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_08_51.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_08_45.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_08_42.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_08_37.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_08_25.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_08_17.jpg",
+    "00 Inbox/image/Wallhaven API (default) - 2026_7_20 20_08_14.jpg",
+    "00 Inbox/image",
+    "插件 7.18.zip",
+    "工作/数据线知识.md",
+    "00 Inbox/戒.md",
+    "00 Inbox/首页.md",
+    "04成长/知识管理/004 注会/003 经济法/2026/破产法 1.md",
+    "04成长/知识管理/004 注会/003 经济法/2026/证券法.md",
+    "04成长/知识管理/004 注会/003 经济法/2026/99记--经济法.md",
+    "04成长/知识管理/004 注会/003 经济法/2026/合同法.md",
+    "04成长/知识管理/004 注会/003 经济法/2025/破产法.md",
+    "thino/2026-06-27.md",
+    "04成长/知识管理/004 注会/003 经济法/2026/第六章 公司法.md",
+    "04成长/知识管理/004 注会/003 经济法/2026/物权法.md",
+    "TaskNotes/01 task/注会刷题计划.md",
+    "01 主页/健康追踪.md",
+    "TaskNotes/健康数据/2026-07-09.md",
+    "TaskNotes/健康数据/2021-04-22.md",
+    "TaskNotes/健康数据/2021-04-23.md",
+    "TaskNotes/健康数据/2021-04-24.md",
+    "TaskNotes/健康数据/2021-04-25.md",
+    "TaskNotes/健康数据/2021-04-26.md",
+    "TaskNotes/健康数据/2021-04-27.md",
+    "TaskNotes/健康数据/2021-04-28.md",
+    "TaskNotes/健康数据/2021-04-29.md",
+    "TaskNotes/健康数据/2021-04-30.md",
+    "TaskNotes/健康数据/2021-05-01.md",
+    "TaskNotes/健康数据/2021-05-02.md",
+    "未命名.base",
+    "插件 7.7z",
+    "04成长/知识管理/错题库/刷题/注会会计刷题/金考典",
+    "04成长/知识管理/错题库/刷题/注会会计刷题/只做好题",
+    "04成长/知识管理/错题库/刷题/注会财管刷题/财管试题",
+    "04成长/知识管理/错题库/刷题/经济法易错点/经济法刷题",
+    "04成长/知识管理/错题库/刷题/经济法易错点/错题整理",
+    "04成长/知识管理/错题库/刷题/经济法易错点/只做好题"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "id": "tag-group-manager",
+  "name": "Tag Group Manager",
+  "version": "1.8.12",
+  "minAppVersion": "1.1.0",
+  "description": "Manage tag groups and quickly insert tags.",
+  "author": "Stargazer-cc",
+  "authorUrl": "https://github.com/Stargazer-cc",
+  "isDesktopOnly": false
+}

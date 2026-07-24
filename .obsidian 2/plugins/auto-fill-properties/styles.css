@@ -1,0 +1,156 @@
+.afp-modal {
+    max-width: 700px;
+    max-height: 80vh;
+}
+
+.afp-preset-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.afp-preset-select {
+    flex: 1;
+    margin-right: 12px;
+}
+
+.afp-property-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+.afp-property-row {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.afp-property-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.afp-property-label .required {
+    color: var(--text-error);
+}
+
+.afp-property-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    font-size: 14px;
+}
+
+.afp-property-select:focus {
+    border-color: var(--interactive-accent);
+    outline: none;
+}
+
+.afp-property-select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.afp-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--background-modifier-border);
+}
+
+.afp-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.afp-btn-primary {
+    background: var(--interactive-accent);
+    color: white;
+    border: none;
+}
+
+.afp-btn-primary:hover {
+    background: var(--interactive-accent-hover);
+}
+
+.afp-btn-secondary {
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    border: 1px solid var(--background-modifier-border);
+}
+
+.afp-btn-secondary:hover {
+    background: var(--background-modifier-hover);
+}
+
+.afp-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+}
+
+.afp-filter-info {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+.afp-search-box {
+    margin-bottom: 12px;
+}
+
+.afp-search-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 6px;
+    background: var(--background-secondary);
+    color: var(--text-normal);
+    font-size: 13px;
+}
+
+.afp-search-input:focus {
+    border-color: var(--interactive-accent);
+    outline: none;
+}
+
+.afp-option-count {
+    font-size: 11px;
+    color: var(--text-muted);
+    float: right;
+}
+
+.afp-custom-input-row {
+    margin-top: 8px;
+}
+
+.afp-preset-group-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-left: 4px;
+}
+
+.afp-recent-presets {
+    margin-bottom: 4px;
+}

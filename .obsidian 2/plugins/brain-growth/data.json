@@ -1,0 +1,5021 @@
+{
+  "schemaVersion": 1,
+  "snapshots": [
+    {
+      "date": "2026-04-09",
+      "capturedAt": "2026-04-09T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 4,
+      "bodyCount": 9138,
+      "uniqueTagCount": 1,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 4,
+      "matureNoteCount": 1,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 2,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.5,
+      "averageLinksPerNote": 0.25,
+      "bodyTagOccurrenceCount": 3,
+      "tagCoverageRatio": 0.75,
+      "singleUseTagCount": 0,
+      "chineseBodyCount": 8323,
+      "englishWordCount": 167,
+      "numberTokenCount": 648,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        }
+      ],
+      "cognitiveComputeTops": 0.040261,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.007437,
+      "signalStrength": 0.026961,
+      "engramDensity": 0.00291,
+      "synapseConnectivity": 0.002245
+    },
+    {
+      "date": "2026-04-10",
+      "capturedAt": "2026-04-10T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 4,
+      "bodyCount": 9138,
+      "uniqueTagCount": 1,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 4,
+      "matureNoteCount": 1,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 2,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.5,
+      "averageLinksPerNote": 0.25,
+      "bodyTagOccurrenceCount": 3,
+      "tagCoverageRatio": 0.75,
+      "singleUseTagCount": 0,
+      "chineseBodyCount": 8323,
+      "englishWordCount": 167,
+      "numberTokenCount": 648,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        }
+      ],
+      "cognitiveComputeTops": 0.040261,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.007437,
+      "signalStrength": 0.026961,
+      "engramDensity": 0.00291,
+      "synapseConnectivity": 0.002245
+    },
+    {
+      "date": "2026-04-11",
+      "capturedAt": "2026-04-11T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 4,
+      "bodyCount": 9138,
+      "uniqueTagCount": 1,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 4,
+      "matureNoteCount": 1,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 2,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.5,
+      "averageLinksPerNote": 0.25,
+      "bodyTagOccurrenceCount": 3,
+      "tagCoverageRatio": 0.75,
+      "singleUseTagCount": 0,
+      "chineseBodyCount": 8323,
+      "englishWordCount": 167,
+      "numberTokenCount": 648,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        }
+      ],
+      "cognitiveComputeTops": 0.040261,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.007437,
+      "signalStrength": 0.026961,
+      "engramDensity": 0.00291,
+      "synapseConnectivity": 0.002245
+    },
+    {
+      "date": "2026-04-12",
+      "capturedAt": "2026-04-12T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 4,
+      "bodyCount": 9138,
+      "uniqueTagCount": 1,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 4,
+      "matureNoteCount": 1,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 2,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.5,
+      "averageLinksPerNote": 0.25,
+      "bodyTagOccurrenceCount": 3,
+      "tagCoverageRatio": 0.75,
+      "singleUseTagCount": 0,
+      "chineseBodyCount": 8323,
+      "englishWordCount": 167,
+      "numberTokenCount": 648,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        }
+      ],
+      "cognitiveComputeTops": 0.040261,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.007437,
+      "signalStrength": 0.026961,
+      "engramDensity": 0.00291,
+      "synapseConnectivity": 0.002245
+    },
+    {
+      "date": "2026-04-13",
+      "capturedAt": "2026-04-13T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 5,
+      "bodyCount": 13164,
+      "uniqueTagCount": 1,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 5,
+      "matureNoteCount": 2,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 3,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.4,
+      "averageLinksPerNote": 0.2,
+      "bodyTagOccurrenceCount": 3,
+      "tagCoverageRatio": 0.6,
+      "singleUseTagCount": 0,
+      "chineseBodyCount": 12275,
+      "englishWordCount": 172,
+      "numberTokenCount": 717,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 5,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        }
+      ],
+      "cognitiveComputeTops": 0.041948,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.008767,
+      "signalStrength": 0.027984,
+      "engramDensity": 0.00258,
+      "synapseConnectivity": 0.001932
+    },
+    {
+      "date": "2026-04-14",
+      "capturedAt": "2026-04-14T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 5,
+      "bodyCount": 13164,
+      "uniqueTagCount": 1,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 5,
+      "matureNoteCount": 2,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 3,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.4,
+      "averageLinksPerNote": 0.2,
+      "bodyTagOccurrenceCount": 3,
+      "tagCoverageRatio": 0.6,
+      "singleUseTagCount": 0,
+      "chineseBodyCount": 12275,
+      "englishWordCount": 172,
+      "numberTokenCount": 717,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 5,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        }
+      ],
+      "cognitiveComputeTops": 0.041948,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.008767,
+      "signalStrength": 0.027984,
+      "engramDensity": 0.00258,
+      "synapseConnectivity": 0.001932
+    },
+    {
+      "date": "2026-04-15",
+      "capturedAt": "2026-04-15T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 5,
+      "bodyCount": 13164,
+      "uniqueTagCount": 1,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 5,
+      "matureNoteCount": 2,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 3,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.4,
+      "averageLinksPerNote": 0.2,
+      "bodyTagOccurrenceCount": 3,
+      "tagCoverageRatio": 0.6,
+      "singleUseTagCount": 0,
+      "chineseBodyCount": 12275,
+      "englishWordCount": 172,
+      "numberTokenCount": 717,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 5,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        }
+      ],
+      "cognitiveComputeTops": 0.041948,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.008767,
+      "signalStrength": 0.027984,
+      "engramDensity": 0.00258,
+      "synapseConnectivity": 0.001932
+    },
+    {
+      "date": "2026-04-16",
+      "capturedAt": "2026-04-16T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 5,
+      "bodyCount": 13164,
+      "uniqueTagCount": 1,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 5,
+      "matureNoteCount": 2,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 3,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.4,
+      "averageLinksPerNote": 0.2,
+      "bodyTagOccurrenceCount": 3,
+      "tagCoverageRatio": 0.6,
+      "singleUseTagCount": 0,
+      "chineseBodyCount": 12275,
+      "englishWordCount": 172,
+      "numberTokenCount": 717,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 1,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        }
+      ],
+      "cognitiveComputeTops": 0.041561,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.008386,
+      "signalStrength": 0.027984,
+      "engramDensity": 0.00258,
+      "synapseConnectivity": 0.001932
+    },
+    {
+      "date": "2026-04-17",
+      "capturedAt": "2026-04-17T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 5,
+      "bodyCount": 13164,
+      "uniqueTagCount": 1,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 5,
+      "matureNoteCount": 2,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 3,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.4,
+      "averageLinksPerNote": 0.2,
+      "bodyTagOccurrenceCount": 3,
+      "tagCoverageRatio": 0.6,
+      "singleUseTagCount": 0,
+      "chineseBodyCount": 12275,
+      "englishWordCount": 172,
+      "numberTokenCount": 717,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 1,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        }
+      ],
+      "cognitiveComputeTops": 0.041561,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.008386,
+      "signalStrength": 0.027984,
+      "engramDensity": 0.00258,
+      "synapseConnectivity": 0.001932
+    },
+    {
+      "date": "2026-04-18",
+      "capturedAt": "2026-04-18T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 8,
+      "bodyCount": 15301,
+      "uniqueTagCount": 4,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 8,
+      "matureNoteCount": 4,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 6,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.25,
+      "averageLinksPerNote": 0.125,
+      "bodyTagOccurrenceCount": 7,
+      "tagCoverageRatio": 0.625,
+      "singleUseTagCount": 2,
+      "chineseBodyCount": 14341,
+      "englishWordCount": 207,
+      "numberTokenCount": 753,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#秦国",
+          "count": 1
+        },
+        {
+          "tag": "#书籍",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.044834,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.010667,
+      "signalStrength": 0.028445,
+      "engramDensity": 0.003517,
+      "synapseConnectivity": 0.001463
+    },
+    {
+      "date": "2026-04-19",
+      "capturedAt": "2026-04-19T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 8,
+      "bodyCount": 15301,
+      "uniqueTagCount": 4,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 8,
+      "matureNoteCount": 4,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 6,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.25,
+      "averageLinksPerNote": 0.125,
+      "bodyTagOccurrenceCount": 7,
+      "tagCoverageRatio": 0.625,
+      "singleUseTagCount": 2,
+      "chineseBodyCount": 14341,
+      "englishWordCount": 207,
+      "numberTokenCount": 753,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#秦国",
+          "count": 1
+        },
+        {
+          "tag": "#书籍",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.044834,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.010667,
+      "signalStrength": 0.028445,
+      "engramDensity": 0.003517,
+      "synapseConnectivity": 0.001463
+    },
+    {
+      "date": "2026-04-20",
+      "capturedAt": "2026-04-20T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 8,
+      "bodyCount": 15301,
+      "uniqueTagCount": 4,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 8,
+      "matureNoteCount": 4,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 6,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.25,
+      "averageLinksPerNote": 0.125,
+      "bodyTagOccurrenceCount": 7,
+      "tagCoverageRatio": 0.625,
+      "singleUseTagCount": 2,
+      "chineseBodyCount": 14341,
+      "englishWordCount": 207,
+      "numberTokenCount": 753,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 3,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#秦国",
+          "count": 1
+        },
+        {
+          "tag": "#书籍",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.044756,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.01059,
+      "signalStrength": 0.028445,
+      "engramDensity": 0.003517,
+      "synapseConnectivity": 0.001463
+    },
+    {
+      "date": "2026-04-21",
+      "capturedAt": "2026-04-21T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 8,
+      "bodyCount": 15301,
+      "uniqueTagCount": 4,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 8,
+      "matureNoteCount": 4,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 6,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.25,
+      "averageLinksPerNote": 0.125,
+      "bodyTagOccurrenceCount": 7,
+      "tagCoverageRatio": 0.625,
+      "singleUseTagCount": 2,
+      "chineseBodyCount": 14341,
+      "englishWordCount": 207,
+      "numberTokenCount": 753,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 3,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#秦国",
+          "count": 1
+        },
+        {
+          "tag": "#书籍",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.044756,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.01059,
+      "signalStrength": 0.028445,
+      "engramDensity": 0.003517,
+      "synapseConnectivity": 0.001463
+    },
+    {
+      "date": "2026-04-22",
+      "capturedAt": "2026-04-22T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 9,
+      "bodyCount": 15746,
+      "uniqueTagCount": 17,
+      "connectionCount": 1,
+      "nonEmptyNoteCount": 9,
+      "matureNoteCount": 5,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 7,
+      "internalLinkCount": 1,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.2222222222222222,
+      "averageLinksPerNote": 0.1111111111111111,
+      "bodyTagOccurrenceCount": 20,
+      "tagCoverageRatio": 0.6666666666666666,
+      "singleUseTagCount": 15,
+      "chineseBodyCount": 14762,
+      "englishWordCount": 207,
+      "numberTokenCount": 777,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#包装物的计税问题",
+          "count": 1
+        },
+        {
+          "tag": "#不得扣除项目",
+          "count": 1
+        },
+        {
+          "tag": "#非房企纳税人转让其取得的不动产",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.047007,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.011286,
+      "signalStrength": 0.028528,
+      "engramDensity": 0.004982,
+      "synapseConnectivity": 0.001376
+    },
+    {
+      "date": "2026-04-23",
+      "capturedAt": "2026-04-23T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 10,
+      "bodyCount": 24195,
+      "uniqueTagCount": 18,
+      "connectionCount": 2,
+      "nonEmptyNoteCount": 10,
+      "matureNoteCount": 6,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 8,
+      "internalLinkCount": 2,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.2,
+      "averageLinksPerNote": 0.2,
+      "bodyTagOccurrenceCount": 21,
+      "tagCoverageRatio": 0.7,
+      "singleUseTagCount": 16,
+      "chineseBodyCount": 22653,
+      "englishWordCount": 233,
+      "numberTokenCount": 1309,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 5,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#76923c",
+          "count": 1
+        },
+        {
+          "tag": "#包装物的计税问题",
+          "count": 1
+        },
+        {
+          "tag": "#不得扣除项目",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.04934,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.011885,
+      "signalStrength": 0.029707,
+      "engramDensity": 0.00512,
+      "synapseConnectivity": 0.00173
+    },
+    {
+      "date": "2026-04-24",
+      "capturedAt": "2026-04-24T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 10,
+      "bodyCount": 24195,
+      "uniqueTagCount": 18,
+      "connectionCount": 2,
+      "nonEmptyNoteCount": 10,
+      "matureNoteCount": 6,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 8,
+      "internalLinkCount": 2,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.2,
+      "averageLinksPerNote": 0.2,
+      "bodyTagOccurrenceCount": 21,
+      "tagCoverageRatio": 0.7,
+      "singleUseTagCount": 16,
+      "chineseBodyCount": 22653,
+      "englishWordCount": 233,
+      "numberTokenCount": 1309,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 5,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#76923c",
+          "count": 1
+        },
+        {
+          "tag": "#包装物的计税问题",
+          "count": 1
+        },
+        {
+          "tag": "#不得扣除项目",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.04934,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.011885,
+      "signalStrength": 0.029707,
+      "engramDensity": 0.00512,
+      "synapseConnectivity": 0.00173
+    },
+    {
+      "date": "2026-04-25",
+      "capturedAt": "2026-04-25T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 10,
+      "bodyCount": 24195,
+      "uniqueTagCount": 18,
+      "connectionCount": 2,
+      "nonEmptyNoteCount": 10,
+      "matureNoteCount": 6,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 8,
+      "internalLinkCount": 2,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.2,
+      "averageLinksPerNote": 0.2,
+      "bodyTagOccurrenceCount": 21,
+      "tagCoverageRatio": 0.7,
+      "singleUseTagCount": 16,
+      "chineseBodyCount": 22653,
+      "englishWordCount": 233,
+      "numberTokenCount": 1309,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 2,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#76923c",
+          "count": 1
+        },
+        {
+          "tag": "#包装物的计税问题",
+          "count": 1
+        },
+        {
+          "tag": "#不得扣除项目",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.049097,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.011645,
+      "signalStrength": 0.029707,
+      "engramDensity": 0.00512,
+      "synapseConnectivity": 0.00173
+    },
+    {
+      "date": "2026-04-26",
+      "capturedAt": "2026-04-26T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 10,
+      "bodyCount": 24195,
+      "uniqueTagCount": 18,
+      "connectionCount": 2,
+      "nonEmptyNoteCount": 10,
+      "matureNoteCount": 6,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 8,
+      "internalLinkCount": 2,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.2,
+      "averageLinksPerNote": 0.2,
+      "bodyTagOccurrenceCount": 21,
+      "tagCoverageRatio": 0.7,
+      "singleUseTagCount": 16,
+      "chineseBodyCount": 22653,
+      "englishWordCount": 233,
+      "numberTokenCount": 1309,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 2,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#76923c",
+          "count": 1
+        },
+        {
+          "tag": "#包装物的计税问题",
+          "count": 1
+        },
+        {
+          "tag": "#不得扣除项目",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.049097,
+      "computeClass": "火花",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.011645,
+      "signalStrength": 0.029707,
+      "engramDensity": 0.00512,
+      "synapseConnectivity": 0.00173
+    },
+    {
+      "date": "2026-04-27",
+      "capturedAt": "2026-04-27T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 22,
+      "bodyCount": 83035,
+      "uniqueTagCount": 18,
+      "connectionCount": 2,
+      "nonEmptyNoteCount": 22,
+      "matureNoteCount": 18,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 20,
+      "internalLinkCount": 2,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.09090909090909091,
+      "averageLinksPerNote": 0.09090909090909091,
+      "bodyTagOccurrenceCount": 21,
+      "tagCoverageRatio": 0.3181818181818182,
+      "singleUseTagCount": 16,
+      "chineseBodyCount": 81132,
+      "englishWordCount": 276,
+      "numberTokenCount": 1627,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 14,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#76923c",
+          "count": 1
+        },
+        {
+          "tag": "#包装物的计税问题",
+          "count": 1
+        },
+        {
+          "tag": "#不得扣除项目",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.053557,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.015921,
+      "signalStrength": 0.031123,
+      "engramDensity": 0.00428,
+      "synapseConnectivity": 0.001374
+    },
+    {
+      "date": "2026-04-28",
+      "capturedAt": "2026-04-28T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 22,
+      "bodyCount": 83035,
+      "uniqueTagCount": 18,
+      "connectionCount": 2,
+      "nonEmptyNoteCount": 22,
+      "matureNoteCount": 18,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 20,
+      "internalLinkCount": 2,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.09090909090909091,
+      "averageLinksPerNote": 0.09090909090909091,
+      "bodyTagOccurrenceCount": 21,
+      "tagCoverageRatio": 0.3181818181818182,
+      "singleUseTagCount": 16,
+      "chineseBodyCount": 81132,
+      "englishWordCount": 276,
+      "numberTokenCount": 1627,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 14,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#76923c",
+          "count": 1
+        },
+        {
+          "tag": "#包装物的计税问题",
+          "count": 1
+        },
+        {
+          "tag": "#不得扣除项目",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.053557,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.015921,
+      "signalStrength": 0.031123,
+      "engramDensity": 0.00428,
+      "synapseConnectivity": 0.001374
+    },
+    {
+      "date": "2026-04-29",
+      "capturedAt": "2026-04-29T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 23,
+      "bodyCount": 88001,
+      "uniqueTagCount": 23,
+      "connectionCount": 2,
+      "nonEmptyNoteCount": 23,
+      "matureNoteCount": 19,
+      "shortNoteCount": 1,
+      "connectedNoteCount": 2,
+      "orphanNoteCount": 21,
+      "internalLinkCount": 2,
+      "bidirectionalLinkCount": 0,
+      "linkCoverageRatio": 0.08695652173913043,
+      "averageLinksPerNote": 0.08695652173913043,
+      "bodyTagOccurrenceCount": 26,
+      "tagCoverageRatio": 0.34782608695652173,
+      "singleUseTagCount": 21,
+      "chineseBodyCount": 85592,
+      "englishWordCount": 379,
+      "numberTokenCount": 2030,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 14,
+      "topTags": [
+        {
+          "tag": "#note",
+          "count": 3
+        },
+        {
+          "tag": "#book",
+          "count": 2
+        },
+        {
+          "tag": "#76923c",
+          "count": 1
+        },
+        {
+          "tag": "#包装物的计税问题",
+          "count": 1
+        },
+        {
+          "tag": "#不得扣除项目",
+          "count": 1
+        }
+      ],
+      "cognitiveComputeTops": 0.054283,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.016121,
+      "signalStrength": 0.031287,
+      "engramDensity": 0.00463,
+      "synapseConnectivity": 0.001361
+    },
+    {
+      "date": "2026-04-30",
+      "capturedAt": "2026-04-30T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 508,
+      "bodyCount": 4142579,
+      "uniqueTagCount": 310,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 495,
+      "matureNoteCount": 439,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 451,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08888888888888889,
+      "averageLinksPerNote": 0.901010101010101,
+      "bodyTagOccurrenceCount": 1543,
+      "tagCoverageRatio": 0.4,
+      "singleUseTagCount": 155,
+      "chineseBodyCount": 3909337,
+      "englishWordCount": 41250,
+      "numberTokenCount": 191992,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 498,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086379,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029959,
+      "signalStrength": 0.037624,
+      "engramDensity": 0.009059,
+      "synapseConnectivity": 0.007695
+    },
+    {
+      "date": "2026-05-01",
+      "capturedAt": "2026-05-01T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 508,
+      "bodyCount": 4142579,
+      "uniqueTagCount": 310,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 495,
+      "matureNoteCount": 439,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 451,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08888888888888889,
+      "averageLinksPerNote": 0.901010101010101,
+      "bodyTagOccurrenceCount": 1543,
+      "tagCoverageRatio": 0.4,
+      "singleUseTagCount": 155,
+      "chineseBodyCount": 3909337,
+      "englishWordCount": 41250,
+      "numberTokenCount": 191992,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 498,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086379,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029959,
+      "signalStrength": 0.037624,
+      "engramDensity": 0.009059,
+      "synapseConnectivity": 0.007695
+    },
+    {
+      "date": "2026-05-02",
+      "capturedAt": "2026-05-02T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 509,
+      "bodyCount": 4146535,
+      "uniqueTagCount": 310,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 496,
+      "matureNoteCount": 440,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 452,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08870967741935484,
+      "averageLinksPerNote": 0.8991935483870968,
+      "bodyTagOccurrenceCount": 1543,
+      "tagCoverageRatio": 0.39919354838709675,
+      "singleUseTagCount": 155,
+      "chineseBodyCount": 3913285,
+      "englishWordCount": 41251,
+      "numberTokenCount": 191999,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 499,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086389,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029969,
+      "signalStrength": 0.037626,
+      "engramDensity": 0.009058,
+      "synapseConnectivity": 0.007694
+    },
+    {
+      "date": "2026-05-03",
+      "capturedAt": "2026-05-03T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 509,
+      "bodyCount": 4146535,
+      "uniqueTagCount": 310,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 496,
+      "matureNoteCount": 440,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 452,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08870967741935484,
+      "averageLinksPerNote": 0.8991935483870968,
+      "bodyTagOccurrenceCount": 1543,
+      "tagCoverageRatio": 0.39919354838709675,
+      "singleUseTagCount": 155,
+      "chineseBodyCount": 3913285,
+      "englishWordCount": 41251,
+      "numberTokenCount": 191999,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 499,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086389,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029969,
+      "signalStrength": 0.037626,
+      "engramDensity": 0.009058,
+      "synapseConnectivity": 0.007694
+    },
+    {
+      "date": "2026-05-04",
+      "capturedAt": "2026-05-04T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 509,
+      "bodyCount": 4146535,
+      "uniqueTagCount": 310,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 496,
+      "matureNoteCount": 440,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 452,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08870967741935484,
+      "averageLinksPerNote": 0.8991935483870968,
+      "bodyTagOccurrenceCount": 1543,
+      "tagCoverageRatio": 0.39919354838709675,
+      "singleUseTagCount": 155,
+      "chineseBodyCount": 3913285,
+      "englishWordCount": 41251,
+      "numberTokenCount": 191999,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 487,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086381,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029961,
+      "signalStrength": 0.037626,
+      "engramDensity": 0.009058,
+      "synapseConnectivity": 0.007694
+    },
+    {
+      "date": "2026-05-05",
+      "capturedAt": "2026-05-05T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 509,
+      "bodyCount": 4146535,
+      "uniqueTagCount": 310,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 496,
+      "matureNoteCount": 440,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 452,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08870967741935484,
+      "averageLinksPerNote": 0.8991935483870968,
+      "bodyTagOccurrenceCount": 1543,
+      "tagCoverageRatio": 0.39919354838709675,
+      "singleUseTagCount": 155,
+      "chineseBodyCount": 3913285,
+      "englishWordCount": 41251,
+      "numberTokenCount": 191999,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 487,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086381,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029961,
+      "signalStrength": 0.037626,
+      "engramDensity": 0.009058,
+      "synapseConnectivity": 0.007694
+    },
+    {
+      "date": "2026-05-06",
+      "capturedAt": "2026-05-06T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 510,
+      "bodyCount": 4148341,
+      "uniqueTagCount": 310,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 497,
+      "matureNoteCount": 441,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 453,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08853118712273642,
+      "averageLinksPerNote": 0.89738430583501,
+      "bodyTagOccurrenceCount": 1543,
+      "tagCoverageRatio": 0.3983903420523139,
+      "singleUseTagCount": 155,
+      "chineseBodyCount": 3914948,
+      "englishWordCount": 41288,
+      "numberTokenCount": 192105,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 487,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086388,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.02997,
+      "signalStrength": 0.037627,
+      "engramDensity": 0.009056,
+      "synapseConnectivity": 0.007693
+    },
+    {
+      "date": "2026-05-07",
+      "capturedAt": "2026-05-07T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 510,
+      "bodyCount": 4148341,
+      "uniqueTagCount": 310,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 497,
+      "matureNoteCount": 441,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 453,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08853118712273642,
+      "averageLinksPerNote": 0.89738430583501,
+      "bodyTagOccurrenceCount": 1543,
+      "tagCoverageRatio": 0.3983903420523139,
+      "singleUseTagCount": 155,
+      "chineseBodyCount": 3914948,
+      "englishWordCount": 41288,
+      "numberTokenCount": 192105,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 2,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084594,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028207,
+      "signalStrength": 0.037627,
+      "engramDensity": 0.009056,
+      "synapseConnectivity": 0.007693
+    },
+    {
+      "date": "2026-05-08",
+      "capturedAt": "2026-05-08T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 510,
+      "bodyCount": 4148341,
+      "uniqueTagCount": 310,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 497,
+      "matureNoteCount": 441,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 453,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08853118712273642,
+      "averageLinksPerNote": 0.89738430583501,
+      "bodyTagOccurrenceCount": 1543,
+      "tagCoverageRatio": 0.3983903420523139,
+      "singleUseTagCount": 155,
+      "chineseBodyCount": 3914948,
+      "englishWordCount": 41288,
+      "numberTokenCount": 192105,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 2,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084594,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028207,
+      "signalStrength": 0.037627,
+      "engramDensity": 0.009056,
+      "synapseConnectivity": 0.007693
+    },
+    {
+      "date": "2026-05-09",
+      "capturedAt": "2026-05-09T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 511,
+      "bodyCount": 4172605,
+      "uniqueTagCount": 311,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 498,
+      "matureNoteCount": 442,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 454,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08835341365461848,
+      "averageLinksPerNote": 0.8955823293172691,
+      "bodyTagOccurrenceCount": 1550,
+      "tagCoverageRatio": 0.39959839357429716,
+      "singleUseTagCount": 154,
+      "chineseBodyCount": 3937418,
+      "englishWordCount": 41317,
+      "numberTokenCount": 193870,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 2,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084621,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028216,
+      "signalStrength": 0.037636,
+      "engramDensity": 0.009065,
+      "synapseConnectivity": 0.007692
+    },
+    {
+      "date": "2026-05-10",
+      "capturedAt": "2026-05-10T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 511,
+      "bodyCount": 4172605,
+      "uniqueTagCount": 311,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 498,
+      "matureNoteCount": 442,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 454,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08835341365461848,
+      "averageLinksPerNote": 0.8955823293172691,
+      "bodyTagOccurrenceCount": 1550,
+      "tagCoverageRatio": 0.39959839357429716,
+      "singleUseTagCount": 154,
+      "chineseBodyCount": 3937418,
+      "englishWordCount": 41317,
+      "numberTokenCount": 193870,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 2,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084621,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028216,
+      "signalStrength": 0.037636,
+      "engramDensity": 0.009065,
+      "synapseConnectivity": 0.007692
+    },
+    {
+      "date": "2026-05-11",
+      "capturedAt": "2026-05-11T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 512,
+      "bodyCount": 4180894,
+      "uniqueTagCount": 315,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 499,
+      "matureNoteCount": 443,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 455,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08817635270541083,
+      "averageLinksPerNote": 0.8937875751503006,
+      "bodyTagOccurrenceCount": 1554,
+      "tagCoverageRatio": 0.40080160320641284,
+      "singleUseTagCount": 158,
+      "chineseBodyCount": 3945155,
+      "englishWordCount": 41321,
+      "numberTokenCount": 194418,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 3,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084746,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028325,
+      "signalStrength": 0.037639,
+      "engramDensity": 0.009077,
+      "synapseConnectivity": 0.007691
+    },
+    {
+      "date": "2026-05-12",
+      "capturedAt": "2026-05-12T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 513,
+      "bodyCount": 4180894,
+      "uniqueTagCount": 315,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 499,
+      "matureNoteCount": 443,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 455,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08817635270541083,
+      "averageLinksPerNote": 0.8937875751503006,
+      "bodyTagOccurrenceCount": 1554,
+      "tagCoverageRatio": 0.40080160320641284,
+      "singleUseTagCount": 158,
+      "chineseBodyCount": 3945155,
+      "englishWordCount": 41321,
+      "numberTokenCount": 194418,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084824,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028401,
+      "signalStrength": 0.037639,
+      "engramDensity": 0.009077,
+      "synapseConnectivity": 0.007691
+    },
+    {
+      "date": "2026-05-13",
+      "capturedAt": "2026-05-13T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 513,
+      "bodyCount": 4180894,
+      "uniqueTagCount": 315,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 499,
+      "matureNoteCount": 443,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 455,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08817635270541083,
+      "averageLinksPerNote": 0.8937875751503006,
+      "bodyTagOccurrenceCount": 1554,
+      "tagCoverageRatio": 0.40080160320641284,
+      "singleUseTagCount": 158,
+      "chineseBodyCount": 3945155,
+      "englishWordCount": 41321,
+      "numberTokenCount": 194418,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 3,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084745,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028324,
+      "signalStrength": 0.037639,
+      "engramDensity": 0.009077,
+      "synapseConnectivity": 0.007691
+    },
+    {
+      "date": "2026-05-14",
+      "capturedAt": "2026-05-14T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 513,
+      "bodyCount": 4180894,
+      "uniqueTagCount": 315,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 499,
+      "matureNoteCount": 443,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 455,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08817635270541083,
+      "averageLinksPerNote": 0.8937875751503006,
+      "bodyTagOccurrenceCount": 1554,
+      "tagCoverageRatio": 0.40080160320641284,
+      "singleUseTagCount": 158,
+      "chineseBodyCount": 3945155,
+      "englishWordCount": 41321,
+      "numberTokenCount": 194418,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 3,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084745,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028324,
+      "signalStrength": 0.037639,
+      "engramDensity": 0.009077,
+      "synapseConnectivity": 0.007691
+    },
+    {
+      "date": "2026-05-15",
+      "capturedAt": "2026-05-15T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 514,
+      "bodyCount": 4183334,
+      "uniqueTagCount": 315,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 500,
+      "matureNoteCount": 444,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 456,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.088,
+      "averageLinksPerNote": 0.892,
+      "bodyTagOccurrenceCount": 1554,
+      "tagCoverageRatio": 0.4,
+      "singleUseTagCount": 158,
+      "chineseBodyCount": 3947585,
+      "englishWordCount": 41322,
+      "numberTokenCount": 194427,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084831,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.02841,
+      "signalStrength": 0.03764,
+      "engramDensity": 0.009075,
+      "synapseConnectivity": 0.00769
+    },
+    {
+      "date": "2026-05-16",
+      "capturedAt": "2026-05-16T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 514,
+      "bodyCount": 4183334,
+      "uniqueTagCount": 315,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 500,
+      "matureNoteCount": 444,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 456,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.088,
+      "averageLinksPerNote": 0.892,
+      "bodyTagOccurrenceCount": 1554,
+      "tagCoverageRatio": 0.4,
+      "singleUseTagCount": 158,
+      "chineseBodyCount": 3947585,
+      "englishWordCount": 41322,
+      "numberTokenCount": 194427,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 3,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084752,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028333,
+      "signalStrength": 0.03764,
+      "engramDensity": 0.009075,
+      "synapseConnectivity": 0.00769
+    },
+    {
+      "date": "2026-05-17",
+      "capturedAt": "2026-05-17T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 515,
+      "bodyCount": 4196591,
+      "uniqueTagCount": 315,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 501,
+      "matureNoteCount": 445,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 457,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08782435129740519,
+      "averageLinksPerNote": 0.8902195608782435,
+      "bodyTagOccurrenceCount": 1555,
+      "tagCoverageRatio": 0.40119760479041916,
+      "singleUseTagCount": 158,
+      "chineseBodyCount": 3958919,
+      "englishWordCount": 41576,
+      "numberTokenCount": 196096,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.084849,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028419,
+      "signalStrength": 0.037647,
+      "engramDensity": 0.009078,
+      "synapseConnectivity": 0.007689
+    },
+    {
+      "date": "2026-05-18",
+      "capturedAt": "2026-05-18T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 519,
+      "bodyCount": 4201191,
+      "uniqueTagCount": 315,
+      "connectionCount": 446,
+      "nonEmptyNoteCount": 505,
+      "matureNoteCount": 449,
+      "shortNoteCount": 24,
+      "connectedNoteCount": 44,
+      "orphanNoteCount": 461,
+      "internalLinkCount": 446,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08712871287128712,
+      "averageLinksPerNote": 0.8831683168316832,
+      "bodyTagOccurrenceCount": 1555,
+      "tagCoverageRatio": 0.39801980198019804,
+      "singleUseTagCount": 158,
+      "chineseBodyCount": 3963445,
+      "englishWordCount": 41587,
+      "numberTokenCount": 196159,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 7,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 159
+        },
+        {
+          "tag": "#00b050",
+          "count": 119
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.085041,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028618,
+      "signalStrength": 0.037648,
+      "engramDensity": 0.009071,
+      "synapseConnectivity": 0.007685
+    },
+    {
+      "date": "2026-05-19",
+      "capturedAt": "2026-05-19T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 535,
+      "bodyCount": 4356911,
+      "uniqueTagCount": 335,
+      "connectionCount": 447,
+      "nonEmptyNoteCount": 521,
+      "matureNoteCount": 463,
+      "shortNoteCount": 26,
+      "connectedNoteCount": 46,
+      "orphanNoteCount": 475,
+      "internalLinkCount": 447,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08829174664107485,
+      "averageLinksPerNote": 0.8579654510556622,
+      "bodyTagOccurrenceCount": 1694,
+      "tagCoverageRatio": 0.4069097888675624,
+      "singleUseTagCount": 166,
+      "chineseBodyCount": 4111922,
+      "englishWordCount": 41861,
+      "numberTokenCount": 203128,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 22,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 160
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.085712,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029103,
+      "signalStrength": 0.037704,
+      "engramDensity": 0.009187,
+      "synapseConnectivity": 0.007684
+    },
+    {
+      "date": "2026-05-20",
+      "capturedAt": "2026-05-20T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 547,
+      "bodyCount": 4434502,
+      "uniqueTagCount": 350,
+      "connectionCount": 447,
+      "nonEmptyNoteCount": 533,
+      "matureNoteCount": 475,
+      "shortNoteCount": 26,
+      "connectedNoteCount": 46,
+      "orphanNoteCount": 487,
+      "internalLinkCount": 447,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08630393996247655,
+      "averageLinksPerNote": 0.8386491557223265,
+      "bodyTagOccurrenceCount": 1770,
+      "tagCoverageRatio": 0.4090056285178236,
+      "singleUseTagCount": 168,
+      "chineseBodyCount": 4185516,
+      "englishWordCount": 42096,
+      "numberTokenCount": 206890,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 34,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086053,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.02935,
+      "signalStrength": 0.037732,
+      "engramDensity": 0.009257,
+      "synapseConnectivity": 0.007673
+    },
+    {
+      "date": "2026-05-21",
+      "capturedAt": "2026-05-21T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 567,
+      "bodyCount": 4471635,
+      "uniqueTagCount": 351,
+      "connectionCount": 451,
+      "nonEmptyNoteCount": 552,
+      "matureNoteCount": 487,
+      "shortNoteCount": 33,
+      "connectedNoteCount": 48,
+      "orphanNoteCount": 504,
+      "internalLinkCount": 451,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08695652173913043,
+      "averageLinksPerNote": 0.8170289855072463,
+      "bodyTagOccurrenceCount": 1771,
+      "tagCoverageRatio": 0.3967391304347826,
+      "singleUseTagCount": 169,
+      "chineseBodyCount": 4220866,
+      "englishWordCount": 42708,
+      "numberTokenCount": 208061,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 54,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086298,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029595,
+      "signalStrength": 0.037748,
+      "engramDensity": 0.009232,
+      "synapseConnectivity": 0.007678
+    },
+    {
+      "date": "2026-05-22",
+      "capturedAt": "2026-05-22T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 582,
+      "bodyCount": 4552419,
+      "uniqueTagCount": 351,
+      "connectionCount": 451,
+      "nonEmptyNoteCount": 567,
+      "matureNoteCount": 501,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 48,
+      "orphanNoteCount": 519,
+      "internalLinkCount": 451,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08465608465608465,
+      "averageLinksPerNote": 0.7954144620811288,
+      "bodyTagOccurrenceCount": 1771,
+      "tagCoverageRatio": 0.3862433862433862,
+      "singleUseTagCount": 169,
+      "chineseBodyCount": 4299990,
+      "englishWordCount": 43090,
+      "numberTokenCount": 209339,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 68,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086482,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029786,
+      "signalStrength": 0.037775,
+      "engramDensity": 0.009209,
+      "synapseConnectivity": 0.007666
+    },
+    {
+      "date": "2026-05-23",
+      "capturedAt": "2026-05-23T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 584,
+      "bodyCount": 4562473,
+      "uniqueTagCount": 351,
+      "connectionCount": 451,
+      "nonEmptyNoteCount": 569,
+      "matureNoteCount": 503,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 48,
+      "orphanNoteCount": 521,
+      "internalLinkCount": 451,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.0843585237258348,
+      "averageLinksPerNote": 0.7926186291739895,
+      "bodyTagOccurrenceCount": 1771,
+      "tagCoverageRatio": 0.38488576449912126,
+      "singleUseTagCount": 169,
+      "chineseBodyCount": 4309298,
+      "englishWordCount": 43264,
+      "numberTokenCount": 209911,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 70,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086507,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029811,
+      "signalStrength": 0.03778,
+      "engramDensity": 0.009206,
+      "synapseConnectivity": 0.007664
+    },
+    {
+      "date": "2026-05-24",
+      "capturedAt": "2026-05-24T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 586,
+      "bodyCount": 4580009,
+      "uniqueTagCount": 351,
+      "connectionCount": 457,
+      "nonEmptyNoteCount": 571,
+      "matureNoteCount": 505,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 521,
+      "internalLinkCount": 457,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08756567425569177,
+      "averageLinksPerNote": 0.8003502626970228,
+      "bodyTagOccurrenceCount": 1773,
+      "tagCoverageRatio": 0.38528896672504376,
+      "singleUseTagCount": 169,
+      "chineseBodyCount": 4326252,
+      "englishWordCount": 43271,
+      "numberTokenCount": 210486,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 71,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086562,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029832,
+      "signalStrength": 0.037785,
+      "engramDensity": 0.009207,
+      "synapseConnectivity": 0.007689
+    },
+    {
+      "date": "2026-05-25",
+      "capturedAt": "2026-05-25T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 588,
+      "bodyCount": 4608700,
+      "uniqueTagCount": 352,
+      "connectionCount": 457,
+      "nonEmptyNoteCount": 573,
+      "matureNoteCount": 507,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 523,
+      "internalLinkCount": 457,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08726003490401396,
+      "averageLinksPerNote": 0.7975567190226877,
+      "bodyTagOccurrenceCount": 1775,
+      "tagCoverageRatio": 0.3856893542757417,
+      "singleUseTagCount": 170,
+      "chineseBodyCount": 4354100,
+      "englishWordCount": 43301,
+      "numberTokenCount": 211299,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 69,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086578,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029838,
+      "signalStrength": 0.037794,
+      "engramDensity": 0.00921,
+      "synapseConnectivity": 0.007687
+    },
+    {
+      "date": "2026-05-26",
+      "capturedAt": "2026-05-26T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 588,
+      "bodyCount": 4608700,
+      "uniqueTagCount": 352,
+      "connectionCount": 457,
+      "nonEmptyNoteCount": 573,
+      "matureNoteCount": 507,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 523,
+      "internalLinkCount": 457,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08726003490401396,
+      "averageLinksPerNote": 0.7975567190226877,
+      "bodyTagOccurrenceCount": 1775,
+      "tagCoverageRatio": 0.3856893542757417,
+      "singleUseTagCount": 170,
+      "chineseBodyCount": 4354100,
+      "englishWordCount": 43301,
+      "numberTokenCount": 211299,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 53,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086486,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029748,
+      "signalStrength": 0.037794,
+      "engramDensity": 0.00921,
+      "synapseConnectivity": 0.007687
+    },
+    {
+      "date": "2026-05-27",
+      "capturedAt": "2026-05-27T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 589,
+      "bodyCount": 4608871,
+      "uniqueTagCount": 352,
+      "connectionCount": 457,
+      "nonEmptyNoteCount": 574,
+      "matureNoteCount": 507,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 524,
+      "internalLinkCount": 457,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08710801393728224,
+      "averageLinksPerNote": 0.7961672473867596,
+      "bodyTagOccurrenceCount": 1775,
+      "tagCoverageRatio": 0.38501742160278746,
+      "singleUseTagCount": 170,
+      "chineseBodyCount": 4354266,
+      "englishWordCount": 43301,
+      "numberTokenCount": 211304,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 42,
+      "topTags": [
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#0070c0",
+          "count": 74
+        },
+        {
+          "tag": "#考试/高频考点",
+          "count": 74
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 68
+        }
+      ],
+      "cognitiveComputeTops": 0.086408,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029672,
+      "signalStrength": 0.037795,
+      "engramDensity": 0.009209,
+      "synapseConnectivity": 0.007686
+    },
+    {
+      "date": "2026-05-28",
+      "capturedAt": "2026-05-28T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 592,
+      "bodyCount": 4627314,
+      "uniqueTagCount": 360,
+      "connectionCount": 457,
+      "nonEmptyNoteCount": 577,
+      "matureNoteCount": 509,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 527,
+      "internalLinkCount": 457,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08665511265164645,
+      "averageLinksPerNote": 0.7920277296360485,
+      "bodyTagOccurrenceCount": 2790,
+      "tagCoverageRatio": 0.38648180242634317,
+      "singleUseTagCount": 171,
+      "chineseBodyCount": 4369171,
+      "englishWordCount": 43787,
+      "numberTokenCount": 214356,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 25,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086518,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029517,
+      "signalStrength": 0.037804,
+      "engramDensity": 0.009456,
+      "synapseConnectivity": 0.007684
+    },
+    {
+      "date": "2026-05-29",
+      "capturedAt": "2026-05-29T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 592,
+      "bodyCount": 4627314,
+      "uniqueTagCount": 360,
+      "connectionCount": 457,
+      "nonEmptyNoteCount": 577,
+      "matureNoteCount": 509,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 527,
+      "internalLinkCount": 457,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08665511265164645,
+      "averageLinksPerNote": 0.7920277296360485,
+      "bodyTagOccurrenceCount": 2790,
+      "tagCoverageRatio": 0.38648180242634317,
+      "singleUseTagCount": 171,
+      "chineseBodyCount": 4369171,
+      "englishWordCount": 43787,
+      "numberTokenCount": 214356,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 10,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#00b050",
+          "count": 164
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086214,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029219,
+      "signalStrength": 0.037804,
+      "engramDensity": 0.009456,
+      "synapseConnectivity": 0.007684
+    },
+    {
+      "date": "2026-05-30",
+      "capturedAt": "2026-05-30T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 597,
+      "bodyCount": 4681984,
+      "uniqueTagCount": 360,
+      "connectionCount": 457,
+      "nonEmptyNoteCount": 582,
+      "matureNoteCount": 514,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 532,
+      "internalLinkCount": 457,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.0859106529209622,
+      "averageLinksPerNote": 0.7852233676975945,
+      "bodyTagOccurrenceCount": 2801,
+      "tagCoverageRatio": 0.3865979381443299,
+      "singleUseTagCount": 169,
+      "chineseBodyCount": 4420023,
+      "englishWordCount": 44066,
+      "numberTokenCount": 217895,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 13,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 166
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.08636,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029341,
+      "signalStrength": 0.037824,
+      "engramDensity": 0.009461,
+      "synapseConnectivity": 0.00768
+    },
+    {
+      "date": "2026-05-31",
+      "capturedAt": "2026-05-31T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 598,
+      "bodyCount": 4682409,
+      "uniqueTagCount": 360,
+      "connectionCount": 461,
+      "nonEmptyNoteCount": 583,
+      "matureNoteCount": 515,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 533,
+      "internalLinkCount": 461,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08576329331046312,
+      "averageLinksPerNote": 0.79073756432247,
+      "bodyTagOccurrenceCount": 2801,
+      "tagCoverageRatio": 0.38593481989708406,
+      "singleUseTagCount": 169,
+      "chineseBodyCount": 4420432,
+      "englishWordCount": 44066,
+      "numberTokenCount": 217911,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 12,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#00b050",
+          "count": 166
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.08635,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029324,
+      "signalStrength": 0.037824,
+      "engramDensity": 0.009459,
+      "synapseConnectivity": 0.007689
+    },
+    {
+      "date": "2026-06-01",
+      "capturedAt": "2026-06-01T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 612,
+      "bodyCount": 4789430,
+      "uniqueTagCount": 360,
+      "connectionCount": 470,
+      "nonEmptyNoteCount": 597,
+      "matureNoteCount": 529,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 547,
+      "internalLinkCount": 470,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08375209380234507,
+      "averageLinksPerNote": 0.7872696817420436,
+      "bodyTagOccurrenceCount": 2895,
+      "tagCoverageRatio": 0.3969849246231156,
+      "singleUseTagCount": 166,
+      "chineseBodyCount": 4515457,
+      "englishWordCount": 45711,
+      "numberTokenCount": 228262,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 24,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086795,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029657,
+      "signalStrength": 0.03787,
+      "engramDensity": 0.009503,
+      "synapseConnectivity": 0.007701
+    },
+    {
+      "date": "2026-06-02",
+      "capturedAt": "2026-06-02T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 613,
+      "bodyCount": 4820403,
+      "uniqueTagCount": 362,
+      "connectionCount": 470,
+      "nonEmptyNoteCount": 598,
+      "matureNoteCount": 530,
+      "shortNoteCount": 34,
+      "connectedNoteCount": 50,
+      "orphanNoteCount": 548,
+      "internalLinkCount": 470,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08361204013377926,
+      "averageLinksPerNote": 0.7859531772575251,
+      "bodyTagOccurrenceCount": 2958,
+      "tagCoverageRatio": 0.3979933110367893,
+      "singleUseTagCount": 166,
+      "chineseBodyCount": 4545274,
+      "englishWordCount": 45774,
+      "numberTokenCount": 229355,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 25,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086846,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029678,
+      "signalStrength": 0.03788,
+      "engramDensity": 0.009522,
+      "synapseConnectivity": 0.007701
+    },
+    {
+      "date": "2026-06-03",
+      "capturedAt": "2026-06-03T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 628,
+      "bodyCount": 4866137,
+      "uniqueTagCount": 368,
+      "connectionCount": 473,
+      "nonEmptyNoteCount": 612,
+      "matureNoteCount": 542,
+      "shortNoteCount": 35,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 561,
+      "internalLinkCount": 473,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08333333333333333,
+      "averageLinksPerNote": 0.7728758169934641,
+      "bodyTagOccurrenceCount": 3177,
+      "tagCoverageRatio": 0.3954248366013072,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4584173,
+      "englishWordCount": 51523,
+      "numberTokenCount": 230441,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 39,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087179,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029917,
+      "signalStrength": 0.03792,
+      "engramDensity": 0.009567,
+      "synapseConnectivity": 0.007703
+    },
+    {
+      "date": "2026-06-04",
+      "capturedAt": "2026-06-04T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 630,
+      "bodyCount": 4866208,
+      "uniqueTagCount": 368,
+      "connectionCount": 473,
+      "nonEmptyNoteCount": 614,
+      "matureNoteCount": 542,
+      "shortNoteCount": 37,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 563,
+      "internalLinkCount": 473,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08306188925081433,
+      "averageLinksPerNote": 0.7703583061889251,
+      "bodyTagOccurrenceCount": 3177,
+      "tagCoverageRatio": 0.3941368078175896,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4584235,
+      "englishWordCount": 51523,
+      "numberTokenCount": 230450,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 38,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087163,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029906,
+      "signalStrength": 0.03792,
+      "engramDensity": 0.009564,
+      "synapseConnectivity": 0.007701
+    },
+    {
+      "date": "2026-06-05",
+      "capturedAt": "2026-06-05T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 630,
+      "bodyCount": 4866208,
+      "uniqueTagCount": 368,
+      "connectionCount": 473,
+      "nonEmptyNoteCount": 614,
+      "matureNoteCount": 542,
+      "shortNoteCount": 37,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 563,
+      "internalLinkCount": 473,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08306188925081433,
+      "averageLinksPerNote": 0.7703583061889251,
+      "bodyTagOccurrenceCount": 3177,
+      "tagCoverageRatio": 0.3941368078175896,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4584235,
+      "englishWordCount": 51523,
+      "numberTokenCount": 230450,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 38,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087163,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029906,
+      "signalStrength": 0.03792,
+      "engramDensity": 0.009564,
+      "synapseConnectivity": 0.007701
+    },
+    {
+      "date": "2026-06-06",
+      "capturedAt": "2026-06-06T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 631,
+      "bodyCount": 4887563,
+      "uniqueTagCount": 368,
+      "connectionCount": 473,
+      "nonEmptyNoteCount": 615,
+      "matureNoteCount": 543,
+      "shortNoteCount": 37,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 564,
+      "internalLinkCount": 473,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08292682926829269,
+      "averageLinksPerNote": 0.7691056910569106,
+      "bodyTagOccurrenceCount": 3177,
+      "tagCoverageRatio": 0.3934959349593496,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4603734,
+      "englishWordCount": 51816,
+      "numberTokenCount": 232013,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 34,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087139,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029876,
+      "signalStrength": 0.037929,
+      "engramDensity": 0.009563,
+      "synapseConnectivity": 0.0077
+    },
+    {
+      "date": "2026-06-07",
+      "capturedAt": "2026-06-07T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 631,
+      "bodyCount": 4887563,
+      "uniqueTagCount": 368,
+      "connectionCount": 473,
+      "nonEmptyNoteCount": 615,
+      "matureNoteCount": 543,
+      "shortNoteCount": 37,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 564,
+      "internalLinkCount": 473,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08292682926829269,
+      "averageLinksPerNote": 0.7691056910569106,
+      "bodyTagOccurrenceCount": 3177,
+      "tagCoverageRatio": 0.3934959349593496,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4603734,
+      "englishWordCount": 51816,
+      "numberTokenCount": 232013,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 33,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087129,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029866,
+      "signalStrength": 0.037929,
+      "engramDensity": 0.009563,
+      "synapseConnectivity": 0.0077
+    },
+    {
+      "date": "2026-06-08",
+      "capturedAt": "2026-06-08T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 632,
+      "bodyCount": 4898047,
+      "uniqueTagCount": 368,
+      "connectionCount": 473,
+      "nonEmptyNoteCount": 616,
+      "matureNoteCount": 544,
+      "shortNoteCount": 37,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 565,
+      "internalLinkCount": 473,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08279220779220779,
+      "averageLinksPerNote": 0.7678571428571429,
+      "bodyTagOccurrenceCount": 3177,
+      "tagCoverageRatio": 0.39285714285714285,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4613003,
+      "englishWordCount": 51950,
+      "numberTokenCount": 233094,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 20,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086969,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029706,
+      "signalStrength": 0.037933,
+      "engramDensity": 0.009562,
+      "synapseConnectivity": 0.0077
+    },
+    {
+      "date": "2026-06-09",
+      "capturedAt": "2026-06-09T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 635,
+      "bodyCount": 4905873,
+      "uniqueTagCount": 368,
+      "connectionCount": 473,
+      "nonEmptyNoteCount": 619,
+      "matureNoteCount": 546,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 568,
+      "internalLinkCount": 473,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08239095315024232,
+      "averageLinksPerNote": 0.7641357027463651,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.3925686591276252,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4620801,
+      "englishWordCount": 51953,
+      "numberTokenCount": 233119,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 22,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087014,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029751,
+      "signalStrength": 0.037935,
+      "engramDensity": 0.009561,
+      "synapseConnectivity": 0.007698
+    },
+    {
+      "date": "2026-06-10",
+      "capturedAt": "2026-06-10T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 635,
+      "bodyCount": 4905873,
+      "uniqueTagCount": 368,
+      "connectionCount": 473,
+      "nonEmptyNoteCount": 619,
+      "matureNoteCount": 546,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 568,
+      "internalLinkCount": 473,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08239095315024232,
+      "averageLinksPerNote": 0.7641357027463651,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.3925686591276252,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4620801,
+      "englishWordCount": 51953,
+      "numberTokenCount": 233119,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 7,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086641,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029385,
+      "signalStrength": 0.037935,
+      "engramDensity": 0.009561,
+      "synapseConnectivity": 0.007698
+    },
+    {
+      "date": "2026-06-11",
+      "capturedAt": "2026-06-11T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 636,
+      "bodyCount": 4906274,
+      "uniqueTagCount": 368,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 620,
+      "matureNoteCount": 547,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 569,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08225806451612903,
+      "averageLinksPerNote": 0.7693548387096775,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.3919354838709677,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4621188,
+      "englishWordCount": 51953,
+      "numberTokenCount": 233133,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 6,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.08661,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029346,
+      "signalStrength": 0.037935,
+      "engramDensity": 0.00956,
+      "synapseConnectivity": 0.007707
+    },
+    {
+      "date": "2026-06-12",
+      "capturedAt": "2026-06-12T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 636,
+      "bodyCount": 4906274,
+      "uniqueTagCount": 368,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 620,
+      "matureNoteCount": 547,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 569,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08225806451612903,
+      "averageLinksPerNote": 0.7693548387096775,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.3919354838709677,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4621188,
+      "englishWordCount": 51953,
+      "numberTokenCount": 233133,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 6,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.08661,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029346,
+      "signalStrength": 0.037935,
+      "engramDensity": 0.00956,
+      "synapseConnectivity": 0.007707
+    },
+    {
+      "date": "2026-06-13",
+      "capturedAt": "2026-06-13T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 636,
+      "bodyCount": 4906274,
+      "uniqueTagCount": 368,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 620,
+      "matureNoteCount": 547,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 569,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08225806451612903,
+      "averageLinksPerNote": 0.7693548387096775,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.3919354838709677,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4621188,
+      "englishWordCount": 51953,
+      "numberTokenCount": 233133,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 5,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086557,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029293,
+      "signalStrength": 0.037935,
+      "engramDensity": 0.00956,
+      "synapseConnectivity": 0.007707
+    },
+    {
+      "date": "2026-06-14",
+      "capturedAt": "2026-06-14T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 636,
+      "bodyCount": 4906274,
+      "uniqueTagCount": 368,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 620,
+      "matureNoteCount": 547,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 569,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08225806451612903,
+      "averageLinksPerNote": 0.7693548387096775,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.3919354838709677,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4621188,
+      "englishWordCount": 51953,
+      "numberTokenCount": 233133,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 5,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086557,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029293,
+      "signalStrength": 0.037935,
+      "engramDensity": 0.00956,
+      "synapseConnectivity": 0.007707
+    },
+    {
+      "date": "2026-06-15",
+      "capturedAt": "2026-06-15T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 636,
+      "bodyCount": 4906274,
+      "uniqueTagCount": 368,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 620,
+      "matureNoteCount": 547,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 569,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08225806451612903,
+      "averageLinksPerNote": 0.7693548387096775,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.3919354838709677,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4621188,
+      "englishWordCount": 51953,
+      "numberTokenCount": 233133,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 4,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086492,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.02923,
+      "signalStrength": 0.037935,
+      "engramDensity": 0.00956,
+      "synapseConnectivity": 0.007707
+    },
+    {
+      "date": "2026-06-16",
+      "capturedAt": "2026-06-16T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 636,
+      "bodyCount": 4906274,
+      "uniqueTagCount": 368,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 620,
+      "matureNoteCount": 547,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 569,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08225806451612903,
+      "averageLinksPerNote": 0.7693548387096775,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.3919354838709677,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4621188,
+      "englishWordCount": 51953,
+      "numberTokenCount": 233133,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 1,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.08617,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028913,
+      "signalStrength": 0.037935,
+      "engramDensity": 0.00956,
+      "synapseConnectivity": 0.007707
+    },
+    {
+      "date": "2026-06-17",
+      "capturedAt": "2026-06-17T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 636,
+      "bodyCount": 4906274,
+      "uniqueTagCount": 368,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 620,
+      "matureNoteCount": 547,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 569,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08225806451612903,
+      "averageLinksPerNote": 0.7693548387096775,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.3919354838709677,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4621188,
+      "englishWordCount": 51953,
+      "numberTokenCount": 233133,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 1,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.08617,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.028913,
+      "signalStrength": 0.037935,
+      "engramDensity": 0.00956,
+      "synapseConnectivity": 0.007707
+    },
+    {
+      "date": "2026-06-18",
+      "capturedAt": "2026-06-18T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 637,
+      "bodyCount": 4911178,
+      "uniqueTagCount": 368,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 621,
+      "matureNoteCount": 548,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 570,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.0821256038647343,
+      "averageLinksPerNote": 0.7681159420289855,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.391304347826087,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4625954,
+      "englishWordCount": 52066,
+      "numberTokenCount": 233158,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 1,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086176,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.02892,
+      "signalStrength": 0.037937,
+      "engramDensity": 0.009558,
+      "synapseConnectivity": 0.007706
+    },
+    {
+      "date": "2026-06-19",
+      "capturedAt": "2026-06-19T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 638,
+      "bodyCount": 4911320,
+      "uniqueTagCount": 368,
+      "connectionCount": 478,
+      "nonEmptyNoteCount": 622,
+      "matureNoteCount": 548,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 571,
+      "internalLinkCount": 478,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.0819935691318328,
+      "averageLinksPerNote": 0.7684887459807074,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.39067524115755625,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4626090,
+      "englishWordCount": 52066,
+      "numberTokenCount": 233164,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 2,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086322,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029063,
+      "signalStrength": 0.037937,
+      "engramDensity": 0.009557,
+      "synapseConnectivity": 0.007708
+    },
+    {
+      "date": "2026-06-20",
+      "capturedAt": "2026-06-20T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 639,
+      "bodyCount": 4920603,
+      "uniqueTagCount": 368,
+      "connectionCount": 478,
+      "nonEmptyNoteCount": 623,
+      "matureNoteCount": 549,
+      "shortNoteCount": 38,
+      "connectedNoteCount": 51,
+      "orphanNoteCount": 572,
+      "internalLinkCount": 478,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08186195826645265,
+      "averageLinksPerNote": 0.7672552166934189,
+      "bodyTagOccurrenceCount": 3179,
+      "tagCoverageRatio": 0.391653290529695,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4634244,
+      "englishWordCount": 52195,
+      "numberTokenCount": 234164,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 3,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086436,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.02917,
+      "signalStrength": 0.037941,
+      "engramDensity": 0.009559,
+      "synapseConnectivity": 0.007707
+    },
+    {
+      "date": "2026-06-21",
+      "capturedAt": "2026-06-21T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 643,
+      "bodyCount": 4924585,
+      "uniqueTagCount": 368,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 627,
+      "matureNoteCount": 552,
+      "shortNoteCount": 39,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 571,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08931419457735247,
+      "averageLinksPerNote": 0.7639553429027113,
+      "bodyTagOccurrenceCount": 3179,
+      "tagCoverageRatio": 0.38915470494417864,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4638133,
+      "englishWordCount": 52210,
+      "numberTokenCount": 234242,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 7,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086723,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.02943,
+      "signalStrength": 0.037942,
+      "engramDensity": 0.009554,
+      "synapseConnectivity": 0.007731
+    },
+    {
+      "date": "2026-06-22",
+      "capturedAt": "2026-06-22T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 643,
+      "bodyCount": 4924585,
+      "uniqueTagCount": 368,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 627,
+      "matureNoteCount": 552,
+      "shortNoteCount": 39,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 571,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08931419457735247,
+      "averageLinksPerNote": 0.7639553429027113,
+      "bodyTagOccurrenceCount": 3179,
+      "tagCoverageRatio": 0.38915470494417864,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4638133,
+      "englishWordCount": 52210,
+      "numberTokenCount": 234242,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 7,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086723,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.02943,
+      "signalStrength": 0.037942,
+      "engramDensity": 0.009554,
+      "synapseConnectivity": 0.007731
+    },
+    {
+      "date": "2026-06-23",
+      "capturedAt": "2026-06-23T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 644,
+      "bodyCount": 4925507,
+      "uniqueTagCount": 368,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 628,
+      "matureNoteCount": 553,
+      "shortNoteCount": 39,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 572,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08917197452229299,
+      "averageLinksPerNote": 0.7627388535031847,
+      "bodyTagOccurrenceCount": 3179,
+      "tagCoverageRatio": 0.3885350318471338,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4639036,
+      "englishWordCount": 52210,
+      "numberTokenCount": 234261,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 8,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086769,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029478,
+      "signalStrength": 0.037942,
+      "engramDensity": 0.009552,
+      "synapseConnectivity": 0.00773
+    },
+    {
+      "date": "2026-06-24",
+      "capturedAt": "2026-06-24T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 644,
+      "bodyCount": 4925507,
+      "uniqueTagCount": 368,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 628,
+      "matureNoteCount": 553,
+      "shortNoteCount": 39,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 572,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08917197452229299,
+      "averageLinksPerNote": 0.7627388535031847,
+      "bodyTagOccurrenceCount": 3179,
+      "tagCoverageRatio": 0.3885350318471338,
+      "singleUseTagCount": 167,
+      "chineseBodyCount": 4639036,
+      "englishWordCount": 52210,
+      "numberTokenCount": 234261,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 8,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086769,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029478,
+      "signalStrength": 0.037942,
+      "engramDensity": 0.009552,
+      "synapseConnectivity": 0.00773
+    },
+    {
+      "date": "2026-06-25",
+      "capturedAt": "2026-06-25T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 647,
+      "bodyCount": 4926900,
+      "uniqueTagCount": 372,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 631,
+      "matureNoteCount": 554,
+      "shortNoteCount": 41,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 575,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08874801901743265,
+      "averageLinksPerNote": 0.7591125198098256,
+      "bodyTagOccurrenceCount": 3183,
+      "tagCoverageRatio": 0.3898573692551506,
+      "singleUseTagCount": 171,
+      "chineseBodyCount": 4640071,
+      "englishWordCount": 52521,
+      "numberTokenCount": 234308,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 10,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086855,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029553,
+      "signalStrength": 0.037944,
+      "engramDensity": 0.009562,
+      "synapseConnectivity": 0.007728
+    },
+    {
+      "date": "2026-06-26",
+      "capturedAt": "2026-06-26T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 652,
+      "bodyCount": 4940764,
+      "uniqueTagCount": 372,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 635,
+      "matureNoteCount": 556,
+      "shortNoteCount": 43,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 579,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08818897637795275,
+      "averageLinksPerNote": 0.7543307086614173,
+      "bodyTagOccurrenceCount": 3183,
+      "tagCoverageRatio": 0.38740157480314963,
+      "singleUseTagCount": 171,
+      "chineseBodyCount": 4653511,
+      "englishWordCount": 52546,
+      "numberTokenCount": 234707,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 14,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086971,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029671,
+      "signalStrength": 0.037948,
+      "engramDensity": 0.009557,
+      "synapseConnectivity": 0.007725
+    },
+    {
+      "date": "2026-06-27",
+      "capturedAt": "2026-06-27T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 654,
+      "bodyCount": 4940800,
+      "uniqueTagCount": 374,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 637,
+      "matureNoteCount": 556,
+      "shortNoteCount": 45,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 581,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08791208791208792,
+      "averageLinksPerNote": 0.7519623233908949,
+      "bodyTagOccurrenceCount": 3185,
+      "tagCoverageRatio": 0.3877551020408163,
+      "singleUseTagCount": 173,
+      "chineseBodyCount": 4653542,
+      "englishWordCount": 52547,
+      "numberTokenCount": 234711,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 15,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086994,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029692,
+      "signalStrength": 0.037948,
+      "engramDensity": 0.009561,
+      "synapseConnectivity": 0.007723
+    },
+    {
+      "date": "2026-06-28",
+      "capturedAt": "2026-06-28T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 657,
+      "bodyCount": 4942230,
+      "uniqueTagCount": 374,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 640,
+      "matureNoteCount": 557,
+      "shortNoteCount": 47,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 584,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.0875,
+      "averageLinksPerNote": 0.7484375,
+      "bodyTagOccurrenceCount": 3185,
+      "tagCoverageRatio": 0.3859375,
+      "singleUseTagCount": 173,
+      "chineseBodyCount": 4654812,
+      "englishWordCount": 52641,
+      "numberTokenCount": 234777,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 14,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086971,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029675,
+      "signalStrength": 0.037949,
+      "engramDensity": 0.009557,
+      "synapseConnectivity": 0.007721
+    },
+    {
+      "date": "2026-06-29",
+      "capturedAt": "2026-06-29T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 658,
+      "bodyCount": 4942302,
+      "uniqueTagCount": 374,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 641,
+      "matureNoteCount": 557,
+      "shortNoteCount": 48,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 585,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.0873634945397816,
+      "averageLinksPerNote": 0.7472698907956318,
+      "bodyTagOccurrenceCount": 3185,
+      "tagCoverageRatio": 0.38533541341653665,
+      "singleUseTagCount": 173,
+      "chineseBodyCount": 4654875,
+      "englishWordCount": 52642,
+      "numberTokenCount": 234785,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 15,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.086991,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029696,
+      "signalStrength": 0.037949,
+      "engramDensity": 0.009556,
+      "synapseConnectivity": 0.00772
+    },
+    {
+      "date": "2026-06-30",
+      "capturedAt": "2026-06-30T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 662,
+      "bodyCount": 4963987,
+      "uniqueTagCount": 378,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 645,
+      "matureNoteCount": 559,
+      "shortNoteCount": 50,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 589,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08682170542635659,
+      "averageLinksPerNote": 0.7426356589147287,
+      "bodyTagOccurrenceCount": 3423,
+      "tagCoverageRatio": 0.386046511627907,
+      "singleUseTagCount": 173,
+      "chineseBodyCount": 4674173,
+      "englishWordCount": 52794,
+      "numberTokenCount": 237020,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 18,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#project/注会刷题计划",
+          "count": 132
+        }
+      ],
+      "cognitiveComputeTops": 0.08712,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029768,
+      "signalStrength": 0.037957,
+      "engramDensity": 0.009604,
+      "synapseConnectivity": 0.007718
+    },
+    {
+      "date": "2026-07-01",
+      "capturedAt": "2026-07-01T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 665,
+      "bodyCount": 4975917,
+      "uniqueTagCount": 378,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 648,
+      "matureNoteCount": 561,
+      "shortNoteCount": 50,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 592,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08641975308641975,
+      "averageLinksPerNote": 0.7391975308641975,
+      "bodyTagOccurrenceCount": 3425,
+      "tagCoverageRatio": 0.38580246913580246,
+      "singleUseTagCount": 172,
+      "chineseBodyCount": 4685099,
+      "englishWordCount": 52947,
+      "numberTokenCount": 237871,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 21,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#project/注会刷题计划",
+          "count": 132
+        }
+      ],
+      "cognitiveComputeTops": 0.087192,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029835,
+      "signalStrength": 0.037962,
+      "engramDensity": 0.009605,
+      "synapseConnectivity": 0.007716
+    },
+    {
+      "date": "2026-07-02",
+      "capturedAt": "2026-07-02T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 666,
+      "bodyCount": 4976674,
+      "uniqueTagCount": 378,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 649,
+      "matureNoteCount": 562,
+      "shortNoteCount": 50,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 593,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08628659476117104,
+      "averageLinksPerNote": 0.7380585516178737,
+      "bodyTagOccurrenceCount": 3425,
+      "tagCoverageRatio": 0.3852080123266564,
+      "singleUseTagCount": 172,
+      "chineseBodyCount": 4685814,
+      "englishWordCount": 52979,
+      "numberTokenCount": 237881,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 19,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#project/注会刷题计划",
+          "count": 132
+        }
+      ],
+      "cognitiveComputeTops": 0.087164,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.02981,
+      "signalStrength": 0.037962,
+      "engramDensity": 0.009603,
+      "synapseConnectivity": 0.007715
+    },
+    {
+      "date": "2026-07-03",
+      "capturedAt": "2026-07-03T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 667,
+      "bodyCount": 4976684,
+      "uniqueTagCount": 378,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 650,
+      "matureNoteCount": 562,
+      "shortNoteCount": 51,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 594,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08615384615384615,
+      "averageLinksPerNote": 0.7369230769230769,
+      "bodyTagOccurrenceCount": 3427,
+      "tagCoverageRatio": 0.3861538461538462,
+      "singleUseTagCount": 170,
+      "chineseBodyCount": 4685819,
+      "englishWordCount": 52982,
+      "numberTokenCount": 237883,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 15,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#project/注会刷题计划",
+          "count": 132
+        }
+      ],
+      "cognitiveComputeTops": 0.087088,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029731,
+      "signalStrength": 0.037962,
+      "engramDensity": 0.009608,
+      "synapseConnectivity": 0.007714
+    },
+    {
+      "date": "2026-07-04",
+      "capturedAt": "2026-07-04T09:00:00+08:00",
+      "source": "estimated",
+      "noteCount": 667,
+      "bodyCount": 4976684,
+      "uniqueTagCount": 378,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 650,
+      "matureNoteCount": 562,
+      "shortNoteCount": 51,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 594,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08615384615384615,
+      "averageLinksPerNote": 0.7369230769230769,
+      "bodyTagOccurrenceCount": 3427,
+      "tagCoverageRatio": 0.3861538461538462,
+      "singleUseTagCount": 170,
+      "chineseBodyCount": 4685819,
+      "englishWordCount": 52982,
+      "numberTokenCount": 237883,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 13,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#project/注会刷题计划",
+          "count": 132
+        }
+      ],
+      "cognitiveComputeTops": 0.087041,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.029685,
+      "signalStrength": 0.037962,
+      "engramDensity": 0.009608,
+      "synapseConnectivity": 0.007714
+    },
+    {
+      "date": "2026-07-05",
+      "capturedAt": "2026-07-05T22:37:11+08:00",
+      "source": "actual",
+      "noteCount": 668,
+      "bodyCount": 4987019,
+      "uniqueTagCount": 375,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 651,
+      "matureNoteCount": 562,
+      "shortNoteCount": 51,
+      "connectedNoteCount": 57,
+      "orphanNoteCount": 594,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08755760368663594,
+      "averageLinksPerNote": 0.7357910906298003,
+      "bodyTagOccurrenceCount": 3212,
+      "tagCoverageRatio": 0.38556067588325654,
+      "singleUseTagCount": 170,
+      "chineseBodyCount": 4696740,
+      "englishWordCount": 53107,
+      "numberTokenCount": 237172,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 94,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087683,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.030351,
+      "signalStrength": 0.037965,
+      "engramDensity": 0.009567,
+      "synapseConnectivity": 0.007718
+    },
+    {
+      "date": "2026-07-06",
+      "capturedAt": "2026-07-06T15:18:45+08:00",
+      "source": "actual",
+      "noteCount": 669,
+      "bodyCount": 4987016,
+      "uniqueTagCount": 375,
+      "connectionCount": 479,
+      "nonEmptyNoteCount": 651,
+      "matureNoteCount": 562,
+      "shortNoteCount": 51,
+      "connectedNoteCount": 57,
+      "orphanNoteCount": 594,
+      "internalLinkCount": 479,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.08755760368663594,
+      "averageLinksPerNote": 0.7357910906298003,
+      "bodyTagOccurrenceCount": 3212,
+      "tagCoverageRatio": 0.38556067588325654,
+      "singleUseTagCount": 170,
+      "chineseBodyCount": 4696740,
+      "englishWordCount": 53106,
+      "numberTokenCount": 237170,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 98,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087697,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.030365,
+      "signalStrength": 0.037965,
+      "engramDensity": 0.009567,
+      "synapseConnectivity": 0.007718
+    },
+    {
+      "date": "2026-07-07",
+      "capturedAt": "2026-07-07T19:18:36+08:00",
+      "source": "actual",
+      "noteCount": 664,
+      "bodyCount": 4921341,
+      "uniqueTagCount": 377,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 647,
+      "matureNoteCount": 557,
+      "shortNoteCount": 52,
+      "connectedNoteCount": 60,
+      "orphanNoteCount": 587,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.09273570324574962,
+      "averageLinksPerNote": 0.7372488408037094,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.38330757341576505,
+      "singleUseTagCount": 173,
+      "chineseBodyCount": 4638655,
+      "englishWordCount": 52025,
+      "numberTokenCount": 230661,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 98,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087638,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.030329,
+      "signalStrength": 0.037938,
+      "engramDensity": 0.009559,
+      "synapseConnectivity": 0.00773
+    },
+    {
+      "date": "2026-07-08",
+      "capturedAt": "2026-07-08T21:37:47+08:00",
+      "source": "actual",
+      "noteCount": 665,
+      "bodyCount": 4921861,
+      "uniqueTagCount": 377,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 648,
+      "matureNoteCount": 558,
+      "shortNoteCount": 52,
+      "connectedNoteCount": 60,
+      "orphanNoteCount": 588,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.09259259259259259,
+      "averageLinksPerNote": 0.7361111111111112,
+      "bodyTagOccurrenceCount": 3178,
+      "tagCoverageRatio": 0.38271604938271603,
+      "singleUseTagCount": 173,
+      "chineseBodyCount": 4639169,
+      "englishWordCount": 52025,
+      "numberTokenCount": 230667,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 94,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087627,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.030322,
+      "signalStrength": 0.037938,
+      "engramDensity": 0.009557,
+      "synapseConnectivity": 0.007729
+    },
+    {
+      "date": "2026-07-09",
+      "capturedAt": "2026-07-09T22:08:25+08:00",
+      "source": "actual",
+      "noteCount": 965,
+      "bodyCount": 4961327,
+      "uniqueTagCount": 377,
+      "connectionCount": 477,
+      "nonEmptyNoteCount": 948,
+      "matureNoteCount": 560,
+      "shortNoteCount": 350,
+      "connectedNoteCount": 56,
+      "orphanNoteCount": 892,
+      "internalLinkCount": 477,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.05907172995780591,
+      "averageLinksPerNote": 0.5031645569620253,
+      "bodyTagOccurrenceCount": 3179,
+      "tagCoverageRatio": 0.2616033755274262,
+      "singleUseTagCount": 173,
+      "chineseBodyCount": 4669335,
+      "englishWordCount": 52342,
+      "numberTokenCount": 239650,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 396,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087844,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.030967,
+      "signalStrength": 0.037956,
+      "engramDensity": 0.009291,
+      "synapseConnectivity": 0.007568
+    },
+    {
+      "date": "2026-07-10",
+      "capturedAt": "2026-07-10T14:44:56+08:00",
+      "source": "actual",
+      "noteCount": 966,
+      "bodyCount": 4979263,
+      "uniqueTagCount": 377,
+      "connectionCount": 476,
+      "nonEmptyNoteCount": 949,
+      "matureNoteCount": 561,
+      "shortNoteCount": 350,
+      "connectedNoteCount": 54,
+      "orphanNoteCount": 895,
+      "internalLinkCount": 476,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.05690200210748156,
+      "averageLinksPerNote": 0.5015806111696522,
+      "bodyTagOccurrenceCount": 3180,
+      "tagCoverageRatio": 0.2623814541622761,
+      "singleUseTagCount": 172,
+      "chineseBodyCount": 4686822,
+      "englishWordCount": 52356,
+      "numberTokenCount": 240085,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 400,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#注册审计",
+          "count": 115
+        }
+      ],
+      "cognitiveComputeTops": 0.087852,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.030977,
+      "signalStrength": 0.037961,
+      "engramDensity": 0.009294,
+      "synapseConnectivity": 0.007559
+    },
+    {
+      "date": "2026-07-20",
+      "capturedAt": "2026-07-20T19:35:33+08:00",
+      "source": "actual",
+      "noteCount": 972,
+      "bodyCount": 5098058,
+      "uniqueTagCount": 377,
+      "connectionCount": 475,
+      "nonEmptyNoteCount": 955,
+      "matureNoteCount": 566,
+      "shortNoteCount": 351,
+      "connectedNoteCount": 53,
+      "orphanNoteCount": 902,
+      "internalLinkCount": 475,
+      "bidirectionalLinkCount": 4,
+      "linkCoverageRatio": 0.05549738219895288,
+      "averageLinksPerNote": 0.4973821989528796,
+      "bodyTagOccurrenceCount": 3237,
+      "tagCoverageRatio": 0.2638743455497382,
+      "singleUseTagCount": 172,
+      "chineseBodyCount": 4799774,
+      "englishWordCount": 54271,
+      "numberTokenCount": 244013,
+      "otherCharacterCount": 0,
+      "recentlyModifiedNoteCount": 972,
+      "topTags": [
+        {
+          "tag": "#project/注册会计师",
+          "count": 469
+        },
+        {
+          "tag": "#00b050",
+          "count": 173
+        },
+        {
+          "tag": "#2",
+          "count": 169
+        },
+        {
+          "tag": "#注册会计师",
+          "count": 166
+        },
+        {
+          "tag": "#2DC26B",
+          "count": 130
+        }
+      ],
+      "cognitiveComputeTops": 0.088243,
+      "computeClass": "回响",
+      "benchmarkVersion": "second-brain-benchmark-v1",
+      "neuronMass": 0.031314,
+      "signalStrength": 0.038004,
+      "engramDensity": 0.009306,
+      "synapseConnectivity": 0.007552
+    }
+  ],
+  "lastSuccessfulScanAt": "2026-07-20T19:35:33+08:00",
+  "backgroundMode": "light",
+  "hasOpenedMiniPanel": true,
+  "historicalGrowthInitialized": true,
+  "historicalGrowthInitializedAt": "2026-07-05T12:39:37+08:00",
+  "historicalGrowthMethod": "creation-date-attribution"
+}

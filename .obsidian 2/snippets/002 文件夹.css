@@ -1,0 +1,228 @@
+/* ===========================================================
+   Editor Organic Motion - 锐评优化版 (四大金刚保留)
+   版本: 2.0-refined
+   核心: 性能隔离 + 主题自适应 + 可访问性降级
+=========================================================== */
+
+:root {
+    /* === 全部改用 Obsidian 原生变量 (自适应深色/浅色/任意主题) === */
+    --wave-accent-rgb: var(--interactive-accent-rgb, 88, 166, 255);
+    --wave-accent: rgb(var(--wave-accent-rgb));
+    --wave-accent-subtle: rgba(var(--wave-accent-rgb), 0.08);
+    --wave-accent-strong: rgba(var(--wave-accent-rgb), 0.22);
+    
+    /* === 物理参数 (微调至舒适区) === */
+    --wave-shift: 6px;
+    --wave-scale: 1.008;
+    --wave-radius: 8px;
+    
+    /* === 时间参数 (故意放慢，减少绘制频率) === */
+    --wave-duration-slow: 0.8s;   /* background-position 专属慢速 */
+    --wave-duration-base: 0.28s;
+    --wave-ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ===========================================================
+   1. 全局隔离层 (防止重排冒泡)
+=========================================================== */
+.cm-content {
+    contain: layout style paint; /* 关键：限制重绘区域仅限可见区 */
+}
+
+.cm-line {
+    position: relative;
+    contain: layout style; /* 每个行独立布局隔离，:has() 不会影响外部 */
+    transform: translateZ(0);
+    transform-origin: left center;
+    border-radius: var(--wave-radius);
+    z-index: 1;
+    
+    /* ===== 保留 background-position (但过渡极慢) ===== */
+    background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--wave-accent-subtle) 15%,
+        var(--wave-accent-strong) 40%,
+        var(--wave-accent-subtle) 70%,
+        transparent 100%
+    );
+    background-size: 220% 100%;
+    background-position: -180% 0;
+    
+    /* ===== 过渡拆分：transform 走 GPU，背景走 CPU (低频) ===== */
+    transition:
+        transform var(--wave-duration-base) var(--wave-ease-spring),
+        background-position var(--wave-duration-slow) ease,
+        box-shadow var(--wave-duration-base) ease,
+        z-index 0s;
+    
+    will-change: transform; /* 只对 transform 开 GPU，不滥用 will-change */
+}
+
+/* ===========================================================
+   2. 伪元素光晕 (独立图层，替代原有过多的 before/after)
+=========================================================== */
+.cm-line::before {
+    content: '';
+    position: absolute;
+    inset: -3px -20px;
+    border-radius: calc(var(--wave-radius) + 4px);
+    pointer-events: none;
+    z-index: -1;
+    
+    /* 径向光晕 (从左侧打入) */
+    background: radial-gradient(
+        ellipse at 0% 50%,
+        var(--wave-accent-strong) 0%,
+        var(--wave-accent-subtle) 50%,
+        transparent 80%
+    );
+    opacity: 0;
+    transform: translate3d(-30px, 0, 0) scale(0.92);
+    transition: 
+        transform var(--wave-duration-base) var(--wave-ease-spring),
+        opacity var(--wave-duration-base) ease;
+    will-change: transform, opacity;
+}
+
+/* ===========================================================
+   3. 悬停触发 (保留 filter，但只在伪元素上生效)
+=========================================================== */
+.cm-line:hover {
+    transform: translate3d(var(--wave-shift), 0, 0) scale(var(--wave-scale));
+    background-position: 120% 0;  /* 左→右扫光，每次悬停只扫一次 */
+    z-index: 10;
+    
+    /* 阴影 (纯 GPU 合成器处理) */
+    box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 6px 20px rgba(0, 0, 0, 0.07);
+}
+
+/* 悬停时显示光晕 */
+.cm-line:hover::before {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+}
+
+/* ===== 保留 filter：仅对伪元素应用，且预开 GPU ===== */
+.cm-line:hover::before {
+    filter: brightness(1.15) saturate(1.1);
+    will-change: filter; /* 明确告诉浏览器这个滤镜要动 */
+}
+
+/* ===========================================================
+   4. 保留 letter-spacing (但削弱位移，避免文字鬼畜)
+=========================================================== */
+.cm-line span {
+    display: inline-block;
+    transition: 
+        transform var(--wave-duration-base) var(--wave-ease-spring),
+        letter-spacing var(--wave-duration-base) ease;
+    will-change: transform;
+}
+
+.cm-line:hover span {
+    transform: translateY(-0.5px);
+    letter-spacing: 0.006em; /* 从 0.015 砍到 0.006，视觉可感知但不跳跃 */
+}
+
+/* ===========================================================
+   5. 保留 :has() 相邻涟漪 (但加性能护栏)
+=========================================================== */
+/* 
+   ⚠️ 警告：:has() 会消耗性能，若感觉卡顿请删除本模块。
+   优化方案：利用 contain: strict 限制其计算范围。
+*/
+.cm-line:has(~ .cm-line:hover) {
+    transform: translate3d(-2.5px, 0, 0) scale(0.998);
+    transition: transform 0.18s var(--wave-ease-spring);
+}
+
+/* 后一个兄弟 (无需 :has，性能友好) */
+.cm-line:hover ~ .cm-line {
+    transform: translate3d(-2.5px, 0, 0) scale(0.998);
+    transition: transform 0.18s var(--wave-ease-spring);
+}
+
+/* ===========================================================
+   6. 当前行 (Active Line) 专属
+=========================================================== */
+.cm-activeLine {
+    position: relative;
+    border-radius: var(--wave-radius);
+}
+
+.cm-activeLine::after {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 15%;
+    bottom: 15%;
+    width: 3px;
+    border-radius: 999px;
+    background: var(--wave-accent);
+    transform: scaleY(0.3);
+    opacity: 0.5;
+    transition: 
+        transform var(--wave-duration-base) var(--wave-ease-spring),
+        opacity var(--wave-duration-base) ease;
+    will-change: transform, opacity;
+}
+
+.cm-activeLine:hover::after {
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+.cm-activeLine:hover {
+    transform: translate3d(8px, 0, 0) scale(1.006);
+    box-shadow: 0 0 18px var(--wave-accent-subtle);
+}
+
+/* ===========================================================
+   7. 可访问性降级 (尊重用户减少动效偏好)
+=========================================================== */
+@media (prefers-reduced-motion: reduce) {
+    .cm-line,
+    .cm-line::before,
+    .cm-line span,
+    .cm-activeLine,
+    .cm-activeLine::after {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .cm-line:hover {
+        transform: none !important;
+        background-position: 0% 0 !important;
+        box-shadow: inset 0 0 0 1px var(--wave-accent-subtle) !important;
+    }
+    
+    .cm-line:hover span {
+        letter-spacing: normal !important;
+        transform: none !important;
+    }
+    
+    .cm-line:hover::before {
+        opacity: 0 !important;
+        filter: none !important;
+    }
+    
+    /* 关闭所有 :has() 涟漪 */
+    .cm-line:has(~ .cm-line:hover),
+    .cm-line:hover ~ .cm-line {
+        transform: none !important;
+    }
+}
+
+/* ===========================================================
+   8. 行号联动 (锦上添花)
+=========================================================== */
+.cm-gutterElement {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.cm-activeLine .cm-gutterElement {
+    transform: translateX(4px);
+    color: var(--wave-accent);
+}

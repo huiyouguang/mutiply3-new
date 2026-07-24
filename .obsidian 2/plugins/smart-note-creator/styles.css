@@ -1,0 +1,214 @@
+.smart-note-creator-modal .setting-item {
+  align-items: flex-start;
+}
+
+.smart-note-creator-modal .setting-item-control {
+  flex: 1 1 auto;
+}
+
+.smart-note-creator-modal input,
+.smart-note-creator-modal textarea,
+.smart-note-creator-modal select {
+  width: 100%;
+}
+
+·······.smart-note-creator-modal input[type="date"],
+.smart-note-creator-modal input[type="datetime-local"] {
+  font-family: inherit;
+  padding: 6px 8px;
+}
+
+.smart-note-creator-selected-path {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: var(--font-ui-small);
+  margin: 8px 0 12px;
+  padding: 10px 14px;
+}
+
+.smart-note-creator-folder-tree {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  max-height: 360px;
+  overflow: auto;
+  padding: 8px;
+  background: var(--background-primary);
+}
+
+.smart-note-creator-folder-row {
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  gap: 6px;
+  min-height: 32px;
+  padding: 4px 10px 4px calc(10px + var(--folder-depth, 0) * 20px);
+  transition: background-color 0.15s ease;
+}
+
+.smart-note-creator-folder-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.smart-note-creator-folder-row.is-selected {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.smart-note-creator-folder-marker {
+  color: var(--text-muted);
+  display: inline-flex;
+  justify-content: center;
+  min-width: 16px;
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+
+.smart-note-creator-folder-row.is-selected .smart-note-creator-folder-marker {
+  color: var(--text-on-accent);
+}
+
+.smart-note-creator-folder-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.smart-note-creator-folder-children.is-collapsed {
+  display: none;
+}
+
+.smart-note-creator-folder-children {
+  margin-left: 0;
+}
+
+.smart-note-creator-property-grid {
+  display: grid;
+  gap: 14px 18px;
+  grid-template-columns: repeat(var(--property-columns, 2), minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.smart-note-creator-property-card {
+  min-width: 0;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.smart-note-creator-property-card:hover {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.smart-note-creator-property-card:active {
+  transform: translateY(0.5px);
+}
+
+.smart-note-creator-property-card .setting-item {
+  border-top: 0;
+  padding: 0;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.smart-note-creator-property-card .setting-item-info {
+  margin: 0;
+  width: 100%;
+}
+
+.smart-note-creator-property-card .setting-item-info .setting-item-name {
+  font-size: var(--font-ui-small);
+  font-weight: 600;
+  color: var(--text-normal);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.smart-note-creator-property-card .setting-item-info .setting-item-name::before {
+  content: "";
+  width: 3px;
+  height: 14px;
+  background: var(--interactive-accent);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.smart-note-creator-property-card .setting-item-info .setting-item-description {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  margin-top: 4px;
+  padding-left: 9px;
+}
+
+.smart-note-creator-property-card .setting-item-control {
+  min-width: 0;
+  width: 100%;
+}
+
+.smart-note-creator-property-card .setting-item-control input,
+.smart-note-creator-property-card .setting-item-control textarea {
+  width: 100%;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.smart-note-creator-property-card .setting-item-control input:focus,
+.smart-note-creator-property-card .setting-item-control textarea:focus {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 3px var(--interactive-accent-tint);
+  outline: none;
+}
+
+.smart-note-creator-property-card .setting-item-control .dropdown {
+  width: 100%;
+}
+
+.smart-note-creator-property-card .setting-item-control .dropdown select {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.smart-note-creator-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.smart-note-creator-preview {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+  margin-top: 16px;
+  max-height: 280px;
+  overflow: auto;
+  padding: 14px 16px;
+  white-space: pre-wrap;
+  font-family: var(--font-mono);
+  line-height: 1.6;
+}
+
+.smart-note-creator-preview code {
+  font-family: var(--font-mono);
+}
+
+@media (max-width: 720px) {
+  .smart-note-creator-property-grid {
+    grid-template-columns: 1fr;
+  }
+}

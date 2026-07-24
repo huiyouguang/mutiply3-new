@@ -1,7 +1,7 @@
 {
   "version": 3,
-  "width": 740.4977888143358,
-  "height": 411.71986536740604,
+  "width": 740,
+  "height": 412,
   "strokes": [
     {
       "id": "0ed0f5bf-b69d-41cb-afd8-34e25fbaacba",
@@ -6188,6 +6188,38 @@
       ],
       "hasPressure": true,
       "timestamp": 1784106679676
+    },
+    {
+      "id": "847420f6-9a04-433b-ad58-a86b005c269f",
+      "tool": "pen",
+      "color": "#ffffff",
+      "size": 2,
+      "opacity": 1,
+      "points": [
+        [
+          464.416877857219,
+          240.2533912263318,
+          0.5
+        ]
+      ],
+      "hasPressure": false,
+      "timestamp": 1784857115074
+    },
+    {
+      "id": "73adb9b1-5966-4db8-a1a8-12aa2f6e0436",
+      "tool": "pen",
+      "color": "#ffffff",
+      "size": 2,
+      "opacity": 1,
+      "points": [
+        [
+          537.2149602870528,
+          173.99798312091156,
+          0.5
+        ]
+      ],
+      "hasPressure": false,
+      "timestamp": 1784857116175
     }
   ],
   "background": {

@@ -1,0 +1,1622 @@
+{
+    "schemaVersion": 1,
+    "metadata": {
+        "plugin": "task-board",
+        "version": "1.0.0",
+        "title": "Task Board",
+        "description": "Task Board Localization & Tweaks",
+        "language": "zh-cn",
+        "supportedVersions": "1.10.11",
+        "author": ""
+    },
+    "dict": {
+        "main.js": {
+            "ast": [
+                {
+                    "type": "AssignmentExpression",
+                    "name": "innerText",
+                    "source": "🗑️",
+                    "target": "🗑️"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "placeholder",
+                    "source": "e.g., #taskNote",
+                    "target": "例如：#taskNote"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "placeholder",
+                    "source": "e.g., Task Notes/",
+                    "target": "例如：Task Notes/"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "placeholder",
+                    "source": "e.g., TaskBoard/TaskNotes",
+                    "target": "例如：TaskBoard/TaskNotes"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "title",
+                    "source": "Tag from note's frontmatter (read-only)",
+                    "target": "来自笔记前置元数据的标签（只读）"
+                },
+                {
+                    "type": "AssignmentExpression",
+                    "name": "title",
+                    "source": "- [ ] ",
+                    "target": "- [ ] "
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported",
+                    "target": "forceFrameRate 接受 0 到 125 之间的正整数，不支持强制超过 125 fps 的帧率"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "No Intl support, please use an Intl polyfill!",
+                    "target": "不支持 Intl，请使用 Intl polyfill！"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[Task Board] Error ensuring log file exists:",
+                    "target": "[任务面板] 确保日志文件存在时出错："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[Task Board] Error parsing log file:",
+                    "target": "[任务面板] 解析日志文件时出错："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[Task Board] Error parsing bug report entry:",
+                    "target": "[任务面板] 解析错误报告条目时出错："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "error",
+                    "source": "[Task Board] Error appending bug report to log file:",
+                    "target": "[任务面板] 将错误报告追加到日志文件时出错："
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "info",
+                    "source": "🌐 i18next is maintained with support from Locize — consider powering your project with managed localization (AI, CDN, integrations): https://locize.com 💙",
+                    "target": "🌐 i18next 由 Locize 支持维护——考虑使用托管本地化（AI、CDN、集成）来增强您的项目：https://locize.com 💙"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "React Flow: trigger node changes",
+                    "target": "React Flow：触发节点变更"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "log",
+                    "source": "React Flow: trigger edge changes",
+                    "target": "React Flow：触发边变更"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Keep this as it is",
+                    "target": "保持原样"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Use this",
+                    "target": "使用此"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Abort",
+                    "target": "中止"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Update",
+                    "target": "更新"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setButtonText",
+                    "source": "Delete",
+                    "target": "删除"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setName",
+                    "source": "Safeguard feature",
+                    "target": "安全防护功能"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "eg.: /",
+                    "target": "例如：/"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Tag Name",
+                    "target": "标签名称"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "Color Value",
+                    "target": "颜色值"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setPlaceholder",
+                    "source": "eg.: 00:00 or 23:59",
+                    "target": "例如：00:00 或 23:59"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setText",
+                    "source": "No values selected.",
+                    "target": "未选择任何值。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Task Board Safe Guard",
+                    "target": "任务看板安全防护"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTitle",
+                    "source": "Task Board Actions",
+                    "target": "任务看板操作"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTooltip",
+                    "source": "Hold and drag",
+                    "target": "按住并拖动"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "setTooltip",
+                    "source": "Delete Action",
+                    "target": "删除操作"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "accessing an object - but returnObjects options is not enabled!",
+                    "target": "访问对象时 - 但 returnObjects 选项未启用！"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!",
+                    "target": "这意味着您的设置中存在错误。您在 i18next.init / i18next.loadNamespace / i18next.changeLanguage 完成之前访问了 t 函数。请等待回调或 Promise 解析后再访问它！！！"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "No backend was added via i18next.use. Will not load resources.",
+                    "target": "未通过 i18next.use 添加后端。将不会加载资源。"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "init: no languageDetector is used and no lng is defined",
+                    "target": "init: 未使用语言检测器且未定义 lng"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "init: i18next is already initialized. You should call init just once!",
+                    "target": "init: i18next 已经初始化。您应该只调用 init 一次！"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "hasLoadedNamespace: i18next was not initialized",
+                    "target": "hasLoadedNamespace: i18next 未初始化"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "[getCustomStatusOptionsForDropdown] Empty or invalid statusConfigs provided",
+                    "target": "[getCustomStatusOptionsForDropdown] 提供的 statusConfigs 为空或无效"
+                },
+                {
+                    "type": "CallExpression",
+                    "name": "warn",
+                    "source": "[DEPRECATED] The `destroy` method will be unsupported in a future version. Instead use unsubscribe function returned by subscribe. Everything will be garbage-collected if store is garbage-collected.",
+                    "target": "[已弃用] 未来版本将不再支持 `destroy` 方法。请改用 subscribe 返回的 unsubscribe 函数。如果 store 被垃圾回收，所有内容都将被垃圾回收。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Export cancelled or folder not selected.",
+                    "target": "导出已取消或未选择文件夹。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Log file exported. Check the folder where you downloaded the file.",
+                    "target": "日志文件已导出。请检查您下载文件的文件夹。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Failed to export logs.",
+                    "target": "导出日志失败。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "English is the default language. No download needed.",
+                    "target": "英语是默认语言，无需下载。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Archive folder path is not configured in settings",
+                    "target": "设置中未配置归档文件夹路径"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "This frontmatter section is read-only. A fully-functional frontmatter editor is under development.",
+                    "target": "此前置元数据部分为只读。一个功能完整的前置元数据编辑器正在开发中。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Settings exported. Check the folder where you downloaded the file.",
+                    "target": "设置已导出。请检查您下载文件的文件夹。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Failed to export settings.",
+                    "target": "导出设置失败。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Import cancelled or file not selected.",
+                    "target": "导入已取消或未选择文件。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Settings imported and merged successfully.",
+                    "target": "设置已成功导入并合并。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Failed to import settings.",
+                    "target": "导入设置失败。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Task Board : Failed to change the path. Check logs for more info.",
+                    "target": "任务面板：更改路径失败。请查看日志以获取更多信息。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Task Board cache file path reset was succussfully.",
+                    "target": "任务看板缓存文件路径重置成功。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Please enter a date format.",
+                    "target": "请输入日期格式。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "❌ Invalid date format. Parsing failed.",
+                    "target": "❌ 无效的日期格式。解析失败。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "Please enter a date-time format.",
+                    "target": "请输入日期时间格式。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "❌ Invalid date-time format. Parsing failed.",
+                    "target": "❌ 无效的日期时间格式。解析失败。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "This operation is not possible in the current version. Please request this idea to the developer.",
+                    "target": "当前版本不支持此操作。请向开发者提出此建议。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "File renamed successfully.",
+                    "target": "文件重命名成功。"
+                },
+                {
+                    "type": "NewExpression",
+                    "name": "Notice",
+                    "source": "There was an error while renaming the file.",
+                    "target": "重命名文件时出错。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "aria-label",
+                    "source": "Edit Child Task",
+                    "target": "编辑子任务"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "aria-label",
+                    "source": "Toggle Details",
+                    "target": "切换详情"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "aria-label",
+                    "source": "Select Filter Polarity",
+                    "target": "选择筛选极性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "aria-label",
+                    "source": "Select priority",
+                    "target": "选择优先级"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "aria-label",
+                    "source": "Select date type",
+                    "target": "选择日期类型"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "aria-label",
+                    "source": "Toggle Sidebar",
+                    "target": "切换侧边栏"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "aria-label",
+                    "source": "React Flow attribution",
+                    "target": "React Flow 归属"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "aria-label",
+                    "source": "Open left panel",
+                    "target": "打开左侧面板"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "body",
+                    "source": "Body",
+                    "target": "正文"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "swimlanesConfigBtn swimlanesConfigBtnCancel",
+                    "target": "swimlanesConfigBtn swimlanesConfigBtnCancel"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "swimlanesConfigBtn swimlanesConfigBtnSave",
+                    "target": "swimlanesConfigBtn swimlanesConfigBtnSave"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "quick-time-option clear-time",
+                    "target": "quick-time-option clear-time"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "date-time-picker-btn cancel-btn",
+                    "target": "date-time-picker-btn cancel-btn"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "date-time-picker-btn apply-btn",
+                    "target": "date-time-picker-btn apply-btn"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "cls",
+                    "source": "filter-menu tg-menu bm-menu",
+                    "target": "filter-menu tg-menu bm-menu"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "content",
+                    "source": "Content",
+                    "target": "内容"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "description",
+                    "source": "Description",
+                    "target": "描述"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "label",
+                    "source": "Only scan this",
+                    "target": "仅扫描此项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "label",
+                    "source": "Don't scan this",
+                    "target": "不扫描此项"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "label",
+                    "source": "Disable",
+                    "target": "禁用"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Name",
+                    "target": "名称"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Undated Tasks",
+                    "target": "无日期任务"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Over Due",
+                    "target": "逾期"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Today",
+                    "target": "今天"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tomorrow",
+                    "target": "明天"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Future",
+                    "target": "未来"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Completed",
+                    "target": "已完成"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Time Based Workflow",
+                    "target": "基于时间的工作流"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Backlogs",
+                    "target": "积压任务"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "All other tags",
+                    "target": "所有其他标签"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Important",
+                    "target": "重要"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "In Review",
+                    "target": "审核中"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Tag Based Workflow",
+                    "target": "基于标签的工作流"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Ready to start",
+                    "target": "准备开始"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "In Progress",
+                    "target": "进行中"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Cancelled",
+                    "target": "已取消"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Status Based Workflow",
+                    "target": "基于状态的工作流"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Todo",
+                    "target": "待办"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "name",
+                    "source": "Done",
+                    "target": "已完成"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Start typing your task in this editor and use the various input fields to add the properties.",
+                    "target": "在此编辑器中开始输入任务，并使用各种输入字段添加属性。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Type to search...",
+                    "target": "输入搜索..."
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "placeholder",
+                    "source": "Search tasks...",
+                    "target": "搜索任务..."
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Unchecked [ ]",
+                    "target": "未选中 [ ]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Regular [x]",
+                    "target": "常规 [x]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Checked [X]",
+                    "target": "已选中 [X]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Dropped [-]",
+                    "target": "已丢弃 [-]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Forward [>]",
+                    "target": "转发 [>]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Migrated [<]",
+                    "target": "已迁移 [<]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Date [D]",
+                    "target": "日期 [D]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Question [?]",
+                    "target": "疑问 [?]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "In progress [/]",
+                    "target": "进行中 [/]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Add [+]",
+                    "target": "添加 [+]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Research [R]",
+                    "target": "研究 [R]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Important [!]",
+                    "target": "重要 [!]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Idea [i]",
+                    "target": "想法 [i]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Brainstorm [B]",
+                    "target": "头脑风暴 [B]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Pro [P]",
+                    "target": "赞成 [P]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Con [C]",
+                    "target": "反对 [C]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Quote [Q]",
+                    "target": "引用 [Q]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Note [N]",
+                    "target": "笔记 [N]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Bookmark [b]",
+                    "target": "书签 [b]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Information [I]",
+                    "target": "信息 [I]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Paraphrase [p]",
+                    "target": "释义 [p]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Location [L]",
+                    "target": "位置 [L]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Example [E]",
+                    "target": "示例 [E]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Answer [A]",
+                    "target": "答案 [A]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Reward [r]",
+                    "target": "奖励 [r]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Choice [c]",
+                    "target": "选择 [c]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Doing [d]",
+                    "target": "行动 [d]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Time [T]",
+                    "target": "时间 [T]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Character [@]",
+                    "target": "角色 [@]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Talk [t]",
+                    "target": "对话 [t]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Outline [o]",
+                    "target": "大纲 [o]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Conflict [~]",
+                    "target": "冲突 [~]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "World [W]",
+                    "target": "世界 [W]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Find [f]",
+                    "target": "查找 [f]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Foreshadow [F]",
+                    "target": "伏笔 [F]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Favorite [H]",
+                    "target": "收藏 [H]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Symbolism [&]",
+                    "target": "象征 [&]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Secret [s]",
+                    "target": "秘密 [s]"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Content mismatch detected",
+                    "target": "检测到内容不匹配"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Looks like the task content in your file is a little different from the content you just edited through Task Board. Choose which version of content you would like to keep:",
+                    "target": "看起来文件中的任务内容与您刚刚通过任务板编辑的内容略有不同。请选择您希望保留的内容版本："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Current content in your note",
+                    "target": "笔记中的当前内容"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Content you just edited",
+                    "target": "您刚刚编辑的内容"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "NOTE : If you think this safe guard modal shown is irrelevant and its also popping-up too many times, you can by-pass it and disable this from the settings under the 'general' tab.",
+                    "target": "注意：如果您认为此安全防护弹窗无关紧要且弹出次数过多，您可以在“常规”选项卡下的设置中绕过并禁用它。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Red highlighted content indicates the characters which are different by comparing the task-board-cache content and the current content in your note.",
+                    "target": "红色高亮内容表示通过比较任务板缓存内容和笔记中的当前内容而发现的差异字符。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Green highlighted content indicates the characters which are different by comparing the content you just now edited and the content from the task-board-cache..",
+                    "target": "绿色高亮内容表示通过比较您刚刚编辑的内容和任务板缓存内容而发现的差异字符。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Select the version of content you want Task Board to write in your note.",
+                    "target": "选择您希望任务板写入笔记的内容版本。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Debug Info",
+                    "target": "调试信息"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Here is why this modal was shown in the first place. If you think this modal shown was unnecessary and if possible kindly share this information with the developer to improve the plugin.",
+                    "target": "以下是此弹窗最初显示的原因。如果您认为此弹窗不必要，并且可能的话，请将此信息分享给开发者以改进插件。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Task Board Cache",
+                    "target": "任务板缓存"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "⇧↵",
+                    "target": "⇧↵"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Properties",
+                    "target": "属性"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Configure",
+                    "target": "配置"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "None",
+                    "target": "无"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Atmanand Gauns",
+                    "target": "Atmanand Gauns"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "⋮⋮",
+                    "target": "⋮⋮"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Active Actions",
+                    "target": "活跃操作"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Add action",
+                    "target": "添加操作"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Inactive Actions",
+                    "target": "非活跃操作"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "When the card is marked as",
+                    "target": "当卡片被标记为"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "the card to",
+                    "target": "卡片至"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "The below files were either modified, created, renamed or deleted while Obsidian was closed:",
+                    "target": "以下文件在 Obsidian 关闭时被修改、创建、重命名或删除："
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "No file changes found.",
+                    "target": "未发现文件更改。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "Close",
+                    "target": "关闭"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "text",
+                    "source": "NOTE : Renamed files are little difficult to find. So if you see a lot of files here, it will be good idea to run the vault scan to re-build the cache.",
+                    "target": "注意：重命名的文件较难找到。因此，如果此处显示大量文件，建议运行库扫描以重建缓存。"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Title",
+                    "target": "标题"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Pick folder to export settings",
+                    "target": "选择导出设置的文件夹"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Pick settings file to import",
+                    "target": "选择要导入的设置文件"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Tag from note's frontmatter (read-only)",
+                    "target": "来自笔记前置元数据的标签（只读）"
+                },
+                {
+                    "type": "ObjectProperty",
+                    "name": "title",
+                    "source": "Tag from note frontmatter (read-only)",
+                    "target": "来自笔记前置元数据的标签（只读）"
+                }
+            ],
+            "regex": [
+                {
+                    "source": "error(\"forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported\")",
+                    "target": "error(\"forceFrameRate takes a positive int between 0 and 125, forcing frame rates higher than 125 fps is not supported\")"
+                },
+                {
+                    "source": "error(\"No Intl support, please use an Intl polyfill!\")",
+                    "target": "error(\"No Intl support, please use an Intl polyfill!\")"
+                },
+                {
+                    "source": "Notice(`Log file exported to ${s}`)",
+                    "target": "Notice(`Log file exported to ${s}`)"
+                },
+                {
+                    "source": "Notice(\"Log file exported. Check the folder where you downloaded the file.\")",
+                    "target": "Notice(\"Log file exported. Check the folder where you downloaded the file.\")"
+                },
+                {
+                    "source": "Notice(\"Failed to export logs.\")",
+                    "target": "Notice(\"Failed to export logs.\")"
+                },
+                {
+                    "source": "Notice(\"English is the default language. No download needed.\")",
+                    "target": "Notice(\"English is the default language. No download needed.\")"
+                },
+                {
+                    "source": "Notice(`Task note deleted: ${a.name}`)",
+                    "target": "Notice(`Task note deleted: ${a.name}`)"
+                },
+                {
+                    "source": "Notice(\"Archive folder path is not configured in settings\")",
+                    "target": "Notice(\"Archive folder path is not configured in settings\")"
+                },
+                {
+                    "source": "Notice(`Task note archived as: ${s}-${i}.${l}`)",
+                    "target": "Notice(`Task note archived as: ${s}-${i}.${l}`)"
+                },
+                {
+                    "source": "Notice(`Task note archived: ${a.name}`)",
+                    "target": "Notice(`Task note archived: ${a.name}`)"
+                },
+                {
+                    "source": "setTitle(\"Task Board Safe Guard\")",
+                    "target": "setTitle(\"Task Board Safe Guard\")"
+                },
+                {
+                    "source": "setButtonText(\"Keep this as it is\")",
+                    "target": "setButtonText(\"Keep this as it is\")"
+                },
+                {
+                    "source": "setButtonText(\"Use this\")",
+                    "target": "setButtonText(\"Use this\")"
+                },
+                {
+                    "source": "Notice(\"This frontmatter section is read-only. A fully-functional frontmatter editor is under development.\")",
+                    "target": "Notice(\"This frontmatter section is read-only. A fully-functional frontmatter editor is under development.\")"
+                },
+                {
+                    "source": "setPlaceholder(\"eg.: /\")",
+                    "target": "setPlaceholder(\"eg.: /\")"
+                },
+                {
+                    "source": "Notice(`${f(\"filter-configs-saved-successfully\")} : ${r.name}`)",
+                    "target": "Notice(`${f(\"filter-configs-saved-successfully\")} : ${r.name}`)"
+                },
+                {
+                    "source": "Notice(`${f(\"filter-configuration-loaded-successfully\")} : ${r.name}`)",
+                    "target": "Notice(`${f(\"filter-configuration-loaded-successfully\")} : ${r.name}`)"
+                },
+                {
+                    "source": "Notice(\"Export cancelled or folder not selected.\")",
+                    "target": "Notice(\"Export cancelled or folder not selected.\")"
+                },
+                {
+                    "source": "Notice(`Settings exported to ${i}`)",
+                    "target": "Notice(`Settings exported to ${i}`)"
+                },
+                {
+                    "source": "Notice(\"Settings exported. Check the folder where you downloaded the file.\")",
+                    "target": "Notice(\"Settings exported. Check the folder where you downloaded the file.\")"
+                },
+                {
+                    "source": "Notice(\"Failed to export settings.\")",
+                    "target": "Notice(\"Failed to export settings.\")"
+                },
+                {
+                    "source": "Notice(\"Import cancelled or file not selected.\")",
+                    "target": "Notice(\"Import cancelled or file not selected.\")"
+                },
+                {
+                    "source": "Notice(\"Settings imported and merged successfully.\")",
+                    "target": "Notice(\"Settings imported and merged successfully.\")"
+                },
+                {
+                    "source": "Notice(\"Failed to import settings.\")",
+                    "target": "Notice(\"Failed to import settings.\")"
+                },
+                {
+                    "source": "Notice(`Task Board cache file path changed to new location succussfully. New location : ${this.globalSettings.tasksCacheFilePath}`)",
+                    "target": "Notice(`Task Board cache file path changed to new location succussfully. New location : ${this.globalSettings.tasksCacheFilePath}`)"
+                },
+                {
+                    "source": "Notice(\"Task Board : Failed to change the path. Check logs for more info.\")",
+                    "target": "Notice(\"Task Board : Failed to change the path. Check logs for more info.\")"
+                },
+                {
+                    "source": "Notice(\"Task Board cache file path reset was succussfully.\")",
+                    "target": "Notice(\"Task Board cache file path reset was succussfully.\")"
+                },
+                {
+                    "source": "setName(\"Safeguard feature\")",
+                    "target": "setName(\"Safeguard feature\")"
+                },
+                {
+                    "source": "setTooltip(\"Hold and drag\")",
+                    "target": "setTooltip(\"Hold and drag\")"
+                },
+                {
+                    "source": "setPlaceholder(\"Tag Name\")",
+                    "target": "setPlaceholder(\"Tag Name\")"
+                },
+                {
+                    "source": "setPlaceholder(\"Color Value\")",
+                    "target": "setPlaceholder(\"Color Value\")"
+                },
+                {
+                    "source": "setName(\"Day Planner \"+f(\"plugin-compatibility\")",
+                    "target": "setName(\"Day Planner \"+f(\"plugin-compatibility\")"
+                },
+                {
+                    "source": "setName(\"QuickAdd \"+f(\"plugin-compatibility\")",
+                    "target": "setName(\"QuickAdd \"+f(\"plugin-compatibility\")"
+                },
+                {
+                    "source": "Notice(\"Please enter a date format.\")",
+                    "target": "Notice(\"Please enter a date format.\")"
+                },
+                {
+                    "source": "Notice(\"\\u274C Invalid date format. Parsing failed.\",0);return}if(Math.abs(cl(m,d))>48){new w1.Notice(\"\\u26A0\\uFE0F Format is parsed but appears to have swapped date parts (parsed: \"+m.toDateString()+\", expected: \"+d.toDateString()+\")",
+                    "target": "Notice(\"\\u274C Invalid date format. Parsing failed.\",0);return}if(Math.abs(cl(m,d))>48){new w1.Notice(\"\\u26A0\\uFE0F Format is parsed but appears to have swapped date parts (parsed: \"+m.toDateString()+\", expected: \"+d.toDateString()+\")"
+                },
+                {
+                    "source": "Notice(\"\\u2705 Date format is valid! Example: \"+h)}catch(d){new w1.Notice(\"\\u274C Format validation error: \"+(d instanceof Error?d.message:String(d)),0)}})}),new w1.Setting(e).setClass(\"taskBoard-settings-wide-input\")",
+                    "target": "Notice(\"\\u2705 Date format is valid! Example: \"+h)}catch(d){new w1.Notice(\"\\u274C Format validation error: \"+(d instanceof Error?d.message:String(d)),0)}})}),new w1.Setting(e).setClass(\"taskBoard-settings-wide-input\")"
+                },
+                {
+                    "source": "Notice(\"Please enter a date-time format.\")",
+                    "target": "Notice(\"Please enter a date-time format.\")"
+                },
+                {
+                    "source": "Notice(\"\\u274C Invalid date-time format. Parsing failed.\",0);return}if(Math.abs(cl(m,d))>1){new w1.Notice(\"\\u26A0\\uFE0F Format is parsed but appears to have swapped date parts (parsed: \"+m.toISOString()+\", expected: \"+d.toISOString()+\")",
+                    "target": "Notice(\"\\u274C Invalid date-time format. Parsing failed.\",0);return}if(Math.abs(cl(m,d))>1){new w1.Notice(\"\\u26A0\\uFE0F Format is parsed but appears to have swapped date parts (parsed: \"+m.toISOString()+\", expected: \"+d.toISOString()+\")"
+                },
+                {
+                    "source": "Notice(\"\\u2705 Date-time format is valid! Example: \"+h)}catch(d){new w1.Notice(\"\\u274C Format validation error: \"+(d instanceof Error?d.message:String(d)),0)}})}),new w1.Setting(e).setName(f(\"default-start-time\")",
+                    "target": "Notice(\"\\u2705 Date-time format is valid! Example: \"+h)}catch(d){new w1.Notice(\"\\u274C Format validation error: \"+(d instanceof Error?d.message:String(d)),0)}})}),new w1.Setting(e).setName(f(\"default-start-time\")"
+                },
+                {
+                    "source": "setPlaceholder(\"eg.: 00:00 or 23:59\")",
+                    "target": "setPlaceholder(\"eg.: 00:00 or 23:59\")"
+                },
+                {
+                    "source": "setText(\"No values selected.\")",
+                    "target": "setText(\"No values selected.\")"
+                },
+                {
+                    "source": "setTitle(\"Task Board Actions\")",
+                    "target": "setTitle(\"Task Board Actions\")"
+                },
+                {
+                    "source": "setTooltip(\"Delete Action\")",
+                    "target": "setTooltip(\"Delete Action\")"
+                },
+                {
+                    "source": "setTitle(\"Change \"+this.dateName+\" Date\")",
+                    "target": "setTitle(\"Change \"+this.dateName+\" Date\")"
+                },
+                {
+                    "source": "Notice(`Task note status updated to ${i}`)",
+                    "target": "Notice(`Task note status updated to ${i}`)"
+                },
+                {
+                    "source": "Notice(`Task drop not allowed from column type: ${i.colType} to column type: ${a.colType}`)",
+                    "target": "Notice(`Task drop not allowed from column type: ${i.colType} to column type: ${a.colType}`)"
+                },
+                {
+                    "source": "Notice(\"This operation is not possible in the current version. Please request this idea to the developer.\")",
+                    "target": "Notice(\"This operation is not possible in the current version. Please request this idea to the developer.\")"
+                },
+                {
+                    "source": "setTitle(\"Change \"+this.dateTimeName+\" Date-Time\")",
+                    "target": "setTitle(\"Change \"+this.dateTimeName+\" Date-Time\")"
+                },
+                {
+                    "source": "Notice(\"File renamed successfully.\")",
+                    "target": "Notice(\"File renamed successfully.\")"
+                },
+                {
+                    "source": "Notice(\"There was an error while renaming the file.\")",
+                    "target": "Notice(\"There was an error while renaming the file.\")"
+                },
+                {
+                    "source": "error(`[React Flow] The padding value \"${t}\" is invalid. Please provide a number or a string with a valid unit (px or %).`)",
+                    "target": "error(`[React Flow] The padding value \"${t}\" is invalid. Please provide a number or a string with a valid unit (px or %).`)"
+                },
+                {
+                    "source": "Notice(`Processing renamed files: 0/${o}`,0));let l=0;for(;r.length>0;){let{file:c,oldPath:d}=r.shift();try{this.realTimeScanner.onFileRenamed(c,d,a),l++,this.currentProgressNotice&&(this.currentProgressNotice.messageEl.textContent=`Task Board : Processing renamed files: ${l}/${o}`)",
+                    "target": "Notice(`Processing renamed files: 0/${o}`,0));let l=0;for(;r.length>0;){let{file:c,oldPath:d}=r.shift();try{this.realTimeScanner.onFileRenamed(c,d,a),l++,this.currentProgressNotice&&(this.currentProgressNotice.messageEl.textContent=`Task Board : Processing renamed files: ${l}/${o}`)"
+                },
+                {
+                    "source": "Notice(`\\u2713 Task Board : Finished processing ${o} renamed file(s)`)",
+                    "target": "Notice(`\\u2713 Task Board : Finished processing ${o} renamed file(s)`)"
+                },
+                {
+                    "source": "Notice(`Processing deleted files: 0/${r}`,0));let s=0;for(;a.length>0;){let l=a.shift();try{this.realTimeScanner.onFileDeleted(l),s++,this.currentProgressNotice&&(this.currentProgressNotice.messageEl.textContent=`Task Board : Processing deleted files: ${s}/${r}`)",
+                    "target": "Notice(`Processing deleted files: 0/${r}`,0));let s=0;for(;a.length>0;){let l=a.shift();try{this.realTimeScanner.onFileDeleted(l),s++,this.currentProgressNotice&&(this.currentProgressNotice.messageEl.textContent=`Task Board : Processing deleted files: ${s}/${r}`)"
+                },
+                {
+                    "source": "Notice(`\\u2713 Task Board : Finished processing ${r} deleted file(s)`)",
+                    "target": "Notice(`\\u2713 Task Board : Finished processing ${r} deleted file(s)`)"
+                },
+                {
+                    "source": "Notice(`Task Board : Processing created files: 0/${r}`,0));let o=0;for(;a.length>0;){let l=a.shift();try{await this.realTimeScanner.processAllUpdatedFiles(l),o++,this.currentProgressNotice&&(this.currentProgressNotice.messageEl.textContent=`Task Board : Processing created files: ${o}/${r}`)",
+                    "target": "Notice(`Task Board : Processing created files: 0/${r}`,0));let o=0;for(;a.length>0;){let l=a.shift();try{await this.realTimeScanner.processAllUpdatedFiles(l),o++,this.currentProgressNotice&&(this.currentProgressNotice.messageEl.textContent=`Task Board : Processing created files: ${o}/${r}`)"
+                },
+                {
+                    "source": "Notice(`\\u2713 Task Board : Finished processing ${r} created file(s)`)",
+                    "target": "Notice(`\\u2713 Task Board : Finished processing ${r} created file(s)`)"
+                },
+                {
+                    "source": "text:\"0 - \"",
+                    "target": "text:\"0 - \""
+                },
+                {
+                    "source": "text:\"1 - \"",
+                    "target": "text:\"1 - \""
+                },
+                {
+                    "source": "text:\"2 - \"",
+                    "target": "text:\"2 - \""
+                },
+                {
+                    "source": "text:\"3 - \"",
+                    "target": "text:\"3 - \""
+                },
+                {
+                    "source": "text:\"4 - \"",
+                    "target": "text:\"4 - \""
+                },
+                {
+                    "source": "text:\"5 - \"",
+                    "target": "text:\"5 - \""
+                },
+                {
+                    "source": "text:\"Unchecked [ ]\"",
+                    "target": "text:\"Unchecked [ ]\""
+                },
+                {
+                    "source": "text:\"Regular [x]\"",
+                    "target": "text:\"Regular [x]\""
+                },
+                {
+                    "source": "text:\"Checked [X]\"",
+                    "target": "text:\"Checked [X]\""
+                },
+                {
+                    "source": "text:\"Dropped [-]\"",
+                    "target": "text:\"Dropped [-]\""
+                },
+                {
+                    "source": "text:\"Forward [>]\"",
+                    "target": "text:\"Forward [>]\""
+                },
+                {
+                    "source": "text:\"Migrated [<]\"",
+                    "target": "text:\"Migrated [<]\""
+                },
+                {
+                    "source": "text:\"Date [D]\"",
+                    "target": "text:\"Date [D]\""
+                },
+                {
+                    "source": "text:\"Question [?]\"",
+                    "target": "text:\"Question [?]\""
+                },
+                {
+                    "source": "text:\"In progress [/]\"",
+                    "target": "text:\"In progress [/]\""
+                },
+                {
+                    "source": "text:\"Add [+]\"",
+                    "target": "text:\"Add [+]\""
+                },
+                {
+                    "source": "text:\"Research [R]\"",
+                    "target": "text:\"Research [R]\""
+                },
+                {
+                    "source": "text:\"Important [!]\"",
+                    "target": "text:\"Important [!]\""
+                },
+                {
+                    "source": "text:\"Idea [i]\"",
+                    "target": "text:\"Idea [i]\""
+                },
+                {
+                    "source": "text:\"Brainstorm [B]\"",
+                    "target": "text:\"Brainstorm [B]\""
+                },
+                {
+                    "source": "text:\"Pro [P]\"",
+                    "target": "text:\"Pro [P]\""
+                },
+                {
+                    "source": "text:\"Con [C]\"",
+                    "target": "text:\"Con [C]\""
+                },
+                {
+                    "source": "text:\"Quote [Q]\"",
+                    "target": "text:\"Quote [Q]\""
+                },
+                {
+                    "source": "text:\"Note [N]\"",
+                    "target": "text:\"Note [N]\""
+                },
+                {
+                    "source": "text:\"Bookmark [b]\"",
+                    "target": "text:\"Bookmark [b]\""
+                },
+                {
+                    "source": "text:\"Information [I]\"",
+                    "target": "text:\"Information [I]\""
+                },
+                {
+                    "source": "text:\"Paraphrase [p]\"",
+                    "target": "text:\"Paraphrase [p]\""
+                },
+                {
+                    "source": "text:\"Location [L]\"",
+                    "target": "text:\"Location [L]\""
+                },
+                {
+                    "source": "text:\"Example [E]\"",
+                    "target": "text:\"Example [E]\""
+                },
+                {
+                    "source": "text:\"Answer [A]\"",
+                    "target": "text:\"Answer [A]\""
+                },
+                {
+                    "source": "text:\"Reward [r]\"",
+                    "target": "text:\"Reward [r]\""
+                },
+                {
+                    "source": "text:\"Choice [c]\"",
+                    "target": "text:\"Choice [c]\""
+                },
+                {
+                    "source": "text:\"Doing [d]\"",
+                    "target": "text:\"Doing [d]\""
+                },
+                {
+                    "source": "text:\"Time [T]\"",
+                    "target": "text:\"Time [T]\""
+                },
+                {
+                    "source": "text:\"Character [@]\"",
+                    "target": "text:\"Character [@]\""
+                },
+                {
+                    "source": "text:\"Talk [t]\"",
+                    "target": "text:\"Talk [t]\""
+                },
+                {
+                    "source": "text:\"Outline [o]\"",
+                    "target": "text:\"Outline [o]\""
+                },
+                {
+                    "source": "text:\"Conflict [~]\"",
+                    "target": "text:\"Conflict [~]\""
+                },
+                {
+                    "source": "text:\"World [W]\"",
+                    "target": "text:\"World [W]\""
+                },
+                {
+                    "source": "text:\"Find [f]\"",
+                    "target": "text:\"Find [f]\""
+                },
+                {
+                    "source": "text:\"Foreshadow [F]\"",
+                    "target": "text:\"Foreshadow [F]\""
+                },
+                {
+                    "source": "text:\"Favorite [H]\"",
+                    "target": "text:\"Favorite [H]\""
+                },
+                {
+                    "source": "text:\"Symbolism [&]\"",
+                    "target": "text:\"Symbolism [&]\""
+                },
+                {
+                    "source": "text:\"Secret [s]\"",
+                    "target": "text:\"Secret [s]\""
+                },
+                {
+                    "source": "name:\"Undated Tasks\"",
+                    "target": "name:\"Undated Tasks\""
+                },
+                {
+                    "source": "name:\"Over Due\"",
+                    "target": "name:\"Over Due\""
+                },
+                {
+                    "source": "name:\"Time Based Workflow\"",
+                    "target": "name:\"Time Based Workflow\""
+                },
+                {
+                    "source": "name:\"All other tags\"",
+                    "target": "name:\"All other tags\""
+                },
+                {
+                    "source": "name:\"In Review\"",
+                    "target": "name:\"In Review\""
+                },
+                {
+                    "source": "name:\"Tag Based Workflow\"",
+                    "target": "name:\"Tag Based Workflow\""
+                },
+                {
+                    "source": "name:\"Ready to start\"",
+                    "target": "name:\"Ready to start\""
+                },
+                {
+                    "source": "name:\"In Progress\"",
+                    "target": "name:\"In Progress\""
+                },
+                {
+                    "source": "name:\"Status Based Workflow\"",
+                    "target": "name:\"Status Based Workflow\""
+                },
+                {
+                    "source": "text:\"Content mismatch detected\"",
+                    "target": "text:\"Content mismatch detected\""
+                },
+                {
+                    "source": "text:\"Looks like the task content in your file is a little different from the content you just edited through Task Board. Choose which version of content you would like to keep:\"",
+                    "target": "text:\"Looks like the task content in your file is a little different from the content you just edited through Task Board. Choose which version of content you would like to keep:\""
+                },
+                {
+                    "source": "text:\"Current content in your note\"",
+                    "target": "text:\"Current content in your note\""
+                },
+                {
+                    "source": "text:\"Content you just edited\"",
+                    "target": "text:\"Content you just edited\""
+                },
+                {
+                    "source": "text:\"NOTE : If you think this safe guard modal shown is irrelevant and its also popping-up too many times, you can by-pass it and disable this from the settings under the 'general' tab.\"",
+                    "target": "text:\"NOTE : If you think this safe guard modal shown is irrelevant and its also popping-up too many times, you can by-pass it and disable this from the settings under the 'general' tab.\""
+                },
+                {
+                    "source": "text:\"Red highlighted content indicates the characters which are different by comparing the task-board-cache content and the current content in your note.\"",
+                    "target": "text:\"Red highlighted content indicates the characters which are different by comparing the task-board-cache content and the current content in your note.\""
+                },
+                {
+                    "source": "text:\"Green highlighted content indicates the characters which are different by comparing the content you just now edited and the content from the task-board-cache..\"",
+                    "target": "text:\"Green highlighted content indicates the characters which are different by comparing the content you just now edited and the content from the task-board-cache..\""
+                },
+                {
+                    "source": "text:\"Select the version of content you want Task Board to write in your note.\"",
+                    "target": "text:\"Select the version of content you want Task Board to write in your note.\""
+                },
+                {
+                    "source": "text:\"Debug Info\"",
+                    "target": "text:\"Debug Info\""
+                },
+                {
+                    "source": "text:\"Here is why this modal was shown in the first place. If you think this modal shown was unnecessary and if possible kindly share this information with the developer to improve the plugin.\"",
+                    "target": "text:\"Here is why this modal was shown in the first place. If you think this modal shown was unnecessary and if possible kindly share this information with the developer to improve the plugin.\""
+                },
+                {
+                    "source": "text:\"Task Board Cache\"",
+                    "target": "text:\"Task Board Cache\""
+                },
+                {
+                    "source": "text:`${Q.name} [${Q.symbol}]`",
+                    "target": "text:`${Q.name} [${Q.symbol}]`"
+                },
+                {
+                    "source": "text:`${f(\"created\")}: ${new Date(o.createdAt).toLocaleString()}`",
+                    "target": "text:`${f(\"created\")}: ${new Date(o.createdAt).toLocaleString()}`"
+                },
+                {
+                    "source": "text:`${f(\"updated\")}: ${new Date(o.updatedAt).toLocaleString()}`",
+                    "target": "text:`${f(\"updated\")}: ${new Date(o.updatedAt).toLocaleString()}`"
+                },
+                {
+                    "source": "text:`${i} ${f(\"filter-group\")}${i!==1?\"s\":\"\"}, ${s} ${f(\"filter\")}${s!==1?\"s\":\"\"}`",
+                    "target": "text:`${i} ${f(\"filter-group\")}${i!==1?\"s\":\"\"}, ${s} ${f(\"filter\")}${s!==1?\"s\":\"\"}`"
+                },
+                {
+                    "source": "text:`${f(\"root-condition\")}: ${o.filterState.rootCondition}`",
+                    "target": "text:`${f(\"root-condition\")}: ${o.filterState.rootCondition}`"
+                },
+                {
+                    "source": "text:\"Atmanand Gauns\"",
+                    "target": "text:\"Atmanand Gauns\""
+                },
+                {
+                    "source": "text:`When you will click on the checkbox [${i.symbol}] it will change to [${i.nextStatusSymbol}]`",
+                    "target": "text:`When you will click on the checkbox [${i.symbol}] it will change to [${i.nextStatusSymbol}]`"
+                },
+                {
+                    "source": "name:`${Z.name} ${f(\"copy-suffix\")}`",
+                    "target": "name:`${Z.name} ${f(\"copy-suffix\")}`"
+                },
+                {
+                    "source": "text:`Configure ${this.filterType}`",
+                    "target": "text:`Configure ${this.filterType}`"
+                },
+                {
+                    "source": "text:\"Active Actions\"",
+                    "target": "text:\"Active Actions\""
+                },
+                {
+                    "source": "text:\"Add action\"",
+                    "target": "text:\"Add action\""
+                },
+                {
+                    "source": "text:\"Inactive Actions\"",
+                    "target": "text:\"Inactive Actions\""
+                },
+                {
+                    "source": "text:\"When the card is marked as\"",
+                    "target": "text:\"When the card is marked as\""
+                },
+                {
+                    "source": "text:\"the card to\"",
+                    "target": "text:\"the card to\""
+                },
+                {
+                    "source": "name :\")+` ${l}.md`,1e4),await e.app.vault.create(u,\"",
+                    "target": "name :\")+` ${l}.md`,1e4),await e.app.vault.create(u,\""
+                },
+                {
+                    "source": "text:`File Changes (${r})`",
+                    "target": "text:`File Changes (${r})`"
+                },
+                {
+                    "source": "text:\"The below files were either modified, created, renamed or deleted while Obsidian was closed:\"",
+                    "target": "text:\"The below files were either modified, created, renamed or deleted while Obsidian was closed:\""
+                },
+                {
+                    "source": "text:\"No file changes found.\"",
+                    "target": "text:\"No file changes found.\""
+                },
+                {
+                    "source": "text:`Modified/Created Files (${this.modifiedFiles.length})`",
+                    "target": "text:`Modified/Created Files (${this.modifiedFiles.length})`"
+                },
+                {
+                    "source": "text:`Deleted/Renamed Files (${this.deletedFiles.length})`",
+                    "target": "text:`Deleted/Renamed Files (${this.deletedFiles.length})`"
+                },
+                {
+                    "source": "text:\"NOTE : Renamed files are little difficult to find. So if you see a lot of files here, it will be good idea to run the vault scan to re-build the cache.\"",
+                    "target": "text:\"NOTE : Renamed files are little difficult to find. So if you see a lot of files here, it will be good idea to run the vault scan to re-build the cache.\""
+                },
+                {
+                    "source": "textContent=`Task Board : Processing renamed files: ${l}/${o}`",
+                    "target": "textContent=`Task Board : Processing renamed files: ${l}/${o}`"
+                },
+                {
+                    "source": "textContent=`Task Board : Processing deleted files: ${s}/${r}`",
+                    "target": "textContent=`Task Board : Processing deleted files: ${s}/${r}`"
+                },
+                {
+                    "source": "textContent=`Task Board : Processing created files: ${o}/${r}`",
+                    "target": "textContent=`Task Board : Processing created files: ${o}/${r}`"
+                },
+                {
+                    "source": "text:`Task Board : ${u} files has been modified when Obsidian was inactive.`",
+                    "target": "text:`Task Board : ${u} files has been modified when Obsidian was inactive.`"
+                },
+                {
+                    "source": "textContent=`Task Board : Processing created files: ${w}/${u}`",
+                    "target": "textContent=`Task Board : Processing created files: ${w}/${u}`"
+                }
+            ]
+        }
+    }
+}
