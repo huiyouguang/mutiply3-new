@@ -1,9 +1,0 @@
-{
-  "id": "smart-note-creator",
-  "name": "Smart Note Creator",
-  "version": "0.2.0",
-  "minAppVersion": "1.5.0",
-  "description": "Create notes by choosing a folder, template, and template properties in one guided flow. Supports quick creation, context-aware auto-fill, property type detection, and post-create actions.",
-  "author": "Guochenfa",
-  "isDesktopOnly": false
-}
