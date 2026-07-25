@@ -1,8 +1,6 @@
 ---
 words:
   2026-05-06: 3633
-PrevNote: "[[MTSFMF 03 民事法律行为]]"
-NextNote: "[[MTSFMF 05 诉讼时效]]"
 ---
 # 代理
 ## 章节概述

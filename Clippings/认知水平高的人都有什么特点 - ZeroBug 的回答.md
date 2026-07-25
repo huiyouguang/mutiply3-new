@@ -10,7 +10,6 @@ mindmap-plugin: basic
 cssclasses:
 words:
   2026-06-05: 6927
-PrevNote: "[[请说出一个对人极其重要、简单、实用，但常被忽略的认知 - 奶茶新贵 的回答 1]]"
 ---
 678 人赞同了该回答
 

@@ -16,8 +16,6 @@ tags:
   - 基本法律
   - 注册会计师
 mindmap-plugin: basic
-PrevNote: "[[合同法]]"
-NextNote: "[[票据法]]"
 words:
   2026-05-25: 10002
   2026-07-03: 10018

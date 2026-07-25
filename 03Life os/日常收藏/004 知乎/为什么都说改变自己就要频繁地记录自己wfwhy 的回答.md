@@ -12,8 +12,6 @@ mindmap-plugin: basic
 文件分类: 为什么都说改变自己就要频繁地记录自己？ - wfwhy 的回答
 核心主题:
 类型:
-PrevNote: "[[为什么大家都说人生的容错率大到无法想象]]"
-NextNote: "[[为什么国内的大学越来越高中化了 - 铁芒萁的研习社 的回答]]"
 ---
 [谢邀 @麦清](https://www.zhihu.com/people/c99982b64304b35f254dbaf05581a188)
 

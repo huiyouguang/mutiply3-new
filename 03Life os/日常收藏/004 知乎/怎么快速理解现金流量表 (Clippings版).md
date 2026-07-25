@@ -13,8 +13,6 @@ mindmap-plugin: basic
 文件分类: 怎么快速理解现金流量表？ - 帆软 的回答
 核心主题:
 类型:
-PrevNote: "[[怎么规划自己的会计财务道路？]]"
-NextNote: "[[怎么快速理解现金流量表]]"
 ---
 ![](https://pica.zhimg.com/50/v2-990498c7a819b802f6d5b1bf77be7eb9_720w.jpg?source=2c26e567)
 

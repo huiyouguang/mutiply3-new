@@ -12,8 +12,6 @@ source:
 mindmap-plugin:
 created:
 updated:
-PrevNote: "[[基本民事法律制度2]]"
-NextNote: "[[椰子默写本---注会经济法]]"
 words:
   2026-05-19: 20883
   2026-05-30: 20881

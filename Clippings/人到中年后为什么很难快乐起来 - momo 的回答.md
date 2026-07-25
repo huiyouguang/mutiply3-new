@@ -10,8 +10,6 @@ mindmap-plugin: basic
 cssclasses:
 words:
   2026-05-30: 1267
-PrevNote: "[[一个人最根本的能力到底是什么？ - 茶花路莫里亚蒂 的回答]]"
-NextNote: "[[人什么时候能大彻大悟？ - 人性密码 的回答]]"
 ---
 航海家 tom zhang 等 8512 人赞同
 

@@ -11,7 +11,6 @@ tags:
 title: "![](https://mutiply.oss-cn-shenzhen.aliyuncs.com/20260714204330742.png)"
 words:
   2026-07-14: 20604
-PrevNote: "[[04成长/知识管理/错题库/刷题/注会会计刷题/最后八道题—模拟试卷1_会计副本]]"
 ---
 
 

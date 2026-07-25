@@ -12,8 +12,6 @@ mindmap-plugin: basic
 文件分类: 人什么时候能大彻大悟？ - Mivraquel 的回答
 核心主题:
 类型:
-PrevNote: "[[人民日报金句摘抄 (Conflicted 2025-01-03 10_08_56)]]"
-NextNote: "[[人什么时候能大彻大悟]]"
 ---
 冯Andy 等 1172 人赞同了该回答
 
