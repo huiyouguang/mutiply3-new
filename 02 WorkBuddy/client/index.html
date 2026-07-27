@@ -1,421 +1,591 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WorkBuddy · 个人工作台</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #f4f6fb; --panel: #ffffff; --text: #0f172a; --muted: #64748b;
-      --border: #e7eaf0; --primary: #6366f1;
-      --primary-grad: linear-gradient(135deg, #6366f1, #8b5cf6);
-      --radius: 16px; --radius-sm: 12px;
-      --shadow-sm: 0 1px 2px rgba(15,23,42,.05),0 1px 3px rgba(15,23,42,.04);
-      --shadow-md: 0 6px 16px rgba(15,23,42,.07),0 2px 6px rgba(15,23,42,.04);
-      --font: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      --ease: cubic-bezier(.22,.61,.36,1);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.55; padding: 18px 22px 56px; max-width: 1400px; margin: 0 auto; -webkit-font-smoothing: antialiased; }
-    body::before { content:''; position: fixed; inset: 0; z-index:-1; pointer-events:none;
-      background: radial-gradient(58% 48% at 10% -6%, rgba(99,102,241,.10), transparent 60%),
-                  radial-gradient(50% 44% at 96% 0%, rgba(236,72,153,.08), transparent 55%),
-                  radial-gradient(46% 46% at 50% 112%, rgba(16,185,129,.06), transparent 60%); }
-    header { position: sticky; top:0; z-index:30; display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin:-18px -22px 22px; padding:14px 22px; background: rgba(255,255,255,.72); backdrop-filter: saturate(180%) blur(14px); border-bottom:1px solid var(--border); box-shadow:0 1px 0 rgba(255,255,255,.6) inset,0 8px 24px rgba(15,23,42,.05); }
-    .brand { background: var(--primary-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-    .sub { font-size:12px; color:var(--muted); margin-top:2px; }
-    .spacer { flex:1; }
-    .panel { background:var(--panel); border-radius:var(--radius); border:1px solid var(--border); box-shadow:var(--shadow-sm); padding:20px; transition: box-shadow .25s var(--ease), transform .25s var(--ease); }
-    .panel:hover { box-shadow:var(--shadow-md); }
-    .panel-title { font-size:15px; font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
-    .stat-card { background:var(--panel); border-radius:var(--radius-sm); border:1px solid var(--border); padding:16px; text-align:center; }
-    .stat-value { font-size:28px; font-weight:800; line-height:1.1; }
-    .stat-label { font-size:12px; color:var(--muted); margin-top:4px; }
-    .btn { display:inline-flex; align-items:center; gap:6px; padding:8px 16px; border-radius:10px; border:none; font-family:var(--font); font-size:13px; font-weight:600; cursor:pointer; transition: all .2s var(--ease); }
-    .btn-primary { background:var(--primary-grad); color:#fff; }
-    .btn-primary:hover { opacity:.9; transform:translateY(-1px); }
-    .btn-outline { background:transparent; border:1.5px solid var(--border); color:var(--text); }
-    .btn-outline:hover { border-color:var(--primary); color:var(--primary); }
-    .tag { display:inline-flex; align-items:center; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:600; }
-    .tag-primary { background: rgba(99,102,241,.12); color:var(--primary); }
-    .tag-success { background: rgba(16,185,129,.12); color:#10b981; }
-    .tag-warning { background: rgba(245,158,11,.12); color:#f59e0b; }
-    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
-    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-    .grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
-    .progress-bar { height:6px; border-radius:3px; background: rgba(99,102,241,.12); overflow:hidden; }
-    .progress-fill { height:100%; border-radius:3px; background:var(--primary-grad); transition: width .5s var(--ease); }
-    .quick-actions { display:flex; gap:8px; flex-wrap:wrap; margin:16px 0; }
-    .qa-btn { display:flex; align-items:center; gap:6px; padding:10px 18px; border-radius:12px; border:none; font-size:13px; font-weight:600; cursor:pointer; transition: all .2s var(--ease); background:var(--panel); border:1px solid var(--border); box-shadow:var(--shadow-sm); color:var(--text); }
-    .qa-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); border-color:var(--primary); }
-    .modal-overlay { position:fixed; inset:0; z-index:100; background: rgba(15,23,42,.4); backdrop-filter: blur(4px); display:flex; align-items:center; justify-content:center; }
-    .modal { background:var(--panel); border-radius:var(--radius); border:1px solid var(--border); box-shadow:0 20px 48px rgba(15,23,42,.13); padding:28px; max-width:520px; width:90%; max-height:80vh; overflow-y:auto; }
-    .modal h3 { font-size:18px; font-weight:700; margin-bottom:16px; }
-    .form-group { margin-bottom:14px; }
-    .form-group label { display:block; font-size:13px; font-weight:600; margin-bottom:4px; color:var(--muted); }
-    .form-group input, .form-group select, .form-group textarea { width:100%; padding:10px 14px; border-radius:10px; border:1.5px solid var(--border); font-family:var(--font); font-size:14px; color:var(--text); background:var(--panel); transition: border-color .2s var(--ease); }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--primary); box-shadow:0 0 0 3px rgba(99,102,241,.2); }
-    .form-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:20px; }
-    .calendar-mini { text-align:center; margin-bottom:0; }
-    .calendar-mini .date-big { font-size:48px; font-weight:800; line-height:1; background:var(--primary-grad); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-    .calendar-mini .month-label { font-size:16px; font-weight:600; color:var(--muted); margin-top:4px; }
-    .toast { position:fixed; bottom:24px; right:24px; z-index:200; padding:12px 20px; border-radius:12px; font-size:14px; font-weight:600; animation: slideUp .3s var(--ease); box-shadow:0 12px 32px rgba(15,23,42,.15); }
-    .toast-success { background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; }
-    .toast-error { background:#fef2f2; color:#991b1b; border:1px solid #fecaca; }
-    @keyframes slideUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-    .loading { text-align:center; padding:60px; color:var(--muted); font-size:14px; }
-    @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns:1fr; } .grid-4 { grid-template-columns:repeat(2,1fr); } }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WorkBuddy · 个人工作台</title>
+<style>
+  :root {
+    --bg: #f8f6f3;
+    --card: #ffffff;
+    --card2: #fafafa;
+    --surface: #f0f0f0;
+    --text: #27272a;
+    --sub: #71717a;
+    --muted: #a1a1aa;
+    --accent: #8b5cf6;
+    --accent-soft: #f3eefe;
+    --green: #10b981;
+    --orange: #f59e0b;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --border: #e5e7eb;
+    --shadow: 0 1px 3px rgba(0,0,0,.05), 0 1px 2px rgba(0,0,0,.03);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+
+  /* 顶部细导航 */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 24px;
+    background: rgba(248,246,243,.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; }
+  .brand .logo { font-size: 22px; }
+  .brand small { font-weight: 400; color: var(--muted); font-size: 12px; }
+  .topbar .acts { display: flex; gap: 8px; }
+  .btn {
+    border: 1px solid var(--border); background: var(--card); color: var(--sub);
+    padding: 7px 14px; border-radius: 10px; cursor: pointer; font-size: 13px;
+    transition: all .15s; font-weight: 500;
+  }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-primary:hover { filter: brightness(1.05); color: #fff; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 20px 24px 60px; }
+
+  /* 顶部横幅（banner） */
+  .hero {
+    border-radius: 22px; padding: 30px 32px; margin-bottom: 22px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 45%, #f0abfc 100%);
+    color: #fff; position: relative; overflow: hidden;
+    box-shadow: 0 8px 24px rgba(139,92,246,.25);
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -40px; top: -40px; width: 220px; height: 220px;
+    background: radial-gradient(circle, rgba(255,255,255,.22), transparent 70%); border-radius: 50%;
+  }
+  .hero h1 { margin: 0; font-size: 28px; font-weight: 800; letter-spacing: .5px; }
+  .hero .date { margin-top: 6px; opacity: .9; font-size: 14px; }
+  .hero .hero-stats { display: flex; gap: 26px; margin-top: 22px; flex-wrap: wrap; }
+  .hero .hs { display: flex; flex-direction: column; }
+  .hero .hs b { font-size: 24px; font-weight: 800; }
+  .hero .hs span { font-size: 12px; opacity: .85; }
+
+  /* 模块网格 */
+  .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } .hero { padding: 24px; } }
+
+  .mod {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;
+  }
+  .mod-head {
+    display: flex; align-items: center; gap: 9px; padding: 14px 16px;
+    cursor: pointer; user-select: none;
+  }
+  .mod-ico { font-size: 18px; }
+  .mod-title { font-weight: 650; font-size: 15px; flex: 1; }
+  .mod-chev { color: var(--muted); font-size: 13px; transition: transform .2s; }
+  .mod.collapsed .mod-chev { transform: rotate(-90deg); }
+  .mod.collapsed .mod-body { display: none; }
+  .mod-body { padding: 4px 16px 18px; font-size: 14px; color: #52525b; }
+
+  /* 概览 chips */
+  .chips { display: flex; gap: 10px; flex-wrap: wrap; }
+  .chip { flex: 1; min-width: 90px; background: var(--card2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 12px 14px; text-align: center; }
+  .chip b { display: block; font-size: 22px; color: var(--accent); font-weight: 800; }
+  .chip span { font-size: 12px; color: var(--sub); }
+
+  /* 行数据 */
+  .row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed var(--border); }
+  .row:last-child { border-bottom: none; }
+  .row .k { color: var(--sub); }
+  .row .v { font-weight: 600; }
+  .muted { color: var(--muted); font-size: 13px; }
+  .empty-hint { color: var(--muted); padding: 10px 0; font-size: 13px; }
+
+  /* 进度条 */
+  .bar { height: 8px; background: var(--surface); border-radius: 6px; overflow: hidden; margin-top: 4px; }
+  .bar > i { display: block; height: 100%; background: var(--accent); border-radius: 6px; }
+  .goal { margin: 10px 0; }
+  .goal .gt { display: flex; justify-content: space-between; font-size: 13px; }
+
+  /* 日历 */
+  .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal-cell { text-align: center; font-size: 12px; padding: 6px 0; border-radius: 8px; position: relative; color: var(--sub); }
+  .cal-cell.head { color: var(--muted); font-weight: 600; font-size: 11px; }
+  .cal-cell.empty { background: transparent; }
+  .cal-cell.today { background: var(--accent); color: #fff; font-weight: 700; }
+  .cal-cell.has { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+  .cal-cell .dot { position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%);
+    width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+  .cal-cell.today .dot { background: #fff; }
+
+  /* 热力图 */
+  .heat { display: grid; grid-template-columns: repeat(14, 1fr); gap: 3px; }
+  .hm { aspect-ratio: 1; border-radius: 3px; background: var(--surface); }
+  .hm.on { background: var(--accent); }
+  .hm-legend { font-size: 11px; color: var(--muted); margin-top: 8px; }
+
+  /* 快捷按钮组 */
+  .quick { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .qbtn { display: flex; align-items: center; gap: 8px; padding: 12px; border-radius: 12px;
+    background: var(--card2); border: 1px solid var(--border); cursor: pointer; font-size: 13px;
+    font-weight: 600; color: var(--text); transition: all .15s; }
+  .qbtn:hover { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); }
+  .qbtn .qi { font-size: 18px; }
+
+  /* 最近编辑 */
+  .recent { display: flex; flex-direction: column; gap: 2px; max-height: 220px; overflow-y: auto; }
+  .rf { padding: 8px 6px; border-radius: 8px; }
+  .rf:hover { background: var(--card2); }
+  .rf .rn { font-weight: 600; font-size: 13px; }
+  .rf .rp { font-size: 11px; color: var(--muted); }
+
+  /* 聊天 */
+  .chat-msgs { height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; padding: 4px; }
+  .msg { max-width: 85%; padding: 8px 12px; border-radius: 12px; font-size: 13px; }
+  .msg.me { align-self: flex-end; background: var(--accent); color: #fff; border-bottom-right-radius: 3px; }
+  .msg.ai { align-self: flex-start; background: var(--card2); border: 1px solid var(--border); border-bottom-left-radius: 3px; }
+  .chat-input { display: flex; gap: 8px; margin-top: 10px; }
+  .chat-input input { flex: 1; padding: 9px 12px; border: 1px solid var(--border); border-radius: 10px; font-size: 13px; outline: none; }
+  .chat-input input:focus { border-color: var(--accent); }
+
+  /* 快速记录 */
+  .qn-area { width: 100%; min-height: 90px; resize: vertical; padding: 10px 12px; border: 1px solid var(--border);
+    border-radius: 12px; font-size: 13px; font-family: inherit; outline: none; }
+  .qn-area:focus { border-color: var(--accent); }
+
+  /* 模态框 */
+  .mask { position: fixed; inset: 0; background: rgba(0,0,0,.4); display: none; align-items: center;
+    justify-content: center; z-index: 100; padding: 20px; }
+  .mask.show { display: flex; }
+  .modal { background: var(--card); border-radius: 18px; padding: 24px; width: 100%; max-width: 440px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.25); }
+  .modal h3 { margin: 0 0 16px; font-size: 18px; }
+  .field { margin-bottom: 12px; }
+  .field label { display: block; font-size: 13px; color: var(--sub); margin-bottom: 5px; }
+  .field input, .field textarea, .field select { width: 100%; padding: 9px 12px; border: 1px solid var(--border);
+    border-radius: 10px; font-size: 14px; font-family: inherit; outline: none; }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); }
+  .field textarea { min-height: 70px; resize: vertical; }
+  .modal-acts { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+  .mood-pick { display: flex; gap: 6px; }
+  .mood-pick button { font-size: 28px; background: none; border: 2px solid transparent; border-radius: 10px; cursor: pointer; padding: 2px 4px; }
+  .mood-pick button.sel { border-color: var(--accent); background: var(--accent-soft); }
+
+  .loading { text-align: center; padding: 80px 0; color: var(--muted); }
+  .tag { display: inline-block; background: var(--accent-soft); color: var(--accent); font-size: 11px;
+    padding: 2px 8px; border-radius: 20px; margin: 2px 3px 0 0; }
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--text);
+    color: #fff; padding: 10px 18px; border-radius: 12px; font-size: 13px; opacity: 0; transition: opacity .25s; z-index: 200; }
+  .toast.show { opacity: 1; }
+</style>
 </head>
 <body>
-  <div id="app">
+  <div class="topbar">
+    <div class="brand"><span class="logo">⚡</span> WorkBuddy <small>个人工作台</small></div>
+    <div class="acts">
+      <button class="btn" data-action="refresh">🔄 刷新</button>
+    </div>
+  </div>
+
+  <div class="wrap" id="app">
     <div class="loading">⏳ 正在加载 WorkBuddy 工作台...</div>
   </div>
 
-  <script>
-  (function () {
-    "use strict";
-    var API_BASE = "http://localhost:3001/api";
+  <!-- 健康记录模态 -->
+  <div class="mask" id="mask-health">
+    <div class="modal">
+      <h3>🏥 记录今日健康</h3>
+      <div class="field"><label>睡眠时长（小时）</label><input id="h-sleep" type="number" step="0.5" value="7.5"></div>
+      <div class="field"><label>睡眠质量（1-5）</label><input id="h-sq" type="number" min="1" max="5" value="4"></div>
+      <div class="field"><label>运动类型</label><input id="h-ex" type="text" placeholder="跑步 / 健身 / 瑜伽"></div>
+      <div class="field"><label>运动时长（分钟）</label><input id="h-exd" type="number" value="30"></div>
+      <div class="field"><label>饮水（杯）</label><input id="h-water" type="number" value="8"></div>
+      <div class="field"><label>体重（kg）</label><input id="h-weight" type="number" step="0.1" value="0"></div>
+      <div class="field"><label>备注</label><textarea id="h-notes" placeholder="今日状态..."></textarea></div>
+      <div class="modal-acts">
+        <button class="btn" data-action="close-modal">取消</button>
+        <button class="btn btn-primary" data-action="save-health">保存</button>
+      </div>
+    </div>
+  </div>
 
-    // ============ State ============
-    var state = {
-      currentView: "dashboard",
-      dashboard: null,
-      healthToday: null,
-      healthStats: null,
-      moodToday: null,
-      toast: null
-    };
-    var chatMessages = [];
+  <!-- 心情记录模态 -->
+  <div class="mask" id="mask-mood">
+    <div class="modal">
+      <h3>💭 记录今日心情</h3>
+      <div class="field"><label>心情指数</label>
+        <div class="mood-pick" id="mood-pick">
+          <button type="button" data-v="1">😢</button><button type="button" data-v="2">😔</button>
+          <button type="button" data-v="3" class="sel">😐</button><button type="button" data-v="4">🙂</button>
+          <button type="button" data-v="5">😄</button>
+        </div>
+      </div>
+      <div class="field"><label>标签（逗号分隔）</label><input id="m-tags" type="text" placeholder="工作, 平静"></div>
+      <div class="field"><label>今日感受</label><textarea id="m-content" placeholder="今天发生了什么..."></textarea></div>
+      <div class="field"><label>感恩事项（每行一条）</label><textarea id="m-grat" placeholder="感谢..."></textarea></div>
+      <div class="modal-acts">
+        <button class="btn" data-action="close-modal">取消</button>
+        <button class="btn btn-primary" data-action="save-mood">保存</button>
+      </div>
+    </div>
+  </div>
 
-    // ============ API ============
-    function apiGet(url) {
-      return fetch(API_BASE + url).then(function (r) { return r.json(); });
+  <div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  "use strict";
+  var API = "/api";
+  var MOOD = ["😢", "😔", "😐", "🙂", "😄"];
+  var collapsed = {};
+  var state = { dash: null, health: null, mood: null, healthStats: null };
+
+  function apiGet(p) { return fetch(API + p).then(function (r) { return r.json(); }); }
+  function apiPost(p, body) {
+    return fetch(API + p, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }).then(function (r) { return r.json(); });
+  }
+  function $(s) { return document.querySelector(s); }
+  function todayStr() { var d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function fmtDate(d) { return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function escapeHtml(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function relTime(iso) {
+    var diff = (Date.now() - new Date(iso).getTime()) / 1000;
+    if (diff < 60) return "刚刚";
+    if (diff < 3600) return Math.floor(diff / 60) + " 分钟前";
+    if (diff < 86400) return Math.floor(diff / 3600) + " 小时前";
+    return Math.floor(diff / 86400) + " 天前";
+  }
+  function greeting() {
+    var h = new Date().getHours();
+    if (h < 6) return "夜深了"; if (h < 11) return "早上好"; if (h < 14) return "中午好"; if (h < 18) return "下午好"; return "晚上好";
+  }
+  function daysBetween(a, b) { return Math.ceil((b - a) / 86400000); }
+  function toast(msg) { var t = $("#toast"); t.textContent = msg; t.classList.add("show"); setTimeout(function () { t.classList.remove("show"); }, 2200); }
+
+  // ===== 模块卡片包装 =====
+  function card(id, icon, title, body) {
+    return '<section class="mod' + (collapsed[id] ? " collapsed" : "") + '" data-mod="' + id + '">' +
+      '<header class="mod-head" data-action="toggle-mod" data-mod="' + id + '">' +
+      '<span class="mod-ico">' + icon + '</span><span class="mod-title">' + title + '</span><span class="mod-chev">▾</span>' +
+      '</header><div class="mod-body">' + body + '</div></section>';
+  }
+
+  // ===== 各模块内容 =====
+  function modOverview() {
+    var d = state.dash || {};
+    var m = state.mood;
+    var moodTxt = m && m.mood ? MOOD[m.mood - 1] + " " + m.mood + "/5" : "—";
+    return '<div class="chips">' +
+      '<div class="chip"><b>' + (d.todayNotes || 0) + '</b><span>今日笔记</span></div>' +
+      '<div class="chip"><b>' + (d.totalNotes || 0) + '</b><span>笔记总数</span></div>' +
+      '<div class="chip"><b>' + moodTxt + '</b><span>今日心情</span></div>' +
+      '</div>';
+  }
+
+  function modHealth() {
+    var h = state.health;
+    if (!h || !h.date) {
+      return '<div class="empty-hint">今天还没有健康记录 🌱</div>' +
+        '<button class="btn btn-primary" data-action="rec-health" style="margin-top:6px">✏️ 记录今日健康</button>';
     }
-    function apiPost(url, data) {
-      return fetch(API_BASE + url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      }).then(function (r) { return r.json(); });
-    }
+    return '<div class="row"><span class="k">💤 睡眠</span><span class="v">' + (h.sleep || "-") + ' 小时</span></div>' +
+      '<div class="row"><span class="k">🏃 运动</span><span class="v">' + (h.exercise || "无") + ' · ' + (h.exerciseDuration || 0) + ' 分</span></div>' +
+      '<div class="row"><span class="k">💧 饮水</span><span class="v">' + (h.water || 0) + ' 杯</span></div>' +
+      '<div class="row"><span class="k">⚖️ 体重</span><span class="v">' + (h.weight ? h.weight + " kg" : "-") + '</span></div>' +
+      '<button class="btn" data-action="rec-health" style="margin-top:10px">✏️ 更新记录</button>';
+  }
 
-    // ============ Toast ============
-    function showToast(message, type) {
-      state.toast = { message: message, type: type || "success", id: Date.now() };
-      setTimeout(function () { state.toast = null; render(); }, 3000);
+  function modMood() {
+    var m = state.mood;
+    if (!m || !m.date) {
+      return '<div class="empty-hint">今天还没有记录心情 🌿</div>' +
+        '<button class="btn btn-primary" data-action="rec-mood" style="margin-top:6px">✏️ 记录今日心情</button>';
+    }
+    var tags = (m.tags || []).map(function (t) { return '<span class="tag">' + escapeHtml(t) + '</span>'; }).join("");
+    var content = m.content ? escapeHtml(m.content).slice(0, 60) : "（无文字）";
+    return '<div style="font-size:34px">' + MOOD[m.mood - 1] + ' <span class="muted">/' + m.mood + ' 分</span></div>' +
+      (tags ? '<div style="margin:8px 0">' + tags + '</div>' : '') +
+      '<div class="muted" style="margin-top:6px">' + content + '</div>' +
+      '<button class="btn" data-action="rec-mood" style="margin-top:10px">✏️ 更新心情</button>';
+  }
+
+  function modCountdown() {
+    var cpa = new Date("2026-08-26T09:00:00");
+    var left = daysBetween(new Date(), cpa);
+    var wkLeft = 7 - new Date().getDay();
+    var now = new Date(); var monthEnd = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+    var moLeft = daysBetween(now, monthEnd);
+    return '<div class="row"><span class="k">📋 注册会计师考试</span><span class="v" style="color:var(--accent)">' + left + ' 天</span></div>' +
+      '<div class="row"><span class="k">📅 本周剩余</span><span class="v">' + wkLeft + ' 天</span></div>' +
+      '<div class="row"><span class="k">🗓️ 本月剩余</span><span class="v">' + moLeft + ' 天</span></div>';
+  }
+
+  function modCalendar() {
+    var entries = (state.healthStats && state.healthStats.entries) || [];
+    var has = {};
+    entries.forEach(function (e) { has[e.date] = true; });
+    var now = new Date(); var y = now.getFullYear(), m = now.getMonth();
+    var startDay = new Date(y, m, 1).getDay();
+    var days = new Date(y, m + 1, 0).getDate();
+    var t = todayStr();
+    var head = ["日", "一", "二", "三", "四", "五", "六"].map(function (w) { return '<div class="cal-cell head">' + w + '</div>'; }).join("");
+    var cells = "";
+    for (var i = 0; i < startDay; i++) cells += '<div class="cal-cell empty"></div>';
+    for (var d = 1; d <= days; d++) {
+      var ds = y + "-" + String(m + 1).padStart(2, "0") + "-" + String(d).padStart(2, "0");
+      var cls = "cal-cell" + (ds === t ? " today" : (has[ds] ? " has" : ""));
+      cells += '<div class="' + cls + '">' + d + (has[ds] ? '<i class="dot"></i>' : "") + '</div>';
+    }
+    return '<div class="cal">' + head + cells + '</div><div class="muted" style="margin-top:6px">圆点表示当天有健康记录</div>';
+  }
+
+  function modQuote() {
+    var quotes = [
+      "把每一天，都过成自己喜欢的样子。",
+      "完成比完美更重要。",
+      "慢慢来，比较快。",
+      "你今天的努力，是明天的底气。",
+      "保持热爱，奔赴山海。",
+      "小步快跑，持续迭代。",
+      "行动是焦虑的解药。"
+    ];
+    var q = quotes[new Date().getDate() % quotes.length];
+    return '<div style="font-size:15px;color:var(--text);line-height:1.8">“' + q + '”</div><div class="muted" style="margin-top:8px">— 每日一言</div>';
+  }
+
+  function modQuick() {
+    return '<div class="quick">' +
+      '<div class="qbtn" data-action="rec-health"><span class="qi">🏥</span> 记录健康</div>' +
+      '<div class="qbtn" data-action="rec-mood"><span class="qi">💭</span> 记录心情</div>' +
+      '<div class="qbtn" data-action="goto-chat"><span class="qi">🤖</span> AI 助手</div>' +
+      '<div class="qbtn" data-action="goto-quicknote"><span class="qi">✏️</span> 快速记录</div>' +
+      '</div>';
+  }
+
+  function modRecent() {
+    var files = (state.dash && state.dash.recentFiles) || [];
+    if (!files.length) return '<div class="empty-hint">暂无可显示的笔记</div>';
+    return '<div class="recent">' + files.map(function (f) {
+      return '<div class="rf"><div class="rn">' + escapeHtml(f.name) + '</div><div class="rp">' + escapeHtml(f.path) + ' · ' + relTime(f.mtime) + '</div></div>';
+    }).join("") + '</div>';
+  }
+
+  function modHeatmap() {
+    var entries = (state.healthStats && state.healthStats.entries) || [];
+    var has = {}; entries.forEach(function (e) { has[e.date] = true; });
+    var end = new Date(); var cells = "";
+    for (var i = 69; i >= 0; i--) {
+      var d = new Date(end); d.setDate(end.getDate() - i);
+      var ds = fmtDate(d);
+      cells += '<div class="hm' + (has[ds] ? " on" : "") + '" title="' + ds + '"></div>';
+    }
+    return '<div class="heat">' + cells + '</div><div class="hm-legend">Less <span class="hm on"></span> More · 近 70 天共 ' + entries.length + ' 天有健康记录</div>';
+  }
+
+  function modGoal() {
+    var goals = [
+      { name: "CPA 备考进度", p: 62 },
+      { name: "每日阅读 30 分", p: 45 },
+      { name: "运动打卡", p: 70 }
+    ];
+    return goals.map(function (g) {
+      return '<div class="goal"><div class="gt"><span>' + g.name + '</span><span>' + g.p + '%</span></div>' +
+        '<div class="bar"><i style="width:' + g.p + '%"></i></div></div>';
+    }).join("") + '<div class="muted">* 示例目标，可在后端接入真实数据</div>';
+  }
+
+  function modCpa() {
+    var cpa = new Date("2026-08-26T09:00:00");
+    var left = daysBetween(new Date(), cpa);
+    return '<div style="text-align:center;padding:6px 0">' +
+      '<div style="font-size:40px;font-weight:800;color:var(--accent)">' + left + '</div>' +
+      '<div class="muted">天后注册会计师考试</div></div>' +
+      '<div class="row" style="margin-top:8px"><span class="k">📚 今日建议</span><span class="v">复习 2 章 + 做 1 套真题</span></div>';
+  }
+
+  function modChat() {
+    var html = '<div class="chat-msgs" id="chat-msgs"><div class="msg ai">你好，我是 WorkBuddy 助手。有任何问题都可以问我～（需安装 Agent SDK 才能真正对话）</div></div>' +
+      '<div class="chat-input"><input id="chat-in" placeholder="输入消息..." /><button class="btn btn-primary" data-action="send-chat">发送</button></div>';
+    return html;
+  }
+
+  function modQuickNote() {
+    return '<textarea class="qn-area" id="qn-area" placeholder="闪过的灵感？马上记下来..."></textarea>' +
+      '<button class="btn btn-primary" data-action="save-quick" style="margin-top:8px">💾 保存到 00 Inbox</button>';
+  }
+
+  // ===== 组装页面 =====
+  function render() {
+    var d = state.dash || {};
+    var hero = '<div class="hero"><h1>' + greeting() + '，准备好开启高效一天了吗？⚡</h1>' +
+      '<div class="date">' + new Date().toLocaleDateString("zh-CN", { year: "numeric", month: "long", day: "numeric", weekday: "long" }) + '</div>' +
+      '<div class="hero-stats">' +
+      '<div class="hs"><b>' + (d.todayNotes || 0) + '</b><span>今日笔记</span></div>' +
+      '<div class="hs"><b>' + (d.totalNotes || 0) + '</b><span>笔记总数</span></div>' +
+      '<div class="hs"><b>' + ((state.health && state.health.sleep) || "—") + '</b><span>昨夜睡眠(h)</span></div>' +
+      '<div class="hs"><b>' + ((state.mood && state.mood.mood) ? MOOD[state.mood.mood - 1] : "—") + '</b><span>今日心情</span></div>' +
+      '</div></div>';
+
+    var grid =
+      card("overview", "📊", "三列概览", modOverview()) +
+      card("health", "🏥", "今日健康概览", modHealth()) +
+      card("mood", "💭", "心情日记", modMood()) +
+      card("countdown", "📅", "重要倒计时", modCountdown()) +
+      card("calendar", "🗓️", "月历视图", modCalendar()) +
+      card("quote", "💬", "每日一言", modQuote()) +
+      card("quick", "⚡", "快捷面板", modQuick()) +
+      card("recent", "📝", "最近编辑", modRecent()) +
+      card("heatmap", "📈", "写作足迹", modHeatmap()) +
+      card("goal", "🎯", "目标进度", modGoal()) +
+      card("cpa", "📋", "CPA 备考", modCpa()) +
+      card("chat", "🤖", "AI 助手", modChat()) +
+      card("quicknote", "✏️", "快速记录", modQuickNote());
+
+    $("#app").innerHTML = hero + '<div class="grid">' + grid + '</div>';
+  }
+
+  // ===== 事件委托 =====
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest("[data-action]");
+    if (!el) return;
+    var a = el.getAttribute("data-action");
+    if (a === "toggle-mod") {
+      var id = el.getAttribute("data-mod");
+      collapsed[id] = !collapsed[id];
+      var mod = document.querySelector('.mod[data-mod="' + id + '"]');
+      if (mod) mod.classList.toggle("collapsed");
+    } else if (a === "rec-health") {
+      $("#mask-health").classList.add("show");
+    } else if (a === "rec-mood") {
+      $("#mask-mood").classList.add("show");
+    } else if (a === "close-modal") {
+      document.querySelectorAll(".mask").forEach(function (m) { m.classList.remove("show"); });
+    } else if (a === "save-health") {
+      saveHealth();
+    } else if (a === "save-mood") {
+      saveMood();
+    } else if (a === "goto-chat") {
+      collapsed.chat = false;
       render();
-    }
-
-    // ============ Date ============
-    var now = new Date();
-    var today = now.toISOString().split("T")[0];
-    var todayDay = now.getDate();
-    var todayMonth = now.getMonth() + 1;
-    var weekDay = ["日","一","二","三","四","五","六"][now.getDay()];
-    var monthNames = ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
-    var yearProgress = ((now.getMonth() + 1) / 12 * 100).toFixed(1);
-    var monthProgress = (now.getDate() / new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate() * 100).toFixed(1);
-    var dayProgress = ((now.getHours() * 60 + now.getMinutes()) / 1440 * 100).toFixed(1);
-    var weekProgress = ((now.getDay() || 7) / 7 * 100).toFixed(1);
-    var cpaDate = new Date(2025, 7, 23);
-    var cpaDiff = Math.ceil((cpaDate - now) / (1000 * 60 * 60 * 24));
-
-    // ============ Helpers ============
-    function ProgressBar(value, max, color) {
-      max = max || 100; color = color || "#6366f1";
-      var w = Math.min(Math.max((value / max) * 100, 0), 100);
-      return '<div class="progress-bar"><div class="progress-fill" style="width:' + w + '%;background:' + color + '"></div></div>';
-    }
-    function StatCard(label, value, unit, icon) {
-      return '<div class="stat-card">' +
-        (icon ? '<div style="font-size:22px;margin-bottom:6px">' + icon + '</div>' : '') +
-        '<div class="stat-value">' + value + '<span style="font-size:14px;font-weight:500;color:var(--muted)">' + (unit || "") + '</span></div>' +
-        '<div class="stat-label">' + label + '</div></div>';
-    }
-    function Tag(text, type) {
-      return '<span class="tag tag-' + (type || "primary") + '">' + text + '</span>';
-    }
-    function esc(s) {
-      return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-    }
-
-    // ============ Views ============
-    function renderDashboard() {
-      var d = state.dashboard || {};
-      var h = state.healthStats || {};
-      return '<div>' +
-        '<div class="grid-4">' +
-          StatCard("今日笔记", d.todayNotes != null ? d.todayNotes : "-", "", "📝") +
-          StatCard("睡眠", d.sleepAvg ? d.sleepAvg : "-", "h", "😴") +
-          StatCard("运动", d.exerciseMinutes != null ? d.exerciseMinutes : "-", "min", "🏃") +
-          StatCard("心情", d.moodAvg ? d.moodAvg : "-", "/5", "💭") +
-        '</div>' +
-        '<div class="grid-2" style="margin-top:18px">' +
-          '<div class="panel"><div class="panel-title">⏳ 时间进度</div>' +
-            '<div style="margin:8px 0">今日 ' + dayProgress + '% ' + ProgressBar(dayProgress) + '</div>' +
-            '<div style="margin:8px 0">本周 ' + weekProgress + '% ' + ProgressBar(weekProgress, 100, "#10b981") + '</div>' +
-            '<div style="margin:8px 0">本月 ' + monthProgress + '% ' + ProgressBar(monthProgress, 100, "#f59e0b") + '</div>' +
-            '<div style="margin:8px 0">今年 ' + yearProgress + '% ' + ProgressBar(yearProgress, 100, "#ec4899") + '</div>' +
-          '</div>' +
-          '<div class="panel"><div class="panel-title">📊 健康概览（近7天）</div>' +
-            '<div class="grid-2">' +
-              StatCard("平均睡眠", h.sleepAvg ? h.sleepAvg : "-", "h", "😴") +
-              StatCard("平均运动", h.exerciseAvg != null ? h.exerciseAvg : "-", "min", "🏃") +
-              StatCard("平均饮水", h.waterAvg != null ? h.waterAvg : "-", "杯", "💧") +
-            '</div>' +
-            (cpaDiff > 0 ? '<div style="margin-top:12px;padding:10px;background:rgba(99,102,241,.06);border-radius:12px;text-align:center"><span style="font-size:13px;color:var(--muted)">📚 CPA 考试倒计时</span><span style="font-size:32px;font-weight:800;display:block;background:var(--primary-grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">' + cpaDiff + ' 天</span></div>' : '') +
-          '</div>' +
-        '</div>' +
-        '<div class="quick-actions">' +
-          '<button class="qa-btn" onclick="WB.go(\'health\')">🏥 健康记录</button>' +
-          '<button class="qa-btn" onclick="WB.go(\'mood\')">💭 心情日记</button>' +
-          '<button class="qa-btn" onclick="WB.go(\'chat\')">🤖 AI 助手</button>' +
-          '<button class="qa-btn" onclick="WB.openFiles()">📂 文件浏览</button>' +
-        '</div>' +
-      '</div>';
-    }
-
-    function renderHealth() {
-      var h = state.healthToday || {};
-      var weekDays = ["日","一","二","三","四","五","六"];
-      return '<div>' +
-        '<div style="display:flex;align-items:center;gap:10px;margin-bottom:18px">' +
-          '<button class="btn btn-outline" onclick="WB.go(\'dashboard\')">← 返回</button>' +
-          '<h2 style="font-size:20px;font-weight:700">🏥 健康追踪</h2>' +
-        '</div>' +
-        '<div class="grid-2">' +
-          '<div class="panel"><div class="panel-title">📅 ' + todayMonth + '月' + todayDay + '日 周' + weekDays[now.getDay()] +
-            '<span style="flex:1"></span><button class="btn btn-primary" onclick="WB.healthForm()" style="font-size:12px;padding:6px 14px">✏️ 记录</button></div>' +
-            '<div class="grid-2">' +
-              '<div class="stat-card"><div style="font-size:22px;margin-bottom:4px">😴</div><div class="stat-value">' + (h.sleep || "-") + '<span style="font-size:14px;color:var(--muted)">h</span></div><div class="stat-label">睡眠</div></div>' +
-              '<div class="stat-card"><div style="font-size:22px;margin-bottom:4px">🏃</div><div class="stat-value">' + (h.exerciseDuration || "-") + '<span style="font-size:14px;color:var(--muted)">min</span></div><div class="stat-label">' + (h.exercise || "运动") + '</div></div>' +
-              '<div class="stat-card"><div style="font-size:22px;margin-bottom:4px">💧</div><div class="stat-value">' + (h.water || "-") + '<span style="font-size:14px;color:var(--muted)">杯</span></div><div class="stat-label">饮水</div></div>' +
-              '<div class="stat-card"><div style="font-size:22px;margin-bottom:4px">⚖️</div><div class="stat-value">' + (h.weight || "-") + '<span style="font-size:14px;color:var(--muted)">kg</span></div><div class="stat-label">体重</div></div>' +
-            '</div>' +
-            (h.notes ? '<div style="margin-top:14px;padding:12px;background:rgba(99,102,241,.04);border-radius:12px;font-size:13px;color:var(--muted)">📝 ' + esc(h.notes) + '</div>' : '') +
-          '</div>' +
-          '<div class="panel"><div class="panel-title">🍽️ 饮食记录</div>' +
-            row("🌅 早餐", h.breakfast) + row("☀️ 午餐", h.lunch) + row("🌆 晚餐", h.dinner) + row("🍿 零食", h.snacks) +
-          '</div>' +
-        '</div>' +
-      '</div>';
-    }
-    function row(label, val) {
-      return '<div style="padding:10px 0;border-bottom:1px solid var(--border)"><span style="font-size:13px;color:var(--muted)">' + label + '</span><div style="font-size:14px;margin-top:2px">' + (val || "未记录") + '</div></div>';
-    }
-
-    function renderMood() {
-      var m = state.moodToday || {};
-      var emojis = ["", "😢", "😔", "😐", "🙂", "😄"];
-      return '<div>' +
-        '<div style="display:flex;align-items:center;gap:10px;margin-bottom:18px"><button class="btn btn-outline" onclick="WB.go(\'dashboard\')">← 返回</button><h2 style="font-size:20px;font-weight:700">💭 心情日记</h2></div>' +
-        '<div class="grid-2">' +
-          '<div class="panel"><div class="panel-title">今日心情<span style="flex:1"></span><button class="btn btn-primary" onclick="WB.moodForm()" style="font-size:12px;padding:6px 14px">✏️ 记录</button></div>' +
-            '<div style="text-align:center;padding:20px 0"><div style="font-size:64px">' + (emojis[m.mood] || "😐") + '</div><div style="font-size:24px;font-weight:700;margin-top:8px">' + (m.mood ? m.mood + "/5" : "今日未记录") + '</div>' +
-            ((m.tags || []).length ? '<div style="margin-top:8px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap">' + m.tags.map(function(t){return Tag(esc(t));}).join("") + '</div>' : '') +
-            '</div></div>' +
-          '<div class="panel"><div class="panel-title">🌟 感恩日记</div>' +
-            ((m.gratitude || []).length ? '<ul style="list-style:none;padding:0">' + m.gratitude.map(function(g){return '<li style="padding:8px 0;border-bottom:1px solid var(--border);font-size:14px">💫 ' + esc(g) + '</li>';}).join("") + '</ul>' : '<div style="text-align:center;padding:20px;color:var(--muted)">今天还没记录感恩事项</div>') +
-          '</div>' +
-        '</div>' +
-        (m.content ? '<div class="panel" style="margin-top:18px"><div class="panel-title">📝 今日日记</div><div style="font-size:14px;line-height:1.8;white-space:pre-wrap">' + esc(m.content) + '</div></div>' : '') +
-      '</div>';
-    }
-
-    function renderChat() {
-      return '<div>' +
-        '<div style="display:flex;align-items:center;gap:10px;margin-bottom:18px"><button class="btn btn-outline" onclick="WB.go(\'dashboard\')">← 返回</button><h2 style="font-size:20px;font-weight:700">🤖 AI 助手</h2><span style="font-size:12px;color:var(--muted)">基于 CodeBuddy Agent SDK</span></div>' +
-        '<div class="panel" style="min-height:400px;display:flex;flex-direction:column">' +
-          '<div id="chat-messages" style="flex:1;overflow-y:auto;max-height:500px;padding:10px 0">' +
-            (chatMessages.length === 0 ? '<div style="text-align:center;color:var(--muted);padding:40px">欢迎使用 WorkBuddy AI 助手！<br/>我可以帮你管理健康数据、记录心情、搜索笔记。</div>' : chatMessages.map(renderBubble).join("")) +
-          '</div>' +
-          '<div style="margin-top:16px;display:flex;gap:8px"><input type="text" id="chat-input" placeholder="输入消息..." style="flex:1;padding:10px 14px;border-radius:10px;border:1.5px solid var(--border);font-family:var(--font);font-size:14px" onkeypress="if(event.key===\'Enter\')WB.sendChat()" /><button class="btn btn-primary" onclick="WB.sendChat()">发送</button></div>' +
-        '</div>' +
-      '</div>';
-    }
-    function renderBubble(m) {
-      return '<div style="margin:8px 0;padding:10px 14px;border-radius:12px;font-size:13px;' + (m.role === 'user' ? 'background:rgba(99,102,241,.08);margin-left:40px' : 'background:rgba(15,23,42,.04);margin-right:40px') + '"><div style="font-weight:600;font-size:11px;color:var(--muted);margin-bottom:4px">' + (m.role === 'user' ? '👤 你' : '🤖 WorkBuddy') + '</div>' + esc(m.content) + '</div>';
-    }
-
-    function renderHeader() {
-      var views = [["dashboard","🏠"],["health","🏥"],["mood","💭"],["chat","🤖"]];
-      var nav = views.map(function(v){
-        var active = state.currentView === v[0];
-        return '<button class="btn btn-outline" onclick="WB.go(\'' + v[0] + '\')" style="font-size:12px;padding:6px 12px;' + (active ? 'border-color:var(--primary);color:var(--primary);background:rgba(99,102,241,.06)' : '') + '">' + v[1] + '</button>';
-      }).join("");
-      return '<header>' +
-        '<div><h1><span style="font-size:22px">⚡</span> <span class="brand">WorkBuddy</span></h1><div class="sub">个人工作台 · 文件逻辑与 Obsidian 主页一致</div></div>' +
-        '<div class="spacer"></div>' +
-        '<div class="calendar-mini"><div class="date-big">' + todayDay + '</div><div class="month-label">' + monthNames[todayMonth - 1] + ' · 周' + weekDay + '</div></div>' +
-        '<div style="display:flex;align-items:center;gap:12px;margin-left:16px">' + nav + '</div>' +
-      '</header>';
-    }
-
-    function render() {
-      var app = document.getElementById("app");
-      var viewHtml = "";
-      switch (state.currentView) {
-        case "health": viewHtml = renderHealth(); break;
-        case "mood": viewHtml = renderMood(); break;
-        case "chat": viewHtml = renderChat(); break;
-        default: viewHtml = renderDashboard();
-      }
-      app.innerHTML = renderHeader() + viewHtml +
-        (state.toast ? '<div class="toast toast-' + state.toast.type + '" id="toast-' + state.toast.id + '">' + esc(state.toast.message) + '</div>' : '');
-    }
-
-    // ============ Data ============
-    function loadDashboard() {
-      return apiGet("/dashboard").then(function (r) { state.dashboard = r.data; render(); })
-        .catch(function () { state.dashboard = null; render(); });
-    }
-    function loadHealthStats() {
-      return apiGet("/health/stats").then(function (r) { state.healthStats = r.data; render(); }).catch(function(){});
-    }
-    function loadHealth() {
-      return apiGet("/health/today").then(function (r) { state.healthToday = r.data; render(); }).catch(function(){});
-    }
-    function loadMood() {
-      return apiGet("/mood/today").then(function (r) { state.moodToday = r.data; render(); }).catch(function(){});
-    }
-
-    // ============ Actions ============
-    var WB = {
-      go: function (v) {
-        state.currentView = v;
-        if (v === "health") loadHealth();
-        if (v === "mood") loadMood();
-        if (v === "dashboard") { loadDashboard(); loadHealthStats(); }
-        render();
-        if (v === "chat") { var i = document.getElementById("chat-input"); if (i) i.focus(); }
-      },
-      openFiles: function () {
-        apiGet("/list").then(function (r) {
-          if (!r.success) { showToast("无法读取目录", "error"); return; }
-          var files = r.data || [];
-          var modal = document.createElement("div");
-          modal.className = "modal-overlay";
-          modal.innerHTML = '<div class="modal" style="max-width:600px"><h3>📂 Vault 目录</h3><div style="max-height:400px;overflow-y:auto">' +
-            files.map(function (f) { return '<div style="padding:8px 12px;border-bottom:1px solid var(--border);font-size:14px;display:flex;align-items:center;gap:8px">' + (f.indexOf('.md') > -1 ? '📝' : '📁') + ' ' + esc(f) + '</div>'; }).join("") +
-            '</div><div class="form-actions"><button class="btn btn-outline" onclick="this.closest(\'.modal-overlay\').remove()">关闭</button></div></div>';
-          document.body.appendChild(modal);
-          modal.onclick = function (e) { if (e.target === modal) modal.remove(); };
-        }).catch(function () { showToast("读取目录失败", "error"); });
-      },
-      healthForm: function () {
-        var h = state.healthToday || {};
-        var modal = document.createElement("div");
-        modal.className = "modal-overlay";
-        modal.innerHTML = '<div class="modal"><h3>✏️ 记录健康数据 - ' + todayMonth + '月' + todayDay + '日</h3>' +
-          fld("睡眠时长 (小时)", "hf-sleep", "number", h.sleep, "0.1") +
-          fld("睡眠质量 (1-5)", "hf-sq", "number", h.sleepQuality, "1") +
-          fld("运动类型", "hf-ex", "text", h.exercise, "") +
-          fld("运动时长 (分钟)", "hf-ed", "number", h.exerciseDuration, "") +
-          fld("饮水 (杯)", "hf-water", "number", h.water, "") +
-          fld("早餐", "hf-bf", "text", h.breakfast, "") +
-          fld("午餐", "hf-lunch", "text", h.lunch, "") +
-          fld("晚餐", "hf-dinner", "text", h.dinner, "") +
-          fld("体重 (kg)", "hf-weight", "number", h.weight, "0.1") +
-          '<div class="form-group"><label>备注</label><textarea id="hf-notes" rows="2">' + esc(h.notes || "") + '</textarea></div>' +
-          '<div class="form-actions"><button class="btn btn-outline" onclick="this.closest(\'.modal-overlay\').remove()">取消</button><button class="btn btn-primary" id="save-health">保存</button></div></div>';
-        document.body.appendChild(modal);
-        modal.querySelector("#save-health").onclick = function () {
-          var data = {
-            date: today,
-            sleep: parseFloat(modal.querySelector("#hf-sleep").value) || 0,
-            sleepQuality: parseInt(modal.querySelector("#hf-sq").value) || 0,
-            exercise: modal.querySelector("#hf-ex").value,
-            exerciseDuration: parseInt(modal.querySelector("#hf-ed").value) || 0,
-            water: parseInt(modal.querySelector("#hf-water").value) || 0,
-            breakfast: modal.querySelector("#hf-bf").value,
-            lunch: modal.querySelector("#hf-lunch").value,
-            dinner: modal.querySelector("#hf-dinner").value,
-            snacks: "",
-            weight: parseFloat(modal.querySelector("#hf-weight").value) || 0,
-            notes: modal.querySelector("#hf-notes").value
-          };
-          apiPost("/health", data).then(function (r) {
-            if (r.success) { showToast("健康数据已保存"); loadHealth(); loadHealthStats(); loadDashboard(); }
-            else showToast("保存失败", "error");
-          }).catch(function () { showToast("保存失败", "error"); });
-          modal.remove();
-        };
-        modal.onclick = function (e) { if (e.target === modal) modal.remove(); };
-      },
-      moodForm: function () {
-        var m = state.moodToday || {};
-        var modal = document.createElement("div");
-        modal.className = "modal-overlay";
-        modal.innerHTML = '<div class="modal"><h3>💭 记录心情 - ' + todayMonth + '月' + todayDay + '日</h3>' +
-          '<div class="form-group"><label>心情指数 (1-5)</label><div style="display:flex;gap:10px;margin-top:6px">' +
-            [1,2,3,4,5].map(function (i) { return '<button type="button" class="mood-btn" data-val="' + i + '" style="font-size:36px;cursor:pointer;border:none;background:none;opacity:' + (m.mood === i ? '1' : '0.4') + '">' + ['', '😢','😔','😐','🙂','😄'][i] + '</button>'; }).join("") +
-          '</div></div>' +
-          '<input type="hidden" id="mf-mood" value="' + (m.mood || 3) + '" />' +
-          fld("标签", "mf-tags", "text", (m.tags || []).join(","), "开心,学习,运动") +
-          '<div class="form-group"><label>日记内容</label><textarea id="mf-content" rows="4">' + esc(m.content || "") + '</textarea></div>' +
-          '<div class="form-group"><label>感恩事项（每行一个）</label><textarea id="mf-gratitude" rows="3">' + esc((m.gratitude || []).join("\n")) + '</textarea></div>' +
-          '<div class="form-actions"><button class="btn btn-outline" onclick="this.closest(\'.modal-overlay\').remove()">取消</button><button class="btn btn-primary" id="save-mood">保存</button></div></div>';
-        document.body.appendChild(modal);
-        modal.querySelectorAll(".mood-btn").forEach(function (btn) {
-          btn.onclick = function () {
-            modal.querySelectorAll(".mood-btn").forEach(function (b) { b.style.opacity = "0.4"; });
-            btn.style.opacity = "1";
-            modal.querySelector("#mf-mood").value = btn.getAttribute("data-val");
-          };
-        });
-        modal.querySelector("#save-mood").onclick = function () {
-          var data = {
-            date: today,
-            mood: parseInt(modal.querySelector("#mf-mood").value),
-            tags: modal.querySelector("#mf-tags").value.split(",").map(function (t) { return t.trim(); }).filter(Boolean),
-            content: modal.querySelector("#mf-content").value,
-            gratitude: modal.querySelector("#mf-gratitude").value.split("\n").filter(Boolean)
-          };
-          apiPost("/mood", data).then(function (r) {
-            if (r.success) { showToast("心情日记已保存"); loadMood(); }
-            else showToast("保存失败", "error");
-          }).catch(function () { showToast("保存失败", "error"); });
-          modal.remove();
-        };
-        modal.onclick = function (e) { if (e.target === modal) modal.remove(); };
-      },
-      sendChat: function () {
-        var input = document.getElementById("chat-input");
-        var text = (input && input.value || "").trim();
-        if (!text) return;
-        chatMessages.push({ role: "user", content: text });
-        chatMessages.push({ role: "assistant", content: "思考中..." });
-        input.value = "";
-        render();
-        apiPost("/chat", { message: text }).then(function (r) {
-          chatMessages = chatMessages.filter(function (m) { return m.content !== "思考中..."; });
-          if (r.success) {
-            var last = r.data && r.data[r.data.length - 1];
-            chatMessages.push({ role: "assistant", content: (last && last.content && last.content[0] && last.content[0].text) || "完成" });
-          } else {
-            chatMessages.push({ role: "assistant", content: "出错了: " + (r.error || "未知错误") });
-          }
-          render();
-        }).catch(function (e) {
-          chatMessages = chatMessages.filter(function (m) { return m.content !== "思考中..."; });
-          chatMessages.push({ role: "assistant", content: "连接失败: " + e.message });
-          render();
-        });
-      }
-    };
-    function fld(label, id, type, val, step) {
-      return '<div class="form-group"><label>' + label + '</label><input id="' + id + '" type="' + type + '" value="' + esc(val || "") + '"' + (step ? ' step="' + step + '"' : '') + ' /></div>';
-    }
-    window.WB = WB;
-
-    // ============ Init ============
-    render();
-    Promise.all([loadDashboard(), loadHealthStats(), loadHealth(), loadMood()]).then(function () {
+      var c = document.querySelector('.mod[data-mod="chat"]');
+      if (c) c.scrollIntoView({ behavior: "smooth" });
+      var inp = $("#chat-in"); if (inp) inp.focus();
+    } else if (a === "goto-quicknote") {
+      collapsed.quicknote = false;
       render();
+      var q = document.querySelector('.mod[data-mod="quicknote"]');
+      if (q) q.scrollIntoView({ behavior: "smooth" });
+      var ta = $("#qn-area"); if (ta) ta.focus();
+    } else if (a === "send-chat") {
+      sendChat();
+    } else if (a === "save-quick") {
+      saveQuick();
+    } else if (a === "refresh") {
+      loadAll();
+    }
+  });
+
+  // 心情选择器
+  document.addEventListener("click", function (e) {
+    if (e.target.closest("#mood-pick")) {
+      var b = e.target.closest("button");
+      if (!b) return;
+      document.querySelectorAll("#mood-pick button").forEach(function (x) { x.classList.remove("sel"); });
+      b.classList.add("sel");
+    }
+  });
+
+  function saveHealth() {
+    var entry = {
+      date: todayStr(),
+      sleep: parseFloat($("#h-sleep").value) || 0,
+      sleepQuality: parseInt($("#h-sq").value) || 3,
+      exercise: $("#h-ex").value,
+      exerciseDuration: parseInt($("#h-exd").value) || 0,
+      water: parseInt($("#h-water").value) || 0,
+      weight: parseFloat($("#h-weight").value) || 0,
+      notes: $("#h-notes").value
+    };
+    apiPost("/health", entry).then(function () {
+      document.querySelectorAll(".mask").forEach(function (m) { m.classList.remove("show"); });
+      toast("✅ 健康记录已保存");
+      loadAll();
     });
-  })();
-script>
+  }
+
+  function saveMood() {
+    var sel = document.querySelector("#mood-pick button.sel");
+    var mood = sel ? parseInt(sel.getAttribute("data-v")) : 3;
+    var entry = {
+      date: todayStr(),
+      mood: mood,
+      tags: $("#m-tags").value.split(",").map(function (s) { return s.trim(); }).filter(Boolean),
+      content: $("#m-content").value,
+      gratitude: $("#m-grat").value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean)
+    };
+    apiPost("/mood", entry).then(function () {
+      document.querySelectorAll(".mask").forEach(function (m) { m.classList.remove("show"); });
+      toast("✅ 心情已保存");
+      loadAll();
+    });
+  }
+
+  function saveQuick() {
+    var ta = $("#qn-area");
+    var v = ta.value.trim();
+    if (!v) { toast("内容不能为空"); return; }
+    apiPost("/quicknote", { content: v }).then(function (r) {
+      if (r.success) { toast("✅ 已保存到 00 Inbox"); ta.value = ""; loadAll(); }
+      else toast("保存失败");
+    });
+  }
+
+  function sendChat() {
+    var inp = $("#chat-in");
+    var v = inp.value.trim();
+    if (!v) return;
+    var box = $("#chat-msgs");
+    box.innerHTML += '<div class="msg me">' + escapeHtml(v) + '</div>';
+    inp.value = "";
+    box.scrollTop = box.scrollHeight;
+    apiPost("/chat", { message: v }).then(function (r) {
+      var txt = "（请先在后端安装 @tencent-ai/agent-sdk 以启用 AI 对话）";
+      if (r && r.data) {
+        if (typeof r.data === "string") txt = r.data;
+        else if (r.data.content) txt = JSON.stringify(r.data.content);
+      }
+      box.innerHTML += '<div class="msg ai">' + escapeHtml(txt) + '</div>';
+      box.scrollTop = box.scrollHeight;
+    });
+  }
+
+  // ===== 数据加载 =====
+  function loadAll() {
+    Promise.all([
+      apiGet("/dashboard").then(function (r) { state.dash = r.data; }),
+      apiGet("/health/today").then(function (r) { state.health = r.data; }),
+      apiGet("/mood/today").then(function (r) { state.mood = r.data; }),
+      apiGet("/health/stats").then(function (r) { state.healthStats = r.data; })
+    ]).then(function () {
+      render();
+    }).catch(function () {
+      $("#app").innerHTML = '<div class="loading">❌ 加载失败，请确认服务器已启动（npx tsx server/server.ts）</div>';
+    });
+  }
+
+  loadAll();
+})();
+</script>
 </body>
 </html>

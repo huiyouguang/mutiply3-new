@@ -139,6 +139,51 @@ async function writeMoodEntry(entry: MoodEntry): Promise<FileResult> {
   return writeFile(filePath, content);
 }
 
+// ==================== Vault 遍历 ====================
+
+/** 收集 Vault 内所有 Markdown 文件（含相对路径与修改时间） */
+async function collectMarkdown(): Promise<{ rel: string; name: string; mtime: number }[]> {
+  const out: { rel: string; name: string; mtime: number }[] = [];
+
+  async function walk(dir: string) {
+    try {
+      const entries = await fs.readdir(dir, { withFileTypes: true });
+      for (const entry of entries) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+          if (entry.name.startsWith(".") || entry.name === "node_modules") continue;
+          await walk(full);
+        } else if (entry.isFile() && entry.name.endsWith(".md")) {
+          try {
+            const st = await fs.stat(full);
+            out.push({
+              rel: path.relative(PATHS.vault, full),
+              name: entry.name.replace(/\.md$/, ""),
+              mtime: st.mtimeMs,
+            });
+          } catch {
+            /* 跳过无法读取的文件 */
+          }
+        }
+      }
+    } catch {
+      /* 跳过无法访问的目录 */
+    }
+  }
+
+  await walk(PATHS.vault);
+  return out;
+}
+
+/** 最近编辑的文件 */
+async function getRecentFiles(limit = 10) {
+  const all = await collectMarkdown();
+  return all
+    .sort((a, b) => b.mtime - a.mtime)
+    .slice(0, limit)
+    .map((f) => ({ path: f.rel, name: f.name, mtime: new Date(f.mtime).toISOString() }));
+}
+
 // ==================== 仪表盘统计 ====================
 
 /** 获取仪表盘统计数据 */
@@ -155,15 +200,25 @@ async function getDashboardStats(): Promise<DashboardStats> {
   // 统计最近心情
   const mood = await readMoodEntry(today);
 
+  // Vault 总览 + 最近编辑
+  const all = await collectMarkdown();
+  const totalNotes = all.length;
+  const recentFiles = all
+    .sort((a, b) => b.mtime - a.mtime)
+    .slice(0, 8)
+    .map((f) => ({ path: f.rel, name: f.name, mtime: new Date(f.mtime).toISOString() }));
+
   return {
     todayNotes,
-    totalWords: 0, // 需要逐文件统计
+    totalNotes,
+    totalWords: 0,
     completedTasks: 0,
     totalTasks: 0,
     sleepAvg: todayEntry?.sleep || 0,
     exerciseMinutes: todayEntry?.exerciseDuration || 0,
     waterCups: todayEntry?.water || 0,
     moodAvg: mood?.mood || 0,
+    recentFiles,
     lastUpdated: new Date().toISOString(),
   };
 }
@@ -292,6 +347,16 @@ function parseMoodMarkdown(content: string, date: string): MoodEntry {
   };
 }
 
+// ==================== 快速记录 ====================
+
+/** 快速记录（写入 00 Inbox，作为闪电灵感） */
+async function writeQuickNote(content: string): Promise<FileResult> {
+  const ts = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+  const filePath = path.join(PATHS.inbox, `快速记录-${ts}.md`);
+  const md = `---\ndate: ${new Date().toISOString().split("T")[0]}\ntype: 快速记录\n---\n\n${content}\n`;
+  return writeFile(filePath, md);
+}
+
 // ==================== 导出 ====================
 
 export const fileManager = {
@@ -310,4 +375,6 @@ export const fileManager = {
   writeMoodEntry,
   // 仪表盘
   getDashboardStats,
+  getRecentFiles,
+  writeQuickNote,
 };

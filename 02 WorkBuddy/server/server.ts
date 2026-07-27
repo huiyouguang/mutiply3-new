@@ -152,6 +152,18 @@ app.post("/api/file", async (req, res) => {
   res.json(response);
 });
 
+/** 快速记录（闪电灵感 → 00 Inbox） */
+app.post("/api/quicknote", async (req, res) => {
+  const { content } = req.body;
+  if (!content || !content.trim()) {
+    res.status(400).json({ success: false, error: "记录内容不能为空" });
+    return;
+  }
+  const result = await fileManager.writeQuickNote(content.trim());
+  const response: ApiResponse = { success: result.success, data: result, timestamp: new Date().toISOString() };
+  res.json(response);
+});
+
 /** Agent 对话 */
 app.post("/api/chat", async (req, res) => {
   const { message } = req.body;

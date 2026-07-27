@@ -51,9 +51,17 @@ export interface TaskEntry {
   tags: string[];
 }
 
+/** 最近编辑文件 */
+export interface RecentFile {
+  path: string;
+  name: string;
+  mtime: string;
+}
+
 /** 仪表盘统计 */
 export interface DashboardStats {
   todayNotes: number;
+  totalNotes: number;
   totalWords: number;
   completedTasks: number;
   totalTasks: number;
@@ -61,6 +69,7 @@ export interface DashboardStats {
   exerciseMinutes: number;
   waterCups: number;
   moodAvg: number;
+  recentFiles: RecentFile[];
   lastUpdated: string;
 }
 
