@@ -45,6 +45,9 @@ formulas:
 views:
   - type: tasknotesKanban
     name: Kanban Board
+    filters:
+      and:
+        - file.tags == ["tasknote"]
     groupBy:
       property: status
       direction: ASC
