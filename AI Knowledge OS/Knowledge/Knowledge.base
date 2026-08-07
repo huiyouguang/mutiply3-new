@@ -1,0 +1,59 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - not:
+        - 'file.inFolder(".obsidian")'
+        - 'file.inFolder(".codebuddy")'
+        - 'file.inFolder(".git")'
+        - 'file.inFolder(".trash")'
+        - 'file.inFolder("AI Knowledge OS")'
+        - 'file.inFolder("02 WorkBuddy")'
+        - 'file.inFolder("TaskNotes/健康数据")'
+        - 'file.inFolder("TaskNotes/心情")'
+        - 'file.inFolder("thino")'
+        - 'file.inFolder("Clippings")'
+        - 'file.inFolder("Templates")'
+        - 'file.inFolder("Excalidraw")'
+properties:
+  file.name:
+    displayName: "知识"
+  domain:
+    displayName: "领域"
+  status:
+    displayName: "状态"
+  rating:
+    displayName: "价值"
+  file.mtime:
+    displayName: "最近更新"
+views:
+  - type: table
+    name: "最近更新"
+    limit: 50
+    order:
+      - file.name
+      - domain
+      - status
+      - rating
+      - file.mtime
+  - type: cards
+    name: "知识卡片"
+    limit: 48
+    order:
+      - file.name
+      - domain
+      - status
+      - rating
+  - type: table
+    name: "按领域"
+    limit: 100
+    order:
+      - domain
+      - status
+      - rating
+  - type: table
+    name: "按状态"
+    limit: 100
+    order:
+      - status
+      - rating
+      - domain
