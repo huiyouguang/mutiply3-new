@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "providers": {
+    "claude-code": [
+      {
+        "id": "default",
+        "label": "Default (recommended)",
+        "description": "Use the default model (currently DeepSeek-V3.2) · $3/$15 per Mtok",
+        "reasoningEfforts": [],
+        "isDefault": true
+      },
+      {
+        "id": "opus",
+        "label": "Opus",
+        "description": "Opus 4.5 · Most capable for complex work · $5/$25 per Mtok",
+        "reasoningEfforts": [],
+        "isDefault": false
+      },
+      {
+        "id": "haiku",
+        "label": "Haiku",
+        "description": "Haiku 4.5 · Fastest for quick answers · $1/$5 per Mtok",
+        "reasoningEfforts": [],
+        "isDefault": false
+      },
+      {
+        "id": "DeepSeek-V3.2",
+        "label": "DeepSeek-V3.2",
+        "description": "Custom model",
+        "reasoningEfforts": [],
+        "isDefault": false
+      }
+    ]
+  }
+}
