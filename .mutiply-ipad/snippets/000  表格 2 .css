@@ -1,0 +1,347 @@
+/* @settings
+name: 【Table-熊猫】多彩表格样式（优化版）
+id: colorful-table-styles
+settings:
+    - 
+        id: table-type-class
+        title: 表格格式
+        description: 
+        type: class-select
+        allowEmpty: false
+        default: table-type-normal
+        options:
+            - 
+                label: 默认模式
+                value: 
+            - 
+                label:  虚线框模式
+                value: table-type-borderless
+            - 
+                label:  加粗线宽模式
+                value: table-type-bolder
+            - 
+                label:  三线表
+                value: table-type-three-line
+    - 
+        id: table-header-color-class
+        title: 表格头部颜色
+        description: 
+        type: class-select
+        allowEmpty: false
+        default: table-header-color-blue
+        options:
+            - 
+                label: 灰色
+                value: table-header-color-gray       
+            - 
+                label: 红色
+                value: table-header-color-red
+            - 
+                label: 粉色
+                value: table-header-color-pink
+            - 
+                label: 葡萄紫
+                value: table-header-color-grape
+            - 
+                label: 紫罗兰
+                value: table-header-color-violet
+            - 
+                label: 靛蓝
+                value: table-header-color-indigo
+            - 
+                label: 蓝色
+                value: table-header-color-blue
+            - 
+                label: 青色
+                value: table-header-color-cyan
+            - 
+                label: 蓝绿
+                value: table-header-color-teal
+            - 
+                label: 绿色
+                value: table-header-color-green
+            - 
+                label: 青柠
+                value: table-header-color-lime
+            - 
+                label: 黄色
+                value: table-header-color-yellow
+            - 
+                label: 橙色
+                value: table-header-color-orange
+    -
+      id: table-row-alt-background-option
+      title: 是否启用斑马纹
+      type: class-toggle
+      addCommand: true
+      default: true
+    -
+      id: table-dark-mode
+      title: 深色模式
+      description: 深色模式下采用灰色表格头部
+      type: class-toggle
+      addCommand: true
+      default: true
+*/
+
+/* ========== 基础变量与通用样式 ========== */
+.theme-light,
+.theme-dark {
+  /* 表格核心变量 */
+  --table-border-width: 1px;
+  --table-header-background-hover: var(--table-header-background);
+  --table-cell-vertical-alignment: middle;
+  
+  /* 内边距优化 */
+  --table-cell-padding-x: 12px;
+  --table-cell-padding-y: 8px;
+  
+  /* 圆角 */
+  --table-border-radius: 8px;
+  
+  /* 阴影（仅在默认模式生效） */
+  --table-box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  
+  /* 过渡 */
+  --table-transition: all 0.25s ease;
+
+  /* 行悬停 - 基础 */
+  --table-row-background-hover: var(--table-background);
+  
+  /* 斑马纹 - 使用半透明色更柔和 */
+  &.table-row-alt-background-option {
+    --table-row-alt-background: rgba(128, 128, 128, 0.08);
+  }
+  --table-row-alt-background-hover: var(--table-row-alt-background);
+
+  /* 表格整体样式继承 */
+  table:not(.dataview):not(.ab-table-timeline) {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--table-border-radius);
+    overflow: hidden;
+    box-shadow: var(--table-box-shadow);
+    transition: var(--table-transition);
+    width: 100%;
+    margin: 16px 0;
+  }
+
+  /* 单元格通用设置 */
+  table:not(.dataview):not(.ab-table-timeline) th,
+  table:not(.dataview):not(.ab-table-timeline) td {
+    padding: var(--table-cell-padding-y) var(--table-cell-padding-x);
+    border-style: solid;
+    border-color: var(--table-border-color);
+    border-width: var(--table-border-width);
+    transition: var(--table-transition);
+  }
+
+  /* 表头 */
+  thead th {
+    background: var(--table-header-background);
+    color: var(--table-header-color, #fff);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-align: center !important;
+    height: 100% !important;
+    border-bottom-width: 2px;
+    border-bottom-color: var(--table-header-border-color, var(--table-border-color));
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.08);
+  }
+
+  /* 表头悬停效果（保留原背景） */
+  thead th:hover {
+    background: var(--table-header-background-hover);
+  }
+
+  /* 行悬停效果 - 轻微放大+阴影 */
+  tbody tr:hover {
+    transform: scale(1.003);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: relative;
+    z-index: 2;
+  }
+
+  /* 斑马纹优化（使用透明度） */
+  tbody tr:nth-child(even) {
+    background-color: var(--table-row-alt-background);
+  }
+  tbody tr:nth-child(even):hover {
+    background-color: var(--table-row-alt-background-hover);
+  }
+
+  /* 跨行居中 */
+  td[colspan] {
+    text-align: center !important;
+  }
+
+  /* 图片居中 */
+  tbody tr td:has(span>img) {
+    text-align: center !important;
+    vertical-align: middle;
+  }
+
+  /* 编辑模式优化（移除多余间隙） */
+  .table-cell-wrapper>.cm-s-obsidian>.cm-editor .cm-gutters {
+    display: none;
+  }
+
+  /* ========== 各类模式定制 ========== */
+  /* 1. 默认模式 - 保留基础样式，增加圆角边框 */
+  &.table-type-normal {
+    --table-border-color: var(--background-modifier-border);
+    table:not(.dataview):not(.ab-table-timeline) {
+      border-radius: var(--table-border-radius);
+    }
+    th, td {
+      border-color: var(--table-border-color);
+    }
+  }
+
+  /* 2. 虚线框模式 */
+  &.table-type-borderless {
+    --table-border-width: 1px;
+    th, td {
+      border-style: dotted !important;
+      border-color: var(--table-border-color);
+    }
+  }
+
+  /* 3. 加粗线宽模式 */
+  &.table-type-bolder {
+    --table-border-width: 3px;
+    th, td {
+      border-width: var(--table-border-width);
+    }
+    thead th {
+      border-bottom-width: calc(var(--table-border-width) + 1px);
+    }
+  }
+
+  /* 4. 三线表 - 优化为上下粗线，中间细线 */
+  &.table-type-three-line {
+    --table-border-width: 0px;
+    
+    table:not(.dataview):not(.ab-table-timeline) {
+      box-shadow: none;
+      border-radius: 0;
+    }
+    
+    th, td {
+      border: none;
+    }
+    
+    thead {
+      border-bottom: 2px solid var(--table-header-border-color, var(--table-border-color));
+    }
+    
+    thead th {
+      border-bottom: 2px solid var(--table-header-border-color, var(--table-border-color));
+      background-image: none;
+      box-shadow: none;
+    }
+    
+    /* 底部粗线 */
+    tbody tr:last-child td {
+      border-bottom: 2px solid var(--table-header-border-color, var(--table-border-color));
+    }
+    
+    /* 内部水平细线（可选） */
+    tbody td {
+      border-bottom: 1px solid var(--background-modifier-border-faint);
+    }
+    tbody tr:last-child td {
+      border-bottom: 2px solid var(--table-header-border-color, var(--table-border-color));
+    }
+  }
+}
+
+/* ========== 浅色模式变量 ========== */
+.theme-light {
+  --table-border-color: #d0d7de;
+  --table-header-color: #1e1e1e;
+  --table-box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+/* ========== 深色模式变量 ========== */
+.theme-dark {
+  --table-border-color: #3d444d;
+  --table-header-color: #f0f0f0;
+  --table-box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  
+  &.table-dark-mode {
+    --table-header-background: #495057;
+    --table-header-color: #f0f0f0;
+    --table-border-color: #4a515b;
+  }
+}
+
+/* ========== 表头颜色主题（带渐变微调） ========== */
+.table-header-color-gray {
+  &.theme-light { --table-header-background: #e9ecef; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #495057; --table-header-color: #f0f0f0; }
+}
+.table-header-color-red {
+  &.theme-light { --table-header-background: #ffa8a8; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #ff8787; --table-header-color: #1e1e1e; }
+}
+.table-header-color-pink {
+  &.theme-light { --table-header-background: #faa2c1; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #f783ac; --table-header-color: #1e1e1e; }
+}
+.table-header-color-grape {
+  &.theme-light { --table-header-background: #e599f7; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #da77f2; --table-header-color: #1e1e1e; }
+}
+.table-header-color-violet {
+  &.theme-light { --table-header-background: #b197fc; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #9775fa; --table-header-color: #f0f0f0; }
+}
+.table-header-color-indigo {
+  &.theme-light { --table-header-background: #91a7ff; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #748ffc; --table-header-color: #f0f0f0; }
+}
+.table-header-color-blue {
+  &.theme-light { --table-header-background: #74c0fc; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #4dabf7; --table-header-color: #f0f0f0; }
+}
+.table-header-color-cyan {
+  &.theme-light { --table-header-background: #66d9e8; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #3bc9db; --table-header-color: #1e1e1e; }
+}
+.table-header-color-teal {
+  &.theme-light { --table-header-background: #63e6be; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #38d9a9; --table-header-color: #1e1e1e; }
+}
+.table-header-color-green {
+  &.theme-light { --table-header-background: #69db7c; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #51cf66; --table-header-color: #1e1e1e; }
+}
+.table-header-color-lime {
+  &.theme-light { --table-header-background: #a9e34b; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #94d82d; --table-header-color: #1e1e1e; }
+}
+.table-header-color-yellow {
+  &.theme-light { --table-header-background: #ffe066; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #ffd43b; --table-header-color: #1e1e1e; }
+}
+.table-header-color-orange {
+  &.theme-light { --table-header-background: #ffc078; --table-header-color: #1e1e1e; }
+  &.theme-dark { --table-header-background: #ffa94d; --table-header-color: #1e1e1e; }
+}
+
+/* ========== 深色模式下默认使用灰色表头 ========== */
+.theme-dark:not(.table-dark-mode) {
+  --table-header-background: #495057;
+  --table-header-color: #f0f0f0;
+}
+
+/* ========== 额外小屏优化 ========== */
+@media (max-width: 600px) {
+  table:not(.dataview):not(.ab-table-timeline) {
+    font-size: 0.9em;
+    --table-cell-padding-x: 8px;
+    --table-cell-padding-y: 6px;
+  }
+}

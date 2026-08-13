@@ -57,9 +57,9 @@ settings:
         type: heading
         level: 3
         collapsed: true
-        title: "01 主页"
+        title: "02 WorkBuddy"
     -
-        id: bg-01
+        id: bg-02workbuddy
         format: hex
         opacity: true
         type: variable-themed-color
@@ -67,7 +67,7 @@ settings:
         default-light: "#ffffff00"
         default-dark: "#ffffff00"
     -
-        id: col-01
+        id: col-02workbuddy
         title: Text color
         type: variable-themed-color
         format: hex
@@ -89,6 +89,27 @@ settings:
         default-dark: "#ffffff00"
     -
         id: col-03lifeos
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
+        title: "01 主页"
+    -
+        id: bg-01
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-01
         title: Text color
         type: variable-themed-color
         format: hex
@@ -141,6 +162,27 @@ settings:
         type: heading
         level: 3
         collapsed: true
+        title: "AI Knowledge OS"
+    -
+        id: bg-aiknowledgeos
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-aiknowledgeos
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
         title: "Blackboard"
     -
         id: bg-blackboard
@@ -173,6 +215,27 @@ settings:
         default-dark: "#ffffff00"
     -
         id: col-clippings
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
+        title: "DeepTutor"
+    -
+        id: bg-deeptutor
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-deeptutor
         title: Text color
         type: variable-themed-color
         format: hex
@@ -236,6 +299,27 @@ settings:
         default-dark: "#ffffff00"
     -
         id: col-templates
+        title: Text color
+        type: variable-themed-color
+        format: hex
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+        opacity: true
+    -
+        type: heading
+        level: 3
+        collapsed: true
+        title: "YOLO"
+    -
+        id: bg-yolo
+        format: hex
+        opacity: true
+        type: variable-themed-color
+        title: "Background color"
+        default-light: "#ffffff00"
+        default-dark: "#ffffff00"
+    -
+        id: col-yolo
         title: Text color
         type: variable-themed-color
         format: hex
@@ -330,24 +414,32 @@ settings:
 .theme-dark {
     --bg-00inbox: #ffffff00;
     --col-00inbox: "var(--nav-item-color)";
-    --bg-01: #ffffff00;
-    --col-01: "var(--nav-item-color)";
+    --bg-02workbuddy: #ffffff00;
+    --col-02workbuddy: "var(--nav-item-color)";
     --bg-03lifeos: #ffffff00;
     --col-03lifeos: "var(--nav-item-color)";
+    --bg-01: #ffffff00;
+    --col-01: "var(--nav-item-color)";
     --bg-04: #ffffff00;
     --col-04: "var(--nav-item-color)";
     --bg-08: #ffffff00;
     --col-08: "var(--nav-item-color)";
+    --bg-aiknowledgeos: #ffffff00;
+    --col-aiknowledgeos: "var(--nav-item-color)";
     --bg-blackboard: #ffffff00;
     --col-blackboard: "var(--nav-item-color)";
     --bg-clippings: #ffffff00;
     --col-clippings: "var(--nav-item-color)";
+    --bg-deeptutor: #ffffff00;
+    --col-deeptutor: "var(--nav-item-color)";
     --bg-excalidraw: #ffffff00;
     --col-excalidraw: "var(--nav-item-color)";
     --bg-tasknotes: #ffffff00;
     --col-tasknotes: "var(--nav-item-color)";
     --bg-templates: #ffffff00;
     --col-templates: "var(--nav-item-color)";
+    --bg-yolo: #ffffff00;
+    --col-yolo: "var(--nav-item-color)";
     --bg-bamboo-review: #ffffff00;
     --col-bamboo-review: "var(--nav-item-color)";
     --bg-canvas: #ffffff00;
@@ -360,24 +452,32 @@ settings:
 .theme-light {
     --bg-00inbox: #ffffff00;
     --col-00inbox: "var(--nav-item-color)";
-    --bg-01: #ffffff00;
-    --col-01: "var(--nav-item-color)";
+    --bg-02workbuddy: #ffffff00;
+    --col-02workbuddy: "var(--nav-item-color)";
     --bg-03lifeos: #ffffff00;
     --col-03lifeos: "var(--nav-item-color)";
+    --bg-01: #ffffff00;
+    --col-01: "var(--nav-item-color)";
     --bg-04: #ffffff00;
     --col-04: "var(--nav-item-color)";
     --bg-08: #ffffff00;
     --col-08: "var(--nav-item-color)";
+    --bg-aiknowledgeos: #ffffff00;
+    --col-aiknowledgeos: "var(--nav-item-color)";
     --bg-blackboard: #ffffff00;
     --col-blackboard: "var(--nav-item-color)";
     --bg-clippings: #ffffff00;
     --col-clippings: "var(--nav-item-color)";
+    --bg-deeptutor: #ffffff00;
+    --col-deeptutor: "var(--nav-item-color)";
     --bg-excalidraw: #ffffff00;
     --col-excalidraw: "var(--nav-item-color)";
     --bg-tasknotes: #ffffff00;
     --col-tasknotes: "var(--nav-item-color)";
     --bg-templates: #ffffff00;
     --col-templates: "var(--nav-item-color)";
+    --bg-yolo: #ffffff00;
+    --col-yolo: "var(--nav-item-color)";
     --bg-bamboo-review: #ffffff00;
     --col-bamboo-review: "var(--nav-item-color)";
     --bg-canvas: #ffffff00;
@@ -395,13 +495,13 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-00inbox) !important;
 }
-.nav-folder-title[data-path^="01 主页"],
-.nav-file-title[data-path^="01 主页"] {
-    color: var(--col-01) !important;
+.nav-folder-title[data-path^="02 WorkBuddy"],
+.nav-file-title[data-path^="02 WorkBuddy"] {
+    color: var(--col-02workbuddy) !important;
 }
-.tree-item.nav-folder[data-path="01 主页"] {
+.tree-item.nav-folder[data-path="02 WorkBuddy"] {
     border-radius: var(--spf-FolderRadius);
-    background-color: var(--bg-01) !important;
+    background-color: var(--bg-02workbuddy) !important;
 }
 .nav-folder-title[data-path^="03Life os"],
 .nav-file-title[data-path^="03Life os"] {
@@ -410,6 +510,14 @@ settings:
 .tree-item.nav-folder[data-path="03Life os"] {
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-03lifeos) !important;
+}
+.nav-folder-title[data-path^="01 主页"],
+.nav-file-title[data-path^="01 主页"] {
+    color: var(--col-01) !important;
+}
+.tree-item.nav-folder[data-path="01 主页"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-01) !important;
 }
 .nav-folder-title[data-path^="04成长"],
 .nav-file-title[data-path^="04成长"] {
@@ -427,6 +535,14 @@ settings:
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-08) !important;
 }
+.nav-folder-title[data-path^="AI Knowledge OS"],
+.nav-file-title[data-path^="AI Knowledge OS"] {
+    color: var(--col-aiknowledgeos) !important;
+}
+.tree-item.nav-folder[data-path="AI Knowledge OS"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-aiknowledgeos) !important;
+}
 .nav-folder-title[data-path^="Blackboard"],
 .nav-file-title[data-path^="Blackboard"] {
     color: var(--col-blackboard) !important;
@@ -442,6 +558,14 @@ settings:
 .tree-item.nav-folder[data-path="Clippings"] {
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-clippings) !important;
+}
+.nav-folder-title[data-path^="DeepTutor"],
+.nav-file-title[data-path^="DeepTutor"] {
+    color: var(--col-deeptutor) !important;
+}
+.tree-item.nav-folder[data-path="DeepTutor"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-deeptutor) !important;
 }
 .nav-folder-title[data-path^="Excalidraw"],
 .nav-file-title[data-path^="Excalidraw"] {
@@ -466,6 +590,14 @@ settings:
 .tree-item.nav-folder[data-path="Templates"] {
     border-radius: var(--spf-FolderRadius);
     background-color: var(--bg-templates) !important;
+}
+.nav-folder-title[data-path^="YOLO"],
+.nav-file-title[data-path^="YOLO"] {
+    color: var(--col-yolo) !important;
+}
+.tree-item.nav-folder[data-path="YOLO"] {
+    border-radius: var(--spf-FolderRadius);
+    background-color: var(--bg-yolo) !important;
 }
 .nav-folder-title[data-path^="bamboo-review"],
 .nav-file-title[data-path^="bamboo-review"] {

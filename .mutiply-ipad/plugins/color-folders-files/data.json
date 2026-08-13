@@ -19,17 +19,17 @@
       "applyToFiles": false
     },
     "03Life os": {
-      "backgroundColor": "#1a2e52",
-      "textColor": "#e6ecff",
+      "backgroundColor": "#d6e6ff",
+      "textColor": "#1d4580",
       "isBold": true,
-      "isItalic": false,
+      "isItalic": true,
       "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
     "04成长": {
-      "backgroundColor": "#1d3561",
-      "textColor": "#edf2ff",
+      "backgroundColor": "#dde9ff",
+      "textColor": "#1a3f75",
       "isBold": true,
       "isItalic": false,
       "opacity": 1,
@@ -37,17 +37,17 @@
       "applyToFiles": true
     },
     "08数据库": {
-      "backgroundColor": "#243a6b",
-      "textColor": "#f0f5ff",
+      "backgroundColor": "#dde9ff",
+      "textColor": "#1a3f75",
       "isBold": true,
-      "isItalic": true,
+      "isItalic": false,
       "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
     "工作": {
-      "backgroundColor": "#274073",
-      "textColor": "#f2f6ff",
+      "backgroundColor": "#d0dcff",
+      "textColor": "#1e4888",
       "isBold": true,
       "isItalic": true,
       "opacity": 1,
@@ -64,8 +64,8 @@
       "applyToFiles": true
     },
     "canvas": {
-      "backgroundColor": "#213766",
-      "textColor": "#e6edff",
+      "backgroundColor": "#d1e0ff",
+      "textColor": "#204c8a",
       "isBold": true,
       "isItalic": true,
       "opacity": 1,
@@ -73,8 +73,8 @@
       "applyToFiles": true
     },
     "Clippings": {
-      "backgroundColor": "#2e447a",
-      "textColor": "#f7faff",
+      "backgroundColor": "#e0ecff",
+      "textColor": "#183a66",
       "isBold": true,
       "isItalic": true,
       "opacity": 1,
@@ -91,8 +91,8 @@
       "applyToFiles": true
     },
     "Templates": {
-      "backgroundColor": "#1a2e55",
-      "textColor": "#dce8ff",
+      "backgroundColor": "#edf5ff",
+      "textColor": "#143055",
       "isBold": true,
       "isItalic": true,
       "opacity": 1,
@@ -100,8 +100,8 @@
       "applyToFiles": true
     },
     "thino": {
-      "backgroundColor": "#17284a",
-      "textColor": "#d1dfff",
+      "backgroundColor": "#edf5ff",
+      "textColor": "#143055",
       "isBold": true,
       "isItalic": true,
       "opacity": 1,
@@ -127,17 +127,17 @@
       "applyToFiles": false
     },
     "TaskNotes": {
-      "backgroundColor": "#1f3565",
-      "textColor": "#e8f0ff",
+      "backgroundColor": "#f2f7ff",
+      "textColor": "#122a48",
       "isBold": true,
-      "isItalic": true,
+      "isItalic": false,
       "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
     "Excalidraw": {
-      "backgroundColor": "#253e70",
-      "textColor": "#f0f4ff",
+      "backgroundColor": "#edf5ff",
+      "textColor": "#143055",
       "isBold": true,
       "isItalic": true,
       "opacity": 1,
@@ -145,17 +145,17 @@
       "applyToFiles": true
     },
     "01 主页": {
-      "backgroundColor": "#162544",
-      "textColor": "#e0e8ff",
+      "backgroundColor": "#e4f0ff",
+      "textColor": "#183a66",
       "isBold": true,
-      "isItalic": false,
+      "isItalic": true,
       "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
     },
     "00 Inbox": {
-      "backgroundColor": "#131b3a",
-      "textColor": "#d7e7ff",
+      "backgroundColor": "#eaf4ff",
+      "textColor": "#16355f",
       "isBold": true,
       "isItalic": true,
       "opacity": 1,
@@ -163,10 +163,10 @@
       "applyToFiles": true
     },
     "bamboo-review": {
-      "backgroundColor": "#2a3f6d",
-      "textColor": "#f5f8ff",
+      "backgroundColor": "#c5d8ff",
+      "textColor": "#2858a5",
       "isBold": true,
-      "isItalic": true,
+      "isItalic": false,
       "opacity": 1,
       "applyToSubfolders": true,
       "applyToFiles": true
@@ -199,8 +199,116 @@
       "applyToFiles": true
     },
     "Blackboard": {
-      "backgroundColor": "#17284a",
-      "textColor": "#d1dfff",
+      "backgroundColor": "#d1e0ff",
+      "textColor": "#204c8a",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "02 WorkBuddy": {
+      "backgroundColor": "#ddebff",
+      "textColor": "#1a3f70",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "AI Knowledge OS": {
+      "backgroundColor": "#c8d5ff",
+      "textColor": "#25529e",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "DeepTutor": {
+      "backgroundColor": "#e6f1ff",
+      "textColor": "#16355f",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "04成长/知识管理": {
+      "backgroundColor": "#dde9ff",
+      "textColor": "#1a3f75",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "YOLO": {
+      "backgroundColor": "#edf5ff",
+      "textColor": "#143055",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "07 成长": {
+      "backgroundColor": "#c8d5ff",
+      "textColor": "#25529e",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "06 life os": {
+      "backgroundColor": "#dde9ff",
+      "textColor": "#1a3f75",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "04 TaskNotes": {
+      "backgroundColor": "#dde9ff",
+      "textColor": "#1a3f75",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "03数据库": {
+      "backgroundColor": "#ddebff",
+      "textColor": "#1a3f70",
+      "isBold": true,
+      "isItalic": true,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "插件 8.6.zip": {
+      "backgroundColor": "#f2f7ff",
+      "textColor": "#122a48",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "cuoti-organizer.zip": {
+      "backgroundColor": "#f5f9ff",
+      "textColor": "#102540",
+      "isBold": true,
+      "isItalic": false,
+      "opacity": 1,
+      "applyToSubfolders": true,
+      "applyToFiles": true
+    },
+    "/": {
+      "backgroundColor": "#f2f7ff",
+      "textColor": "#122a48",
       "isBold": true,
       "isItalic": false,
       "opacity": 1,

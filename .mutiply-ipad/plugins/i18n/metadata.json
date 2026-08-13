@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 2,
+  "sources": {
+    "kPNRUURjlQT3VWJpDZTRmvIklAysavws": {
+      "id": "kPNRUURjlQT3VWJpDZTRmvIklAysavws",
+      "plugin": "Arcadia",
+      "title": "Arcadia",
+      "type": "theme",
+      "origin": "cloud",
+      "isActive": true,
+      "checksum": "8c01a74ef73a4b97098aea9973c4ef3f78385ecf5e92f481e502747d2eafad00",
+      "updatedAt": 1786202022006,
+      "createdAt": 1786201609191,
+      "cloud": {
+        "owner": "huiyouguang",
+        "repo": "obsidian-translations",
+        "hash": "53fd216d53fd216d53fd216d53fd216d"
+      }
+    },
+    "CgSU693KKaMzh-ZEFrCi7FESDu0CV6PA": {
+      "id": "CgSU693KKaMzh-ZEFrCi7FESDu0CV6PA",
+      "plugin": "Olivier’s Theme",
+      "title": "Olivier’s Theme",
+      "type": "theme",
+      "origin": "cloud",
+      "isActive": true,
+      "checksum": "17fce239dee29bff8339a9c69c6794c9abe6c03693c85611c95d5f03ea2b0eae",
+      "updatedAt": 1786202022006,
+      "createdAt": 1786201641164,
+      "cloud": {
+        "owner": "huiyouguang",
+        "repo": "obsidian-translations",
+        "hash": "1e293b2d1e293b2d1e293b2d1e293b2d"
+      }
+    },
+    "FtDzAQMDL0zeFfhAgOu3IzgQpOIq-XcY": {
+      "id": "FtDzAQMDL0zeFfhAgOu3IzgQpOIq-XcY",
+      "plugin": "Saint Red Paper",
+      "title": "Saint Red Paper",
+      "type": "theme",
+      "origin": "cloud",
+      "isActive": true,
+      "checksum": "0f6c05d9c3fa7828efc2e906898b225907e4043577bec896f9d4e09cabb42086",
+      "updatedAt": 1786202022006,
+      "createdAt": 1786201685026,
+      "cloud": {
+        "owner": "huiyouguang",
+        "repo": "obsidian-translations",
+        "hash": "35b99d0335b99d0335b99d0335b99d03"
+      }
+    }
+  }
+}

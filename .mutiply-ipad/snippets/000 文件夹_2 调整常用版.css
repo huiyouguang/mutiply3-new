@@ -1,0 +1,685 @@
+/* ==============================================================
+   Style Settings 配置 - 编辑器列表美化（仅编辑模式）
+   ============================================================== */
+/* @settings
+name: 📋 编辑器大纲美化
+id: outline-theme
+settings:
+    -
+        id: theme-selector
+        title: 选择主题风格
+        description: 切换编辑器中列表的配色与动画
+        type: class-select
+        default: theme-default
+        options:
+            -
+                label: 🌈 默认（蓝金绿紫）
+                value: theme-default
+            -
+                label: 🟣 霓虹赛博
+                value: theme-neon
+            -
+                label: 🌸 柔和淡彩
+                value: theme-pastel
+            -
+                label: 📜 复古纸张
+                value: theme-vintage
+            -
+                label: ⚫ 极简灰调
+                value: theme-minimal
+            -
+                label: 🌈 渐变彩虹
+                value: theme-rainbow
+*/
+
+/* ==============================================================
+   全局变量（默认主题）
+   ============================================================== */
+:root {
+    --l1-color: #7faeff;
+    --l1-guide: rgba(127, 174, 255, 0.38);
+    --l1-shadow: rgba(127, 174, 255, 0.15);
+    --l1-hover-color: #9fc4ff;
+    --l1-hover-shadow: rgba(127, 174, 255, 0.30);
+    --l1-glow: rgba(127, 174, 255, 0.45);
+
+    --l2-color: #ffd56b;
+    --l2-guide: rgba(255, 213, 107, 0.34);
+    --l2-shadow: rgba(255, 213, 107, 0.12);
+    --l2-hover-color: #ffe289;
+    --l2-hover-shadow: rgba(255, 213, 107, 0.28);
+    --l2-glow: rgba(255, 213, 107, 0.40);
+
+    --l3-color: #55ddb7;
+    --l3-guide: rgba(85, 221, 183, 0.34);
+    --l3-shadow: rgba(85, 221, 183, 0.12);
+    --l3-hover-color: #78efd0;
+    --l3-hover-shadow: rgba(85, 221, 183, 0.28);
+    --l3-glow: rgba(85, 221, 183, 0.40);
+
+    --l4-color: #73cfff;
+    --l4-guide: rgba(115, 207, 255, 0.32);
+    --l4-shadow: rgba(115, 207, 255, 0.10);
+    --l4-hover-color: #9ddfff;
+    --l4-hover-shadow: rgba(115, 207, 255, 0.25);
+    --l4-glow: rgba(115, 207, 255, 0.40);
+
+    --l5-color: #b6a7ff;
+    --l5-guide: rgba(182, 167, 255, 0.32);
+    --l5-shadow: rgba(182, 167, 255, 0.10);
+    --l5-hover-color: #c7bfff;
+    --l5-hover-shadow: rgba(182, 167, 255, 0.25);
+    --l5-glow: rgba(182, 167, 255, 0.40);
+
+    --glow-color: rgba(88, 166, 255, 0.12);
+    --glow-color-strong: rgba(88, 166, 255, 0.22);
+    --glow-color-subtle: rgba(88, 166, 255, 0.04);
+    --shadow-ambient: rgba(0, 0, 0, 0.08);
+
+    --speed-fast: 0.18s;
+    --speed-base: 0.30s;
+    --speed-slow: 0.55s;
+    --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    --hover-shift: 12px;
+    --hover-scale: 1.018;
+    --hover-radius: 10px;
+
+    --outline-guideline-width: 1.5px;
+    --outline-item-height: 32px;
+}
+
+/* ==============================================================
+   核心样式（仅编辑器）
+   ============================================================== */
+
+/* ----- 编辑行 L 型导线（缩进线） ----- */
+.HyperMD-list-line-1,
+.HyperMD-list-line-2,
+.HyperMD-list-line-3,
+.HyperMD-list-line-4,
+.HyperMD-list-line-5 {
+    position: relative;
+    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat !important;
+    transition: transform .35s var(--ease-spring), background-position .45s ease, background-color .25s ease !important;
+}
+.HyperMD-list-line-1 {
+    background-image:
+        linear-gradient(to bottom, transparent 93%, var(--l1-guide) 93%, var(--l1-guide) 96%, transparent 96%),
+        linear-gradient(to bottom, transparent 27%, var(--l1-guide) 27%, var(--l1-guide) 32%, transparent 32%),
+        linear-gradient(to bottom, var(--l1-guide) 0%, var(--l1-guide) 96.6%, transparent 96.6%),
+        linear-gradient(90deg, transparent 0%, var(--glow-color-subtle) 18%, var(--glow-color) 50%, var(--glow-color-subtle) 82%, transparent 100%);
+    background-size: calc(100% - 1.6em) 100%, 1.05em 100%, 2.5px 100%, 0 0 !important;
+    background-position: 1.6em 100%, 0 100%, 0em 0, -180% 0 !important;
+}
+.HyperMD-list-line-2 {
+    background-image:
+        linear-gradient(to bottom, transparent 93%, var(--l2-guide) 93%, var(--l2-guide) 96%, transparent 96%),
+        linear-gradient(to bottom, transparent 27%, var(--l2-guide) 27%, var(--l2-guide) 32%, transparent 32%),
+        linear-gradient(to bottom, var(--l2-guide) 0%, var(--l2-guide) 96.6%, transparent 96.6%),
+        linear-gradient(90deg, transparent, var(--glow-color-subtle), var(--glow-color), var(--glow-color-subtle), transparent);
+    background-size: calc(100% - 3.0em) 100%, 1.05em 100%, 2.5px 100%, 0 0 !important;
+    background-position: 3.0em 100%, 0 100%, 1.6em 0, -180% 0 !important;
+}
+.HyperMD-list-line-3 {
+    background-image:
+        linear-gradient(to bottom, transparent 93%, var(--l3-guide) 93%, var(--l3-guide) 96%, transparent 96%),
+        linear-gradient(to bottom, transparent 27%, var(--l3-guide) 27%, var(--l3-guide) 32%, transparent 32%),
+        linear-gradient(to bottom, var(--l3-guide) 0%, var(--l3-guide) 96.6%, transparent 96.6%),
+        linear-gradient(90deg, transparent, var(--glow-color-subtle), var(--glow-color), var(--glow-color-subtle), transparent);
+    background-size: calc(100% - 4.4em) 100%, 1.05em 100%, 2.5px 100%, 0 0 !important;
+    background-position: 4.4em 100%, 0 100%, 3.0em 0, -180% 0 !important;
+}
+.HyperMD-list-line-4 {
+    background-image:
+        linear-gradient(to bottom, transparent 93%, var(--l4-guide) 93%, var(--l4-guide) 96%, transparent 96%),
+        linear-gradient(to bottom, transparent 27%, var(--l4-guide) 27%, var(--l4-guide) 32%, transparent 32%),
+        linear-gradient(to bottom, var(--l4-guide) 0%, var(--l4-guide) 96.6%, transparent 96.6%),
+        linear-gradient(90deg, transparent, var(--glow-color-subtle), var(--glow-color), var(--glow-color-subtle), transparent);
+    background-size: calc(100% - 5.8em) 100%, 1.05em 100%, 2.5px 100%, 0 0 !important;
+    background-position: 5.8em 100%, 0 100%, 4.4em 0, -180% 0 !important;
+}
+.HyperMD-list-line-5 {
+    background-image:
+        linear-gradient(to bottom, transparent 93%, var(--l5-guide) 93%, var(--l5-guide) 96%, transparent 96%),
+        linear-gradient(to bottom, transparent 27%, var(--l5-guide) 27%, var(--l5-guide) 32%, transparent 32%),
+        linear-gradient(to bottom, var(--l5-guide) 0%, var(--l5-guide) 96.6%, transparent 96.6%),
+        linear-gradient(90deg, transparent, var(--glow-color-subtle), var(--glow-color), var(--glow-color-subtle), transparent);
+    background-size: calc(100% - 7.2em) 100%, 1.05em 100%, 2.5px 100%, 0 0 !important;
+    background-position: 7.2em 100%, 0 100%, 5.8em 0, -180% 0 !important;
+}
+.HyperMD-list-line-1:hover,
+.HyperMD-list-line-2:hover,
+.HyperMD-list-line-3:hover,
+.HyperMD-list-line-4:hover,
+.HyperMD-list-line-5:hover {
+    background-position: var(--sep-pos, 1.6em 100%), 0 100%, var(--guide-x) 0, 120% 0 !important;
+    background-color: rgba(88,166,255,.035) !important;
+}
+.HyperMD-list-line-1 { --guide-x: 0em; --sep-pos: 1.6em 100%; }
+.HyperMD-list-line-2 { --guide-x: 1.6em; --sep-pos: 3.0em 100%; }
+.HyperMD-list-line-3 { --guide-x: 3.0em; --sep-pos: 4.4em 100%; }
+.HyperMD-list-line-4 { --guide-x: 4.4em; --sep-pos: 5.8em 100%; }
+.HyperMD-list-line-5 { --guide-x: 5.8em; --sep-pos: 7.2em 100%; }
+
+/* ----- 列表标记与文字颜色（编辑模式） ----- */
+.cm-formatting-list,
+.cm-list-1,
+.cm-list-2,
+.cm-list-3 {
+    font-weight: 600 !important;
+    transition: color .22s ease, text-shadow .22s ease, transform .22s ease;
+}
+.HyperMD-list-line-1,
+.HyperMD-list-line-1 span {
+    color: var(--l1-color) !important;
+    text-shadow: 0 0 3px var(--l1-shadow);
+}
+.HyperMD-list-line-2,
+.HyperMD-list-line-2 span {
+    color: var(--l2-color) !important;
+    text-shadow: 0 0 3px var(--l2-shadow);
+}
+.HyperMD-list-line-3,
+.HyperMD-list-line-3 span {
+    color: var(--l3-color) !important;
+    text-shadow: 0 0 3px var(--l3-shadow);
+}
+.HyperMD-list-line-4,
+.HyperMD-list-line-4 span {
+    color: var(--l4-color) !important;
+    text-shadow: 0 0 3px var(--l4-shadow);
+}
+.HyperMD-list-line-5,
+.HyperMD-list-line-5 span {
+    color: var(--l5-color) !important;
+    text-shadow: 0 0 3px var(--l5-shadow);
+}
+
+.HyperMD-list-line-1:hover,
+.HyperMD-list-line-1:hover span {
+    color: var(--l1-hover-color) !important;
+    text-shadow: 0 0 8px var(--l1-hover-shadow);
+}
+.HyperMD-list-line-2:hover,
+.HyperMD-list-line-2:hover span {
+    color: var(--l2-hover-color) !important;
+    text-shadow: 0 0 8px var(--l2-hover-shadow);
+}
+.HyperMD-list-line-3:hover,
+.HyperMD-list-line-3:hover span {
+    color: var(--l3-hover-color) !important;
+    text-shadow: 0 0 8px var(--l3-hover-shadow);
+}
+.HyperMD-list-line-4:hover,
+.HyperMD-list-line-4:hover span {
+    color: var(--l4-hover-color) !important;
+    text-shadow: 0 0 8px var(--l4-hover-shadow);
+}
+.HyperMD-list-line-5:hover,
+.HyperMD-list-line-5:hover span {
+    color: var(--l5-hover-color) !important;
+    text-shadow: 0 0 8px var(--l5-hover-shadow);
+}
+
+/* ----- 圆角箭头（列表折叠指示） ----- */
+.HyperMD-list-line-1::after,
+.HyperMD-list-line-2::after,
+.HyperMD-list-line-3::after,
+.HyperMD-list-line-4::after,
+.HyperMD-list-line-5::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9px;
+    height: 9px;
+    margin-top: -4.5px;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    opacity: .35;
+    transition: transform .25s cubic-bezier(.22,1,.36,1), opacity .25s ease, filter .25s ease, color .25s ease;
+    pointer-events: none;
+}
+.HyperMD-list-line-1 { color: var(--l1-color); }
+.HyperMD-list-line-1::after { left: .15em; }
+.HyperMD-list-line-2 { color: var(--l2-color); }
+.HyperMD-list-line-2::after { left: 1.75em; }
+.HyperMD-list-line-3 { color: var(--l3-color); }
+.HyperMD-list-line-3::after { left: 3.15em; }
+.HyperMD-list-line-4 { color: var(--l4-color); }
+.HyperMD-list-line-4::after { left: 4.55em; }
+.HyperMD-list-line-5 { color: var(--l5-color); }
+.HyperMD-list-line-5::after { left: 5.95em; }
+
+.HyperMD-list-line-1:hover::after,
+.HyperMD-list-line-2:hover::after,
+.HyperMD-list-line-3:hover::after,
+.HyperMD-list-line-4:hover::after,
+.HyperMD-list-line-5:hover::after {
+    opacity: 1;
+    transform: translateX(3px) rotate(45deg) scale(1.08);
+    filter: drop-shadow(0 0 4px currentColor);
+}
+
+/* ----- 左侧呼吸光点 ----- */
+.HyperMD-list-line-1::before,
+.HyperMD-list-line-2::before,
+.HyperMD-list-line-3::before,
+.HyperMD-list-line-4::before,
+.HyperMD-list-line-5::before {
+    content: "";
+    position: absolute;
+    left: -1.25em;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    transform: translateY(-50%) scale(.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease, transform .32s cubic-bezier(.22,1,.36,1), box-shadow .25s ease;
+}
+.HyperMD-list-line-1::before { background: var(--l1-color); box-shadow: 0 0 10px var(--l1-glow); }
+.HyperMD-list-line-2::before { background: var(--l2-color); box-shadow: 0 0 10px var(--l2-glow); }
+.HyperMD-list-line-3::before { background: var(--l3-color); box-shadow: 0 0 10px var(--l3-glow); }
+.HyperMD-list-line-4::before { background: var(--l4-color); box-shadow: 0 0 10px var(--l4-glow); }
+.HyperMD-list-line-5::before { background: var(--l5-color); box-shadow: 0 0 10px var(--l5-glow); }
+.HyperMD-list-line-1:hover::before,
+.HyperMD-list-line-2:hover::before,
+.HyperMD-list-line-3:hover::before,
+.HyperMD-list-line-4:hover::before,
+.HyperMD-list-line-5:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+}
+
+/* ----- 行悬停果冻与涟漪（仅编辑器行） ----- */
+.cm-line:not(.HyperMD-header) {
+    position: relative;
+    overflow: visible;
+    border-radius: 10px;
+    transform-origin: left center;
+    isolation: isolate;
+    background-image: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(88,166,255,.02) 18%,
+        rgba(88,166,255,.08) 50%,
+        rgba(88,166,255,.02) 82%,
+        transparent 100%
+    );
+    background-size: 220% 100%;
+    background-position: -180% 0;
+    transition: transform .32s cubic-bezier(.22,1,.36,1), background-position .45s ease, background-color .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.cm-line:not(.HyperMD-header):hover {
+    animation: jelly-wiggle .48s both;
+    transform: translateX(8px);
+    background-position: 120% 0;
+    background-color: rgba(88,166,255,.05);
+    filter: brightness(1.02);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.05), 0 0 10px rgba(88,166,255,.08), 0 6px 18px rgba(0,0,0,.06);
+}
+.cm-line:hover ~ .cm-line {
+    animation: ripple-subtle-down .45s ease both;
+}
+.cm-line:has(~ .cm-line:hover) {
+    animation: ripple-subtle-up .45s ease both;
+}
+
+.cm-activeLine {
+    position: relative;
+    border-radius: 8px;
+    transition: transform .28s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.cm-activeLine::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 12%;
+    bottom: 12%;
+    width: 2px;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, rgba(120,174,255,.9), rgba(120,174,255,.25));
+    opacity: .35;
+    transform: scaleY(.3);
+    transition: opacity .22s ease, transform .28s ease;
+}
+.cm-activeLine:hover::after {
+    opacity: 1;
+    transform: scaleY(1);
+}
+.cm-activeLine:hover {
+    transform: translateX(8px);
+    background: rgba(88,166,255,.04);
+    box-shadow: inset 0 0 0 1px rgba(88,166,255,.10), 0 4px 16px rgba(88,166,255,.08);
+}
+
+/* ----- 标题保护（编辑模式下标题不受影响） ----- */
+.cm-line.HyperMD-header {
+    background: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    animation: none !important;
+    transform: none !important;
+}
+.cm-line.HyperMD-header:hover {
+    background: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+.HyperMD-header-1,
+.HyperMD-header-2,
+.HyperMD-header-3,
+.HyperMD-header-4,
+.HyperMD-header-5,
+.HyperMD-header-6 {
+    background-image: none !important;
+}
+
+/* ==============================================================
+   各主题覆盖（通过 body 类选择器）
+   ============================================================== */
+
+/* ----- 1. 霓虹赛博 ----- */
+body.theme-neon {
+    --l1-color: #ff4d7a;
+    --l1-guide: rgba(255, 77, 122, 0.45);
+    --l1-shadow: rgba(255, 77, 122, 0.25);
+    --l1-hover-color: #ff7a9e;
+    --l1-hover-shadow: rgba(255, 77, 122, 0.45);
+    --l1-glow: rgba(255, 77, 122, 0.60);
+
+    --l2-color: #ffb347;
+    --l2-guide: rgba(255, 179, 71, 0.40);
+    --l2-shadow: rgba(255, 179, 71, 0.20);
+    --l2-hover-color: #ffc76a;
+    --l2-hover-shadow: rgba(255, 179, 71, 0.40);
+    --l2-glow: rgba(255, 179, 71, 0.55);
+
+    --l3-color: #5ce0ff;
+    --l3-guide: rgba(92, 224, 255, 0.40);
+    --l3-shadow: rgba(92, 224, 255, 0.20);
+    --l3-hover-color: #7ee8ff;
+    --l3-hover-shadow: rgba(92, 224, 255, 0.40);
+    --l3-glow: rgba(92, 224, 255, 0.55);
+
+    --l4-color: #b56cff;
+    --l4-guide: rgba(181, 108, 255, 0.35);
+    --l4-shadow: rgba(181, 108, 255, 0.18);
+    --l4-hover-color: #c88eff;
+    --l4-hover-shadow: rgba(181, 108, 255, 0.38);
+    --l4-glow: rgba(181, 108, 255, 0.50);
+
+    --l5-color: #ff6be0;
+    --l5-guide: rgba(255, 107, 224, 0.35);
+    --l5-shadow: rgba(255, 107, 224, 0.18);
+    --l5-hover-color: #ff8ee8;
+    --l5-hover-shadow: rgba(255, 107, 224, 0.38);
+    --l5-glow: rgba(255, 107, 224, 0.50);
+
+    --glow-color: rgba(255, 77, 122, 0.25);
+    --glow-color-strong: rgba(255, 77, 122, 0.45);
+    --glow-color-subtle: rgba(255, 77, 122, 0.08);
+    --shadow-ambient: rgba(255, 77, 122, 0.15);
+
+    --speed-fast: 0.12s;
+    --speed-base: 0.22s;
+    --speed-slow: 0.40s;
+    --ease-spring: cubic-bezier(0.15, 1.2, 0.3, 1);
+    --ease-smooth: cubic-bezier(0.15, 0.85, 0.25, 1);
+    --hover-shift: 16px;
+    --hover-scale: 1.035;
+    --hover-radius: 12px;
+}
+
+/* ----- 2. 柔和淡彩 ----- */
+body.theme-pastel {
+    --l1-color: #a8c8ff;
+    --l1-guide: rgba(168, 200, 255, 0.30);
+    --l1-shadow: rgba(168, 200, 255, 0.15);
+    --l1-hover-color: #c0d8ff;
+    --l1-hover-shadow: rgba(168, 200, 255, 0.30);
+    --l1-glow: rgba(168, 200, 255, 0.40);
+
+    --l2-color: #fad6a5;
+    --l2-guide: rgba(250, 214, 165, 0.28);
+    --l2-shadow: rgba(250, 214, 165, 0.12);
+    --l2-hover-color: #fce4c0;
+    --l2-hover-shadow: rgba(250, 214, 165, 0.28);
+    --l2-glow: rgba(250, 214, 165, 0.35);
+
+    --l3-color: #b0e0c6;
+    --l3-guide: rgba(176, 224, 198, 0.28);
+    --l3-shadow: rgba(176, 224, 198, 0.12);
+    --l3-hover-color: #c8ecda;
+    --l3-hover-shadow: rgba(176, 224, 198, 0.28);
+    --l3-glow: rgba(176, 224, 198, 0.35);
+
+    --l4-color: #c9c3f0;
+    --l4-guide: rgba(201, 195, 240, 0.25);
+    --l4-shadow: rgba(201, 195, 240, 0.10);
+    --l4-hover-color: #ddd8f5;
+    --l4-hover-shadow: rgba(201, 195, 240, 0.25);
+    --l4-glow: rgba(201, 195, 240, 0.30);
+
+    --l5-color: #f1c6d0;
+    --l5-guide: rgba(241, 198, 208, 0.25);
+    --l5-shadow: rgba(241, 198, 208, 0.10);
+    --l5-hover-color: #f5dae0;
+    --l5-hover-shadow: rgba(241, 198, 208, 0.25);
+    --l5-glow: rgba(241, 198, 208, 0.30);
+
+    --glow-color: rgba(168, 200, 255, 0.10);
+    --glow-color-strong: rgba(168, 200, 255, 0.20);
+    --glow-color-subtle: rgba(168, 200, 255, 0.03);
+    --shadow-ambient: rgba(0,0,0,0.04);
+
+    --speed-fast: 0.30s;
+    --speed-base: 0.50s;
+    --speed-slow: 0.80s;
+    --ease-spring: cubic-bezier(0.45, 0.05, 0.20, 1);
+    --ease-smooth: cubic-bezier(0.42, 0, 0.58, 1);
+    --hover-shift: 6px;
+    --hover-scale: 1.008;
+    --hover-radius: 8px;
+}
+
+/* ----- 3. 复古纸张（包含虚线导线，仅编辑模式） ----- */
+body.theme-vintage {
+    --l1-color: #b78c5c;
+    --l1-guide: rgba(183, 140, 92, 0.35);
+    --l1-shadow: rgba(183, 140, 92, 0.15);
+    --l1-hover-color: #c9a07a;
+    --l1-hover-shadow: rgba(183, 140, 92, 0.30);
+    --l1-glow: rgba(183, 140, 92, 0.40);
+
+    --l2-color: #c9a87c;
+    --l2-guide: rgba(201, 168, 124, 0.32);
+    --l2-shadow: rgba(201, 168, 124, 0.12);
+    --l2-hover-color: #dbbc98;
+    --l2-hover-shadow: rgba(201, 168, 124, 0.28);
+    --l2-glow: rgba(201, 168, 124, 0.35);
+
+    --l3-color: #9c9a7c;
+    --l3-guide: rgba(156, 154, 124, 0.30);
+    --l3-shadow: rgba(156, 154, 124, 0.12);
+    --l3-hover-color: #b0ae94;
+    --l3-hover-shadow: rgba(156, 154, 124, 0.28);
+    --l3-glow: rgba(156, 154, 124, 0.35);
+
+    --l4-color: #a58b7a;
+    --l4-guide: rgba(165, 139, 122, 0.28);
+    --l4-shadow: rgba(165, 139, 122, 0.10);
+    --l4-hover-color: #b9a08e;
+    --l4-hover-shadow: rgba(165, 139, 122, 0.25);
+    --l4-glow: rgba(165, 139, 122, 0.30);
+
+    --l5-color: #b8a094;
+    --l5-guide: rgba(184, 160, 148, 0.28);
+    --l5-shadow: rgba(184, 160, 148, 0.10);
+    --l5-hover-color: #c8b4a8;
+    --l5-hover-shadow: rgba(184, 160, 148, 0.25);
+    --l5-glow: rgba(184, 160, 148, 0.30);
+
+    --glow-color: rgba(183, 140, 92, 0.08);
+    --glow-color-strong: rgba(183, 140, 92, 0.18);
+    --glow-color-subtle: rgba(183, 140, 92, 0.02);
+    --shadow-ambient: rgba(0,0,0,0.05);
+
+    --speed-fast: 0.25s;
+    --speed-base: 0.40s;
+    --speed-slow: 0.60s;
+    --ease-spring: cubic-bezier(0.5, 0.0, 0.0, 1);
+    --ease-smooth: ease;
+    --hover-shift: 8px;
+    --hover-scale: 1.012;
+    --hover-radius: 6px;
+}
+
+/* 复古纸张的虚线导线（覆盖编辑行的背景） */
+body.theme-vintage .HyperMD-list-line-1 {
+    background-image:
+        repeating-linear-gradient(to bottom, var(--l1-guide) 0, var(--l1-guide) 2px, transparent 2px, transparent 6px),
+        linear-gradient(to bottom, transparent 27%, var(--l1-guide) 27%, var(--l1-guide) 32%, transparent 32%),
+        repeating-linear-gradient(to bottom, var(--l1-guide) 0, var(--l1-guide) 2px, transparent 2px, transparent 6px),
+        linear-gradient(90deg, transparent, var(--glow-color-subtle), var(--glow-color), var(--glow-color-subtle), transparent) !important;
+    background-size: calc(100% - 1.6em) 100%, 1.05em 100%, 2.5px 100%, 0 0 !important;
+    background-position: 1.6em 100%, 0 100%, 0em 0, -180% 0 !important;
+}
+/* 同理可为 2~5 级添加，此处略（按需复制修改） */
+
+/* ----- 4. 极简灰调 ----- */
+body.theme-minimal {
+    --l1-color: #666666;
+    --l1-guide: rgba(102, 102, 102, 0.30);
+    --l1-shadow: rgba(102, 102, 102, 0.15);
+    --l1-hover-color: #888888;
+    --l1-hover-shadow: rgba(102, 102, 102, 0.30);
+    --l1-glow: rgba(102, 102, 102, 0.40);
+
+    --l2-color: #888888;
+    --l2-guide: rgba(136, 136, 136, 0.26);
+    --l2-shadow: rgba(136, 136, 136, 0.12);
+    --l2-hover-color: #aaaaaa;
+    --l2-hover-shadow: rgba(136, 136, 136, 0.28);
+    --l2-glow: rgba(136, 136, 136, 0.35);
+
+    --l3-color: #aaaaaa;
+    --l3-guide: rgba(170, 170, 170, 0.22);
+    --l3-shadow: rgba(170, 170, 170, 0.12);
+    --l3-hover-color: #bbbbbb;
+    --l3-hover-shadow: rgba(170, 170, 170, 0.28);
+    --l3-glow: rgba(170, 170, 170, 0.35);
+
+    --l4-color: #bbbbbb;
+    --l4-guide: rgba(187, 187, 187, 0.18);
+    --l4-shadow: rgba(187, 187, 187, 0.10);
+    --l4-hover-color: #cccccc;
+    --l4-hover-shadow: rgba(187, 187, 187, 0.25);
+    --l4-glow: rgba(187, 187, 187, 0.30);
+
+    --l5-color: #cccccc;
+    --l5-guide: rgba(204, 204, 204, 0.15);
+    --l5-shadow: rgba(204, 204, 204, 0.10);
+    --l5-hover-color: #dddddd;
+    --l5-hover-shadow: rgba(204, 204, 204, 0.25);
+    --l5-glow: rgba(204, 204, 204, 0.30);
+
+    --glow-color: rgba(0, 0, 0, 0.05);
+    --glow-color-strong: rgba(0, 0, 0, 0.12);
+    --glow-color-subtle: rgba(0, 0, 0, 0.02);
+    --shadow-ambient: rgba(0,0,0,0.06);
+
+    --speed-fast: 0.15s;
+    --speed-base: 0.25s;
+    --speed-slow: 0.40s;
+    --ease-spring: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-smooth: ease;
+    --hover-shift: 5px;
+    --hover-scale: 1.005;
+    --hover-radius: 4px;
+}
+
+/* ----- 5. 渐变彩虹 ----- */
+body.theme-rainbow {
+    --l1-color: #ff4d6d;
+    --l1-guide: rgba(255, 77, 109, 0.40);
+    --l1-shadow: rgba(255, 77, 109, 0.20);
+    --l1-hover-color: #ff708a;
+    --l1-hover-shadow: rgba(255, 77, 109, 0.40);
+    --l1-glow: rgba(255, 77, 109, 0.55);
+
+    --l2-color: #ffb347;
+    --l2-guide: rgba(255, 179, 71, 0.38);
+    --l2-shadow: rgba(255, 179, 71, 0.18);
+    --l2-hover-color: #ffc46a;
+    --l2-hover-shadow: rgba(255, 179, 71, 0.38);
+    --l2-glow: rgba(255, 179, 71, 0.50);
+
+    --l3-color: #f7d44a;
+    --l3-guide: rgba(247, 212, 74, 0.36);
+    --l3-shadow: rgba(247, 212, 74, 0.18);
+    --l3-hover-color: #f9de70;
+    --l3-hover-shadow: rgba(247, 212, 74, 0.36);
+    --l3-glow: rgba(247, 212, 74, 0.50);
+
+    --l4-color: #6ccf8d;
+    --l4-guide: rgba(108, 207, 141, 0.34);
+    --l4-shadow: rgba(108, 207, 141, 0.16);
+    --l4-hover-color: #88dba4;
+    --l4-hover-shadow: rgba(108, 207, 141, 0.34);
+    --l4-glow: rgba(108, 207, 141, 0.45);
+
+    --l5-color: #4d9eff;
+    --l5-guide: rgba(77, 158, 255, 0.32);
+    --l5-shadow: rgba(77, 158, 255, 0.16);
+    --l5-hover-color: #70b2ff;
+    --l5-hover-shadow: rgba(77, 158, 255, 0.32);
+    --l5-glow: rgba(77, 158, 255, 0.45);
+
+    --glow-color: rgba(255, 77, 109, 0.20);
+    --glow-color-strong: rgba(255, 77, 109, 0.40);
+    --glow-color-subtle: rgba(255, 77, 109, 0.06);
+    --shadow-ambient: rgba(0,0,0,0.08);
+
+    --speed-fast: 0.20s;
+    --speed-base: 0.35s;
+    --speed-slow: 0.55s;
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.25, 0.8, 0.25, 1);
+    --hover-shift: 14px;
+    --hover-scale: 1.025;
+    --hover-radius: 12px;
+}
+/* 彩虹额外：悬停时列表标记渐变 */
+body.theme-rainbow .HyperMD-list-line-1:hover .cm-formatting-list,
+body.theme-rainbow .HyperMD-list-line-2:hover .cm-formatting-list,
+body.theme-rainbow .HyperMD-list-line-3:hover .cm-formatting-list,
+body.theme-rainbow .HyperMD-list-line-4:hover .cm-formatting-list,
+body.theme-rainbow .HyperMD-list-line-5:hover .cm-formatting-list {
+    background: linear-gradient(to right, var(--l1-color), var(--l2-color), var(--l3-color), var(--l4-color), var(--l5-color));
+    -webkit-background-clip: text;
+    color: transparent !important;
+}
+
+/* ==============================================================
+   动画关键帧（通用）
+   ============================================================== */
+@keyframes jelly-wiggle {
+    0%   { transform: translateX(0) scale(1); }
+    30%  { transform: translateX(var(--hover-shift)) scale(var(--hover-scale)); }
+    60%  { transform: translateX(calc(var(--hover-shift) * 0.7)) scale(calc(var(--hover-scale) * 0.98)); }
+    100% { transform: translateX(var(--hover-shift)) scale(var(--hover-scale)); }
+}
+@keyframes ripple-subtle-down {
+    0%   { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(2px); opacity: 0.9; }
+}
+@keyframes ripple-subtle-up {
+    0%   { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-2px); opacity: 0.9; }
+}

@@ -1,0 +1,86 @@
+/* ============================================================
+   选中行高亮 & 文本选中 / 高亮标记
+   （仅保留与"高亮"相关的核心样式）
+   ============================================================ */
+
+/* -------- 激活行下划线（编辑模式光标所在行） -------- */
+.theme-light .markdown-source-view.mod-cm6 .cm-line.cm-active {
+  border-bottom: 2px solid #ff0000 !important;
+}
+.theme-dark .markdown-source-view.mod-cm6 .cm-line.cm-active {
+  border-bottom: 2px solid #ffeb3b !important;
+}
+
+/* -------- 选中文本背景 -------- */
+::selection {
+  color: white !important;
+  background: darkcyan !important;
+}
+
+/* -------- 高亮标记（编辑模式 / 阅读模式） -------- */
+.theme-light .markdown-source-view div.cm-line span.cm-highlight {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  padding: 2px;
+}
+.theme-dark .markdown-source-view div.cm-line span.cm-highlight {
+  background-color: #3464ff;
+  color: white;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.theme-light div p mark {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  padding: 2px;
+}
+.theme-dark div p mark {
+  background-color: #3464ff;
+  color: white;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+del, s {
+    text-decoration: line-through;
+    text-decoration-color: #e74c3c;
+    text-decoration-thickness: 6px;        /* 更粗 */
+    background: rgba(231, 76, 60, 0.25);   /* 明显红底 */
+    padding: 0 8px;
+    border-radius: 6px;
+    color: #1a1a1a;
+    font-weight: bold;                     /* 文字加粗 */
+    box-shadow: 0 0 8px rgba(231,76,60,0.3); /* 红晕发光 */
+}
+
+del::before, s::before {
+    content: "⚡";
+    margin-right: 6px;
+    font-size: 1.4em;
+    color: #f1c40f;
+    display: inline-block;
+    animation: flash 1s infinite alternate; /* 闪烁 */
+}
+
+del::after, s::after {
+    content: "⚡";
+    margin-left: 6px;
+    font-size: 1.4em;
+    color: #f1c40f;
+    display: inline-block;
+    animation: flash 1s infinite alternate;
+}
+
+@keyframes flash {
+    0% { opacity: 0.3; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
