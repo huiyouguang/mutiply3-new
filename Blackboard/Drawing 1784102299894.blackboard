@@ -5298,6 +5298,38 @@
       ],
       "hasPressure": false,
       "timestamp": 1784856727358
+    },
+    {
+      "id": "a594ec28-90df-4a59-825a-0160e1ffa364",
+      "tool": "pen",
+      "color": "#ffffff",
+      "size": 2,
+      "opacity": 1,
+      "points": [
+        [
+          1259.5219848289294,
+          1527.9987467961032,
+          0.5
+        ]
+      ],
+      "hasPressure": false,
+      "timestamp": 1787580483058
+    },
+    {
+      "id": "5e50e5b2-945b-4c24-a76f-f3e916f7454b",
+      "tool": "pen",
+      "color": "#ffffff",
+      "size": 2,
+      "opacity": 1,
+      "points": [
+        [
+          1284.1836426631646,
+          1269.4871803917101,
+          0.5
+        ]
+      ],
+      "hasPressure": false,
+      "timestamp": 1787580530309
     }
   ],
   "background": {
