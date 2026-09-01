@@ -17,10 +17,14 @@
 | 日期 | 主题 | 文件 | 状态 |
 |---|---|---|---|
 | 2026-09-01 | Xove Dashboard × Thino 闪念互通补丁 | `xove-thino-patch_2026-09-01.md` | ✅ 已应用并验证 |
+| 2026-09-01 | Xove 首页模块整合设计（工作台组件部分有效） | `xove-home-modules-design_2026-09-01.md` | ⚠️ 方案一已弃用 |
+| 2026-09-01 | Xove「md 映射卡片」方案（取代方案一） | `xove-mirror-module_2026-09-01.md` | ✅ 已实施并验证 |
+| 2026-09-01 | Xove「笔记映射」补丁归档（v0.3.1，可复用重打） | `xove-mirror-patch_2026-09-01.md` | ✅ 已归档 |
 
 ## 关联位置
 - 被改插件：`.obsidian/plugins/xove-dashboard/main.js`、`styles.css`（编译产物，更新即覆盖，需重打）
 - 共享数据：`thino/2026/YYYY-MM-DD.md`
+- **备份目录**：`backups/`（插件整目录 + 模块源文件快照，回滚时整体覆盖回 `.obsidian/plugins/xove-dashboard/`）
 - 记忆条目：`Xove Dashboard × Thino 闪念互通补丁方案`（ID 67461897）、`WorkBuddy 对话配置归档约定`
 
 ## 维护提示
