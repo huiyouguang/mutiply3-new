@@ -1690,6 +1690,1332 @@ const DEFAULT_SETTINGS = {
 - **原因**：保存按钮与「未保存」标记样式（按钮沿用模块主题色）。
 - **依赖**：`--mod`（块 15 配色系统）；未打块 15 时按钮回落 `--ad-accent` 蓝色。
 
+### 块 17 — 打卡清单重命名 + 导入整页 + 大纲自动归类（v0.3.1 追加功能）
+
+> 本次三项需求：
+> 1. **打卡清单重命名**：原本分组标题与任务文本都是静态文本，**完全没有重命名功能**（点击无反应）。现补上：点分组标题 / 点任务文本 → 变输入框 → 回车保存，写回 md 源文件。
+> 2. **导入整页**：新增第四个独立整页「导入」，与「灵感收集」「人生打卡清单」在顶部导航并列，把任意 md 一键建成首页笔记映射卡片（mirror）。
+> 3. **大纲自动归类**：新增设置项 `checklistOutlineFile`（分类大纲 md 路径）+ `checklistAutoGroup`（开关）。开启后任务按「文本是否包含分类名」归入大纲分类，匹配不到的进「未分类」。
+>
+> ⚠️ **重打顺序**：块 13 → 14 → 15 → 16 → 本块 17。
+> ⚠️ **关键坑**：新增整页必须同步清理新 class（见块 17f），否则会重演 §8.7「首页被压扁」的 bug。
+
+#### 17a — parseGroups 记录标题行号（供重命名定位）
+
+```main.js
+<<<<<<< SEARCH
+        const groups = [];
+        let cur = { heading: '', tasks: [] };
+        lines.forEach((line, i) => {
+            const h = line.match(/^#\s+(.*)$/);
+            if (h) {
+                if (cur.heading !== '' || cur.tasks.length)
+                    groups.push(cur);
+                cur = { heading: h[1].trim(), tasks: [] };
+                return;
+            }
+=======
+        const groups = [];
+        let cur = { heading: '', headingLineNo: -1, tasks: [] };
+        lines.forEach((line, i) => {
+            const h = line.match(/^#\s+(.*)$/);
+            if (h) {
+                if (cur.heading !== '' || cur.tasks.length)
+                    groups.push(cur);
+                cur = { heading: h[1].trim(), headingLineNo: i, tasks: [] };
+                return;
+            }
+>>>>>>> REPLACE
+```
+- **原因**：重命名分组需要知道 `# 标题` 在第几行。
+- **依赖**：无。
+
+#### 17b — 新增 renameGroup / renameTask / inlineRename（插在 `deleteTask` 之后）
+
+```main.js
+<<<<<<< SEARCH
+    async deleteTask(lineNo) {
+        const p = this.path();
+        const file = this.host.app.vault.getAbstractFileByPath(p);
+        if (!(file instanceof obsidian.TFile))
+            return;
+        const lines = (await this.host.app.vault.read(file)).split(/\r?\n/);
+        if (lineNo < 0 || lineNo >= lines.length)
+            return;
+        lines.splice(lineNo, 1);
+        await this.host.app.vault.modify(file, lines.join('\n'));
+    }
+=======
+    async deleteTask(lineNo) {
+        const p = this.path();
+        const file = this.host.app.vault.getAbstractFileByPath(p);
+        if (!(file instanceof obsidian.TFile))
+            return;
+        const lines = (await this.host.app.vault.read(file)).split(/\r?\n/);
+        if (lineNo < 0 || lineNo >= lines.length)
+            return;
+        lines.splice(lineNo, 1);
+        await this.host.app.vault.modify(file, lines.join('\n'));
+    }
+    /** 重命名分组（# 一级标题）：只改标题行，不影响其下任务 */
+    async renameGroup(lineNo, newHeading) {
+        const p = this.path();
+        const file = this.host.app.vault.getAbstractFileByPath(p);
+        if (!(file instanceof obsidian.TFile))
+            return;
+        const lines = (await this.host.app.vault.read(file)).split(/\r?\n/);
+        if (lineNo < 0 || lineNo >= lines.length)
+            return;
+        if (!/^#\s+/.test(lines[lineNo]))
+            return;
+        lines[lineNo] = '# ' + newHeading;
+        await this.host.app.vault.modify(file, lines.join('\n'));
+    }
+    /** 重命名任务：保留勾选状态与行尾 ✅日期，只替换正文 */
+    async renameTask(lineNo, newText) {
+        const p = this.path();
+        const file = this.host.app.vault.getAbstractFileByPath(p);
+        if (!(file instanceof obsidian.TFile))
+            return;
+        const lines = (await this.host.app.vault.read(file)).split(/\r?\n/);
+        if (lineNo < 0 || lineNo >= lines.length)
+            return;
+        const m = /^(\s*[-*]\s+\[)( |x|X)(\]\s+)(.*)$/.exec(lines[lineNo]);
+        if (!m)
+            return;
+        // 保留行尾的 ✅ 日期（若有），只替换任务正文
+        const dm = /^(.*?)(?:\s+(✅\s*\S+))?\s*$/.exec(m[4]);
+        const datePart = dm && dm[2] ? ' ' + dm[2].trim() : '';
+        lines[lineNo] = `- [${m[2]}] ${newText}${datePart}`;
+        await this.host.app.vault.modify(file, lines.join('\n'));
+    }
+    /** 内联重命名：把元素临时换成 input，回车保存 / Esc 取消 / 失焦保存 */
+    inlineRename(el, current, onSave) {
+        if (!el || el.querySelector('input'))
+            return;
+        el.empty();
+        const input = el.createEl('input', { cls: 'ck-rename-input' });
+        input.value = current;
+        input.focus();
+        input.select();
+        let finished = false;
+        const finish = async (save) => {
+            if (finished)
+                return;
+            finished = true;
+            const v = input.value.trim();
+            input.remove();
+            if (save && v && v !== current) {
+                el.textContent = v;
+                await onSave(v);
+            }
+            else {
+                el.textContent = current;
+            }
+        };
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                void finish(true);
+            }
+            else if (e.key === 'Escape') {
+                e.preventDefault();
+                void finish(false);
+            }
+        });
+        input.addEventListener('blur', () => void finish(true));
+    }
+>>>>>>> REPLACE
+```
+- **原因**：重命名核心逻辑。`renameTask` 用正则保留 `[x]` 勾选态与行尾 `✅ 日期`，只替换正文。
+- **依赖**：`this.path()`、`this.host.app.vault`、块 17a 的 `headingLineNo`。
+
+#### 17c — renderMain 让标题与任务可点击重命名（并处理大纲只读分组）
+
+```main.js
+<<<<<<< SEARCH
+        for (const g of groups) {
+            const sec = main.createDiv({ cls: 'ck-group' });
+            if (g.heading)
+                sec.createEl('h3', { cls: 'ck-group__title', text: g.heading });
+            const ul = sec.createEl('ul', { cls: 'ck-tasks' });
+            for (const task of g.tasks) {
+                const li = ul.createEl('li', { cls: 'ck-task' + (task.done ? ' is-done' : '') });
+                const cb = li.createEl('input', { type: 'checkbox', cls: 'ck-task__cb' });
+                cb.checked = task.done;
+                cb.addEventListener('change', () => void this.toggleTask(task.lineNo, cb.checked).then(() => this.scheduleRefresh()));
+                li.createSpan({ cls: 'ck-task__text', text: task.text });
+                const del = li.createEl('button', { cls: 'ck-task__del', text: '✕' });
+                del.addEventListener('click', () => void this.deleteTask(task.lineNo).then(() => this.scheduleRefresh()));
+            }
+        }
+=======
+        for (const g of groups) {
+            const sec = main.createDiv({ cls: 'ck-group' });
+            if (g.heading) {
+                const h3 = sec.createEl('h3', { cls: 'ck-group__title', text: g.heading });
+                // 大纲归类产生的分组不是清单文件里的真实标题，不支持原地重命名
+                if (g.outlineOnly) {
+                    h3.title = '该分组来自「分类大纲」，需在对照文件里改名';
+                    h3.addClass('is-readonly');
+                }
+                else {
+                    h3.title = '点击重命名分组';
+                    h3.addEventListener('click', () => this.inlineRename(h3, g.heading, async (v) => {
+                        await this.renameGroup(g.headingLineNo, v);
+                        this.scheduleRefresh();
+                    }));
+                }
+            }
+            const ul = sec.createEl('ul', { cls: 'ck-tasks' });
+            for (const task of g.tasks) {
+                const li = ul.createEl('li', { cls: 'ck-task' + (task.done ? ' is-done' : '') });
+                const cb = li.createEl('input', { type: 'checkbox', cls: 'ck-task__cb' });
+                cb.checked = task.done;
+                cb.addEventListener('change', () => void this.toggleTask(task.lineNo, cb.checked).then(() => this.scheduleRefresh()));
+                const textSpan = li.createSpan({ cls: 'ck-task__text', text: task.text });
+                textSpan.title = '点击重命名任务';
+                textSpan.addEventListener('click', () => this.inlineRename(textSpan, task.text, async (v) => {
+                    await this.renameTask(task.lineNo, v);
+                    this.scheduleRefresh();
+                }));
+                const del = li.createEl('button', { cls: 'ck-task__del', text: '✕' });
+                del.addEventListener('click', () => void this.deleteTask(task.lineNo).then(() => this.scheduleRefresh()));
+            }
+        }
+>>>>>>> REPLACE
+```
+- **原因**：挂上重命名交互；大纲分组标为只读（它没有对应的源码行，改了会写到错误位置）。
+- **依赖**：块 17b 的方法、块 17e 的 `outlineOnly` 标记。
+
+#### 17d — 大纲自动归类：loadGroups 分流 + loadOutline + groupByOutline
+
+```main.js
+<<<<<<< SEARCH
+    async loadGroups() {
+        const p = this.path();
+        if (!p)
+            return [];
+        const file = this.host.app.vault.getAbstractFileByPath(p);
+        if (!(file instanceof obsidian.TFile))
+            return [];
+        const content = await this.host.app.vault.read(file);
+        return this.parseGroups(content);
+    }
+=======
+    async loadGroups() {
+        const p = this.path();
+        if (!p)
+            return [];
+        const file = this.host.app.vault.getAbstractFileByPath(p);
+        if (!(file instanceof obsidian.TFile))
+            return [];
+        const content = await this.host.app.vault.read(file);
+        const groups = this.parseGroups(content);
+        // 开启「按大纲自动归类」且填了大纲文件时，改用大纲标题做分组
+        if (this.host.plugin.settings.checklistAutoGroup) {
+            const outline = await this.loadOutline();
+            if (outline.length)
+                return this.groupByOutline(groups, outline);
+        }
+        return groups;
+    }
+    /** 读取「分类大纲 md」里的标题作为分类名（支持 # 与 ##） */
+    async loadOutline() {
+        const raw = (this.host.plugin.settings.checklistOutlineFile || '').trim();
+        if (!raw)
+            return [];
+        const p = raw.toLowerCase().endsWith('.md') ? raw : raw + '.md';
+        const file = this.host.app.vault.getAbstractFileByPath(p);
+        if (!(file instanceof obsidian.TFile))
+            return [];
+        const content = await this.host.app.vault.read(file);
+        const out = [];
+        for (const line of content.split(/\r?\n/)) {
+            const h = line.match(/^(#{1,2})\s+(.*)$/);
+            if (h) {
+                const name = h[2].trim();
+                if (name && !out.includes(name))
+                    out.push(name);
+            }
+        }
+        return out;
+    }
+    /** 把全部任务按大纲分类重新分组：任务文本包含分类名即归入（首个命中优先），否则进「未分类」 */
+    groupByOutline(groups, outline) {
+        const all = [];
+        for (const g of groups)
+            all.push(...g.tasks);
+        const buckets = outline.map((name) => ({ heading: name, headingLineNo: -1, tasks: [], outlineOnly: true }));
+        const rest = { heading: '未分类', headingLineNo: -1, tasks: [], outlineOnly: true };
+        for (const task of all) {
+            const hit = outline.find((name) => task.text.includes(name));
+            const bucket = hit ? buckets[outline.indexOf(hit)] : rest;
+            bucket.tasks.push(task);
+        }
+        const result = buckets.filter((b) => b.tasks.length);
+        if (rest.tasks.length)
+            result.push(rest);
+        return result;
+    }
+>>>>>>> REPLACE
+```
+- **原因**：实现"按大纲 md 标题自动归类"。未填路径或关闭开关时，行为与原来完全一致（按清单自身 `#` 分组）。
+- **依赖**：设置项 `checklistOutlineFile` / `checklistAutoGroup`（块 17e）。
+- **匹配规则**：任务文本 `includes(分类名)` 即命中，首个命中优先；未命中进「未分类」。若要改成标签匹配或模糊匹配，改 `groupByOutline` 里的 `hit` 判断即可。
+
+#### 17e — 新增设置项与 i18n
+
+```main.js
+<<<<<<< SEARCH
+    checklistAppendDate: false,
+=======
+    checklistAppendDate: false,
+    checklistOutlineFile: '',
+    checklistAutoGroup: false,
+    importEnabled: true,
+    importTitle: '导入',
+>>>>>>> REPLACE
+```
+
+```main.js
+<<<<<<< SEARCH
+            home: '主页', allProjects: '全部项目', board: '看板', checklist: '打卡',
+=======
+            home: '主页', allProjects: '全部项目', board: '看板', checklist: '打卡', import: '导入',
+>>>>>>> REPLACE
+```
+（en 对应：`home: 'Home', allProjects: 'All projects', board: 'Board', checklist: 'Checklist',` → 加 `import: 'Import',`）
+
+```main.js
+<<<<<<< SEARCH
+        checklistAppendDate: '勾选时追加日期', checklistAppendDateDesc: '勾选完成任务时，在行尾追加 ✅ 当天日期（如 ✅ 2026-09-01）',
+=======
+        checklistAppendDate: '勾选时追加日期', checklistAppendDateDesc: '勾选完成任务时，在行尾追加 ✅ 当天日期（如 ✅ 2026-09-01）',
+        checklistOutline: '分类大纲文件', checklistOutlineDesc: '填一个 md 路径（里面用标题写分类名）。开启下方开关后，任务按其文本是否包含分类名自动归类；不填或关闭则按清单自身的 # 标题分组',
+        checklistOutlinePlaceholder: '例如 01 主页/分类大纲.md',
+        checklistAutoGroup: '按大纲自动归类', checklistAutoGroupDesc: '开启后，任务按「分类大纲文件」里的标题自动归类显示；匹配不到的进入「未分类」',
+        secImport: '导入模块',
+        importEnable: '启用导入', importEnableDesc: '关闭后，顶部导航的导入入口与对应页面都会被隐藏',
+        importName: '页面名称', importNameDesc: '顶栏与页面标题显示的名称，可自定义',
+        importNamePlaceholder: '导入',
+>>>>>>> REPLACE
+```
+（en 段同理，在 `checklistAppendDate: 'Append date on check', ...` 之后加对应英文字条）
+
+```main.js
+<<<<<<< SEARCH
+        save: '保存', unsaved: '未保存',
+=======
+        save: '保存', unsaved: '未保存',
+        importSub: '把任意 md 快速建成首页的「笔记映射」卡片，不用去设置里手填路径',
+        importPickPlaceholder: '— 从库中选择一个 md —',
+        importPathPlaceholder: '或直接粘贴文件路径（如 01 主页/主页2.md）',
+        importTitlePlaceholder: '卡片标题（留空则使用文件名）',
+        importBtn: '导入为首页卡片',
+        importExisting: '已有的映射卡片',
+        importEmpty: '还没有映射卡片',
+        importNeedFile: '请先选择或填写 md 路径',
+        importNoFile: '找不到该文件',
+        importExists: '该 md 已经导入过了',
+        importDone: '已导入，去首页「＋ 添加卡片」里启用即可',
+>>>>>>> REPLACE
+```
+（en 段同理，在 `save: 'Save',\n        unsaved: 'Unsaved',` 之后加）
+
+```main.js
+<<<<<<< SEARCH
+        if (typeof this.settings.checklistAppendDate !== 'boolean')
+            { this.settings.checklistAppendDate = false; changed = true; }
+=======
+        if (typeof this.settings.checklistAppendDate !== 'boolean')
+            { this.settings.checklistAppendDate = false; changed = true; }
+        if (typeof this.settings.checklistOutlineFile !== 'string')
+            { this.settings.checklistOutlineFile = ''; changed = true; }
+        if (typeof this.settings.checklistAutoGroup !== 'boolean')
+            { this.settings.checklistAutoGroup = false; changed = true; }
+        if (typeof this.settings.importEnabled !== 'boolean')
+            { this.settings.importEnabled = true; changed = true; }
+        if (typeof this.settings.importTitle !== 'string' || !this.settings.importTitle)
+            { this.settings.importTitle = '导入'; changed = true; }
+>>>>>>> REPLACE
+```
+- **原因**：旧 `data.json` 缺字段时补默认。
+- **依赖**：无。
+
+#### 17f — ImportBoard 类 + 导航入口 + class 清理（**关键**）
+
+新增 `ImportBoard` 类（插在 `class OpportunityBoard {` 之前）：
+```js
+/** 导入页（第四页）：把任意 md 一键建成首页「笔记映射」卡片。 */
+class ImportBoard {
+    constructor(host) { this.host = host; }
+    title() { return this.host.plugin.settings.importTitle || t('settings.importNamePlaceholder'); }
+    async show() {
+        if (!this.host.boardEl) return;
+        this.host.exitEditMode();
+        const board = this.host.boardEl;
+        board.empty();
+        board.removeClass('ad-board');
+        board.removeClass('po-board');
+        board.removeClass('op-board');
+        board.removeClass('ck-board');
+        board.addClass('im-board');
+        this.host.currentPage = 'import';
+        const container = board.createDiv({ cls: 'im-container' });
+        this.render(container);
+    }
+    render(root) {
+        root.empty();
+        const head = root.createDiv({ cls: 'im-head' });
+        head.createEl('h2', { cls: 'im-title', text: this.title() });
+        head.createDiv({ cls: 'im-sub', text: t('home.importSub') });
+        const form = root.createDiv({ cls: 'im-form' });
+        const sel = form.createEl('select', { cls: 'im-select' });
+        sel.createEl('option', { value: '', text: t('home.importPickPlaceholder') });
+        const files = this.host.app.vault.getMarkdownFiles().sort((a, b) => a.path.localeCompare(b.path));
+        for (const f of files) sel.createEl('option', { value: f.path, text: f.path });
+        const pathInput = form.createEl('input', { cls: 'im-input', attr: { placeholder: t('home.importPathPlaceholder') } });
+        sel.addEventListener('change', () => { if (sel.value) pathInput.value = sel.value; });
+        const titleInput = form.createEl('input', { cls: 'im-input', attr: { placeholder: t('home.importTitlePlaceholder') } });
+        const iconInput = form.createEl('input', { cls: 'im-input im-input--icon', attr: { placeholder: '\u{1F4C4}' } });
+        iconInput.value = '\u{1F4C4}';
+        const btnRow = form.createDiv({ cls: 'im-btns' });
+        const btn = btnRow.createEl('button', { cls: 'im-btn im-btn--primary', text: t('home.importBtn') });
+        btn.addEventListener('click', () => void this.doImport(pathInput.value.trim(), titleInput.value.trim(), iconInput.value.trim()));
+        const list = root.createDiv({ cls: 'im-list' });
+        list.createEl('h3', { cls: 'im-list__title', text: t('home.importExisting') });
+        const mirrors = Array.isArray(this.host.plugin.settings.mirrors) ? this.host.plugin.settings.mirrors : [];
+        if (!mirrors.length) { list.createDiv({ cls: 'im-empty', text: t('home.importEmpty') }); return; }
+        for (const m of mirrors) {
+            const row = list.createDiv({ cls: 'im-item' });
+            row.createSpan({ cls: 'im-item__icon', text: m.icon || '\u{1F4C4}' });
+            row.createSpan({ cls: 'im-item__name', text: m.title || m.filePath });
+            row.createSpan({ cls: 'im-item__path', text: m.filePath });
+            const rm = row.createEl('button', { cls: 'im-item__del', text: '\u2715' });
+            rm.addEventListener('click', () => void this.removeMirror(m.id));
+        }
+    }
+    async doImport(filePath, title, icon) {
+        if (!filePath) { this.host.showToast(t('home.importNeedFile'), 'error'); return; }
+        const p = filePath.toLowerCase().endsWith('.md') ? filePath : filePath + '.md';
+        const file = this.host.app.vault.getAbstractFileByPath(p);
+        if (!(file instanceof obsidian.TFile)) { this.host.showToast(t('home.importNoFile'), 'error'); return; }
+        const s = this.host.plugin.settings;
+        if (!Array.isArray(s.mirrors)) s.mirrors = [];
+        if (s.mirrors.some((m) => m.filePath === p && m.scope !== 'heading')) { this.host.showToast(t('home.importExists')); return; }
+        s.mirrors.push({ id: 'm' + Date.now(), filePath: p, scope: 'file', heading: '', title: title || file.basename, icon: icon || '\u{1F4C4}', enabled: true, auto: false, sourceId: '' });
+        await this.host.plugin.saveSettings();
+        this.host.showToast(t('home.importDone'));
+        await this.show();
+    }
+    async removeMirror(id) {
+        const s = this.host.plugin.settings;
+        s.mirrors = (s.mirrors || []).filter((m) => m.id !== id);
+        await this.host.plugin.saveSettings();
+        await this.show();
+    }
+}
+```
+
+导航入口（在 checklist 入口之后）：
+```main.js
+<<<<<<< SEARCH
+        if (this.plugin.settings.checklistEnabled) {
+            navItems.push({ glyph: '☑', label: this.plugin.settings.checklistTitle || t('home.nav.checklist'), action: 'checklist', svg: undefined });
+        }
+=======
+        if (this.plugin.settings.checklistEnabled) {
+            navItems.push({ glyph: '☑', label: this.plugin.settings.checklistTitle || t('home.nav.checklist'), action: 'checklist', svg: undefined });
+        }
+        if (this.plugin.settings.importEnabled) {
+            navItems.push({ glyph: '\u21E9', label: this.plugin.settings.importTitle || t('home.nav.import'), action: 'import', svg: undefined });
+        }
+>>>>>>> REPLACE
+```
+
+动作绑定 + 实例化：
+```main.js
+<<<<<<< SEARCH
+                    if (it.action === 'checklist')
+                        void this.checklistBoard.show();
+=======
+                    if (it.action === 'checklist')
+                        void this.checklistBoard.show();
+                    if (it.action === 'import')
+                        void this.importBoard.show();
+>>>>>>> REPLACE
+```
+```main.js
+<<<<<<< SEARCH
+        this.checklistBoard = new ChecklistBoard(this);
+=======
+        this.checklistBoard = new ChecklistBoard(this);
+        this.importBoard = new ImportBoard(this);
+>>>>>>> REPLACE
+```
+
+**class 清理（4 处，缺一就会重演 §8.7 的首页压扁/样式残留）**：
+```main.js
+/* ChecklistBoard.show */
+<<<<<<< SEARCH
+        board.removeClass('ck-board');
+        board.addClass('ck-board');
+=======
+        board.removeClass('ck-board');
+        board.removeClass('im-board');
+        board.addClass('ck-board');
+>>>>>>> REPLACE
+```
+```main.js
+/* OpportunityBoard.show */
+<<<<<<< SEARCH
+        this.host.boardEl.removeClass('ck-board');
+        this.host.boardEl.addClass('op-board');
+=======
+        this.host.boardEl.removeClass('ck-board');
+        this.host.boardEl.removeClass('im-board');
+        this.host.boardEl.addClass('op-board');
+>>>>>>> REPLACE
+```
+```main.js
+/* ProjectBoard.show */
+<<<<<<< SEARCH
+        this.boardEl.removeClass('ck-board');
+        this.currentPage = 'project';
+=======
+        this.boardEl.removeClass('ck-board');
+        this.boardEl.removeClass('im-board');
+        this.currentPage = 'project';
+>>>>>>> REPLACE
+```
+```main.js
+/* showDashboard —— 注意它后面紧跟 applyCardStyle（块 15 加的），务必一起匹配 */
+<<<<<<< SEARCH
+        this.boardEl.removeClass('ck-board');
+        this.boardEl.addClass('ad-board');
+        this.applyCardStyle();
+=======
+        this.boardEl.removeClass('ck-board');
+        this.boardEl.removeClass('im-board');
+        this.boardEl.addClass('ad-board');
+        this.applyCardStyle();
+>>>>>>> REPLACE
+```
+- **校验**：`grep -c "removeClass('im-board')" main.js` 应输出 **4**，`grep -c "addClass('im-board')"` 应输出 **1**。
+
+#### 17g — styles.css（重命名输入框 + 导入页 + 只读分组标题）
+
+```styles.css
+<<<<<<< SEARCH
+.ck-empty { font-family: var(--ad-font); font-size: 13px; color: var(--ad-text-dim); padding: 20px; }
+=======
+.ck-empty { font-family: var(--ad-font); font-size: 13px; color: var(--ad-text-dim); padding: 20px; }
+
+/* 重命名（分组标题 / 任务文本）：点击即变输入框 */
+.ck-group__title { cursor: text; border-radius: 4px; }
+.ck-group__title:hover { color: var(--ad-accent); }
+.ck-task__text { cursor: text; border-radius: 4px; }
+.ck-task__text:hover { color: var(--ad-accent); }
+.ck-rename-input { width: 100%; min-width: 120px; padding: 2px 6px; border: 1px solid var(--ad-accent); border-radius: 4px; background: var(--ad-s3); color: var(--ad-text); font-family: var(--ad-font); font-size: inherit; outline: none; }
+>>>>>>> REPLACE
+```
+```styles.css
+<<<<<<< SEARCH
+.ck-group__title { cursor: text; border-radius: 4px; }
+.ck-group__title:hover { color: var(--ad-accent); }
+=======
+.ck-group__title { cursor: text; border-radius: 4px; }
+.ck-group__title:hover { color: var(--ad-accent); }
+.ck-group__title.is-readonly { cursor: default; color: var(--ad-text-mute); }
+.ck-group__title.is-readonly:hover { color: var(--ad-text-mute); }
+>>>>>>> REPLACE
+```
+导入页样式（追加在 `/* ===================== 主页2 风格扩展卡片 ===================== */` 之前）：
+```css
+/* ===================== 导入页（独立整页，与灵感收集 / 打卡清单并列） ===================== */
+.im-board { padding: 22px; overflow-y: auto; }
+.im-container { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+.im-title { margin: 0; font-family: var(--ad-font); font-size: 20px; font-weight: 700; color: var(--ad-text); }
+.im-sub { font-family: var(--ad-font); font-size: 12px; color: var(--ad-text-mute); margin-top: 6px; }
+.im-form { display: flex; flex-direction: column; gap: 10px; padding: 16px; background: var(--ad-s1); border: 1px solid var(--ad-line); border-radius: var(--ad-r3); }
+.im-select, .im-input { width: 100%; padding: 8px 10px; background: var(--ad-s3); color: var(--ad-text); border: 1px solid var(--ad-line); border-radius: var(--ad-r2); font-family: var(--ad-font); font-size: 13px; outline: none; }
+.im-select:focus, .im-input:focus { border-color: var(--ad-accent); }
+.im-input--icon { width: 64px; text-align: center; }
+.im-btns { display: flex; gap: 10px; margin-top: 4px; }
+.im-btn { padding: 8px 18px; border: 1px solid var(--ad-accent); border-radius: var(--ad-r2); background: var(--ad-accent); color: var(--ad-on-accent); font-family: var(--ad-font); font-size: 13px; cursor: pointer; transition: filter .12s; }
+.im-btn:hover { filter: brightness(1.06); }
+.im-list { display: flex; flex-direction: column; gap: 8px; }
+.im-list__title { margin: 0 0 4px; font-family: var(--ad-font); font-size: 14px; font-weight: 600; color: var(--ad-text); }
+.im-empty { font-family: var(--ad-font); font-size: 12px; color: var(--ad-text-dim); padding: 10px 0; }
+.im-item { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--ad-s1); border: 1px solid var(--ad-line); border-radius: var(--ad-r2); }
+.im-item__icon { font-size: 15px; flex: 0 0 auto; }
+.im-item__name { font-family: var(--ad-font); font-size: 13px; color: var(--ad-text); flex: 0 0 auto; }
+.im-item__path { font-family: var(--ad-font); font-size: 11px; color: var(--ad-text-mute); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.im-item__del { border: none; background: transparent; color: var(--ad-text-dim); cursor: pointer; opacity: 0; font-size: 12px; padding: 0 4px; }
+.im-item:hover .im-item__del { opacity: 1; }
+.im-item__del:hover { color: var(--ad-danger); }
+```
+
+### 块 18 — 热力图四模式（日/周/季/年）+ 灵感卡片（显示更多 + 刷新）
+
+> 需求：
+> 1. 首页「笔记统计」不只有年热力图，要能切换 **日 / 周 / 季度 / 年** 四种模式。
+> 2. 「灵感闪念」卡片不只显示几条，要能显示更多，并加**刷新按钮**。
+>
+> **重要前提**：`getVaultNoteCounts()` 只按 `file.stat.ctime` 统计到**天级**，没有小时级数据。所以「日」模式只能显示当天总量（1 个格子），无法做 24 小时分布。四种模式复用同一套「7 行 × N 周列」网格，只改变**日期区间**。
+>
+> 重打顺序：块 13 → 14 → 15 → 16 → 17 → 本块 18。
+
+#### 18a — 新增 calcRangeStats / startOfWeek（插在 `function calcHeatmapStats` 之前）
+
+```main.js
+<<<<<<< SEARCH
+function calcHeatmapStats(data, year, today) {
+=======
+/**
+ * 按任意日期区间统计热力图指标（供「日 / 周 / 季 / 年」四种模式共用）。
+ * total  = 区间内笔记总数；active = 区间内有产出的天数；streak 仍从今天/昨天往回数（全局连续天数）。
+ */
+function calcRangeStats(data, startStr, endStr, today) {
+    let total = 0;
+    let active = 0;
+    for (const [date, count] of data) {
+        if (date < startStr || date > endStr)
+            continue;
+        total += count;
+        if (count > 0)
+            active++;
+    }
+    let streak = 0;
+    const d = new Date(today);
+    const todayStr = fmtDate(today);
+    // 今天还没写时从昨天起算，避免刚过零点就把连续天数清零
+    if ((data.get(todayStr) ?? 0) === 0)
+        d.setDate(d.getDate() - 1);
+    while ((data.get(fmtDate(d)) ?? 0) > 0) {
+        streak++;
+        d.setDate(d.getDate() - 1);
+    }
+    return { total, active, streak };
+}
+/** 求某日期所在周的周一（周一为一周之始，与热力图星期列一致） */
+function startOfWeek(date) {
+    const d = new Date(date);
+    const dow = d.getDay();
+    d.setDate(d.getDate() - ((dow + 6) % 7));
+    d.setHours(0, 0, 0, 0);
+    return d;
+}
+function calcHeatmapStats(data, year, today) {
+>>>>>>> REPLACE
+```
+- **原因**：原 `calcHeatmapStats` 写死按年统计（`prefix = ${year}-`），无法支持其它粒度；新增按区间统计的版本。
+- **依赖**：`fmtDate`（内置）。
+
+#### 18b — renderHeatmap：模式切换按钮 + 按模式计算区间
+
+```main.js
+<<<<<<< SEARCH
+        const year = today.getFullYear();
+        const stats = calcHeatmapStats(noteCounts, year, today);
+        // Title header (dashboard header style)
+        const head = card.createDiv({ cls: 'ad-card__head' });
+        const h3 = head.createEl('h3', { cls: 'ad-card__title' });
+        h3.createSpan({ cls: 'ad-marker', text: '\u25A5' });
+        h3.appendText(t('home.modules.heatmap'));
+        // 统计数字 + 活跃度指标（顶部右上角，与标题同行右对齐）
+        const nsHead = head.createDiv({ cls: 'ad-ns__head' });
+=======
+        const year = today.getFullYear();
+        // ---- 模式：日 / 周 / 季 / 年（默认年） ----
+        const validModes = ['day', 'week', 'quarter', 'year'];
+        let mode = this.plugin.settings.heatmapMode;
+        if (!validModes.includes(mode))
+            mode = 'year';
+        const q = Math.floor(today.getMonth() / 3);
+        let rangeStart, rangeEnd, rangeLabel;
+        if (mode === 'day') {
+            rangeStart = new Date(today);
+            rangeEnd = new Date(today);
+            rangeLabel = t('home.heatRangeToday');
+        }
+        else if (mode === 'week') {
+            rangeStart = startOfWeek(today);
+            rangeEnd = new Date(rangeStart);
+            rangeEnd.setDate(rangeEnd.getDate() + 6);
+            rangeLabel = t('home.heatRangeWeek');
+        }
+        else if (mode === 'quarter') {
+            rangeStart = new Date(year, q * 3, 1);
+            rangeEnd = new Date(year, q * 3 + 3, 0);
+            rangeLabel = t('home.heatRangeQuarter');
+        }
+        else {
+            rangeStart = new Date(year, 0, 1);
+            rangeEnd = new Date(year, 11, 31);
+            rangeLabel = t('home.heatmapAllYear', { year });
+        }
+        rangeStart.setHours(0, 0, 0, 0);
+        rangeEnd.setHours(0, 0, 0, 0);
+        const stats = mode === 'year'
+            ? calcHeatmapStats(noteCounts, year, today)
+            : calcRangeStats(noteCounts, fmtDate(rangeStart), fmtDate(rangeEnd), today);
+        // Title header (dashboard header style)
+        const head = card.createDiv({ cls: 'ad-card__head' });
+        const h3 = head.createEl('h3', { cls: 'ad-card__title' });
+        h3.createSpan({ cls: 'ad-marker', text: '\u25A5' });
+        h3.appendText(t('home.modules.heatmap'));
+        // 模式切换：日 / 周 / 季 / 年
+        const modeBar = head.createDiv({ cls: 'ad-ns__modes' });
+        const modeDefs = [
+            ['day', t('home.heatModeDay')],
+            ['week', t('home.heatModeWeek')],
+            ['quarter', t('home.heatModeQuarter')],
+            ['year', t('home.heatModeYear')],
+        ];
+        for (const [m, label] of modeDefs) {
+            const b = modeBar.createEl('button', { cls: 'ad-ns__mode' + (m === mode ? ' is-active' : ''), text: label });
+            b.title = label;
+            b.addEventListener('click', async () => {
+                this.plugin.settings.heatmapMode = m;
+                await this.plugin.saveSettings();
+                this.renderHeatmap(board);
+            });
+        }
+        // 统计数字 + 活跃度指标（顶部右上角，与标题同行右对齐）
+        const nsHead = head.createDiv({ cls: 'ad-ns__head' });
+>>>>>>> REPLACE
+```
+- **原因**：按模式算区间 + 加切换按钮；切换后**持久化到 settings** 并立即重渲染。
+- **依赖**：`calcRangeStats` / `startOfWeek`（18a）、i18n key（18e）、`this.plugin.saveSettings`。
+
+#### 18c — 网格边界改按区间（并对外对齐到整周）
+
+```main.js
+<<<<<<< SEARCH
+        // --- Year boundaries (Jan 1 -> Dec 31) ---
+        const yearStart = new Date(year, 0, 1);
+        const yearEnd = new Date(year, 11, 31);
+        const yearStartTime = yearStart.getTime();
+        const yearEndTime = yearEnd.getTime();
+        const startDow = yearStart.getDay();
+        const startMonday = new Date(year, 0, 1 - ((startDow + 6) % 7));
+        const endDow = yearEnd.getDay();
+        const endSunday = new Date(year, 11, 31 + ((7 - endDow) % 7 || 7));
+        const totalDays = Math.round((endSunday.getTime() - startMonday.getTime()) / 86400000) + 1;
+        const totalWeeks = Math.ceil(totalDays / 7);
+=======
+        // --- 区间边界（按模式），并向外对齐到整周 ---
+        const rangeStartTime = rangeStart.getTime();
+        const rangeEndTime = rangeEnd.getTime();
+        const startMonday = startOfWeek(rangeStart);
+        const endSunday = startOfWeek(rangeEnd);
+        endSunday.setDate(endSunday.getDate() + 6);
+        const totalDays = Math.round((endSunday.getTime() - startMonday.getTime()) / 86400000) + 1;
+        const totalWeeks = Math.ceil(totalDays / 7);
+>>>>>>> REPLACE
+```
+```main.js
+<<<<<<< SEARCH
+                if (cellTime < yearStartTime || cellTime > yearEndTime) {
+=======
+                if (cellTime < rangeStartTime || cellTime > rangeEndTime) {
+>>>>>>> REPLACE
+```
+```main.js
+<<<<<<< SEARCH
+        foot.createSpan({ cls: 'ad-ns__window', text: t('home.heatmapAllYear', { year }) });
+=======
+        foot.createSpan({ cls: 'ad-ns__window', text: rangeLabel });
+>>>>>>> REPLACE
+```
+- **原因**：把写死的「年内」判断换成模式区间；页脚显示当前模式的范围文字。
+- ⚠️ **必须三处一起改**，否则 `yearStartTime` 未定义会直接报错（可用 `grep -c "yearStartTime\|yearEndTime" main.js` 校验，应为 **0**）。
+- **布局说明**：`layoutHeatmap` 会自动按卡片宽度决定「显示最近 N 周」，所以季度/年模式在窄卡上仍会裁剪，属原有行为。
+
+#### 18d — 灵感卡片：条数上限 + 刷新按钮
+
+```main.js
+<<<<<<< SEARCH
+    async renderInspiration(board) {
+        const card = this.getOrCreateCard(board, 'ad-card ad-b-inspiration');
+        this.cardHead(card, '\u{1F4A1}', t('home.modules.inspiration'), '');
+        const body = card.createDiv({ cls: 'ad-inspiration' });
+        const s = this.plugin.settings;
+        if (s.quickCapture?.writeMode === 'file') {
+            body.createDiv({ cls: 'ad-empty--line', text: t('home.inspirationNeedDaily') });
+            return;
+        }
+        const path = this.dailyMemoPath();
+        const file = this.app.vault.getAbstractFileByPath(path);
+        const memos = file instanceof obsidian.TFile
+            ? this.parseMemos(await this.app.vault.cachedRead(file)) : [];
+        if (!memos.length) {
+            body.createDiv({ cls: 'ad-empty--line', text: t('home.memoListEmpty') });
+            return;
+        }
+        const list = body.createDiv({ cls: 'ad-insp__list' });
+        for (const m of [...memos].reverse().slice(0, 8)) {
+            const item = list.createDiv({ cls: 'ad-insp__item' });
+            item.createSpan({ cls: 'ad-insp__time', text: m.time });
+            item.createSpan({ cls: 'ad-insp__text', text: m.text });
+            item.addEventListener('click', () => void this.app.workspace.openLinkText(path, '', true));
+        }
+    }
+=======
+    async renderInspiration(board) {
+        const card = this.getOrCreateCard(board, 'ad-card ad-b-inspiration');
+        const limit = Math.max(1, this.plugin.settings.inspirationLimit ?? 20);
+        const refreshBtn = document.createElement('button');
+        refreshBtn.className = 'ad-insp__refresh';
+        refreshBtn.textContent = '\u21BB';
+        refreshBtn.title = t('home.refresh');
+        this.cardHead(card, '\u{1F4A1}', t('home.modules.inspiration'), '', refreshBtn);
+        const body = card.createDiv({ cls: 'ad-inspiration' });
+        const paint = async (force) => {
+            body.empty();
+            const s = this.plugin.settings;
+            if (s.quickCapture?.writeMode === 'file') {
+                body.createDiv({ cls: 'ad-empty--line', text: t('home.inspirationNeedDaily') });
+                return;
+            }
+            const path = this.dailyMemoPath();
+            const file = this.app.vault.getAbstractFileByPath(path);
+            if (!(file instanceof obsidian.TFile)) {
+                body.createDiv({ cls: 'ad-empty--line', text: t('home.memoListEmpty') });
+                return;
+            }
+            // 点刷新时用非缓存读取，确保拿到日记最新内容
+            const raw = force ? await this.app.vault.read(file) : await this.app.vault.cachedRead(file);
+            const memos = this.parseMemos(raw);
+            if (!memos.length) {
+                body.createDiv({ cls: 'ad-empty--line', text: t('home.memoListEmpty') });
+                return;
+            }
+            const list = body.createDiv({ cls: 'ad-insp__list' });
+            for (const m of [...memos].reverse().slice(0, limit)) {
+                const item = list.createDiv({ cls: 'ad-insp__item' });
+                item.createSpan({ cls: 'ad-insp__time', text: m.time });
+                item.createSpan({ cls: 'ad-insp__text', text: m.text });
+                item.addEventListener('click', () => void this.app.workspace.openLinkText(path, '', true));
+            }
+        };
+        refreshBtn.addEventListener('click', () => void paint(true));
+        await paint(false);
+    }
+>>>>>>> REPLACE
+```
+- **原因**：原来写死 `slice(0, 8)` 且无刷新。现改为设置项控制条数（默认 20），并用 `force` 区分刷新（非缓存读）与常规渲染（缓存读）。
+- **注意**：`paint` 必须先定义、再给 `refreshBtn` 挂监听（避免 TDZ）；`cardHead` 要在 `body` 之前调用，否则标题会跑到内容下面。
+- **依赖**：`dailyMemoPath` / `parseMemos`（§10 Thino 补丁）、`t('home.refresh')`、设置项 `inspirationLimit`。
+
+#### 18e — 设置项与 i18n
+
+```main.js
+<<<<<<< SEARCH
+    importTitle: '导入',
+=======
+    importTitle: '导入',
+    inspirationLimit: 20,
+    heatmapMode: 'year',
+>>>>>>> REPLACE
+```
+```main.js
+<<<<<<< SEARCH
+        save: '保存', unsaved: '未保存',
+=======
+        save: '保存', unsaved: '未保存', refresh: '刷新',
+        heatModeDay: '日', heatModeWeek: '周', heatModeQuarter: '季', heatModeYear: '年',
+        heatRangeToday: '今日', heatRangeWeek: '本周', heatRangeQuarter: '本季度',
+>>>>>>> REPLACE
+```
+（en 段：在 `save: 'Save',\n        unsaved: 'Unsaved',` 之后加 `refresh: 'Refresh',` 与 `heatModeDay: 'D', heatModeWeek: 'W', heatModeQuarter: 'Q', heatModeYear: 'Y',` / `heatRangeToday: 'Today', heatRangeWeek: 'This week', heatRangeQuarter: 'This quarter',`）
+```main.js
+<<<<<<< SEARCH
+        if (typeof this.settings.importTitle !== 'string' || !this.settings.importTitle)
+            { this.settings.importTitle = '导入'; changed = true; }
+=======
+        if (typeof this.settings.importTitle !== 'string' || !this.settings.importTitle)
+            { this.settings.importTitle = '导入'; changed = true; }
+        if (typeof this.settings.inspirationLimit !== 'number' || this.settings.inspirationLimit < 1)
+            { this.settings.inspirationLimit = 20; changed = true; }
+        if (!['day', 'week', 'quarter', 'year'].includes(this.settings.heatmapMode))
+            { this.settings.heatmapMode = 'year'; changed = true; }
+>>>>>>> REPLACE
+```
+- **原因**：默认值与旧 `data.json` 补齐。
+- **说明**：`inspirationLimit` 与 `heatmapMode` **未做设置面板 UI**，直接改 `data.json` 即可（`heatmapMode` 点卡片上的按钮就会自动写入）。
+
+#### 18f — styles.css
+
+```styles.css
+<<<<<<< SEARCH
+.ad-inspiration { padding: 6px 10px 10px; }
+.ad-insp__list { display: flex; flex-direction: column; gap: 2px; max-height: 150px; overflow-y: auto; }
+=======
+.ad-inspiration { padding: 6px 10px 10px; display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.ad-insp__list { display: flex; flex-direction: column; gap: 2px; flex: 1; min-height: 0; overflow-y: auto; }
+.ad-insp__refresh { border: 1px solid var(--ad-line); border-radius: 4px; background: transparent; color: var(--ad-text-mute); font-size: 12px; line-height: 1; padding: 2px 6px; cursor: pointer; flex: 0 0 auto; transition: color .12s, border-color .12s; }
+.ad-insp__refresh:hover { color: var(--ad-accent); border-color: var(--ad-accent); }
+
+/* 热力图模式切换（日 / 周 / 季 / 年） */
+.ad-ns__modes { display: flex; gap: 3px; margin-right: auto; margin-left: 10px; }
+.ad-ns__mode {
+  min-width: 20px; padding: 2px 6px; border: 1px solid var(--ad-line); border-radius: 4px;
+  background: transparent; color: var(--ad-text-mute);
+  font-family: var(--ad-font); font-size: 11px; line-height: 1.2; cursor: pointer;
+  transition: color .12s, border-color .12s, background .12s;
+}
+.ad-ns__mode:hover { color: var(--ad-text); border-color: var(--ad-accent); }
+.ad-ns__mode.is-active { color: var(--ad-on-accent); background: var(--ad-accent); border-color: var(--ad-accent); }
+>>>>>>> REPLACE
+```
+- **原因**：把灵感列表从固定 `max-height:150px` 改为**填充卡片高度**（配合新增条数才看得到更多），并加刷新按钮与模式切换按钮样式。
+- **依赖**：`--ad-line` / `--ad-accent` / `--ad-on-accent` 等内置变量。
+
+### 块 19 — 「日」模式 = 最近 365 天每天亮格（与周/季/年统一走网格）
+
+> 反馈：块 18 加了 4 模式，「日」最初只显示 1 个格子太空；先试过 24h 柱状图（专用视图），但用户明确要的是
+> **「按天统计 = 365 天每天一个亮格、颜色深浅 = 当天笔记数」，不是按时间比例亮的柱状图**。
+> 故废弃 24h 方案，把「日」改为**最近 365 天（滚动年）的 GitHub 风格网格**，与周/季/年共用同一套 7 行 × N 周列渲染（只改日期区间）。
+>
+> 重打顺序：块 13 → 14 → 15 → 16 → 17 → 18 → 本块 19。
+
+#### 19a — renderHeatmap「日」模式区间改为滚动 365 天（替换块 18 的 `if (mode === 'day')` 单日分支）
+
+```main.js
+<<<<<<< SEARCH
+        if (mode === 'day') {
+            rangeStart = new Date(today);
+            rangeEnd = new Date(today);
+            rangeLabel = t('home.heatRangeToday');
+        }
+=======
+        if (mode === 'day') {
+            // 最近 365 天（滚动年）：每天一个亮格，颜色深浅 = 当天笔记数
+            rangeStart = new Date(today);
+            rangeStart.setDate(rangeStart.getDate() - 364);
+            rangeEnd = new Date(today);
+            rangeLabel = t('home.heatRangeDay');
+        }
+>>>>>>> REPLACE
+```
+- **原因**：把单日（1 格）改成滚动 365 天，正好满足「365 天每天亮格」的需求。后面 18c 会把这个区间对齐到整周（`startMonday`/`endSunday`），复用现有周列网格与 `layoutHeatmap`。
+- **依赖**：无（区间变量后续由 18c 处理）。
+- ⚠️ **不要再给日模式加 `return` / 专用渲染**——否则会回到 24h 柱状图（已废弃，见块 19c 说明）。
+
+#### 19b — i18n（zh/en 各加 `heatRangeDay`，并清理块 18 误留的 24h 文案键）
+
+```main.js
+<<<<<<< SEARCH
+        heatRangeToday: '今日', heatRangeWeek: '本周', heatRangeQuarter: '本季度',
+        heatmapNow: '当前',
+        dayEmpty: '今天还没写笔记',
+=======
+        heatRangeDay: '近365天', heatRangeWeek: '本周', heatRangeQuarter: '本季度',
+>>>>>>> REPLACE
+```
+（en 段：把
+```
+        heatRangeToday: 'Today', heatRangeWeek: 'This week', heatRangeQuarter: 'This quarter',
+        heatmapNow: 'Now',
+        dayEmpty: 'No notes today yet',
+```
+改为
+```
+        heatRangeDay: 'Last 365d', heatRangeWeek: 'This week', heatRangeQuarter: 'This quarter',
+```
+）
+- **原因**：`heatRangeToday`/`heatmapNow`/`dayEmpty` 是 24h 方案遗留、已无引用，删除避免死键；新增 `heatRangeDay` 作为「日」模式页脚范围文字。
+
+#### 19c — 已废弃：24h 柱状图（`renderHeatmapDay` / `getVaultHourlyCounts` / `.ad-ns__day` 样式）已全部删除
+
+> 下列代码在「日」模式第一版（24h 柱状图）里新增，本次已**整体删除**，请勿还原：
+> - `DashboardView.getVaultHourlyCounts(todayKey)`（按小时聚合）
+> - `DashboardView.renderHeatmapDay(...)`（24 根柱 + 今日笔记列表专用视图）
+> - `renderHeatmap` 里 `if (mode === 'day') { this.renderHeatmapDay(...); return; }` 提前 return
+> - i18n `heatmapNow` / `dayEmpty`
+> - styles.css `.ad-ns__day` / `.ad-day__*` 全部样式
+>
+> 校验：`grep -c "renderHeatmapDay\|getVaultHourlyCounts\|ad-ns__day\|heatmapNow\|dayEmpty\|heatRangeToday" main.js` 应为 **0**；
+> 网格路径 `grep -c "startMonday = startOfWeek(rangeStart)" main.js` 应为 **≥1**。
+
+### 块 20 — 首页新增「Git 提交热力图」模块（读 `git log`，复用 7×N 周网格，独立 `adGit*` 状态）
+
+> 1. 在 Xove Dashboard 首页新增独立卡片「Git 提交」，统计**当前 vault 仓库**（mutiply3）的每日 commit 数，画成与笔记统计同款的 GitHub 风格 7 行 × N 周网格（最近 365 天滚动年）。
+> 2. 数据源用 `require('child_process').execFileSync('git', ['log', ...])` 读取 `git log --pretty=format:%ad --date=short` 按日期聚合。桌面端 Obsidian 插件可 `require('child_process')`（obsidian-git 同款）；已包 try/catch，非 git 仓库/无 git 时卡片显示提示而非崩溃。
+> 3. 复用 `calcRangeStats` / `fmtDate` / `startOfWeek` / `tArr('home.heatDow')` / `l1..l4` 等级样式 / `--hm-cgap·rgap`，不重复造轮子。
+> 4. ⚠️ 关键点：`layoutHeatmap` 共享 `this.adHm*` 状态与单一 `ResizeObserver`，两个卡片会**冲突**，故复制成独立的 `layoutGitHeatmap`（用 `this.adGit*` 状态 + 独立 observer）。**切勿直接调用 `this.layoutHeatmap`**。
+
+#### 20a — i18n（zh）：modules + home 文案
+
+```main.js
+<<<<<<< SEARCH
+            heatmap: '笔记统计', countdown: '倒计时', pomodoro: '番茄钟',
+            mirror: '笔记映射',
+=======
+            heatmap: '笔记统计', countdown: '倒计时', pomodoro: '番茄钟',
+            mirror: '笔记映射', githeat: 'Git 提交',
+>>>>>>> REPLACE
+```
+
+（紧随 `cellNotes: '{m}-{d} · {n} 篇笔记',` 之后追加：）
+```main.js
+<<<<<<< SEARCH
+        cellNotes: '{m}-{d} · {n} 篇笔记',
+=======
+        cellNotes: '{m}-{d} · {n} 篇笔记',
+        cellCommits: '{m}-{d} · {n} 次提交',
+        gitNotRepo: '当前仓库不是 git 仓库（无法显示提交热力图）',
+        gitError: '无法读取 git 提交：请确认 git 已安装且在 PATH 中',
+        gitRefresh: '刷新',
+        gitRefreshTitle: '重新读取 git log',
+        gitRange: '近 365 天',
+>>>>>>> REPLACE
+```
+
+#### 20b — i18n（en）：同上
+
+```main.js
+<<<<<<< SEARCH
+            heatmap: 'Note stats', countdown: 'Countdown', pomodoro: 'Pomodoro',
+            mirror: 'Note mirror',
+=======
+            heatmap: 'Note stats', countdown: 'Countdown', pomodoro: 'Pomodoro',
+            mirror: 'Note mirror', githeat: 'Git commits',
+>>>>>>> REPLACE
+```
+
+（紧随 `cellNotes: '{m}-{d} · {n} notes',` 之后追加：）
+```main.js
+<<<<<<< SEARCH
+        cellNotes: '{m}-{d} · {n} notes',
+=======
+        cellNotes: '{m}-{d} · {n} notes',
+        cellCommits: '{m}-{d} · {n} commits',
+        gitNotRepo: 'Current vault is not a git repo (cannot show commit heatmap)',
+        gitError: 'Cannot read git log: ensure git is installed and in PATH',
+        gitRefresh: 'Refresh',
+        gitRefreshTitle: 'Re-read git log',
+        gitRange: 'Last 365 days',
+>>>>>>> REPLACE
+```
+
+#### 20c — MIN_COLS / MIN_RATIO 注册 githeat
+
+```main.js
+<<<<<<< SEARCH
+    'projects': 2, // 项目情况：最低宽度 2 格
+    'heatmap': 2, // 笔记统计：最低宽度 2 格（2×1 走窄版间距 + 自适应窗口）
+};
+=======
+    'projects': 2, // 项目情况：最低宽度 2 格
+    'heatmap': 2, // 笔记统计：最低宽度 2 格（2×1 走窄版间距 + 自适应窗口）
+    'githeat': 2, // Git 提交热力图：最低宽度 2 格
+};
+>>>>>>> REPLACE
+```
+
+```main.js
+<<<<<<< SEARCH
+    'projects': 2, // 项目情况：最低 2:1
+    'heatmap': 3, // 笔记统计：最低 3:1
+};
+=======
+    'projects': 2, // 项目情况：最低 2:1
+    'heatmap': 3, // 笔记统计：最低 3:1
+    'githeat': 3, // Git 提交热力图：最低 3:1
+};
+>>>>>>> REPLACE
+```
+
+#### 20d — 渲染注册表 + DEFAULT_SETTINGS.homeModules + DEFAULT_HOME_MODULES
+
+```main.js
+<<<<<<< SEARCH
+            { id: 'inspiration', title: t('home.modules.inspiration'), cardCls: 'ad-card ad-b-inspiration', live: false, render: (b) => void this.renderInspiration(b) },
+        ];
+=======
+            { id: 'inspiration', title: t('home.modules.inspiration'), cardCls: 'ad-card ad-b-inspiration', live: false, render: (b) => void this.renderInspiration(b) },
+            { id: 'githeat', title: t('home.modules.githeat'), cardCls: 'ad-card ad-b-githeat', live: false, render: (b) => this.renderGitHeatmap(b) },
+        ];
+>>>>>>> REPLACE
+```
+
+（DEFAULT_SETTINGS.homeModules 末尾，`/* md 映射卡片` 注释前：）
+```main.js
+<<<<<<< SEARCH
+        { id: 'inspiration', enabled: false, order: 16, cols: 1, rows: 2 },
+    ],
+    /* md 映射卡片
+=======
+        { id: 'inspiration', enabled: false, order: 16, cols: 1, rows: 2 },
+        { id: 'githeat', enabled: false, order: 17, cols: 3, rows: 1 },
+    ],
+    /* md 映射卡片
+>>>>>>> REPLACE
+```
+
+（DEFAULT_HOME_MODULES 末尾，`/* ---- helpers ---- */` 注释前：）
+```main.js
+<<<<<<< SEARCH
+        { id: 'inspiration', enabled: false, order: 16, cols: 1, rows: 2 },
+    ];
+    /* ---- helpers ---- */
+=======
+        { id: 'inspiration', enabled: false, order: 16, cols: 1, rows: 2 },
+        { id: 'githeat', enabled: false, order: 17, cols: 3, rows: 1 },
+    ];
+    /* ---- helpers ---- */
+>>>>>>> REPLACE
+```
+
+#### 20e — 新增 `getVaultGitCounts()`（插在 `getVaultNoteCounts` 之后、`scheduleHeatmapRefresh` 之前）
+
+```main.js
+<<<<<<< SEARCH
+        return counts;
+    }
+    scheduleHeatmapRefresh() {
+=======
+        return counts;
+    }
+    /* ---- Vault git commit counts by date (reads `git log` of the vault repo) ---- */
+    getVaultGitCounts() {
+        const counts = new Map();
+        this.adGitError = null;
+        try {
+            const cp = (typeof require !== 'undefined') ? require('child_process') : null;
+            if (!cp) {
+                this.adGitError = 'exec-error';
+                return counts;
+            }
+            const base = this.app.vault.adapter.basePath;
+            let root = base;
+            try {
+                root = cp.execFileSync('git', ['rev-parse', '--show-toplevel'], { cwd: base, encoding: 'utf8', timeout: 5000 }).trim();
+            }
+            catch (e) {
+                this.adGitError = 'not-repo';
+                return counts;
+            }
+            const out = cp.execFileSync('git', ['log', '--pretty=format:%ad', '--date=short'], { cwd: root, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, timeout: 20000 });
+            const re = /(\d{4}-\d{2}-\d{2})/g;
+            let m;
+            while ((m = re.exec(out)) !== null) {
+                const d = m[1];
+                counts.set(d, (counts.get(d) ?? 0) + 1);
+            }
+        }
+        catch (e) {
+            console.error('[Xove] git heatmap failed:', e);
+            this.adGitError = 'exec-error';
+        }
+        return counts;
+    }
+    scheduleHeatmapRefresh() {
+>>>>>>> REPLACE
+```
+
+#### 20f — 新增 `renderGitHeatmap` + 独立 `layoutGitHeatmap`（整体插入到 `layoutHeatmap` 方法的结束 `}` 与 `/* ---- Pomodoro（番茄钟：单实例卡片） ---- */` 之间）
+
+```main.js
+    /* ---- Git commit heatmap (reads `git log` of the vault repo) ---- */
+    renderGitHeatmap(board) {
+        const card = this.getOrCreateCard(board, 'ad-card ad-b-githeat');
+        this.gitHeatCard = card;
+        card.setAttribute('data-mod', 'githeat');
+        const hm = this.plugin.settings.homeModules?.find((x) => x.id === 'githeat');
+        this.applyCardSpan(card, hm?.cols, hm?.rows);
+        this.adGitError = null;
+        const gitCounts = this.getVaultGitCounts();
+        if (this.adGitError) {
+            const head = card.createDiv({ cls: 'ad-card__head' });
+            const h3 = head.createEl('h3', { cls: 'ad-card__title' });
+            h3.createSpan({ cls: 'ad-marker', text: '\u{1F33F}' });
+            h3.appendText(t('home.modules.githeat'));
+            const tip = card.createDiv({ cls: 'ad-git__tip' });
+            tip.setText(this.adGitError === 'not-repo' ? t('home.gitNotRepo') : t('home.gitError'));
+            return;
+        }
+        const today = new Date();
+        const todayTime = today.getTime();
+        const todayKey = fmtDate(today);
+        const rangeStart = new Date(today);
+        rangeStart.setDate(rangeStart.getDate() - 364);
+        rangeStart.setHours(0, 0, 0, 0);
+        const rangeEnd = new Date(today);
+        rangeEnd.setHours(0, 0, 0, 0);
+        const stats = calcRangeStats(gitCounts, fmtDate(rangeStart), fmtDate(rangeEnd), today);
+        const head = card.createDiv({ cls: 'ad-card__head' });
+        const h3 = head.createEl('h3', { cls: 'ad-card__title' });
+        h3.createSpan({ cls: 'ad-marker', text: '\u{1F33F}' });
+        h3.appendText(t('home.modules.githeat'));
+        const refreshBtn = head.createEl('button', { cls: 'ad-ns__mode', text: t('home.gitRefresh') });
+        refreshBtn.title = t('home.gitRefreshTitle');
+        refreshBtn.addEventListener('click', () => this.renderGitHeatmap(board));
+        const nsHead = head.createDiv({ cls: 'ad-ns__head' });
+        nsHead.createDiv({ cls: 'ad-ns__big', text: String(stats.total) });
+        const small = nsHead.createDiv({ cls: 'ad-ns__small' });
+        small.createDiv({ cls: 'ad-ns__active', text: t('home.daysActive', { n: stats.active }) });
+        const streak = small.createDiv({ cls: 'ad-ns__streak' });
+        streak.appendText(t('home.streakPrefix'));
+        streak.createEl('strong', { text: String(stats.streak) });
+        streak.appendText(t('home.daysSuffix'));
+        const rangeStartTime = rangeStart.getTime();
+        const rangeEndTime = rangeEnd.getTime();
+        const startMonday = startOfWeek(rangeStart);
+        const endSunday = startOfWeek(rangeEnd);
+        endSunday.setDate(endSunday.getDate() + 6);
+        const totalDays = Math.round((endSunday.getTime() - startMonday.getTime()) / 86400000) + 1;
+        const totalWeeks = Math.ceil(totalDays / 7);
+        const heat = card.createDiv({ cls: 'ad-ns__heat' });
+        heat.createDiv({ cls: 'ad-ns__months' });
+        const startMs = startMonday.getTime();
+        const weekMonths = [];
+        for (let w = 0; w < totalWeeks; w++) {
+            const thu = new Date(startMs + (w * 7 + 3) * 86400000);
+            weekMonths.push(thu.getMonth());
+        }
+        this.adGitWeekMonths = weekMonths;
+        this.adGitYear = today.getFullYear();
+        this.adGitKey = '';
+        const grid = heat.createDiv({ cls: 'ad-ns__grid' });
+        const dow = grid.createDiv({ cls: 'ad-ns__dow' });
+        tArr('home.heatDow').forEach((lab) => dow.createSpan({ text: lab }));
+        const cells = grid.createDiv({ cls: 'ad-ns__cells' });
+        for (let w = 0; w < totalWeeks; w++) {
+            for (let r = 0; r < 7; r++) {
+                const cellDate = new Date(startMs + (w * 7 + r) * 86400000);
+                const cellTime = cellDate.getTime();
+                const cell = cells.createDiv({ cls: 'ad-ns__cell' });
+                if (cellTime < rangeStartTime || cellTime > rangeEndTime) {
+                    cell.addClass('ad-ns__cell--empty');
+                    continue;
+                }
+                const dateStr = fmtDate(cellDate);
+                const count = gitCounts.get(dateStr) ?? 0;
+                const isFuture = cellTime > todayTime;
+                if (!isFuture && count > 0) {
+                    if (count === 1)
+                        cell.addClass('l1');
+                    else if (count <= 3)
+                        cell.addClass('l2');
+                    else if (count <= 6)
+                        cell.addClass('l3');
+                    else
+                        cell.addClass('l4');
+                }
+                if (isFuture)
+                    cell.addClass('is-future');
+                if (dateStr === todayKey)
+                    cell.addClass('is-today');
+                const mm = String(cellDate.getMonth() + 1).padStart(2, '0');
+                const dd = String(cellDate.getDate()).padStart(2, '0');
+                cell.title = isFuture ? t('home.cellFuture', { m: mm, d: dd }) : t('home.cellCommits', { m: mm, d: dd, n: count });
+            }
+        }
+        const foot = card.createDiv({ cls: 'ad-ns__foot' });
+        foot.createSpan({ cls: 'ad-ns__window', text: t('home.gitRange') });
+        const legend = foot.createSpan({ cls: 'ad-ns__legend' });
+        legend.createSpan({ cls: 'ad-ns__lbl', text: t('home.legendFew') });
+        ['', 'l1', 'l2', 'l3', 'l4'].forEach((lv) => {
+            legend.createSpan({ cls: 'ad-ns__sw' + (lv ? ' ' + lv : '') });
+        });
+        legend.createSpan({ cls: 'ad-ns__lbl', text: t('home.legendMany') });
+        this.layoutGitHeatmap(card);
+        if (this.adGitObsTarget !== heat) {
+            this.adGitObs?.disconnect();
+            this.adGitObs = new ResizeObserver(() => {
+                if (this.gitHeatCard)
+                    this.layoutGitHeatmap(this.gitHeatCard);
+            });
+            this.adGitObs.observe(heat);
+            this.adGitObsTarget = heat;
+        }
+    }
+    /* ---- Git commit heatmap layout (独立 adGit* 状态，避免与笔记热力图冲突) ---- */
+    layoutGitHeatmap(card) {
+        const heat = card.querySelector('.ad-ns__heat');
+        const cells = card.querySelector('.ad-ns__cells');
+        const dow = card.querySelector('.ad-ns__dow');
+        const monthsRow = card.querySelector('.ad-ns__months');
+        if (!heat || !cells || !dow || !monthsRow)
+            return;
+        const total = this.adGitWeekMonths.length;
+        if (total === 0)
+            return;
+        const availW = Math.max(HM_CELL * HM_MIN_WEEKS, heat.clientWidth - HM_DOW_W);
+        let weeks = Math.floor((availW + HM_GAP_MIN) / (HM_CELL + HM_GAP_MIN));
+        weeks = Math.max(HM_MIN_WEEKS, Math.min(total, weeks));
+        let cgap = weeks > 1 ? (availW - weeks * HM_CELL) / (weeks - 1) : HM_GAP_MIN;
+        cgap = Math.max(HM_GAP_MIN, Math.min(HM_GAP_MAX, Math.round(cgap * 10) / 10));
+        const availH = heat.clientHeight - monthsRow.offsetHeight - 10;
+        let rgap = (availH - 7 * HM_CELL) / 6;
+        rgap = Math.max(HM_GAP_MIN, Math.min(HM_GAP_MAX, Math.round(rgap * 10) / 10));
+        const key = `${weeks}|${cgap}|${rgap}`;
+        if (key === this.adGitKey)
+            return;
+        this.adGitKey = key;
+        cells.style.setProperty('--hm-cgap', cgap + 'px');
+        cells.style.setProperty('--hm-rgap', rgap + 'px');
+        dow.style.setProperty('--hm-rgap', rgap + 'px');
+        const gridEl = cells.parentElement;
+        const gridGap = gridEl ? (parseFloat(getComputedStyle(gridEl).columnGap) || 4) : 4;
+        monthsRow.style.paddingLeft = (dow.offsetWidth + gridGap) + 'px';
+        const hiddenCells = (total - weeks) * 7;
+        const kids = cells.children;
+        for (let i = 0; i < kids.length; i++) {
+            kids[i].style.display = i < hiddenCells ? 'none' : '';
+        }
+        const monthNames = tArr('status.months');
+        const visible = this.adGitWeekMonths.slice(total - weeks);
+        monthsRow.empty();
+        const unit = HM_CELL + cgap;
+        let curM = visible[0] ?? 0;
+        let curS = 1;
+        const flush = (m, span) => {
+            const label = monthsRow.createSpan({ text: monthNames[m] ?? '' });
+            label.style.minWidth = (span * unit) + 'px';
+        };
+        for (let w = 1; w < visible.length; w++) {
+            const m = visible[w] ?? curM;
+            if (m === curM) {
+                curS++;
+                continue;
+            }
+            flush(curM, curS);
+            curM = m;
+            curS = 1;
+        }
+        flush(curM, curS);
+        const win = card.querySelector('.ad-ns__window');
+        if (win)
+            win.setText(weeks >= total ? t('home.heatmapAllYear', { year: this.adGitYear }) : t('home.heatmapRecent', { n: weeks }));
+    }
+```
+
+#### 20g — styles.css 配色 + 提示
+
+```css
+<<<<<<< SEARCH
+.ad-b-heatmap      { --mod: #06B6D4; }  /* 笔记统计 · 青 */
+=======
+.ad-b-heatmap      { --mod: #06B6D4; }  /* 笔记统计 · 青 */
+.ad-b-githeat      { --mod: #10B981; }  /* Git 提交热力图 · 绿 */
+.ad-git__tip       { padding: 12px; color: var(--text-muted); font-size: 12px; line-height: 1.6; }
+>>>>>>> REPLACE
+```
+
+- **校验清单**：
+  - `grep -c "renderGitHeatmap" main.js` 应为 **≥3**（定义 + 注册表 + 刷新按钮）
+  - `grep -c "getVaultGitCounts" main.js` 应为 **≥2**
+  - `grep -c "layoutGitHeatmap" main.js` 应为 **≥3**
+  - `grep -c "ad-b-githeat" main.js` 应为 **≥1**
+  - 卡片默认 `enabled: false`，需在首页「＋ 添加卡片」里手动启用（或把 `data.json` 里 `githeat.enabled` 改 `true`）
+  - ⚠️ 强风险：与笔记热力图共用 `layoutHeatmap` 会串状态 → 必须用独立 `layoutGitHeatmap`；桌面端才有 `child_process`，移动端/无 git 显示提示不崩溃
+
 ### 9.2 重打后校验
 
 1. 每块打完不要求即时验证；全部完成后执行：
