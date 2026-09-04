@@ -3637,3 +3637,407 @@ fs.writeFileSync('/tmp/home1_check.mjs',all);
 - **历史数据不丢**：旧 `04 TaskNotes/心情/*.md` 全部保留，读取时作为回退源（新数据优先）。
 - **与 `健康追踪.md` 兼容**：它用 `readHealthFile` → 改字段 → `writeHealthFile` 重建，会保留 `mood`（因为 data 对象含 mood）；反之插件侧字段级更新也保留 `waterCount`。双向不冲突。
 - **唯一已知取舍**：`健康追踪.md` 的 `writeHealthFile` 会**重建正文**，其模板里的 `- 今日心情：${data.mood}` 用的是英文 key（如 `happy`）而非「😊 开心」。因此若之后动了健康追踪面板，摘要行可能回退成 key 值；**frontmatter 数据不受影响**，下次用 Xove 卡片保存会再写成可读形式。
+
+---
+
+## 12. 目标进度自定义 + 写作字数自动统计 + 导航「新建」（追加补丁，2026-09-04）
+
+> 本补丁独立于前面的 §3/§17，作用于 xove-dashboard 主插件 `main.js` / `styles.css` / `manifest.json`。
+> **完整 unified diff 在 `02 WorkBuddy/backups/xove-dashboard-patch/`**（`xove-main.patch` / `xove-styles.patch` + `apply-patch.sh` + `*.orig` / `*.patched`），
+> 本节只记录「改了什么、锚点在哪、关键代码」，便于升级后手动重打。
+
+### 12.1 形态与体验
+
+1. **目标进度可自定义**：每个目标右侧 `⚙ 编辑` / `✕ 删除`；卡片底部「+ 新增目标」→ 弹窗（名称 / 目标值 / 单位 / 图标 / 颜色 / 自动统计 / 统计范围）。
+2. **写作字数自动统计**：目标「自动统计 = 字数统计」后，**打开首页即刷新真实字数**（中文按字、英文按词，剔除 frontmatter），不再需要手动点 `+1`。默认「写作字数」目标已是 `auto:'wordcount'`、`folder:''`（全库）。
+3. **导航「导入」→「新建」**：首页导航第四项由 `导入` 改名为 `新建`，进入后分两块——「新建内容」（本次新增：灵感收集 / 人生打卡清单 / 普通笔记）与「映射已有笔记为首页卡片」（原导入能力，保留）。
+
+### 12.2 修改原因
+
+- 原目标进度只有 `±1` 手动按钮，写作字数无法真实统计（每点一次只 `+1` 字）。
+- 原导入页只能把**已有** md 映射成卡片，不能**创建新内容**（灵感、打卡项、笔记）。
+- 原逻辑在目标为空时会回退默认目标，导致「删光目标」无效 —— 本次改为仅在字段缺失时初始化。
+
+### 12.3 main.js 改动锚点（方法名重定位，行号以 v0.3.1 patched 为准）
+
+| 改动 | 方法 / 位置 | 作用 |
+|---|---|---|
+| 按钮文案默认 | `DEFAULT_SETTINGS.importTitle`（L939） | `'导入'` → `'新建'` |
+| 文案迁移修复 | `normalizeSettings`（同 §17 的 importTitle 初始化处） | `undefined` → `'新建'`（不再回退默认「导入」） |
+| 目标渲染增强 | `renderGoals(board)`（L11572） | 每个目标加 `⚙`/`✕`，底部「+ 新增目标」；自动统计目标隐藏 `±`；仅在配置缺失时回退默认目标 |
+| 目标编辑弹窗 | 新增 `class GoalEditModal`（L4201，插在 `ImportBoard` 之后、`OpportunityBoard` 之前） | 新增/编辑目标模态框 |
+| 字数统计 | 新增 `countWordsInFolder(folder)`（L11644）/ `refreshAutoGoals(goals, onUpdated)`（L11668） | 统计与刷新自动目标；结果按范围缓存 60s、排除 `node_modules` |
+| 新建页 | `ImportBoard.render`（L4032 顶部新增「新建内容」区块）/ `doCreate(kind, name)`（L4126） | 「新建内容」三种类型 + 新建逻辑 |
+
+### 12.4 关键代码块
+
+**① `DEFAULT_SETTINGS.importTitle` 默认（L939）**
+```js
+importTitle: '新建',
+```
+
+**② `renderGoals` 关键增强（L11572 起，节选）**
+```js
+renderGoals(board) {
+    const card = this.getOrCreateCard(board, 'ad-card ad-b-goals');
+    this.cardHead(card, '🎯', t('home.modules.goals'), '');
+    // 仅在配置缺失时回退默认值；用户主动清空后不再复活默认目标
+    let goals = Array.isArray(this.plugin.settings.goals)
+        ? this.plugin.settings.goals.map((g) => ({ ...g }))
+        : DEFAULT_GOALS.map((g) => ({ ...g }));
+    const body = card.createDiv({ cls: 'ad-goals' });
+    const saveAndRender = async () => {
+        this.plugin.settings.goals = goals.map((g) => ({ ...g }));
+        await this.plugin.saveSettings();
+        renderList();
+    };
+    const renderList = () => {
+        body.empty();
+        for (const g of goals) {
+            /* ... 进度条/百分比渲染（同原逻辑） ... */
+            const btns = meta.createDiv({ cls: 'ad-goal__btns' });
+            // 自动统计类目标隐藏手动 ±，避免手动值与自动值互相覆盖
+            if (g.auto !== 'wordcount') {
+                const dec = btns.createEl('button', { text: '-' });
+                const inc = btns.createEl('button', { text: '+' });
+                dec.addEventListener('click', () => { g.current = Math.max(0, (g.current||0)-1); void saveAndRender(); });
+                inc.addEventListener('click', () => { g.current = Math.min(g.target||0, (g.current||0)+1); void saveAndRender(); });
+            }
+            const editBtn = btns.createEl('button', { text: '⚙' });
+            editBtn.addEventListener('click', () => {
+                new GoalEditModal(this.plugin.app, this.plugin, g, (next) => {
+                    const i = goals.findIndex((x) => x.id === g.id);
+                    if (i >= 0) goals[i] = next;
+                    void saveAndRender().then(() => this.refreshAutoGoals(goals, saveAndRender));
+                }).open();
+            });
+            const delBtn = btns.createEl('button', { text: '✕' });
+            delBtn.addEventListener('click', () => { goals = goals.filter((x) => x.id !== g.id); void saveAndRender(); });
+        }
+        const addRow = body.createDiv({ cls: 'ad-goal__add' });
+        const addBtn = addRow.createEl('button', { cls: 'ad-goal__addbtn', text: '+ 新增目标' });
+        addBtn.addEventListener('click', () => {
+            new GoalEditModal(this.plugin.app, this.plugin, null, (next) => {
+                goals.push(next);
+                void saveAndRender().then(() => this.refreshAutoGoals(goals, saveAndRender));
+            }).open();
+        });
+    };
+    renderList();
+    void this.refreshAutoGoals(goals, saveAndRender);
+}
+```
+
+**③ 字数统计（`countWordsInFolder` + `refreshAutoGoals`，L11644 / L11668）**
+```js
+async countWordsInFolder(folder) {
+    const prefix = (folder || '').trim().replace(/\/+$/, '');
+    const files = this.app.vault.getMarkdownFiles().filter((f) => {
+        if (f.path.includes('node_modules/')) return false;          // 排除依赖目录
+        if (!prefix || prefix === '/') return true;
+        return f.path === prefix || f.path.startsWith(prefix + '/');
+    });
+    let total = 0;
+    for (const f of files) {
+        try {
+            const raw = await this.app.vault.cachedRead(f);
+            const body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '');   // 剔除 frontmatter
+            const cjk = (body.match(/[一-龥]/g) || []).length;
+            const en  = (body.replace(/[一-龥]/g, ' ').match(/[A-Za-z0-9]+/g) || []).length;
+            total += cjk + en;
+        } catch (e) {}
+    }
+    return total;
+}
+async refreshAutoGoals(goals, onUpdated) {
+    const autoGoals = goals.filter((g) => g.auto === 'wordcount');
+    if (!autoGoals.length) return;
+    if (!this.wcCache) this.wcCache = new Map();
+    const now = Date.now();
+    let changed = false;
+    for (const g of autoGoals) {
+        const key = g.folder || '/';
+        const hit = this.wcCache.get(key);
+        let n;
+        if (hit && now - hit.at < 60000) n = hit.n;          // 缓存 60s
+        else { n = await this.countWordsInFolder(g.folder); this.wcCache.set(key, { at: now, n }); }
+        if (n !== g.current) { g.current = n; changed = true; }
+    }
+    if (changed) {
+        this.plugin.settings.goals = goals.map((g) => ({ ...g }));
+        await this.plugin.saveSettings();
+        if (onUpdated) onUpdated();
+    }
+}
+```
+
+**④ 目标编辑弹窗 `GoalEditModal`（L4201，插在 `ImportBoard` 之后、`OpportunityBoard` 之前）**
+```js
+class GoalEditModal extends obsidian.Modal {
+    constructor(app, plugin, goal, onSave) {
+        super(app);
+        this.plugin = plugin;
+        this.goal = goal
+            ? { ...goal }
+            : { id: '', name: '', target: 100, current: 0, unit: '', icon: '🎯', color: '#8b5cf6', auto: '', folder: '' };
+        this.onSave = onSave;
+    }
+    onOpen() {
+        const { contentEl } = this;
+        contentEl.empty();
+        const g = this.goal;
+        contentEl.createEl('h2', { text: g.id ? '编辑目标' : '新增目标' });
+        const form = contentEl.createDiv({ cls: 'ad-gform' });
+        // 行生成器：row('名称') → 内部加 input，input 事件写回 g.xxx
+        // 字段：名称 / 目标值(number) / 单位 / 图标 / 颜色(color) / 自动统计(select: ''=手动, 'wordcount'=字数统计) / 统计范围(folder)
+        // 保存：名称空则兜底 '未命名目标'；无 id 则生成 'g'+Date.now()；close() 后回调 onSave({...g})
+    }
+    onClose() { this.contentEl.empty(); }
+}
+```
+
+**⑤ 导航「新建」页（`ImportBoard.render` 顶部新增区块 + `doCreate`，L4032 / L4126）**
+```js
+// ImportBoard.render 顶部：新建内容区块（在「映射已有笔记」之前）
+const createBox = root.createDiv({ cls: 'im-create' });
+createBox.createEl('h3', { cls: 'im-create__title', text: '新建内容' });
+const cRow = createBox.createDiv({ cls: 'im-create__row' });
+const kindSel = cRow.createEl('select', { cls: 'im-select' });
+kindSel.createEl('option', { value: 'inspiration', text: '灵感收集' });
+kindSel.createEl('option', { value: 'checklist',   text: '人生打卡清单' });
+kindSel.createEl('option', { value: 'note',       text: '普通笔记' });
+const nameInput = cRow.createEl('input', { cls: 'im-input', attr: { placeholder: '输入名称，如：每天写 500 字' } });
+const createBtn = cRow.createEl('button', { cls: 'im-btn im-btn--primary', text: '新建' });
+const runCreate = () => void this.doCreate(kindSel.value, nameInput.value.trim());
+createBtn.addEventListener('click', runCreate);
+nameInput.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') runCreate(); });
+// （下方保留原「映射已有笔记为首页卡片」im-form / im-list）
+
+async doCreate(kind, name) {
+    if (!name) { this.host.showToast('请输入名称', 'error'); return; }
+    const app = this.host.app; const s = this.host.plugin.settings;
+    try {
+        if (kind === 'inspiration') {
+            const p = (s.opportunityFile || '看板.md').trim().toLowerCase().endsWith('.md')
+                ? (s.opportunityFile || '看板.md').trim() : (s.opportunityFile || '看板.md').trim() + '.md';
+            await createOpportunity(app, p, { title: name }, s.boardTitle || '灵感收集', (s.boardStages||[]).map((x)=>x.label));
+            this.host.showToast('已新建灵感：' + name);
+        } else if (kind === 'checklist') {
+            const p = (s.checklistFile || '').trim();
+            if (!p) { this.host.showToast('未配置人生打卡清单文件', 'error'); return; }
+            const file = app.vault.getAbstractFileByPath(p);
+            if (!(file instanceof obsidian.TFile)) { this.host.showToast('打卡清单文件不存在：' + p, 'error'); return; }
+            const lines = (await app.vault.read(file)).split(/\r?\n/);
+            let insertAt = lines.length;
+            while (insertAt > 0 && lines[insertAt-1].trim() === '') insertAt--;
+            lines.splice(insertAt, 0, '- [ ] ' + name);
+            await app.vault.modify(file, lines.join('\n'));
+            this.host.showToast('已新增打卡项：' + name);
+        } else { // note
+            const qc = s.quickCapture;
+            const dir = (qc && qc.storagePath ? qc.storagePath : '').trim().replace(/\/+$/, '');
+            const p = (dir ? dir + '/' : '') + name + '.md';
+            if (app.vault.getAbstractFileByPath(p)) { this.host.showToast('文件已存在：' + p, 'error'); return; }
+            const created = await app.vault.create(p, '# ' + name + '\n\n');
+            if (!Array.isArray(s.mirrors)) s.mirrors = [];
+            s.mirrors.push({ id: 'm'+Date.now(), filePath: created.path, scope: 'file', heading: '', title: name, icon: '📄', enabled: true, auto: false, sourceId: '' });
+            await this.host.plugin.saveSettings();
+            this.host.showToast('已新建笔记并加入首页：' + name);
+        }
+    } catch (e) {
+        console.error('[Xove] create failed', e);
+        this.host.showToast('新建失败：' + (e && e.message ? e.message : String(e)), 'error');
+        return;
+    }
+    await this.show();
+}
+```
+
+### 12.5 数据层（`settings.goals` 项结构）
+
+```js
+// 每个目标：
+{ id: 'g1700000000000', name: '写作字数', target: 100000, current: 0,
+  unit: '字', icon: '✍️', color: '#f59e0b',
+  auto: '',          // '' = 手动(±按钮)；'wordcount' = 自动统计字数
+  folder: '' }       // auto=wordcount 时生效；'' = 整个库，填文件夹则只统计该目录
+```
+- `DEFAULT_GOALS`（参考 §3 原默认）仍作为「字段缺失」兜底；用户主动清空 `goals: []` 后不再复活。
+- 写作字数目标默认已设为 `auto:'wordcount', folder:''`（全库，已排除 `node_modules`）。
+
+### 12.6 styles.css 新增类
+
+在 `styles.css` 末尾追加（沿用现有 `--ad-*` 变量）：
+- 目标编辑弹窗：`.ad-gform` / `.ad-gform__row` / `.ad-gform__icon` / `.ad-gform__color` / `.ad-gform__btns` + `.ad-modal-input`
+- 目标卡新增按钮：`.ad-goal__add` / `.ad-goal__addbtn` / `.ad-goal__btns`
+- 新建页区块：`.im-create` / `.im-create__title` / `.im-create__row`
+
+### 12.7 manifest 切断更新
+
+`manifest.json` 版本写入 `99.99.99`，插件名改为 `Xove Dashboard (定制版·勿更新)`，Obsidian / BRAT 不再提示更新。
+（`apply-patch.sh` 末尾用 python 改 `d['version']='99.99.99'`。）
+
+### 12.8 重打 / 回滚
+
+```bash
+# 一键重打（先备份 *.bak.<时间戳> → 打补丁 → 锁版本 → node --check）
+bash 02\ WorkBuddy/backups/xove-dashboard-patch/apply-patch.sh
+bash 02\ WorkBuddy/backups/xove-dashboard-patch/apply-patch.sh ~/.obsidian/plugins/xove-dashboard
+
+# 若 main.js 补丁应用失败（官方大改版上下文不匹配），直接恢复成品：
+cp 02\ WorkBuddy/backups/xove-dashboard-patch/main.js.patched   ~/.obsidian/plugins/xove-dashboard/main.js
+cp 02\ WorkBuddy/backups/xove-dashboard-patch/styles.css.patched ~/.obsidian/plugins/xove-dashboard/styles.css
+```
+- 改完需**重启 Obsidian**（或禁用再启用插件）才生效。
+- 手动合并新版时按 §12.3 的「方法名」定位（行号随版本变化）。
+
+### 12.9 重构修订（第二轮，2026-09-04）—— 新建逻辑纠正 + 结构与性能重构
+
+> **本节取代 §12.1 / §12.3 / §12.4 的 ③⑤ / §12.6 中关于「新建内容」的部分。**
+> 上面原文保留作历史记录，实际实现以本节为准（补丁文件已同步重新生成）。
+
+#### 12.9.1 为什么要改（逻辑纠正）
+
+- 第一版把「新建」做成了**模块内的单条创建**：灵感条目 / 打卡项 / 普通笔记（`doCreate` 的 `inspiration` / `checklist` / `note` 三个分支）。
+- 这不是预期行为：要的是 Xove 的**一级内容实体** —— 日记 / 任务 / 项目（对应导航栏模块与「全部项目」里的项目概念），而不是在清单里加一个 `- [ ] 任务`。
+- 因此**移除** `doCreate` 的三个自建分支，改为**复用 Xove 原生创建流程**，保证数据格式与「快速捕获」「全部项目」完全一致。
+
+#### 12.9.2 重构后的职责划分
+
+| 位置 | 职责 |
+|---|---|
+| `XOVE_CREATE_ENTRIES`（常量，定义在 `ImportBoard` 之前） | 声明式定义三个入口（key / 标题 / 描述 / SVG 图标）—— 加入口只改这一处 |
+| `ImportBoard.renderHead` | 页头 |
+| `ImportBoard.renderCreateGrid` | 三个入口卡片（键盘可达：Tab 聚焦、Enter/Space 触发） |
+| `ImportBoard.renderDiaryPanel` | 日记内联输入区（默认收起，⌘/Ctrl+Enter 保存） |
+| `ImportBoard.renderMapSection` | 映射已有笔记（折叠；展开时才构建文件下拉列表） |
+| `ImportBoard.renderMirrorList` | 已有映射卡片列表 |
+| `ImportBoard.runCreate(key)` | 入口分发 |
+| `ImportBoard.submitDiary()` | 日记写入 |
+| `GoalEditModal` | 目标编辑弹窗（字段配置化渲染） |
+| `renderGoals` + `commit()` + `renderList()` | 目标渲染；保存与渲染解耦 |
+| `countWordsInFolder` / `refreshAutoGoals` / `recomputeWordCounts` | 字数统计（持久缓存 + 后台重算） |
+
+#### 12.9.3 三个入口调用的 Xove 原生函数
+
+| 入口 | 调用 | 说明 |
+|---|---|---|
+| 新建日记 | `this.host.createCaptureNote(content)` | `daily` 模式追加到当日日记（memo 格式），`file` 模式建独立 md |
+| 新建任务 | `this.host.openTaskModal()` → `createTaskFile(...)` | 原生任务弹窗，字段完整（项目/状态/优先级/日期/重复规则） |
+| 新建项目 | `this.host.createProjectFile()` → `createProjectFolder(...)` | 原生项目弹窗，字段完整（名称/颜色/类型/起止日期/描述） |
+
+> 这三个方法都在 `DashboardView` 上（`host` 即 `DashboardView`），直接 `this.host.xxx()` 调用即可，无需自己拼数据格式。
+
+#### 12.9.4 关键代码（取代 §12.4 的 ⑤）
+
+```js
+/** 字数统计缓存有效期（毫秒）：期间直接用缓存值，过期后后台重算。 */
+const WC_TTL = 10 * 60 * 1000;
+const XOVE_CREATE_ENTRIES = [
+    { key: 'diary',   title: '新建日记', desc: '写一条闪念 / 今日日记', icon: '<svg …日历…/>' },
+    { key: 'task',    title: '新建任务', desc: '在指定项目下新建任务，可设日期与优先级', icon: '<svg …勾选…/>' },
+    { key: 'project', title: '新建项目', desc: '新建项目文件夹与 project 配置文件', icon: '<svg …文件夹…/>' },
+];
+class ImportBoard {
+    renderCreateGrid(root) {
+        const grid = root.createDiv({ cls: 'im-grid' });
+        for (const e of XOVE_CREATE_ENTRIES) {
+            const card = grid.createDiv({ cls: 'im-card' });
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-label', e.title);
+            card.createDiv({ cls: 'im-card__icon' }).innerHTML = e.icon;   // 内联 SVG
+            card.createDiv({ cls: 'im-card__title', text: e.title });
+            card.createDiv({ cls: 'im-card__desc', text: e.desc });
+            card.addEventListener('click', () => this.runCreate(e.key));
+            card.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); this.runCreate(e.key); }
+            });
+        }
+    }
+    /** 入口分发：日记走内联输入，任务/项目交给 Xove 原生弹窗 */
+    runCreate(key) {
+        if (key === 'diary')   { this.toggleDiary(true); return; }
+        if (key === 'task')    { void this.host.openTaskModal(); return; }
+        if (key === 'project') { void this.host.createProjectFile(); }
+    }
+    async submitDiary() {
+        const content = (this.diaryArea?.value || '').trim();
+        if (!content) { this.diaryArea?.focus(); return; }
+        try {
+            await this.host.createCaptureNote(content);
+            this.diaryArea.value = '';
+            this.host.showToast(t('home.capturedToast'));
+            this.toggleDiary(false);
+        } catch (err) {
+            console.error('[Xove] capture failed', err);
+            this.host.showToast(t('home.captureFailed'), 'error');
+        }
+    }
+    /** 映射区：展开时才构建文件列表（库内上千 md，避免每次进页面都排序加载） */
+    buildMapForm(body) {
+        if (this.mapBuilt) return;
+        this.mapBuilt = true;
+        /* …原 im-form：select + path + title + icon + 按钮… */
+    }
+}
+```
+
+#### 12.9.5 字数统计性能优化（取代 §12.4 的 ③）
+
+三层优化，目标是**打开首页不再全库扫描**：
+
+```js
+/** 刷新：先套用持久缓存立即出结果，过期项交给后台重算。 */
+async refreshAutoGoals(goals, onUpdated, commit) {
+    const auto = goals.filter((g) => g.auto === 'wordcount');
+    if (!auto.length) return;
+    const cache = (this.plugin.settings.wcCache = this.plugin.settings.wcCache || {});
+    const now = Date.now();
+    let changed = false;
+    const stale = [];
+    for (const g of auto) {
+        const key = g.folder || '/';
+        const hit = cache[key];
+        if (!hit) { stale.push(g); continue; }        // 首次：无缓存 → 后台算
+        if (hit.n !== g.current) { g.current = hit.n; changed = true; }
+        if (now - hit.at > WC_TTL) stale.push(g);     // 过期 → 后台算
+    }
+    if (changed) { if (commit) await commit(); if (onUpdated) onUpdated(); }
+    if (stale.length) void this.recomputeWordCounts(stale, goals, cache, onUpdated, commit);
+}
+/** 后台重算（不阻塞首屏）：算完回写并局部刷新。 */
+async recomputeWordCounts(list, goals, cache, onUpdated, commit) {
+    let changed = false;
+    for (const g of list) {
+        const key = g.folder || '/';
+        const n = await this.countWordsInFolder(g.folder);
+        cache[key] = { at: Date.now(), n };
+        if (n !== g.current) { g.current = n; changed = true; }
+    }
+    if (!changed) return;
+    if (commit) await commit();
+    else { this.plugin.settings.goals = goals.map((g) => ({ ...g })); await this.plugin.saveSettings(); }
+    if (onUpdated) onUpdated();
+}
+// countWordsInFolder：分批并发（每批 100），避免上千 Promise 一次性占满微任务队列
+for (let i = 0; i < files.length; i += 100) {
+    const counts = await Promise.all(files.slice(i, i + 100).map(async (f) => { /* cachedRead + 剔除 frontmatter + 中英计数 */ }));
+    for (const n of counts) total += n;
+}
+```
+
+#### 12.9.6 视觉与无障碍（取代 §12.6 的 `.im-create*`）
+
+- 样式类改为：`.im-grid` / `.im-card`（+`__icon` `__title` `__desc`）/ `.im-diary`（+`__area` `__row`）/ `.im-section`（+`__head` `__title` `__toggle` `__body`）；**`.im-create*` 已删除**。
+- 全部沿用插件既有 `--ad-*` 变量，不引入新色值。
+- 图标用内联 SVG（不依赖字体、随主题变色），取代 emoji。
+- 微交互统一 180ms：`hover` 换边框+底色、`active` 轻微下沉、`focus-visible` 描边、键盘可达。
+- `@media (prefers-reduced-motion: reduce)` 下关闭过渡。
+- 目标卡操作按钮 18px → 20px，补 `transition` 与 `focus-visible`。
+
+#### 12.9.7 重打补丁时注意
+
+`apply-patch.sh` 的「已打补丁」检测标记已同步更新：
+- `main.js` → `grep 'class GoalEditModal'`（不变）
+- `styles.css` → `grep 'im-grid'`（原为 `im-create__row`，因该样式已删除而失效）

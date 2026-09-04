@@ -1,0 +1,474 @@
+--- main.js.orig	2026-09-04 18:45:11
++++ main.js.patched	2026-09-04 19:25:01
+@@ -936,7 +936,7 @@
+     checklistOutlineFile: '',
+     checklistAutoGroup: false,
+     importEnabled: true,
+-    importTitle: '导入',
++    importTitle: '新建',
+     inspirationLimit: 20,
+     memoRecall: { enabled: false, range: '30d', count: 3 },
+     heatmapMode: 'year',
+@@ -4008,10 +4008,38 @@
+         }
+     }
+ }
+-/** 导入页（第四页）：把任意 md 一键建成首页「笔记映射」卡片。 */
++/** 字数统计缓存有效期（毫秒）：期间直接用缓存值，过期后后台重算。 */
++const WC_TTL = 10 * 60 * 1000;
++/* ============================================================
++   XOVE CUSTOM · 新建页（第四页）
++   职责：
++     1) 一级内容创建入口：日记 / 任务 / 项目 —— 复用 Xove 原生创建流程，
++        保证与「快速捕获」「全部项目」等模块的数据格式完全一致。
++     2) 次要能力：把已有 md 映射成首页「笔记映射」卡片。
++   性能：
++     - 文件选择器懒加载：库内上千 md 时，option 只在展开映射区块时构建一次。
++     - 创建成功后只重建必要区块，不整页重渲染。
++   ============================================================ */
++const XOVE_CREATE_ENTRIES = [
++    {
++        key: 'diary', title: '新建日记', desc: '写一条闪念 / 今日日记',
++        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>',
++    },
++    {
++        key: 'task', title: '新建任务', desc: '在指定项目下新建任务，可设日期与优先级',
++        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>',
++    },
++    {
++        key: 'project', title: '新建项目', desc: '新建项目文件夹与 project 配置文件',
++        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l1.8 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
++    },
++];
+ class ImportBoard {
+     constructor(host) {
+         this.host = host;
++        this.mapBuilt = false;      // 映射区表单是否已构建（懒加载）
++        this.diaryPanel = null;
++        this.diaryArea = null;
+     }
+     title() { return this.host.plugin.settings.importTitle || t('settings.importNamePlaceholder'); }
+     async show() {
+@@ -4031,17 +4059,89 @@
+     }
+     render(root) {
+         root.empty();
++        this.renderHead(root);
++        this.renderCreateGrid(root);
++        this.renderDiaryPanel(root);
++        this.renderMapSection(root);
++        this.renderMirrorList(root);
++    }
++    renderHead(root) {
+         const head = root.createDiv({ cls: 'im-head' });
+         head.createEl('h2', { cls: 'im-title', text: this.title() });
+         head.createDiv({ cls: 'im-sub', text: t('home.importSub') });
+-        const form = root.createDiv({ cls: 'im-form' });
+-        // 方式一：从库中选择
++    }
++    /** 三个一级创建入口 */
++    renderCreateGrid(root) {
++        const grid = root.createDiv({ cls: 'im-grid' });
++        for (const e of XOVE_CREATE_ENTRIES) {
++            const card = grid.createDiv({ cls: 'im-card' });
++            card.setAttribute('role', 'button');
++            card.setAttribute('tabindex', '0');
++            card.setAttribute('aria-label', e.title);
++            const ic = card.createDiv({ cls: 'im-card__icon' });
++            ic.innerHTML = e.icon;
++            card.createDiv({ cls: 'im-card__title', text: e.title });
++            card.createDiv({ cls: 'im-card__desc', text: e.desc });
++            card.addEventListener('click', () => this.runCreate(e.key));
++            card.addEventListener('keydown', (ev) => {
++                if (ev.key === 'Enter' || ev.key === ' ') {
++                    ev.preventDefault();
++                    this.runCreate(e.key);
++                }
++            });
++        }
++    }
++    /** 日记内联输入区：默认收起，点「新建日记」展开 */
++    renderDiaryPanel(root) {
++        const panel = root.createDiv({ cls: 'im-diary is-hidden' });
++        const area = panel.createEl('textarea', {
++            cls: 'im-input im-diary__area',
++            attr: { rows: '3', placeholder: '记点什么…（⌘/Ctrl + Enter 保存）' },
++        });
++        const row = panel.createDiv({ cls: 'im-diary__row' });
++        const save = row.createEl('button', { cls: 'im-btn im-btn--primary', text: '保存' });
++        const cancel = row.createEl('button', { cls: 'im-btn', text: '取消' });
++        save.addEventListener('click', () => void this.submitDiary());
++        cancel.addEventListener('click', () => this.toggleDiary(false));
++        area.addEventListener('keydown', (ev) => {
++            if ((ev.metaKey || ev.ctrlKey) && ev.key === 'Enter')
++                void this.submitDiary();
++        });
++        this.diaryPanel = panel;
++        this.diaryArea = area;
++    }
++    toggleDiary(show) {
++        if (!this.diaryPanel)
++            return;
++        this.diaryPanel.toggleClass('is-hidden', !show);
++        if (show)
++            this.diaryArea?.focus();
++    }
++    /** 次要区块：映射已有笔记（折叠，展开时才构建文件列表） */
++    renderMapSection(root) {
++        const wrap = root.createDiv({ cls: 'im-section' });
++        const head = wrap.createDiv({ cls: 'im-section__head' });
++        head.createSpan({ cls: 'im-section__title', text: '映射已有笔记为首页卡片' });
++        const toggle = head.createEl('button', { cls: 'im-section__toggle', text: '展开' });
++        const body = wrap.createDiv({ cls: 'im-section__body is-hidden' });
++        toggle.addEventListener('click', () => {
++            const willShow = body.hasClass('is-hidden');
++            body.toggleClass('is-hidden', !willShow);
++            toggle.textContent = willShow ? '收起' : '展开';
++            if (willShow)
++                this.buildMapForm(body);
++        });
++    }
++    buildMapForm(body) {
++        if (this.mapBuilt)
++            return;
++        this.mapBuilt = true;
++        const form = body.createDiv({ cls: 'im-form' });
+         const sel = form.createEl('select', { cls: 'im-select' });
+         sel.createEl('option', { value: '', text: t('home.importPickPlaceholder') });
+         const files = this.host.app.vault.getMarkdownFiles().sort((a, b) => a.path.localeCompare(b.path));
+         for (const f of files)
+             sel.createEl('option', { value: f.path, text: f.path });
+-        // 方式二：直接粘贴路径
+         const pathInput = form.createEl('input', { cls: 'im-input', attr: { placeholder: t('home.importPathPlaceholder') } });
+         sel.addEventListener('change', () => {
+             if (sel.value)
+@@ -4053,7 +4153,8 @@
+         const btnRow = form.createDiv({ cls: 'im-btns' });
+         const btn = btnRow.createEl('button', { cls: 'im-btn im-btn--primary', text: t('home.importBtn') });
+         btn.addEventListener('click', () => void this.doImport(pathInput.value.trim(), titleInput.value.trim(), iconInput.value.trim()));
+-        // 已有映射卡片
++    }
++    renderMirrorList(root) {
+         const list = root.createDiv({ cls: 'im-list' });
+         list.createEl('h3', { cls: 'im-list__title', text: t('home.importExisting') });
+         const mirrors = Array.isArray(this.host.plugin.settings.mirrors) ? this.host.plugin.settings.mirrors : [];
+@@ -4067,9 +4168,41 @@
+             row.createSpan({ cls: 'im-item__name', text: m.title || m.filePath });
+             row.createSpan({ cls: 'im-item__path', text: m.filePath });
+             const rm = row.createEl('button', { cls: 'im-item__del', text: '\u2715' });
++            rm.setAttribute('aria-label', '移除映射');
+             rm.addEventListener('click', () => void this.removeMirror(m.id));
+         }
+     }
++    /** 入口分发：日记走内联输入，任务/项目交给 Xove 原生弹窗 */
++    runCreate(key) {
++        if (key === 'diary') {
++            this.toggleDiary(true);
++            return;
++        }
++        if (key === 'task') {
++            void this.host.openTaskModal();
++            return;
++        }
++        if (key === 'project') {
++            void this.host.createProjectFile();
++        }
++    }
++    async submitDiary() {
++        const content = (this.diaryArea?.value || '').trim();
++        if (!content) {
++            this.diaryArea?.focus();
++            return;
++        }
++        try {
++            await this.host.createCaptureNote(content);
++            this.diaryArea.value = '';
++            this.host.showToast(t('home.capturedToast'));
++            this.toggleDiary(false);
++        }
++        catch (err) {
++            console.error('[Xove] capture failed', err);
++            this.host.showToast(t('home.captureFailed'), 'error');
++        }
++    }
+     async doImport(filePath, title, icon) {
+         if (!filePath) {
+             this.host.showToast(t('home.importNeedFile'), 'error');
+@@ -4089,15 +4222,9 @@
+             return;
+         }
+         s.mirrors.push({
+-            id: 'm' + Date.now(),
+-            filePath: p,
+-            scope: 'file',
+-            heading: '',
+-            title: title || file.basename,
+-            icon: icon || '\u{1F4C4}',
+-            enabled: true,
+-            auto: false,
+-            sourceId: '',
++            id: 'm' + Date.now(), filePath: p, scope: 'file', heading: '',
++            title: title || file.basename, icon: icon || '\u{1F4C4}',
++            enabled: true, auto: false, sourceId: '',
+         });
+         await this.host.plugin.saveSettings();
+         this.host.showToast(t('home.importDone'));
+@@ -4110,7 +4237,66 @@
+         await this.show();
+     }
+ }
+-/** 通用看板（第三页）渲染器 — extracted from DashboardView. */
++/** 目标编辑弹窗：字段配置化渲染，便于后续扩展新字段。 */
++class GoalEditModal extends obsidian.Modal {
++    constructor(app, plugin, goal, onSave) {
++        super(app);
++        this.plugin = plugin;
++        this.goal = goal
++            ? { ...goal }
++            : { id: '', name: '', target: 100, current: 0, unit: '', icon: '\u{1F3AF}', color: '#8b5cf6', auto: '', folder: '' };
++        this.onSave = onSave;
++    }
++    onOpen() {
++        const { contentEl } = this;
++        contentEl.empty();
++        const g = this.goal;
++        contentEl.createEl('h2', { text: g.id ? '编辑目标' : '新增目标' });
++        const form = contentEl.createDiv({ cls: 'ad-gform' });
++        const fields = [
++            { key: 'name', label: '名称', type: 'text', ph: '例如：写作字数' },
++            { key: 'target', label: '目标值', type: 'number', ph: '100' },
++            { key: 'unit', label: '单位', type: 'text', ph: '字 / 本 / 天' },
++            { key: 'icon', label: '图标', type: 'text', ph: '\u{1F3AF}', cls: 'ad-gform__icon' },
++            { key: 'color', label: '颜色', type: 'color', ph: '' },
++            { key: 'folder', label: '统计范围', type: 'text', ph: '留空=整个库，或填文件夹如 07 成长' },
++        ];
++        for (const f of fields) {
++            const row = form.createDiv({ cls: 'ad-gform__row' });
++            row.createEl('label', { text: f.label });
++            const input = row.createEl('input', {
++                cls: 'ad-modal-input' + (f.cls ? ' ' + f.cls : ''),
++                attr: { type: f.type, placeholder: f.ph },
++            });
++            input.value = f.type === 'number' ? String(g[f.key] ?? 0) : (g[f.key] || (f.key === 'color' ? '#8b5cf6' : ''));
++            input.addEventListener('input', () => {
++                g[f.key] = f.type === 'number' ? (Number(input.value) || 0) : input.value.trim();
++            });
++        }
++        const rAuto = form.createDiv({ cls: 'ad-gform__row' });
++        rAuto.createEl('label', { text: '自动统计' });
++        const selAuto = rAuto.createEl('select', { cls: 'ad-modal-input' });
++        selAuto.createEl('option', { value: '', text: '手动（± 按钮调整）' });
++        selAuto.createEl('option', { value: 'wordcount', text: '字数统计（自动）' });
++        selAuto.value = g.auto || '';
++        selAuto.addEventListener('change', () => { g.auto = selAuto.value; });
++        const btns = contentEl.createDiv({ cls: 'ad-gform__btns' });
++        const ok = btns.createEl('button', { cls: 'mod-cta', text: '保存' });
++        ok.addEventListener('click', () => {
++            if (!(g.name || '').trim())
++                g.name = '未命名目标';
++            if (!g.id)
++                g.id = 'g' + Date.now();
++            this.close();
++            void this.onSave({ ...g });
++        });
++        const cancel = btns.createEl('button', { text: '取消' });
++        cancel.addEventListener('click', () => this.close());
++    }
++    onClose() {
++        this.contentEl.empty();
++    }
++}
+ class OpportunityBoard {
+     constructor(host) {
+         // Board state
+@@ -11418,14 +11604,14 @@
+     renderGoals(board) {
+         const card = this.getOrCreateCard(board, 'ad-card ad-b-goals');
+         this.cardHead(card, '\u{1F3AF}', t('home.modules.goals'), '');
+-        let goals = (this.plugin.settings.goals ?? []).map((g) => ({ ...g }));
+-        if (goals.length === 0)
+-            goals = DEFAULT_GOALS.map((g) => ({ ...g }));
++        // 仅在配置缺失时回退默认值；用户主动清空后不再复活默认目标
++        const goals = Array.isArray(this.plugin.settings.goals)
++            ? this.plugin.settings.goals.map((g) => ({ ...g }))
++            : DEFAULT_GOALS.map((g) => ({ ...g }));
+         const body = card.createDiv({ cls: 'ad-goals' });
+-        const saveAndRender = async () => {
++        const commit = async () => {
+             this.plugin.settings.goals = goals.map((g) => ({ ...g }));
+             await this.plugin.saveSettings();
+-            renderList();
+         };
+         const renderList = () => {
+             body.empty();
+@@ -11443,20 +11629,143 @@
+                 const meta = row.createDiv({ cls: 'ad-goal__meta' });
+                 meta.createSpan({ text: g.current + (g.unit || '') + ' / ' + g.target + (g.unit || '') });
+                 const btns = meta.createDiv({ cls: 'ad-goal__btns' });
+-                const dec = btns.createEl('button', { text: '-' });
+-                const inc = btns.createEl('button', { text: '+' });
+-                dec.addEventListener('click', () => {
+-                    g.current = Math.max(0, (g.current || 0) - 1);
+-                    void saveAndRender();
++                // 自动统计类目标隐藏手动 ±，避免手动值与自动值互相覆盖
++                if (g.auto !== 'wordcount') {
++                    const dec = btns.createEl('button', { text: '-' });
++                    const inc = btns.createEl('button', { text: '+' });
++                    dec.setAttribute('aria-label', '减少 1');
++                    inc.setAttribute('aria-label', '增加 1');
++                    dec.addEventListener('click', () => {
++                        g.current = Math.max(0, (g.current || 0) - 1);
++                        void commit().then(renderList);
++                    });
++                    inc.addEventListener('click', () => {
++                        g.current = Math.min(g.target || 0, (g.current || 0) + 1);
++                        void commit().then(renderList);
++                    });
++                }
++                const editBtn = btns.createEl('button', { text: '\u2699' });
++                editBtn.title = '编辑目标';
++                editBtn.setAttribute('aria-label', '编辑目标');
++                editBtn.addEventListener('click', () => {
++                    new GoalEditModal(this.plugin.app, this.plugin, g, (next) => {
++                        const i = goals.findIndex((x) => x.id === g.id);
++                        if (i >= 0)
++                            goals[i] = next;
++                        void commit().then(() => this.refreshAutoGoals(goals, renderList, commit));
++                    }).open();
+                 });
+-                inc.addEventListener('click', () => {
+-                    g.current = Math.min(g.target || 0, (g.current || 0) + 1);
+-                    void saveAndRender();
++                const delBtn = btns.createEl('button', { text: '\u2715' });
++                delBtn.title = '删除目标';
++                delBtn.setAttribute('aria-label', '删除目标');
++                delBtn.addEventListener('click', () => {
++                    const i = goals.findIndex((x) => x.id === g.id);
++                    if (i >= 0)
++                        goals.splice(i, 1);
++                    void commit().then(renderList);
+                 });
+             }
++            const addRow = body.createDiv({ cls: 'ad-goal__add' });
++            const addBtn = addRow.createEl('button', { cls: 'ad-goal__addbtn', text: '+ 新增目标' });
++            addBtn.addEventListener('click', () => {
++                new GoalEditModal(this.plugin.app, this.plugin, null, (next) => {
++                    goals.push(next);
++                    void commit().then(() => this.refreshAutoGoals(goals, renderList, commit));
++                }).open();
++            });
+         };
+         renderList();
++        // 首屏先用持久缓存秒出，过期项交给后台重算，不阻塞渲染
++        void this.refreshAutoGoals(goals, renderList, commit);
+     }
++    /** 统计指定文件夹（留空=整个库）下所有 md 的字数：中文按字计、英文按词计。
++     *  分批并发读取，避免上千个 Promise 一次性占满微任务队列。 */
++    async countWordsInFolder(folder) {
++        const prefix = (folder || '').trim().replace(/\/+$/, '');
++        const files = this.app.vault.getMarkdownFiles().filter((f) => {
++            // 排除依赖目录，避免第三方库里的 md 把字数统计严重放大
++            if (f.path.includes('node_modules/'))
++                return false;
++            if (!prefix || prefix === '/')
++                return true;
++            return f.path === prefix || f.path.startsWith(prefix + '/');
++        });
++        let total = 0;
++        const BATCH = 100;
++        for (let i = 0; i < files.length; i += BATCH) {
++            const chunk = files.slice(i, i + BATCH);
++            const counts = await Promise.all(chunk.map(async (f) => {
++                try {
++                    const raw = await this.app.vault.cachedRead(f);
++                    const body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '');
++                    const cjk = (body.match(/[\u4e00-\u9fa5]/g) || []).length;
++                    const en = (body.replace(/[\u4e00-\u9fa5]/g, ' ').match(/[A-Za-z0-9]+/g) || []).length;
++                    return cjk + en;
++                }
++                catch (e) {
++                    return 0;
++                }
++            }));
++            for (const n of counts)
++                total += n;
++        }
++        return total;
++    }
++    /** 刷新「自动统计」类目标：先套用持久缓存立即出结果，过期项交给后台重算。 */
++    async refreshAutoGoals(goals, onUpdated, commit) {
++        const auto = goals.filter((g) => g.auto === 'wordcount');
++        if (!auto.length)
++            return;
++        const cache = (this.plugin.settings.wcCache = this.plugin.settings.wcCache || {});
++        const now = Date.now();
++        let changed = false;
++        const stale = [];
++        for (const g of auto) {
++            const key = g.folder || '/';
++            const hit = cache[key];
++            if (!hit) {
++                stale.push(g);
++                continue;
++            }
++            if (hit.n !== g.current) {
++                g.current = hit.n;
++                changed = true;
++            }
++            if (now - hit.at > WC_TTL)
++                stale.push(g);
++        }
++        if (changed) {
++            if (commit)
++                await commit();
++            if (onUpdated)
++                onUpdated();
++        }
++        if (stale.length)
++            void this.recomputeWordCounts(stale, goals, cache, onUpdated, commit);
++    }
++    /** 后台重算（不阻塞首屏）：算完再回写并局部刷新。 */
++    async recomputeWordCounts(list, goals, cache, onUpdated, commit) {
++        let changed = false;
++        for (const g of list) {
++            const key = g.folder || '/';
++            const n = await this.countWordsInFolder(g.folder);
++            cache[key] = { at: Date.now(), n };
++            if (n !== g.current) {
++                g.current = n;
++                changed = true;
++            }
++        }
++        if (!changed)
++            return;
++        if (commit)
++            await commit();
++        else {
++            this.plugin.settings.goals = goals.map((g) => ({ ...g }));
++            await this.plugin.saveSettings();
++        }
++        if (onUpdated)
++            onUpdated();
++    }
+     async renderFocusTime(board) {
+         const card = this.getOrCreateCard(board, 'ad-card ad-b-focustime');
+         this.cardHead(card, '\u23F1\uFE0F', t('home.modules.focusTime'), '');
+@@ -13167,7 +13476,8 @@
+             this.settings.quickLinks = DEFAULT_QUICK_LINKS.map((l) => ({ ...l }));
+             changed = true;
+         }
+-        if (!Array.isArray(this.settings.goals) || this.settings.goals.length === 0) {
++        // 只在字段缺失时初始化；保留用户主动清空（空数组）的结果
++        if (!Array.isArray(this.settings.goals)) {
+             this.settings.goals = DEFAULT_GOALS.map((g) => ({ ...g }));
+             changed = true;
+         }
+@@ -13187,7 +13497,7 @@
+         if (typeof this.settings.importEnabled !== 'boolean')
+             { this.settings.importEnabled = true; changed = true; }
+         if (typeof this.settings.importTitle !== 'string' || !this.settings.importTitle)
+-            { this.settings.importTitle = '导入'; changed = true; }
++            { this.settings.importTitle = '新建'; changed = true; }
+         if (typeof this.settings.inspirationLimit !== 'number' || this.settings.inspirationLimit < 1)
+             { this.settings.inspirationLimit = 20; changed = true; }
+         if (!['day', 'week', 'quarter', 'year'].includes(this.settings.heatmapMode))
