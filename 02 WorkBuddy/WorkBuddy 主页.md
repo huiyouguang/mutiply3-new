@@ -28,9 +28,9 @@ WorkBuddy 是 CodeBuddy 环境下的个人工作台，核心能力：
 
 | 数据类型 | 路径 | 说明 |
 |---------|------|------|
-| 健康数据 | `TaskNotes/健康数据/YYYY-MM-DD.md` | 每日健康记录 |
-| 心情日记 | `TaskNotes/心情/YYYY-MM-DD.md` | 每日心情与感恩 |
-| CPA 任务 | `TaskNotes/01 task/注册会计师.md` | 备考进度追踪 |
+| 健康数据 | `04 TaskNotes/健康数据/YYYY-MM-DD.md` | 每日健康记录 |
+| 心情日记 | `04 TaskNotes/心情/YYYY-MM-DD.md` | 每日心情与感恩 |
+| CPA 任务 | `04 TaskNotes/01 task/注册会计师.md` | 备考进度追踪 |
 | 新建笔记 | `00 Inbox/` | 默认收件箱 |
 | 学习笔记 | `04成长/` | 成长与学习 |
 | 播客笔记 | `03Life os/播客生活/` | 播客与知识管理 |

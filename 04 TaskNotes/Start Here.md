@@ -11,7 +11,7 @@ TaskNotes works best when three things feel connected:
 ## Before you start
 
 - [ ] Enable the Obsidian **Bases** core plugin.
-- [ ] Confirm TaskNotes has created the default `.base` files in `TaskNotes/Views/`.
+- [ ] Confirm TaskNotes has created the default `.base` files in `04 TaskNotes/Views/`.
 - [ ] Open the command palette and run **TaskNotes: Open tasks view**.
 
 TaskNotes creates missing default `.base` files automatically on startup when **Auto-create default files** is enabled. If the files are missing, use **Settings -> TaskNotes -> General -> Views & base files -> Create files**.
@@ -48,31 +48,31 @@ The embedded views below use the default TaskNotes Bases files.
 
 ### Task list
 
-![[TaskNotes/Views/tasks-default.base]]
+![[04 TaskNotes/Views/tasks-default.base]]
 
 Use this when you want a straightforward list of everything open.
 
 ### Agenda
 
-![[TaskNotes/Views/agenda-default.base]]
+![[04 TaskNotes/Views/agenda-default.base]]
 
 Use this when you care about due dates, scheduled dates, and what needs attention soon.
 
 ### Mini calendar
 
-![[TaskNotes/Views/mini-calendar-default.base]]
+![[04 TaskNotes/Views/mini-calendar-default.base]]
 
 Use this when you want a compact calendar alongside your notes.
 
 ### Calendar
 
-![[TaskNotes/Views/calendar-default.base]]
+![[04 TaskNotes/Views/calendar-default.base]]
 
 Use this when you want a larger calendar for scheduled work, due dates, timeblocks, and calendar events.
 
 ### Kanban
 
-![[TaskNotes/Views/kanban-default.base]]
+![[04 TaskNotes/Views/kanban-default.base]]
 
 Use this when you want to move work through statuses like open, in progress, and done.
 
@@ -97,7 +97,7 @@ TaskNotes uses this pattern for the Relationships widget in task notes. When you
 
 Useful next experiments:
 
-- Duplicate `TaskNotes/Views/tasks-default.base` and make a view for one project.
+- Duplicate `04 TaskNotes/Views/tasks-default.base` and make a view for one project.
 - Add a group to a Base view, such as status or priority.
 - Add a filter for tasks due this week.
 - Link a task to a project note and use backlinks to see where it is mentioned.

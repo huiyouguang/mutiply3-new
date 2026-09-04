@@ -788,8 +788,8 @@ const DEFAULT_SETTINGS = {
 
 | 卡片 | 数据文件 | 格式 |
 |---|---|---|
-| 心情日记 | `TaskNotes/心情/YYYY-MM-DD.md` | frontmatter `mood: <key>`（happy/good/meh/sad/cry/angry/tired/calm/driven/love）+ 正文 `😊 今天心情：开心` |
-| 喝水记录 | `TaskNotes/健康数据/YYYY-MM-DD.md` | frontmatter `waterCount: <n>`（目标默认 8 杯） |
+| 心情日记 | `04 TaskNotes/心情/YYYY-MM-DD.md` | frontmatter `mood: <key>`（happy/good/meh/sad/cry/angry/tired/calm/driven/love）+ 正文 `😊 今天心情：开心` |
+| 喝水记录 | `04 TaskNotes/健康数据/YYYY-MM-DD.md` | frontmatter `waterCount: <n>`（目标默认 8 杯） |
 | 灵感闪念 | `dailyMemoPath()`，即 `quickCapture.storagePath/YYYY-MM-DD.md` | 复用 §10 的 `parseMemos` 解析 `- HH:mm 内容` |
 
 > ⚠️ **重打顺序**：必须先打**块 13（专注时间）**，再打本块 14——本块所有锚点都依赖「focus-time 行已存在」。
@@ -857,9 +857,9 @@ const DEFAULT_SETTINGS = {
     goals: DEFAULT_GOALS.map((g) => ({ ...g })),
 =======
     goals: DEFAULT_GOALS.map((g) => ({ ...g })),
-    moodDir: 'TaskNotes/心情',
+    moodDir: '04 TaskNotes/心情',
     waterGoal: 8,
-    healthDataDir: 'TaskNotes/健康数据',
+    healthDataDir: '04 TaskNotes/健康数据',
 >>>>>>> REPLACE
 ```
 - **原因**：3 张卡片的数据目录与喝水目标，可在 `data.json` 里改（设置面板 UI 未做）。
@@ -923,7 +923,7 @@ const DEFAULT_SETTINGS = {
         this.cardHead(card, '\u{1F60A}', t('home.modules.mood'), '');
         const body = card.createDiv({ cls: 'ad-mood' });
         const s = this.plugin.settings;
-        const dir = (s.moodDir || '').trim() || 'TaskNotes/心情';
+        const dir = (s.moodDir || '').trim() || '04 TaskNotes/心情';
         const emojis = { '😊': '开心', '🙂': '不错', '😐': '一般', '😔': '低落', '😢': '难过', '😡': '生气', '😴': '疲惫', '✨': '平静', '💪': '奋斗', '❤️': '爱' };
         const keys = { '😊': 'happy', '🙂': 'good', '😐': 'meh', '😔': 'sad', '😢': 'cry', '😡': 'angry', '😴': 'tired', '✨': 'calm', '💪': 'driven', '❤️': 'love' };
         const colors = { '😊': '#34d399', '🙂': '#60a5fa', '😐': '#9ca3af', '😔': '#818cf8', '😢': '#f87171', '😡': '#fb923c', '😴': '#a78bfa', '✨': '#fbbf24', '💪': '#f472b6', '❤️': '#f43f5e' };
@@ -978,7 +978,7 @@ const DEFAULT_SETTINGS = {
         const card = this.getOrCreateCard(board, 'ad-card ad-b-water');
         this.cardHead(card, '\u{1F4A7}', t('home.modules.water'), `0/${goal}`);
         const body = card.createDiv({ cls: 'ad-water' });
-        const dir = (s.healthDataDir || '').trim() || 'TaskNotes/健康数据';
+        const dir = (s.healthDataDir || '').trim() || '04 TaskNotes/健康数据';
         const todayStr = fmtDate(new Date());
         const path = `${dir}/${todayStr}.md`;
         const readCount = async () => {
@@ -1111,9 +1111,9 @@ const DEFAULT_SETTINGS = {
 
 ```main.js
 <<<<<<< SEARCH
-    healthDataDir: 'TaskNotes/健康数据',
+    healthDataDir: '04 TaskNotes/健康数据',
 =======
-    healthDataDir: 'TaskNotes/健康数据',
+    healthDataDir: '04 TaskNotes/健康数据',
     cardStyle: 'standard',
 >>>>>>> REPLACE
 ```
@@ -1352,11 +1352,11 @@ const DEFAULT_SETTINGS = {
 > 1. 同一天的记录要落在**同一个 md 文件**里（心情 + 喝水不再分两个目录）；
 > 2. 心情 / 喝水都要有**「保存」按钮**——选完 emoji / 调完杯数后需点保存才写入，避免误触覆盖。
 >
-> **新数据源**：统一到 `TaskNotes/健康数据/YYYY-MM-DD.md`（该文件本就是"一天一份、多指标"的日记录文件，`健康追踪.md` 也写它，已有 `waterCount` / `mood` / `sleepDuration` / `exercises` 字段）。
+> **新数据源**：统一到 `04 TaskNotes/健康数据/YYYY-MM-DD.md`（该文件本就是"一天一份、多指标"的日记录文件，`健康追踪.md` 也写它，已有 `waterCount` / `mood` / `sleepDuration` / `exercises` 字段）。
 >
 > ⚠️ **关键机制：字段级 upsert，绝不整文件覆盖**。两个卡片写同一个文件，若整文件重写会互相抹掉对方数据（也会抹掉睡眠/运动）。因此新增两个工具方法做「只改自己字段 + 只改自己摘要行」。
 >
-> ⚠️ **必须同步改主页1**（见 §11），否则主页1 的心情模块读的是旧目录 `TaskNotes/心情`，互通会断裂。
+> ⚠️ **必须同步改主页1**（见 §11），否则主页1 的心情模块读的是旧目录 `04 TaskNotes/心情`，互通会断裂。
 >
 > 重打顺序：块 13 → 块 14 → 块 15 → 本块 16（本块替换块 14 中的 `renderMoodDiary` / `renderWaterTracker`）。
 
@@ -1396,7 +1396,7 @@ const DEFAULT_SETTINGS = {
         this.cardHead(card, '\u{1F60A}', t('home.modules.mood'), '');
         const body = card.createDiv({ cls: 'ad-mood' });
         const s = this.plugin.settings;
-        const dir = (s.moodDir || '').trim() || 'TaskNotes/心情';
+        const dir = (s.moodDir || '').trim() || '04 TaskNotes/心情';
         const emojis = { '😊': '开心', '🙂': '不错', '😐': '一般', '😔': '低落', '😢': '难过', '😡': '生气', '😴': '疲惫', '✨': '平静', '💪': '奋斗', '❤️': '爱' };
         const keys = { '😊': 'happy', '🙂': 'good', '😐': 'meh', '😔': 'sad', '😢': 'cry', '😡': 'angry', '😴': 'tired', '✨': 'calm', '💪': 'driven', '❤️': 'love' };
         const colors = { '😊': '#34d399', '🙂': '#60a5fa', '😐': '#9ca3af', '😔': '#818cf8', '😢': '#f87171', '😡': '#fb923c', '😴': '#a78bfa', '✨': '#fbbf24', '💪': '#f472b6', '❤️': '#f43f5e' };
@@ -1473,8 +1473,8 @@ const DEFAULT_SETTINGS = {
         this.cardHead(card, '\u{1F60A}', t('home.modules.mood'), '');
         const body = card.createDiv({ cls: 'ad-mood' });
         const s = this.plugin.settings;
-        const dir = (s.healthDataDir || '').trim() || 'TaskNotes/健康数据';
-        const legacyDir = (s.moodDir || '').trim() || 'TaskNotes/心情';
+        const dir = (s.healthDataDir || '').trim() || '04 TaskNotes/健康数据';
+        const legacyDir = (s.moodDir || '').trim() || '04 TaskNotes/心情';
         const emojis = { '😊': '开心', '🙂': '不错', '😐': '一般', '😔': '低落', '😢': '难过', '😡': '生气', '😴': '疲惫', '✨': '平静', '💪': '奋斗', '❤️': '爱' };
         const keys = { '😊': 'happy', '🙂': 'good', '😐': 'meh', '😔': 'sad', '😢': 'cry', '😡': 'angry', '😴': 'tired', '✨': 'calm', '💪': 'driven', '❤️': 'love' };
         const colors = { '😊': '#34d399', '🙂': '#60a5fa', '😐': '#9ca3af', '😔': '#818cf8', '😢': '#f87171', '😡': '#fb923c', '😴': '#a78bfa', '✨': '#fbbf24', '💪': '#f472b6', '❤️': '#f43f5e' };
@@ -1557,7 +1557,7 @@ const DEFAULT_SETTINGS = {
         const card = this.getOrCreateCard(board, 'ad-card ad-b-water');
         this.cardHead(card, '\u{1F4A7}', t('home.modules.water'), `0/${goal}`);
         const body = card.createDiv({ cls: 'ad-water' });
-        const dir = (s.healthDataDir || '').trim() || 'TaskNotes/健康数据';
+        const dir = (s.healthDataDir || '').trim() || '04 TaskNotes/健康数据';
         const todayStr = fmtDate(new Date());
         const path = `${dir}/${todayStr}.md`;
         const readCount = async () => {
@@ -1607,7 +1607,7 @@ const DEFAULT_SETTINGS = {
         const card = this.getOrCreateCard(board, 'ad-card ad-b-water');
         this.cardHead(card, '\u{1F4A7}', t('home.modules.water'), '');
         const body = card.createDiv({ cls: 'ad-water' });
-        const dir = (s.healthDataDir || '').trim() || 'TaskNotes/健康数据';
+        const dir = (s.healthDataDir || '').trim() || '04 TaskNotes/健康数据';
         const todayStr = fmtDate(new Date());
         const path = `${dir}/${todayStr}.md`;
         const readCount = async () => {
@@ -3469,7 +3469,7 @@ grep -n "op-import-btn" main.js
 
 ## 11. 外部配套改动：`01 主页/主页1.md` 心情模块（与 §9 块 16 配套，必须同步）
 
-> **为什么必须改**：§9 块 16 把心情写入统一到 `TaskNotes/健康数据/YYYY-MM-DD.md`，而主页1 的心情模块原本只读写 `TaskNotes/心情/`。**若不同步改主页1，主页1 将读不到 Xove 写入的心情（互通断裂）**。
+> **为什么必须改**：§9 块 16 把心情写入统一到 `04 TaskNotes/健康数据/YYYY-MM-DD.md`，而主页1 的心情模块原本只读写 `04 TaskNotes/心情/`。**若不同步改主页1，主页1 将读不到 Xove 写入的心情（互通断裂）**。
 >
 > 改动前已备份：`01 主页/主页1.备份_2026-09-01.md`（回滚时整文件覆盖回去即可）。
 
@@ -3477,7 +3477,7 @@ grep -n "op-import-btn" main.js
 
 | # | 位置（主页1.md） | 改动 |
 |---|---|---|
-| 1 | 模块 2.5 顶部 | 新增 `const HEALTH_DIR = 'TaskNotes/健康数据';`，原 `MOOD_DIR` 降级为历史回退 |
+| 1 | 模块 2.5 顶部 | 新增 `const HEALTH_DIR = '04 TaskNotes/健康数据';`，原 `MOOD_DIR` 降级为历史回退 |
 | 2 | 心情数据读取 | 改为**先读旧「心情」目录（历史），再读「健康数据」文件（新数据覆盖）** |
 | 3 | `saveMood()` | 改为**字段级 upsert** 到健康数据文件（保留 `waterCount` 等），并写摘要行 `- 今日心情：😊 开心` |
 | 4 | `deleteMood()` | 由「删除整个文件」改为**只移除 `mood` 字段与摘要行**（文件里还有喝水数据，绝不能删文件）；顺带清掉旧目录遗留文件 |
@@ -3487,11 +3487,11 @@ grep -n "op-import-btn" main.js
 
 ```主页1.md
 <<<<<<< SEARCH
-const MOOD_DIR = 'TaskNotes/心情';
+const MOOD_DIR = '04 TaskNotes/心情';
 const moodEmojis = { '😊':'开心','🙂':'不错','😐':'一般','😔':'低落','😢':'难过','😡':'生气','😴':'疲惫','✨':'平静','💪':'奋斗','❤️':'爱' };
 =======
-const MOOD_DIR = 'TaskNotes/心情';        // 旧目录：仅作为历史数据回退读取
-const HEALTH_DIR = 'TaskNotes/健康数据';  // 统一目录：与喝水等同一份日记录文件
+const MOOD_DIR = '04 TaskNotes/心情';        // 旧目录：仅作为历史数据回退读取
+const HEALTH_DIR = '04 TaskNotes/健康数据';  // 统一目录：与喝水等同一份日记录文件
 const moodEmojis = { '😊':'开心','🙂':'不错','😐':'一般','😔':'低落','😢':'难过','😡':'生气','😴':'疲惫','✨':'平静','💪':'奋斗','❤️':'爱' };
 >>>>>>> REPLACE
 ```
@@ -3634,6 +3634,6 @@ fs.writeFileSync('/tmp/home1_check.mjs',all);
 本次实跑结果：`blocks: 4`、`HOME1_SYNTAX_OK`。
 
 ### 11.4 数据兼容性
-- **历史数据不丢**：旧 `TaskNotes/心情/*.md` 全部保留，读取时作为回退源（新数据优先）。
+- **历史数据不丢**：旧 `04 TaskNotes/心情/*.md` 全部保留，读取时作为回退源（新数据优先）。
 - **与 `健康追踪.md` 兼容**：它用 `readHealthFile` → 改字段 → `writeHealthFile` 重建，会保留 `mood`（因为 data 对象含 mood）；反之插件侧字段级更新也保留 `waterCount`。双向不冲突。
 - **唯一已知取舍**：`健康追踪.md` 的 `writeHealthFile` 会**重建正文**，其模板里的 `- 今日心情：${data.mood}` 用的是英文 key（如 `happy`）而非「😊 开心」。因此若之后动了健康追踪面板，摘要行可能回退成 key 值；**frontmatter 数据不受影响**，下次用 Xove 卡片保存会再写成可读形式。

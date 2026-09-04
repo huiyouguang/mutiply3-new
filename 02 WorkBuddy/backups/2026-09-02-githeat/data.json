@@ -177,9 +177,9 @@
       "color": "#f59e0b"
     }
   ],
-  "moodDir": "TaskNotes/心情",
+  "moodDir": "04 TaskNotes/心情",
   "waterGoal": 8,
-  "healthDataDir": "TaskNotes/健康数据",
+  "healthDataDir": "04 TaskNotes/健康数据",
   "cardStyle": "vivid",
   "language": "zh",
   "homeModules": [
