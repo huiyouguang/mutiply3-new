@@ -931,7 +931,11 @@ const DEFAULT_SETTINGS = {
     /* 人生打卡清单（独立顶栏整页）：读取一个 md，按一级标题(#)分组，展示并管理任务 */
     checklistEnabled: true,
     checklistTitle: '人生打卡清单',
+    customBoards: [],
+    customBoardsFolder: '面板',
     checklistFile: '01 主页/人生打卡清单.README.md',
+    planBoards: [],
+    planBoardsFolder: '计划任务',
     checklistAppendDate: false,
     checklistOutlineFile: '',
     checklistAutoGroup: false,
@@ -3693,6 +3697,17 @@ async function deleteOpportunity(app, path, id, title, configuredLabels = []) {
 }
 
 /** 人生打卡清单（独立顶栏整页）：读取一个 md，按一级标题(#)分组，展示并管理任务。 */
+/** 模糊搜索选择库内任意 md（清单「导入 md」等场景复用）。 */
+class FilePickModal extends obsidian.FuzzySuggestModal {
+    constructor(app, onPick) {
+        super(app);
+        this.onPick = onPick;
+        this.setPlaceholder('选择要导入为清单的 md 文件…');
+    }
+    getItems() { return this.app.vault.getMarkdownFiles(); }
+    getItemText(f) { return f.path; }
+    onChooseItem(f) { this.onPick(f.path); }
+}
 class ChecklistBoard {
     constructor(host) {
         this.host = host;
@@ -3714,6 +3729,15 @@ class ChecklistBoard {
         if (!raw)
             return '';
         return raw.toLowerCase().endsWith('.md') ? raw : raw + '.md';
+    }
+    /** 更换清单数据源：选择库内任意 md，按其标题结构自动分组（顺序 = 文档标题顺序） */
+    async importSourceFile(path) {
+        const s = this.host.plugin.settings;
+        s.checklistFile = path;
+        await this.host.plugin.saveSettings();
+        this.selectedGroup = 'all';
+        this.host.showToast('清单数据源已切换：' + path);
+        await this.show();
     }
     async loadGroups() {
         const p = this.path();
@@ -3775,7 +3799,7 @@ class ChecklistBoard {
         const groups = [];
         let cur = { heading: '', headingLineNo: -1, tasks: [] };
         lines.forEach((line, i) => {
-            const h = line.match(/^#\s+(.*)$/);
+            const h = line.match(/^#{1,6}\s+(.*)$/);
             if (h) {
                 if (cur.heading !== '' || cur.tasks.length)
                     groups.push(cur);
@@ -3816,14 +3840,14 @@ class ChecklistBoard {
         const lines = (await this.host.app.vault.read(file)).split(/\r?\n/);
         let insertAt = lines.length;
         if (heading) {
-            const hi = lines.findIndex((l) => /^#\s+/.test(l) && l.replace(/^#\s+/, '').trim() === heading);
+            const hi = lines.findIndex((l) => /^#{1,6}\s+/.test(l) && l.replace(/^#{1,6}\s+/, '').trim() === heading);
             if (hi >= 0) {
                 insertAt = hi + 1;
-                while (insertAt < lines.length && !/^#\s+/.test(lines[insertAt]))
+                while (insertAt < lines.length && !/^#{1,6}\s+/.test(lines[insertAt]))
                     insertAt++;
             }
             else {
-                lines.push('', '# ' + heading);
+                lines.push('', '## ' + heading);
                 insertAt = lines.length;
             }
         }
@@ -3850,9 +3874,10 @@ class ChecklistBoard {
         const lines = (await this.host.app.vault.read(file)).split(/\r?\n/);
         if (lineNo < 0 || lineNo >= lines.length)
             return;
-        if (!/^#\s+/.test(lines[lineNo]))
+        const hm = /^(#{1,6})\s+/.exec(lines[lineNo]);
+        if (!hm)
             return;
-        lines[lineNo] = '# ' + newHeading;
+        lines[lineNo] = hm[1] + ' ' + newHeading;
         await this.host.app.vault.modify(file, lines.join('\n'));
     }
     /** 重命名任务：保留勾选状态与行尾 ✅日期，只替换正文 */
@@ -3971,6 +3996,11 @@ class ChecklistBoard {
                 input.value = '';
             }
         });
+        const importBtn = bar.createEl('button', { cls: 'ck-btn', text: '导入 md' });
+        importBtn.title = '选择库内任意 md 作为清单数据源（按其标题自动分类）';
+        importBtn.addEventListener('click', () => {
+            new FilePickModal(this.host.app, (path) => void this.importSourceFile(path)).open();
+        });
         const refreshBtn = bar.createEl('button', { cls: 'ck-btn', text: '↻' });
         refreshBtn.addEventListener('click', () => void this.show());
         for (const g of groups) {
@@ -4010,36 +4040,49 @@ class ChecklistBoard {
 }
 /** 字数统计缓存有效期（毫秒）：期间直接用缓存值，过期后后台重算。 */
 const WC_TTL = 10 * 60 * 1000;
+/** 计划任务面板：与「人生打卡清单」同款界面（分组 / 勾选写回 / 添加 / 重命名），
+ *  唯一区别是数据源 —— 每个面板绑定自己的 md（可在面板内「导入 md」随时更换）。
+ *  继承复用 ChecklistBoard 全部能力，只覆盖 title / path / show / importSourceFile。 */
+class PlanBoard extends ChecklistBoard {
+    constructor(host) {
+        super(host);
+        this.planId = '';
+    }
+    cfg() { return (this.host.plugin.settings.planBoards ?? []).find((b) => b.id === this.planId); }
+    title() { return this.cfg()?.name || '计划任务'; }
+    path() { return (this.cfg()?.filePath || '').trim(); }
+    async show(id) {
+        this.planId = id;
+        this.selectedGroup = 'all';
+        await super.show();
+        // 与官方清单页区分：避免「禁用清单」等逻辑误伤，也隔离刷新事件
+        this.host.currentPage = 'plan:' + id;
+    }
+    /** 覆盖：导入 md 只改本面板的数据源，不动「人生打卡清单」的 checklistFile */
+    async importSourceFile(path) {
+        const b = this.cfg();
+        if (!b)
+            return;
+        b.filePath = path;
+        await this.host.plugin.saveSettings();
+        this.selectedGroup = 'all';
+        this.host.showToast('已导入：' + path);
+        await this.show(this.planId);
+    }
+}
 /* ============================================================
-   XOVE CUSTOM · 新建页（第四页）
+   XOVE CUSTOM · 新建页
    职责：
-     1) 一级内容创建入口：日记 / 任务 / 项目 —— 复用 Xove 原生创建流程，
-        保证与「快速捕获」「全部项目」等模块的数据格式完全一致。
-     2) 次要能力：把已有 md 映射成首页「笔记映射」卡片。
-   性能：
-     - 文件选择器懒加载：库内上千 md 时，option 只在展开映射区块时构建一次。
-     - 创建成功后只重建必要区块，不整页重渲染。
+     1) 新建「计划任务面板」：与「人生打卡清单」同款的独立导航面板，
+        可导入已有 md 作为数据源，或不选则自动新建一份 md。
+     2) 管理已建面板：排序（顺序即导航顺序）、重新导入 md、移除。
+     3) 次要能力：把已有 md 映射成首页「笔记映射」卡片（折叠 + 懒加载）。
    ============================================================ */
-const XOVE_CREATE_ENTRIES = [
-    {
-        key: 'diary', title: '新建日记', desc: '写一条闪念 / 今日日记',
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>',
-    },
-    {
-        key: 'task', title: '新建任务', desc: '在指定项目下新建任务，可设日期与优先级',
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>',
-    },
-    {
-        key: 'project', title: '新建项目', desc: '新建项目文件夹与 project 配置文件',
-        icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h3.5l1.8 2H19a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>',
-    },
-];
 class ImportBoard {
     constructor(host) {
         this.host = host;
-        this.mapBuilt = false;      // 映射区表单是否已构建（懒加载）
-        this.diaryPanel = null;
-        this.diaryArea = null;
+        this.mapBuilt = false;
+        this.pickPath = '';
     }
     title() { return this.host.plugin.settings.importTitle || t('settings.importNamePlaceholder'); }
     async show() {
@@ -4060,62 +4103,183 @@ class ImportBoard {
     render(root) {
         root.empty();
         this.renderHead(root);
-        this.renderCreateGrid(root);
-        this.renderDiaryPanel(root);
+        this.renderPlanCreate(root);
+        this.renderPlanManager(root);
+        this.renderLegacyPanels(root);
         this.renderMapSection(root);
         this.renderMirrorList(root);
     }
     renderHead(root) {
         const head = root.createDiv({ cls: 'im-head' });
         head.createEl('h2', { cls: 'im-title', text: this.title() });
-        head.createDiv({ cls: 'im-sub', text: t('home.importSub') });
+        head.createDiv({ cls: 'im-sub', text: '新建「计划任务面板」：与「人生打卡清单」同款，可导入自己的 md 数据源' });
     }
-    /** 三个一级创建入口 */
-    renderCreateGrid(root) {
-        const grid = root.createDiv({ cls: 'im-grid' });
-        for (const e of XOVE_CREATE_ENTRIES) {
-            const card = grid.createDiv({ cls: 'im-card' });
-            card.setAttribute('role', 'button');
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('aria-label', e.title);
-            const ic = card.createDiv({ cls: 'im-card__icon' });
-            ic.innerHTML = e.icon;
-            card.createDiv({ cls: 'im-card__title', text: e.title });
-            card.createDiv({ cls: 'im-card__desc', text: e.desc });
-            card.addEventListener('click', () => this.runCreate(e.key));
-            card.addEventListener('keydown', (ev) => {
-                if (ev.key === 'Enter' || ev.key === ' ') {
-                    ev.preventDefault();
-                    this.runCreate(e.key);
-                }
-            });
-        }
-    }
-    /** 日记内联输入区：默认收起，点「新建日记」展开 */
-    renderDiaryPanel(root) {
-        const panel = root.createDiv({ cls: 'im-diary is-hidden' });
-        const area = panel.createEl('textarea', {
-            cls: 'im-input im-diary__area',
-            attr: { rows: '3', placeholder: '记点什么…（⌘/Ctrl + Enter 保存）' },
+    /** 新建计划任务面板：名称 + 图标 + 数据源（可选导入已有 md） */
+    renderPlanCreate(root) {
+        const box = root.createDiv({ cls: 'im-diary' });
+        box.createEl('h3', { cls: 'im-card__title', text: '新建计划任务面板' });
+        const fields = box.createDiv({ cls: 'im-diary__row im-panel__fields' });
+        const iconInput = fields.createEl('input', { cls: 'im-input im-input--icon', attr: { placeholder: '\u25A3', 'aria-label': '面板图标' } });
+        iconInput.value = '\u25A3';
+        const nameInput = fields.createEl('input', { cls: 'im-input', attr: { placeholder: '面板名称，如：年度计划 / 读书清单' } });
+        const row = box.createDiv({ cls: 'im-diary__row' });
+        const pickBtn = row.createEl('button', { cls: 'im-btn', text: '选择 md 导入' });
+        const pickTip = row.createSpan({ cls: 'im-pick__tip', text: '未选择则自动新建一份 md' });
+        pickBtn.addEventListener('click', () => {
+            new FilePickModal(this.host.app, (path) => {
+                this.pickPath = path;
+                pickTip.textContent = '已选：' + path;
+            }).open();
         });
-        const row = panel.createDiv({ cls: 'im-diary__row' });
-        const save = row.createEl('button', { cls: 'im-btn im-btn--primary', text: '保存' });
-        const cancel = row.createEl('button', { cls: 'im-btn', text: '取消' });
-        save.addEventListener('click', () => void this.submitDiary());
-        cancel.addEventListener('click', () => this.toggleDiary(false));
-        area.addEventListener('keydown', (ev) => {
-            if ((ev.metaKey || ev.ctrlKey) && ev.key === 'Enter')
-                void this.submitDiary();
+        const ok = row.createEl('button', { cls: 'im-btn im-btn--primary', text: '创建面板' });
+        const run = () => void this.createPlanBoard(nameInput.value.trim(), iconInput.value.trim());
+        ok.addEventListener('click', run);
+        nameInput.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter')
+                run();
         });
-        this.diaryPanel = panel;
-        this.diaryArea = area;
     }
-    toggleDiary(show) {
-        if (!this.diaryPanel)
+    async createPlanBoard(name, icon) {
+        if (!name) {
+            this.host.showToast('请输入面板名称', 'error');
             return;
-        this.diaryPanel.toggleClass('is-hidden', !show);
-        if (show)
-            this.diaryArea?.focus();
+        }
+        const s = this.host.plugin.settings;
+        let filePath = this.pickPath;
+        if (!filePath) {
+            const folder = (s.planBoardsFolder || '\u8BA1\u5212\u4EFB\u52A1').trim().replace(/\/+$/, '');
+            const safeName = name.replace(/[*"/<>:|?\\]/g, '-');
+            filePath = (folder ? folder + '/' : '') + safeName + '.md';
+            try {
+                if (folder)
+                    await this.host.ensureFolder(folder);
+                if (!this.host.app.vault.getAbstractFileByPath(filePath))
+                    await this.host.app.vault.create(filePath, '# ' + name + '\n\n- [ ] \u7B2C\u4E00\u6761\u4EFB\u52A1\n');
+            }
+            catch (e) {
+                console.error('[Xove] create plan board failed', e);
+                this.host.showToast('创建失败：' + (e && e.message ? e.message : String(e)), 'error');
+                return;
+            }
+        }
+        if (!Array.isArray(s.planBoards))
+            s.planBoards = [];
+        const id = 'pb' + Date.now();
+        s.planBoards.push({ id, name, icon: icon || '\u25A3', filePath });
+        await this.host.plugin.saveSettings();
+        this.pickPath = '';
+        this.host.showToast('已创建面板：' + name);
+        void this.host.showPlanBoard(id);
+    }
+    /** 计划任务面板管理：排序 / 重新导入 md / 移除 */
+    renderPlanManager(root) {
+        const boards = Array.isArray(this.host.plugin.settings.planBoards) ? this.host.plugin.settings.planBoards : [];
+        if (!boards.length)
+            return;
+        const wrap = root.createDiv({ cls: 'im-section' });
+        const head = wrap.createDiv({ cls: 'im-section__head' });
+        head.createSpan({ cls: 'im-section__title', text: '计划任务面板（顺序即导航顺序）' });
+        const list = wrap.createDiv({ cls: 'im-list im-panels' });
+        boards.forEach((b, i) => {
+            const row = list.createDiv({ cls: 'im-item' });
+            row.createSpan({ cls: 'im-item__icon', text: b.icon || '\u25A3' });
+            row.createSpan({ cls: 'im-item__name', text: b.name });
+            row.createSpan({ cls: 'im-item__path', text: b.filePath });
+            const btns = row.createDiv({ cls: 'im-panels__btns' });
+            const up = btns.createEl('button', { cls: 'im-panels__btn', text: '\u2191' });
+            const down = btns.createEl('button', { cls: 'im-panels__btn', text: '\u2193' });
+            const reimp = btns.createEl('button', { cls: 'im-panels__btn', text: '\u21EA' });
+            const del = btns.createEl('button', { cls: 'im-item__del', text: '\u2715' });
+            up.title = '上移';
+            down.title = '下移';
+            reimp.title = '重新导入 md';
+            del.title = '移除面板（源文件保留）';
+            up.disabled = i === 0;
+            down.disabled = i === boards.length - 1;
+            up.addEventListener('click', () => void this.movePlan(b.id, -1));
+            down.addEventListener('click', () => void this.movePlan(b.id, 1));
+            reimp.addEventListener('click', () => {
+                new FilePickModal(this.host.app, (path) => void this.reimportPlan(b.id, path)).open();
+            });
+            let armed = false;
+            del.addEventListener('click', () => {
+                if (!armed) {
+                    armed = true;
+                    del.textContent = '确认？';
+                    del.addClass('is-danger');
+                    return;
+                }
+                void this.removePlan(b.id);
+            });
+        });
+    }
+    async movePlan(id, dir) {
+        const arr = this.host.plugin.settings.planBoards ?? [];
+        const i = arr.findIndex((b) => b.id === id);
+        const j = i + dir;
+        if (i < 0 || j < 0 || j >= arr.length)
+            return;
+        const [it] = arr.splice(i, 1);
+        arr.splice(j, 0, it);
+        await this.host.plugin.saveSettings();
+        this.host.showToast('顺序已更新');
+        void this.host.showDashboard();
+    }
+    async reimportPlan(id, path) {
+        const b = (this.host.plugin.settings.planBoards ?? []).find((x) => x.id === id);
+        if (!b)
+            return;
+        b.filePath = path;
+        await this.host.plugin.saveSettings();
+        this.host.showToast('已导入：' + path);
+        void this.host.showPlanBoard(id);
+    }
+    async removePlan(id) {
+        const s = this.host.plugin.settings;
+        s.planBoards = (s.planBoards ?? []).filter((x) => x.id !== id);
+        await this.host.plugin.saveSettings();
+        this.host.showToast('已移除面板（源文件保留）');
+        void this.host.showDashboard();
+    }
+    /** 旧版「自定义面板」（整篇 md 渲染）若仍存在则继续可管理 */
+    renderLegacyPanels(root) {
+        const boards = Array.isArray(this.host.plugin.settings.customBoards) ? this.host.plugin.settings.customBoards : [];
+        if (!boards.length)
+            return;
+        const wrap = root.createDiv({ cls: 'im-section' });
+        const head = wrap.createDiv({ cls: 'im-section__head' });
+        head.createSpan({ cls: 'im-section__title', text: '其他面板（旧版整篇 md 渲染）' });
+        const list = wrap.createDiv({ cls: 'im-list im-panels' });
+        boards.forEach((b, i) => {
+            const row = list.createDiv({ cls: 'im-item' });
+            row.createSpan({ cls: 'im-item__icon', text: b.icon || '\u{1F4C1}' });
+            row.createSpan({ cls: 'im-item__name', text: b.name });
+            row.createSpan({ cls: 'im-item__path', text: b.filePath });
+            const btns = row.createDiv({ cls: 'im-panels__btns' });
+            const up = btns.createEl('button', { cls: 'im-panels__btn', text: '\u2191' });
+            const down = btns.createEl('button', { cls: 'im-panels__btn', text: '\u2193' });
+            const del = btns.createEl('button', { cls: 'im-item__del', text: '\u2715' });
+            up.disabled = i === 0;
+            down.disabled = i === boards.length - 1;
+            up.addEventListener('click', () => void this.movePanel(b.id, -1));
+            down.addEventListener('click', () => void this.movePanel(b.id, 1));
+            del.addEventListener('click', () => void this.removePanel(b.id));
+        });
+    }
+    async movePanel(id, dir) {
+        const arr = this.host.plugin.settings.customBoards ?? [];
+        const i = arr.findIndex((b) => b.id === id);
+        const j = i + dir;
+        if (i < 0 || j < 0 || j >= arr.length)
+            return;
+        const [it] = arr.splice(i, 1);
+        arr.splice(j, 0, it);
+        await this.host.plugin.saveSettings();
+        this.host.showToast('顺序已更新');
+        void this.host.showDashboard();
+    }
+    async removePanel(id) {
+        await this.host.removeCustomPanel(id);
     }
     /** 次要区块：映射已有笔记（折叠，展开时才构建文件列表） */
     renderMapSection(root) {
@@ -4170,37 +4334,6 @@ class ImportBoard {
             const rm = row.createEl('button', { cls: 'im-item__del', text: '\u2715' });
             rm.setAttribute('aria-label', '移除映射');
             rm.addEventListener('click', () => void this.removeMirror(m.id));
-        }
-    }
-    /** 入口分发：日记走内联输入，任务/项目交给 Xove 原生弹窗 */
-    runCreate(key) {
-        if (key === 'diary') {
-            this.toggleDiary(true);
-            return;
-        }
-        if (key === 'task') {
-            void this.host.openTaskModal();
-            return;
-        }
-        if (key === 'project') {
-            void this.host.createProjectFile();
-        }
-    }
-    async submitDiary() {
-        const content = (this.diaryArea?.value || '').trim();
-        if (!content) {
-            this.diaryArea?.focus();
-            return;
-        }
-        try {
-            await this.host.createCaptureNote(content);
-            this.diaryArea.value = '';
-            this.host.showToast(t('home.capturedToast'));
-            this.toggleDiary(false);
-        }
-        catch (err) {
-            console.error('[Xove] capture failed', err);
-            this.host.showToast(t('home.captureFailed'), 'error');
         }
     }
     async doImport(filePath, title, icon) {
@@ -7676,6 +7809,7 @@ class DashboardView extends obsidian.ItemView {
         this.projectBoard = new ProjectBoard(this);
         this.checklistBoard = new ChecklistBoard(this);
         this.importBoard = new ImportBoard(this);
+        this.planBoard = new PlanBoard(this);
     }
     /** Theme actually in effect for the dashboard right now. */
     effectiveTheme() {
@@ -8238,6 +8372,14 @@ class DashboardView extends obsidian.ItemView {
         if (this.plugin.settings.checklistEnabled) {
             navItems.push({ glyph: '☑', label: this.plugin.settings.checklistTitle || t('home.nav.checklist'), action: 'checklist', svg: undefined });
         }
+        // 计划任务面板：与「人生打卡清单」同款，各自绑定一份 md（顺序 = 数组顺序）
+        for (const pb of (this.plugin.settings.planBoards ?? [])) {
+            navItems.push({ glyph: pb.icon || '▣', label: pb.name, action: 'plan:' + pb.id, svg: undefined });
+        }
+        // 旧版自定义面板（整篇 md 渲染），若仍存在则继续显示
+        for (const cb of (this.plugin.settings.customBoards ?? [])) {
+            navItems.push({ glyph: cb.icon || '▤', label: cb.name, action: 'custom:' + cb.id, svg: undefined });
+        }
         if (this.plugin.settings.importEnabled) {
             navItems.push({ glyph: '\u21E9', label: this.plugin.settings.importTitle || t('home.nav.import'), action: 'import', svg: undefined });
         }
@@ -8278,6 +8420,10 @@ class DashboardView extends obsidian.ItemView {
                         void this.checklistBoard.show();
                     if (it.action === 'import')
                         void this.importBoard.show();
+                    if (it.action.startsWith('plan:'))
+                        void this.showPlanBoard(it.action.slice(5));
+                    if (it.action.startsWith('custom:'))
+                        void this.showCustomPanel(it.action.slice(7));
                     if (it.action === 'homeNote')
                         void this.openHomeNote();
                 }
@@ -12386,6 +12532,62 @@ class DashboardView extends obsidian.ItemView {
         return { text, startLine: start };
     }
     /** 渲染一张映射卡；id='' 为占位卡（尚未配置任何映射） */
+    /** 打开计划任务面板（与「人生打卡清单」同款界面，数据源为各面板自己的 md）。 */
+    async showPlanBoard(id) {
+        await this.planBoard.show(id);
+    }
+    /** 自定义面板页：渲染面板绑定的 md 文档。
+     *  复用 renderMirrorCard 的原生渲染 —— 勾选写回、双链、图片、表格全部可用，
+     *  「打开源文件」按钮由 renderMirrorCard 自带。 */
+    async showCustomPanel(id) {
+        const cfg = (this.plugin.settings.customBoards ?? []).find((b) => b.id === id);
+        if (!cfg) {
+            this.showToast('面板不存在或已被删除', 'error');
+            return;
+        }
+        this.exitEditMode();
+        const board = this.boardEl;
+        if (!board)
+            return;
+        board.empty();
+        board.removeClass('ad-board');
+        board.removeClass('po-board');
+        board.removeClass('op-board');
+        board.removeClass('ck-board');
+        board.removeClass('im-board');
+        board.addClass('im-board');
+        this.currentPage = 'custom:' + id;
+        const container = board.createDiv({ cls: 'im-container' });
+        const head = container.createDiv({ cls: 'im-head' });
+        head.createEl('h2', { cls: 'im-title', text: (cfg.icon ? cfg.icon + ' ' : '') + cfg.name });
+        head.createDiv({ cls: 'im-sub', text: '在此记录或整理文档；勾选与编辑会写回源文件' });
+        const headBar = head.createDiv({ cls: 'im-panel__bar' });
+        const delBtn = headBar.createEl('button', { cls: 'im-btn im-panel__del', text: '移除面板' });
+        let armed = false;
+        delBtn.addEventListener('click', () => {
+            if (!armed) {
+                armed = true;
+                delBtn.textContent = '确认移除？';
+                delBtn.addClass('is-danger');
+                return;
+            }
+            void this.removeCustomPanel(id);
+        });
+        const card = container.createDiv({ cls: 'ad-card ad-b-mirror ad-panel__card' });
+        card.setAttribute('data-mirror-id', cfg.mirrorId);
+        await this.renderMirrorCard(container, cfg.mirrorId);
+    }
+    /** 移除自定义面板：删导航项与关联映射，源文件保留（面板页与「新建」页共用）。 */
+    async removeCustomPanel(id) {
+        const s = this.plugin.settings;
+        const b = (s.customBoards ?? []).find((x) => x.id === id);
+        s.customBoards = (s.customBoards ?? []).filter((x) => x.id !== id);
+        if (b)
+            s.mirrors = (s.mirrors ?? []).filter((m) => m.id !== b.mirrorId);
+        await this.plugin.saveSettings();
+        this.showToast('已移除面板（源文件保留）：' + (b ? b.name : ''));
+        void this.showDashboard();
+    }
     async renderMirrorCard(board, id) {
         const card = board.querySelector(`.ad-card.ad-b-mirror[data-mirror-id="${id}"]`);
         if (!card)

@@ -4041,3 +4041,161 @@ for (let i = 0; i < files.length; i += 100) {
 `apply-patch.sh` 的「已打补丁」检测标记已同步更新：
 - `main.js` → `grep 'class GoalEditModal'`（不变）
 - `styles.css` → `grep 'im-grid'`（原为 `im-create__row`，因该样式已删除而失效）
+
+### 12.10 自定义导航面板（第三轮，2026-09-04）—— 与「灵感收集」平级的独立页
+
+#### 12.10.1 需求澄清（最终版）
+
+- 「新建」页第三个入口不是「新建项目（在全部项目里）」，而是**新建一个面板**：
+  一个与「灵感收集」「人生打卡清单」**平级、出现在导航栏、可单独点击进入**的页面，
+  页面内容 = 一个绑定的 md 文档（用于记录 / 整理文档）。
+- 面板可**自由调整顺序**（导航栏顺序），可移除（源文件保留）。
+- 官方「新建项目」入口不受影响：导航栏动作组（新建日记/任务/项目那一排）仍可建官方项目。
+
+#### 12.10.2 数据层（DEFAULT_SETTINGS 新增）
+
+```js
+customBoards: [],            // [{ id, name, icon, mirrorId, filePath }]，数组顺序 = 导航顺序
+customBoardsFolder: '面板',  // 面板 md 的默认存放文件夹（可在 data.json 改）
+```
+- 每个面板同时持有一条 `mirrors` 条目（`scope:'file'`），`mirrorId` 关联 → **复用 mirror 的原生渲染**。
+
+#### 12.10.3 main.js 改动锚点
+
+| 改动 | 位置（锚点） | 作用 |
+|---|---|---|
+| 数据字段 | `DEFAULT_SETTINGS`（`checklistTitle` 之后） | `customBoards` / `customBoardsFolder` |
+| 导航注册 | `renderActions` 内，checklist navItems 之后、import 之前 | `for (const cb of customBoards) navItems.push({ action: 'custom:'+cb.id, … })` |
+| 动作分发 | `makeBtn` 点击分发处（`import` 分支之后） | `if (it.action.startsWith('custom:')) void this.showCustomPanel(...)` |
+| 面板页渲染 | 新增 `showCustomPanel(id)`（`renderMirrorCard` 之前） | 建页头 + `.ad-card.ad-b-mirror[data-mirror-id]` 壳 → `renderMirrorCard` 填充 |
+| 入口改造 | `XOVE_CREATE_ENTRIES` 第三项 `project` → `panel` | 「新建面板」入口卡（布局 SVG 图标） |
+| 面板表单 | 新增 `renderPanelForm` / `togglePanelForm` / `createPanel` | 图标+名称 → 建 md（`ensureFolder` + `vault.create`）→ push mirrors + customBoards → 直接进入新面板 |
+| 面板管理 | 新增 `renderPanelManager` / `movePanel` / `removePanel` | ↑↓ 排序（swap 后 saveSettings + `showDashboard()` 刷新导航）、✕ 移除（保留源文件，同时清掉关联 mirror） |
+
+#### 12.10.4 关键实现要点
+
+1. **渲染复用**：`showCustomPanel` 只造一个带 `data-mirror-id` 的 `.ad-card.ad-b-mirror` 壳，然后调现成的 `this.renderMirrorCard(container, mirrorId)` —— 勾选写回（`bindMirrorTasks`）、双链/图片/表格、「打开源文件」按钮**全部免费获得**，零新解析逻辑。
+2. **创建面板** = 三步：`vault.create(md)` → `mirrors.push(...)` → `customBoards.push(...)` → `saveSettings()` → `showCustomPanel(boardId)` 直接进入。
+3. **顺序调整** = 数组元素 swap → `saveSettings()` → `showDashboard()`（重建导航；用户回到主页看到新顺序，toast 提示）。
+4. **currentPage** 用 `'custom:' + id` 命名空间，不在主页/live 刷新的检查列表里，自动隔离刷新事件。
+5. **空 md 防呆**：`renderMirrorCard` 对空文件显示「无内容」提示，因此创建时写入初始内容 `# 名称\n\n在这里记录或整理内容…\n`。
+
+#### 12.10.5 styles.css 追加
+
+```css
+.im-container .ad-panel__card { width: 100%; display: block; }   /* 面板页内容卡占满宽度 */
+.im-panel__fields { justify-content: flex-start; }               /* 新建面板表单：图标+名称一行 */
+.im-panel__fields .im-input--icon { flex: 0 0 64px; }
+.im-panel__fields .im-input { flex: 1; min-width: 0; }
+.im-panels__btns { display: flex; gap: 4px; margin-left: auto; } /* 排序/删除按钮 */
+.im-panels__btn { width: 22px; height: 22px; …同 im-card 微交互… }
+.im-panels .im-item__del { opacity: 1; }                         /* 管理区删除按钮常显 */
+```
+
+#### 12.10.6 已知边界
+
+- 面板页不支持多卡布局（单文件单卡）；如需组合多个区块，可在源 md 里自由组织（标题/列表/callout 均可）。
+- 移除面板不删除源 md（防误删）；要彻底清理请手动删文件。
+- `customBoardsFolder` 目前无设置 UI，改 `data.json` 后重启生效。
+
+### 12.11 第四轮修订（2026-09-04）—— 清单分组修复 / 导入 md / 面板删除入口
+
+#### 12.11.1 清单分组「未命名」根因与修复
+
+- **根因**：`parseGroups` 的标题正则是 `^#\s+`（只认一级标题），而「人生打卡清单.README.md」全部用二级标题 `## 1 学习 · 成长` → 所有任务落入无标题分组，sidebar 显示「未命名 100」。
+- **修复**：`parseGroups` 改为 `^#{1,6}\s+`，任意级别标题都成组，任务按文档顺序归入其上方最近的标题。
+- **配套**：`renameGroup` 改为保留原标题级别（`/^(#{1,6})\s+/` 捕获后原样写回）；`addTask` 定位分组同样放宽，新建分组用 `## `。
+- 分组**点击重命名**是 §17b 已有能力（`renameGroup` / `inlineRename`），解析修好后即恢复可用。
+
+#### 12.11.2 清单「导入 md」（任意文档按标题分类）
+
+- 新增 `class FilePickModal extends obsidian.FuzzySuggestModal`（定义在 `class ChecklistBoard` 之前）：模糊搜索库内任意 md。
+- 清单工具栏（添加输入框一行）加「导入 md」按钮 → `importSourceFile(path)`：
+  `settings.checklistFile = path` → `saveSettings()` → `selectedGroup='all'` → `show()`。
+- 导入后分组 = 该文档标题结构，顺序 = 文档标题顺序（`parseGroups` 天然行为）。
+
+#### 12.11.3 面板删除入口（补反馈）
+
+- 面板页（`showCustomPanel`）头部新增「移除面板」按钮：点一次变「确认移除？」并标红（`.is-danger`），再点才执行 —— 防误删。
+- 删除逻辑统一到 `DashboardView.removeCustomPanel(id)`（删 `customBoards` 条目 + 关联 mirror，源文件保留，`showDashboard()` 刷新导航）；「新建」页 `renderPanelManager` 的 ✕ 与面板页按钮共用。
+
+#### 12.11.4 styles.css 追加
+
+```css
+.im-panel__bar { display: flex; justify-content: flex-end; margin-top: 6px; }
+.im-panel__del.is-danger { border-color: var(--ad-danger); color: var(--ad-danger); }
+```
+
+### 12.12 第五轮（2026-09-04）—— 计划任务面板：`ChecklistBoard` 的复用与「新建」页统一
+
+#### 12.12.1 需求
+
+- 复制「人生打卡清单」的界面，做成**可创建多份的导航面板**：每个面板绑定自己的 md（计划任务文档）。
+- 「新建」页**只做这一件事**，替换原三入口（日记 / 任务 / 新建面板）及其功能。
+
+#### 12.12.2 实现：继承而非复制
+
+新增 `class PlanBoard extends ChecklistBoard`（定义在 `class ImportBoard` 之前，父类 ChecklistBoard 在前，继承顺序安全）：
+
+```js
+class PlanBoard extends ChecklistBoard {
+    cfg()   { return (settings.planBoards ?? []).find(b => b.id === this.planId); }
+    title() { return this.cfg()?.name || '计划任务'; }
+    path()  { return (this.cfg()?.filePath || '').trim(); }     // 数据源 = 本面板自己的 md
+    async show(id) {
+        this.planId = id; this.selectedGroup = 'all';
+        await super.show();
+        this.host.currentPage = 'plan:' + id;                    // 与官方清单页隔离
+    }
+    async importSourceFile(path) {                                // 覆盖：不动 checklistFile
+        const b = this.cfg(); if (!b) return;
+        b.filePath = path;
+        await saveSettings(); await this.show(this.planId);
+    }
+}
+```
+→ 分组（`##` 解析已修）、勾选写回、添加/删除任务、重命名**全部零成本复用**。
+
+#### 12.12.3 改动点清单
+
+| 改动 | 位置 |
+|---|---|
+| 数据字段 | `DEFAULT_SETTINGS` 加 `planBoards: []` / `planBoardsFolder: '计划任务'` |
+| 实例化 | DashboardView 构造函数：`this.planBoard = new PlanBoard(this)` |
+| 导航注册 | `renderActions`：planBoards 循环排在 checklist 之后、旧 customBoards 之前 |
+| 路由 | 动作分发加 `plan:` 前缀 → `showPlanBoard(id)` |
+| 入口方法 | 新增 `DashboardView.showPlanBoard(id)`（代理 `planBoard.show`） |
+| 新建页 | `ImportBoard` 整体重写：只保留「新建计划任务面板」表单 + 面板管理 + 旧版面板管理 + 映射区 + 映射列表 |
+
+#### 12.12.4 新建页结构（替换后）
+
+```
+页头：新建（说明文案改为「新建计划任务面板」）
+├─ 新建计划任务面板：图标 + 名称 + 「选择 md 导入」+「创建面板」
+│     └─ 未选 md → 在 planBoardsFolder 自动建 名称.md（含第一条示例任务）
+├─ 计划任务面板（顺序即导航顺序）：↑ ↓ ⇪（重新导入） ✕
+├─ 其他面板（旧版整篇 md 渲染，若存在）：↑ ↓ ✕
+├─ 映射已有笔记为首页卡片（折叠 + 懒加载）
+└─ 已有映射卡片列表
+```
+- 「选择 md 导入」复用 `FilePickModal`（`obsidian.FuzzySuggestModal`）。
+- 移除面板均为**二次确认**（点一次变「确认？」并标红）。
+
+#### 12.12.5 踩坑：Modal 忘了 `.open()`
+
+- **现象**：「导入 md」/「选择 md 导入」按钮点了没反应，弹窗不出现、选不了文件。
+- **原因**：Obsidian 的 Modal 必须**显式调用 `.open()`** 才会显示。此前三处写法是
+  `new FilePickModal(app, cb);` —— 只创建了实例，从未打开（语法与运行时都不报错，所以很容易漏）。
+- **修复**：三处调用统一补 `.open()`：
+  ```js
+  new FilePickModal(this.host.app, (path) => void this.importSourceFile(path)).open();   // 清单页「导入 md」
+  new FilePickModal(this.host.app, (path) => { … }).open();                              // 新建页「选择 md 导入」
+  new FilePickModal(this.host.app, (path) => void this.reimportPlan(b.id, path)).open(); // 面板管理 ⇪
+  ```
+- **以后新增任何 Modal**（`GoalEditModal` / `ProjectModal` / `TaskModal` / 自定义）**都要记住 `.open()`**；
+  自查命令：`grep -n "new .*Modal" main.js` 后确认每行末尾（或多行调用的收尾）带 `.open()`。
+
+#### 12.12.6 已移除的旧入口
+
+原「新建日记 / 新建任务 / 新建面板」三入口卡片、`XOVE_CREATE_ENTRIES` 常量、日记内联输入、`runCreate` 分发、`createPanel` 全部删除。
+对应能力不受影响：官方**动作组**（新建日记 / 新建任务 / 新建项目那一排）仍在导航栏右侧可用。

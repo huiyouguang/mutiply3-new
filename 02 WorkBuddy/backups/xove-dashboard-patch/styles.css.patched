@@ -2829,3 +2829,28 @@ body.theme-dark .ad-popover.ad-addmenu-backdrop[data-theme="light"] {
   .im-card, .im-section__toggle, .im-btn, .im-item__del { transition: none; }
   .im-card:active { transform: none; }
 }
+
+/* ===== 自定义面板 ===== */
+/* 面板页：内容卡占满容器宽度（复用 .ad-b-mirror 的原生渲染样式） */
+.im-container .ad-panel__card { width: 100%; display: block; }
+/* 新建面板表单：图标 + 名称一行 */
+.im-panel__fields { justify-content: flex-start; }
+.im-panel__fields .im-input--icon { flex: 0 0 64px; }
+.im-panel__fields .im-input { flex: 1; min-width: 0; }
+/* 我的面板：排序/删除按钮 */
+.im-panels__btns { display: flex; gap: 4px; margin-left: auto; flex: 0 0 auto; }
+.im-panels__btn {
+  width: 22px; height: 22px; line-height: 20px; padding: 0;
+  border: 1px solid var(--ad-line); border-radius: 4px;
+  background: var(--ad-s2); color: var(--ad-text); cursor: pointer; font-size: 12px;
+  transition: border-color .18s ease, background .18s ease;
+}
+.im-panels__btn:hover { border-color: var(--ad-accent); background: var(--ad-s3); }
+.im-panels__btn:disabled { opacity: .3; cursor: default; }
+.im-panels__btn:disabled:hover { border-color: var(--ad-line); background: var(--ad-s2); }
+.im-panels .im-item__del { opacity: 1; }
+/* 面板页：移除按钮（点一次变「确认移除？」并标红） */
+/* 新建计划面板：已选文件路径提示 */
+.im-pick__tip { font-family: var(--ad-font); font-size: 11.5px; color: var(--ad-text-mute); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.im-panel__bar { display: flex; justify-content: flex-end; margin-top: 6px; }
+.im-panel__del.is-danger { border-color: var(--ad-danger); color: var(--ad-danger); }
