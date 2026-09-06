@@ -13,34 +13,36 @@
 .ad-task-modal,
 .ad-modal,
 .ad-popover {
-  --ad-bg:          #0F1014;
-  --ad-s1:          #16181F;
-  --ad-s2:          #1D2029;
-  --ad-s3:          #252934;
-  --ad-h1:          #1F232E;
-  --ad-h2:          #262B38;
-  --ad-hair:        rgba(255,255,255,0.045);
-  --ad-line:        rgba(255,255,255,0.08);
-  --ad-line-s:      rgba(255,255,255,0.14);
-  --ad-text:        #E8E6E0;
-  --ad-text-mute:   #92959E;
-  --ad-text-dim:    #5E6068;
-  --ad-accent:      #7BA7FF;
-  --ad-accent-dim:  rgba(123,167,255,0.18);
-  --ad-accent-2:    #A78BFA;
+  /* ---- 中性灰深色主题（原近黑 #0F1014 偏暗，改为中性灰并整体提亮） ----
+     想要更亮 / 更暗：只调 --ad-bg，其余层级（--ad-s1~s3）按 ±8 同比微调即可。 */
+  --ad-bg:          #2B2B2E;   /* 背景：中性中灰 */
+  --ad-s1:          #35353A;   /* 卡片 / 弹窗 */
+  --ad-s2:          #3E3E44;   /* 次级面 / 输入框 */
+  --ad-s3:          #48484F;   /* 三级面 / 强 hover */
+  --ad-h1:          #414148;   /* hover 面 */
+  --ad-h2:          #4C4C54;   /* active 面 */
+  --ad-hair:        rgba(255,255,255,0.06);
+  --ad-line:        rgba(255,255,255,0.10);
+  --ad-line-s:      rgba(255,255,255,0.18);
+  --ad-text:        #EDEDF0;
+  --ad-text-mute:   #A9A9B0;
+  --ad-text-dim:    #7C7C85;
+  --ad-accent:      #8FB4FF;   /* 强调色略提亮，在灰底上更清晰 */
+  --ad-accent-dim:  rgba(143,180,255,0.18);
+  --ad-accent-2:    #B79BFF;
   --ad-warn:        #E8A37C;
   --ad-danger:      #E07F87;
   --ad-success:     #93C49A;
-  --ad-hm-0:        #1A1D24;
-  --ad-hm-1:        #232A3C;
-  --ad-hm-2:        #344168;
-  --ad-hm-3:        #4E66A0;
-  --ad-hm-4:        #7BA7FF;
+  --ad-hm-0:        #333338;   /* 热力图 0 级：与灰底对齐 */
+  --ad-hm-1:        #3B4457;
+  --ad-hm-2:        #4A5A85;
+  --ad-hm-3:        #6B84C4;
+  --ad-hm-4:        #8FB4FF;
   --ad-r1: 4px; --ad-r2: 6px; --ad-r3: 10px;
-  --ad-on-accent:  #0F1014;
-  --ad-muted:      #8A8F99;   /* 未沟通 圆点/中性灰 */
+  --ad-on-accent:  #232326;    /* 强调色按钮上的文字（深色） */
+  --ad-muted:      #8A8A92;   /* 未沟通 圆点/中性灰 */
   --ad-rejected:   #B07078;   /* 已否决 柔红 */
-  --ad-limit:      #FF5C60;   /* 缩放触达限制的警示红（深色下提亮，保证在暗背景上够跳） */
+  --ad-limit:      #FF5C60;   /* 缩放触达限制的警示红 */
 }
 
 .dashboard-plugin {
@@ -51,7 +53,7 @@
      历史问题：大量元素直接写 var(--font-monospace) 导致不跟随用户全局字体，已统一收口到这两个令牌。 */
   --ad-font: var(--font-interface, var(--font-interface-default, system-ui, sans-serif));
   --ad-font-mono: var(--ad-font-mono);
-  background-color: var(--ad-on-accent);
+  background-color: var(--ad-bg);
   background-image:
     linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
@@ -2020,7 +2022,7 @@ input[type="date"].ad-modal-input { cursor: pointer; }
 
 /* Task modal dropdown fix */
 .ad-task-modal select option,
-.ad-modal-input option { background: var(--background-secondary, #1D2029); color: var(--text-normal, #E8E6E0); }
+.ad-modal-input option { background: var(--background-secondary, #3E3E44); color: var(--text-normal, #EDEDF0); }
 /* 优先级下拉选项：颜色与 TODO / 本周待办胶囊统一（红/蓝/橙/灰，见 .ad-todo__tag[data-prio]） */
 .ad-modal-input option[value="重要且紧急"] { color: var(--ad-danger); }
 .ad-modal-input option[value="重要不紧急"] { color: var(--ad-accent); }
