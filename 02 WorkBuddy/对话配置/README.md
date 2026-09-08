@@ -22,9 +22,10 @@
 | 2026-09-02 | 笔记统计热力图四模式（日/周/季/年）+ 灵感闪念显示更多与刷新按钮 | `xove-mirror-patch_2026-09-01.md` §9 块 18 | ✅ 已应用并验证 |
 | 2026-09-02 | 热力图「日」模式改为最近 365 天每天亮格（滚动年网格，废弃 24h 柱状图方案） | `xove-mirror-patch_2026-09-01.md` §9 块 19 | ✅ 已应用并验证 |
 | 2026-09-02 | 首页新增「Git 提交热力图」模块（调 git log 读 vault 仓每日 commit，复用 7×N 周网格，独立 adGit* 状态隔离，含刷新按钮与错误兜底） | `xove-mirror-patch_2026-09-01.md` §9 块 20 | ✅ 已应用待重载验证 |
+| 2026-09-07 | Wechatian × Thino 日记格式统一（按年份子目录 + `- HH:mm [微信收/发]` memo 行 + tab 续行，无 frontmatter/标题；新增 `thinoStyle` 与 `thinoMirrorFolder` 设置、补齐设置面板 display()） | `wechatian-thino-format_2026-09-07.md` | ✅ 已应用并验证（待 Obsidian 重载生效） |
 
 ## 关联位置
-- 被改插件：`.obsidian/plugins/xove-dashboard/main.js`、`styles.css`（编译产物，更新即覆盖，需重打）
+- 被改插件：`.obsidian/plugins/xove-dashboard/main.js`、`styles.css`、`.obsidian/plugins/wechatian/main.js`（编译产物，更新即覆盖，需重打）
 - 共享数据：`thino/2026/YYYY-MM-DD.md`
 - **备份目录**：`backups/`（插件整目录 + 模块源文件快照，回滚时整体覆盖回 `.obsidian/plugins/xove-dashboard/`）
 - 记忆条目：`Xove Dashboard × Thino 闪念互通补丁方案`（ID 67461897）、`WorkBuddy 对话配置归档约定`
