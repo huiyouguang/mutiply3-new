@@ -1,0 +1,255 @@
+* {
+	margin: 0px; padding: 0px;
+}
+body {
+	color: rgb(51, 51, 51); line-height: 28px; font-size: 12px;
+}
+a {
+	color: rgb(51, 51, 51); text-decoration: none;
+}
+a:hover {
+	color: rgb(204, 0, 0); text-decoration: none;
+}
+img {
+	border: 0px currentColor; border-image: none;
+}
+img a {
+	border: 0px currentColor; border-image: none;
+}
+.sv_center {
+	margin: 0px auto;
+}
+.sv_black12_24 {
+	line-height: 24px; font-size: 13px;
+}
+.sv_black14_30 {
+	line-height: 30px; font-size: 14px;
+}
+.sv_black14_20 {
+	line-height: 20px; font-size: 14px;
+}
+.sv_black14_20 a {
+	line-height: 20px; font-size: 14px;
+}
+.sv_blue14_30 {
+	color: rgb(2, 66, 138); line-height: 30px; font-size: 14px;
+}
+.sv_blue14_30 a {
+	color: rgb(2, 66, 138); line-height: 30px; font-size: 14px;
+}
+.sv_blue14_30 a:hover {
+	color: rgb(2, 66, 138); line-height: 30px; font-size: 14px;
+}
+.sv_white14_bold {
+	color: rgb(255, 255, 255); font-size: 14px; font-weight: bold; text-decoration: none;
+}
+.sv_white14_bold a {
+	color: rgb(255, 255, 255); font-size: 14px; font-weight: bold; text-decoration: none;
+}
+.sv_white14_bold a:hover {
+	color: rgb(255, 255, 255); font-size: 14px; font-weight: bold; text-decoration: none;
+}
+.sv_white {
+	color: rgb(255, 255, 255);
+}
+.sv_white a {
+	color: rgb(255, 255, 255);
+}
+.sv_white a:hover {
+	color: rgb(255, 255, 255);
+}
+.sv_red14_bold {
+	color: rgb(204, 0, 0); font-size: 14px; font-weight: bold;
+}
+.sv_red14_bold a {
+	color: rgb(204, 0, 0); font-size: 14px; font-weight: bold;
+}
+.sv_red14_bold a:hover {
+	color: rgb(204, 0, 0); font-size: 14px; font-weight: bold;
+}
+.sv_red {
+	color: rgb(204, 0, 0);
+}
+.sv_red a {
+	color: rgb(204, 0, 0);
+}
+.sv_red a:hover {
+	color: rgb(204, 0, 0);
+}
+.sv_blue14_bold {
+	color: rgb(0, 102, 204); font-size: 14px; font-weight: bold; text-decoration: none;
+}
+.sv_blue14_bold a {
+	color: rgb(0, 102, 204); font-size: 14px; font-weight: bold; text-decoration: none;
+}
+.sv_blue14_bold a:hover {
+	color: rgb(0, 102, 204); font-size: 14px; font-weight: bold; text-decoration: none;
+}
+.sv_blue {
+	color: rgb(109, 133, 177);
+}
+.sv_blue a {
+	color: rgb(109, 133, 177);
+}
+.sv_blue a:hover {
+	color: rgb(109, 133, 177);
+}
+.sv_blue16 {
+	color: rgb(0, 102, 204); font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px;
+}
+.sv_blue16 a {
+	color: rgb(0, 102, 204); font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px;
+}
+.sv_blue18 {
+	color: rgb(0, 102, 204); font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px; font-weight: bold; text-decoration: none;
+}
+.sv_blue18 a {
+	color: rgb(0, 102, 204); font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px; font-weight: bold; text-decoration: none;
+}
+.sv_blue18 a:hover {
+	color: rgb(0, 102, 204); font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px; font-weight: bold; text-decoration: none;
+}
+.sv_blue24 {
+	color: rgb(0, 102, 204); font-family: "Î¢ÈíÑÅºÚ"; font-size: 24px; text-decoration: none;
+}
+.sv_blue124 a {
+	color: rgb(0, 102, 204); font-family: "Î¢ÈíÑÅºÚ"; font-size: 24px; text-decoration: none;
+}
+.sv_blue43 {
+	color: rgb(0, 102, 204); font-family: "Î¢ÈíÑÅºÚ"; font-size: 43px; text-decoration: none;
+}
+.sv_blue143 a {
+	color: rgb(0, 102, 204); font-family: "Î¢ÈíÑÅºÚ"; font-size: 43px; text-decoration: none;
+}
+.sv_red20 {
+	color: rgb(204, 0, 0); line-height: 30px; font-family: "Î¢ÈíÑÅºÚ"; font-size: 20px; text-decoration: none;
+}
+.sv_red20 a {
+	color: rgb(204, 0, 0); line-height: 30px; font-family: "Î¢ÈíÑÅºÚ"; font-size: 20px; text-decoration: none;
+}
+.sv_red20 a:hover {
+	color: rgb(204, 0, 0); line-height: 30px; font-family: "Î¢ÈíÑÅºÚ"; font-size: 20px; text-decoration: none;
+}
+.sv_orange {
+	color: rgb(202, 105, 26);
+}
+.sv_orange a {
+	color: rgb(202, 105, 26);
+}
+.sv_orange a:hover {
+	color: rgb(202, 105, 26);
+}
+.sv_brown {
+	color: rgb(153, 153, 153);
+}
+.sv_brown a {
+	color: rgb(153, 153, 153);
+}
+.sv_brown a:hover {
+	color: rgb(153, 153, 153);
+}
+.sv_bordright_brown {
+	border-right-color: rgb(204, 204, 204); border-right-width: 1px; border-right-style: solid;
+}
+.sv_green12_17 {
+	color: rgb(88, 234, 0); line-height: 17px;
+}
+.sv_green12_17 a {
+	color: rgb(88, 234, 0); line-height: 17px;
+}
+.sv_green12_17 a:hover {
+	color: rgb(88, 234, 0); line-height: 17px;
+}
+.sv_boder_blue {
+	border: 1px solid rgb(161, 195, 241); border-image: none;
+}
+.sv_boder_gray {
+	border: 1px solid rgb(240, 240, 240); border-image: none;
+}
+.sv_boder_white {
+	border: 1px solid rgb(255, 255, 255); border-image: none;
+}
+.sv_boder_red {
+	border: 1px solid rgb(204, 0, 0); border-image: none;
+}
+.sv_boder_yellow {
+	border: 1px solid rgb(244, 218, 178); border-image: none;
+}
+.sv_pic {
+	background: rgb(255, 255, 255); padding: 2px; border: 1px solid rgb(204, 204, 204); border-image: none;
+}
+.sv_table_blue {
+	background: rgb(201, 225, 235); border-width: 1px medium medium 1px; border-style: solid none none solid; border-color: rgb(51, 51, 51) currentColor currentColor rgb(51, 51, 51);
+}
+.sv_line_blue {
+	border-right-color: rgb(99, 163, 216); border-right-width: 1px; border-right-style: solid;
+}
+.sv_line_greydashed {
+	border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+.sv_line_reddashed {
+	border-bottom-color: rgb(255, 0, 0); border-bottom-width: 1px; border-bottom-style: dashed;
+}
+.sv_line_bluebottom {
+	border-bottom-color: rgb(118, 179, 242); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.sv_line_redbottom {
+	border-bottom-color: rgb(204, 0, 0); border-bottom-width: 2px; border-bottom-style: solid;
+}
+.sv_line_grey {
+	border-bottom-color: rgb(222, 222, 222); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.sv_hei14boldwhite {
+	color: rgb(255, 255, 255); font-family: "Î¢ÈíÑÅºÚ"; font-size: 14px; font-weight: bold;
+}
+.sv_hei14boldwhite a {
+	color: rgb(255, 255, 255); font-family: "Î¢ÈíÑÅºÚ"; font-size: 14px; font-weight: bold;
+}
+.sv_hei16white {
+	color: rgb(255, 255, 255); letter-spacing: 1px; font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px;
+}
+.sv_hei16white a {
+	color: rgb(255, 255, 255); letter-spacing: 1px; font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px;
+}
+.sv_hei16red {
+	color: rgb(204, 0, 0); font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px;
+}
+.sv_hei16red a {
+	color: rgb(204, 0, 0); font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px;
+}
+.sv_hei20 {
+	color: rgb(51, 51, 51); font-family: "Î¢ÈíÑÅºÚ"; font-size: 20px;
+}
+.sv_hei18 a {
+	color: rgb(51, 51, 51); font-family: "Î¢ÈíÑÅºÚ"; font-size: 20px;
+}
+.sv_or01 {
+	color: rgb(169, 100, 35);
+}
+.sv_or01 a {
+	color: rgb(169, 100, 35);
+}
+.sv_hei {
+	font-family: "Î¢ÈíÑÅºÚ";
+}
+.yh_16brown {
+	color: rgb(102, 102, 102); font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px;
+}
+.yh_16brown a {
+	color: rgb(102, 102, 102); font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px;
+}
+.nav_list {
+	padding: 5px 10px; width: 85px; color: rgb(204, 204, 204); margin-top: 5px; position: absolute; z-index: 99; opacity: 0.8; background-color: rgb(0, 0, 0); -moz-opacity: 0.8;
+}
+.zhaiyao {
+	color: rgb(153, 153, 153); line-height: 20px; font-family: "ËÎÌå"; font-size: 12px;
+}
+.zhaiyao a {
+	color: rgb(153, 153, 153); line-height: 20px; font-family: "ËÎÌå"; font-size: 12px;
+}
+.white_20 {
+	color: rgb(255, 255, 255); font-size: 20px;
+}
+.white_20 a {
+	color: rgb(255, 255, 255); font-size: 20px;
+}

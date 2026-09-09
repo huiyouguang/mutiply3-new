@@ -1,0 +1,144 @@
+#content img {
+	height: auto; max-width: 100%;
+}
+@media screen and (min-width:767px)
+{
+.common_position {
+	width: 100%; overflow: hidden;
+}
+.common_position .c_dress {
+	margin: 0px auto; width: 1000px; height: 55px; color: rgb(51, 51, 51); line-height: 55px; overflow: hidden; font-size: 16px;
+}
+.common_position .c_dress a {
+	color: rgb(51, 51, 51); line-height: 45px;
+}
+.common_position .c_dress #current {
+	color: rgb(26, 86, 168);
+}
+.cox {
+	margin: 0px auto 30px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 1000px; height: auto; overflow: hidden;
+}
+.cox .topcox {
+	text-align: center; padding-top: 18px; padding-bottom: 20px;
+}
+.cox .topcox h2 {
+	color: rgb(46, 46, 46); line-height: 40px; font-size: 18px;
+}
+.cox .topcox h1 {
+	margin: 0px auto; width: 835px; text-align: center; color: rgb(51, 51, 51); line-height: 38px; font-size: 24px;
+}
+.cox .topcox p {
+	padding: 18px 0px 10px;
+}
+.cox .topcox span {
+	margin-right: 80px; float: right;
+}
+.cox .topcox span a {
+	font-size: 12px;
+}
+.cox .topcox span a:hover {
+	color: rgb(26, 86, 168);
+}
+.cox .topcox a {
+	color: rgb(46, 46, 46); font-size: 12px; text-decoration: none;
+}
+.cox .text {
+	margin: 10px auto 0px; width: 835px; padding-top: 30px; padding-bottom: 5px; border-top-color: rgb(204, 204, 204); border-top-width: 1px; border-top-style: solid;
+}
+.cox .text .introduction p {
+	line-height: 30px; font-size: 15px;
+}
+.cox .text .introduction p span {
+	color: rgb(193, 29, 3); font-size: 15px; float: right;
+}
+.cox .text .txt {
+	padding-top: 10px; padding-bottom: 20px;
+}
+.cox .text .txt p {
+	color: rgb(46, 46, 46); line-height: 30px; font-size: 15px;
+}
+.cox .share {
+	width: 100%; height: 56px; border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.cox .share .con {
+	border: 1px solid rgb(204, 204, 204); border-image: none; width: 183px; height: 42px; float: right;
+}
+.cox .share .con .share1 {
+	width: 68px; height: 40px; text-align: center; color: rgb(102, 102, 102); line-height: 40px; margin-right: 2px; border-right-color: rgb(204, 204, 204); border-right-width: 1px; border-right-style: solid; float: left; background-color: rgb(238, 238, 238);
+}
+.cox .share .con .weibo {
+	height: 40px; line-height: 40px; float: left;
+}
+.cox .share .con .weixin {
+	height: 40px; line-height: 40px; float: right;
+}
+.cox .last {
+	padding-top: 10px; padding-bottom: 0px;
+}
+.cox .last p {
+	color: rgb(46, 46, 46); line-height: 40px; font-size: 15px;
+}
+.cox .last .print {
+	padding-bottom: 5px; float: right;
+}
+.cox .last .print a {
+	color: rgb(46, 46, 46); font-size: 12px; text-decoration: none;
+}
+.cox .last .print a:hover {
+	color: rgb(26, 86, 168);
+}
+}
+@media screen and (max-width:767px)
+{
+.container-fluid {
+	background-color: rgb(245, 245, 245);
+}
+.container-fluid .title {
+	padding: 10px;
+}
+.container-fluid .title h1 {
+	color: rgb(9, 53, 140); font-size: 20px; font-weight: 700;
+}
+.container-fluid .cox {
+	margin: 10px auto 50px; border-radius: 5px; border: 1px solid rgb(153, 153, 153); border-image: none; width: 100%; height: auto; padding-right: 15px; padding-bottom: 20px; padding-left: 15px; background-color: rgb(255, 255, 255);
+}
+.container-fluid .cox .topcox {
+	border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.container-fluid .cox .topcox h1 {
+	padding: 0px 30px; text-align: center; color: rgb(26, 86, 168); line-height: 32px; font-size: 24px; margin-top: 36px; margin-bottom: 37px;
+}
+.container-fluid .cox .topcox .contentTextdate {
+	width: 31%; color: rgb(141, 141, 141); font-size: 14px; display: inline-block;
+}
+.container-fluid .cox .topcox .changeSize {
+	width: 68%; margin-top: -15px; float: right;
+}
+.container-fluid .cox .topcox .changeSize .contentTextchange {
+	text-align: right; margin-right: 30px; display: inline-block;
+}
+.container-fluid .cox .topcox .changeSize .contentTextchange img {
+	margin-right: 10px; margin-bottom: 14px;
+}
+.container-fluid .cox .topcox .changeSize .contentTextchange a {
+	display: inline-block;
+}
+.container-fluid .cox .topcox .changeSize .contentTextchange .big {
+	width: 32px; height: 28px; color: rgb(206, 206, 206); font-size: 25px; margin-right: 26px; display: inline-block; background-image: url("big.jpg");
+}
+.container-fluid .cox .topcox .changeSize .contentTextchange .iconfont {
+	font-family: "iconfont" !important; font-size: 16px; font-style: normal; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-text-stroke-width: .2px;
+}
+.container-fluid .cox .topcox .changeSize .contentTextchange .small {
+	width: 32px; height: 28px; color: rgb(206, 206, 206); font-size: 25px; margin-top: 2px; display: inline-block; position: absolute; background-image: url("small.jpg");
+}
+.container-fluid .cox .text {
+	padding-top: 20px;
+}
+.container-fluid .cox .text p {
+	color: rgb(102, 102, 102); line-height: 28px; font-size: 14px;
+}
+#f1 {
+	width: 100% !important;
+}
+}

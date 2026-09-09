@@ -1,0 +1,990 @@
+			 <html xmlns:v="urn:schemas-microsoft-com:vml"
+			xmlns:o="urn:schemas-microsoft-com:office:office"
+			xmlns:w="urn:schemas-microsoft-com:office:word"
+			xmlns="http://www.w3.org/TR/REC-html40">
+			
+			<head>
+			<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+			<meta name=ProgId content=Word.Document>
+			<meta name=Generator content="Microsoft Word 9">
+			<meta name=Originator content="Microsoft Word 9">
+			  <!--[if !mso]>
+		  	<STYLE>
+			V\:*{behavior:url(#default#VML);}
+			O\:*{behavior:url(#default#VML);}
+			W\:*{behavior:url(#default#VML);}
+			.shape{behavior:url(#default#VML);}
+			</STYLE>
+			<![endif]-->
+			<!--[if gte mso 9]>
+		    <xml>
+		    <w:WordDocument>
+		      <w:View>Print</w:View>
+		      <w:Zoom>100</w:Zoom>
+		      <w:DisplayBackgroundShape></w:DisplayBackgroundShape>
+		      <w:PunctuationKerning></w:PunctuationKerning>
+		      <w:DoNotOptimizeForBrowser></w:DoNotOptimizeForBrowser>
+		      <w:DrawingGridVerticalSpacing>0.05 磅</w:DrawingGridVerticalSpacing>
+		      <w:DrawingGridHorizontalSpacing>0.05 磅</w:DrawingGridHorizontalSpacing>
+		      <w:UseMarginsForDrawingGridOrigin></w:UseMarginsForDrawingGridOrigin>
+		      <w:DrawingGridHorizontalOrigin>0.0 磅</w:DrawingGridHorizontalOrigin>
+		      <w:DrawingGridVerticalOrigin>0.0 磅</w:DrawingGridVerticalOrigin>
+		      <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>
+		      <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>
+		      <w:Compatibility>
+		        <w:ULTrailSpace></w:ULTrailSpace>
+		        <w:AdjustLineHeightInTable></w:AdjustLineHeightInTable>
+		        <w:BalanceSingleByteDoubleByteWidth></w:BalanceSingleByteDoubleByteWidth>
+		        <w:DoNotExpandShiftReturn></w:DoNotExpandShiftReturn>
+		      </w:Compatibility>
+		    </w:WordDocument>
+		  </xml>
+		<![endif]-->
+		<STYLE>
+			  <!--
+				p.MsoNormal, li.MsoNormal, div.MsoNormal{
+		mso-style-parent:"";
+		margin-top:0.0pt;
+		margin-bottom:0.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		mso-bidi-font-family:Lucida Sans;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+				h1{
+		mso-style-next:"正文";
+		margin-top:17.0pt;
+		margin-bottom:16.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:22.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		mso-bidi-font-weight:normal;}
+				
+		h2{
+		mso-style-next:"正文";
+		margin-top:13.0pt;
+		margin-bottom:13.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:16.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Luxi Sans;
+		mso-fareast-font-family:黑体;
+		color:#000000;
+		mso-bidi-font-weight:normal;}
+				
+		h3{
+		mso-style-next:"正文";
+		margin-top:13.0pt;
+		margin-bottom:13.0pt;
+		
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:16.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		text-align:center;
+		mso-bidi-font-weight:normal;}
+				
+		h4{
+		mso-style-next:"正文";
+		margin-top:13.0pt;
+		margin-bottom:13.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:12.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Luxi Sans;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		mso-bidi-font-weight:normal;}
+				
+		h5{
+		mso-style-next:"正文";
+		margin-top:13.0pt;
+		margin-bottom:13.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:14.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		mso-bidi-font-weight:normal;}
+				
+		h6{
+		mso-style-next:"正文";
+		margin-top:12.0pt;
+		margin-bottom:3.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Luxi Sans;
+		mso-fareast-font-family:黑体;
+		color:#000000;
+		mso-bidi-font-weight:normal;}
+		
+		table{
+		margin-left:5.4;
+		border:none;
+		border-collapse:collapse;
+		mso-border-top-alt:none;
+		mso-border-left-alt:none;
+		mso-border-bottom-alt:none;
+		mso-border-right-alt:none;
+		mso-padding-alt:5.4pt 5.4pt 5.4pt 5.4pt;
+		margin-left:5.4pt;
+		padding:5px;
+		width:80%;
+		}
+		table tr{
+		page-break-inside:avoid;
+		height:19.85pt;
+		mso-height-rule:exactly;
+		}		
+		table td{width:83.4pt;
+		border-top:none;
+		border-left:none;
+		border-bottom:none;
+		border-right:none;
+		padding:2px;
+		}
+
+		table th {
+		/*background-color: #fc0;*/
+		font-weight:bold;
+		font-size:12px;
+		padding:1em;
+		text-align:left;
+		}
+		span.red{
+		color:red;
+		}
+		p.MsoHeading7, li.MsoHeading7, div.MsoHeading7{
+		mso-style-next:"正文";
+		margin-top:12.0pt;
+		margin-bottom:3.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:bold;
+		mso-bidi-font-weight:normal;}
+				
+		
+			
+		p.MsoBodyText, li.MsoBodyText, div.MsoBodyText{
+		mso-style-next:"正文";
+		margin-top:0.0pt;
+		margin-bottom:6.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:21.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+		p.MsoList, li.MsoList, div.MsoList{
+		mso-style-next:"正文";
+		margin-top:0.0pt;
+		margin-bottom:6.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+		p.14, li.14, div.14{
+		mso-style-name:"标签";
+		mso-style-next:"正文";
+		margin-top:6.0pt;
+		margin-bottom:6.0pt;
+		text-align:center;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:no-line-numbers;
+		mso-hyphenate:none;
+		font-size:9.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+		p.15, li.15, div.15{
+		mso-style-name:"目录";
+		mso-style-next:"正文";
+		margin-top:0.0pt;
+		margin-bottom:0.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:no-line-numbers;
+		mso-hyphenate:none;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+		p.16, li.16, div.16{
+		mso-style-name:"标题2";
+		mso-style-next:"正文文本";
+		margin-top:12.0pt;
+		margin-bottom:6.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		page-break-after:avoid;
+		mso-hyphenate:none;
+		font-size:14.0pt;
+		font-family:Bitstream Vera Sans;
+		mso-fareast-font-family:东文宋体;
+		mso-bidi-font-family:Lucidasans;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+				p.17, li.17, div.17{
+		mso-style-name:"标题1";
+		mso-style-next:"正文";
+		margin-top:12.0pt;
+		margin-bottom:3.0pt;
+		text-align:center;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:16.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:bold;
+		mso-bidi-font-weight:normal;}
+				
+				p.MsoHeader, li.MsoHeader, div.MsoHeader{
+		mso-style-next:"正文";
+		margin-top:0.0pt;
+		margin-bottom:0.0pt;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		tab-stops:center Blank 207.65pt right Blank 415.35pt ;
+		border-bottom:solid #000000 0.5pt;
+		mso-padding-alt:0.0pt 0.0pt 0.0pt 0.0pt;
+		padding:0.0pt 0.0pt 0.0pt 0.0pt;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+				p.MsoFooter, li.MsoFooter, div.MsoFooter{
+		mso-style-next:"正文";
+		margin-top:0.0pt;
+		margin-bottom:0.0pt;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		tab-stops:center Blank 207.65pt right Blank 415.35pt ;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+				p.18, li.18, div.18{
+		mso-style-name:"表格内容";
+		mso-style-next:"正文";
+		margin-top:0.0pt;
+		margin-bottom:6.0pt;
+		text-align:justify;
+		text-justify:inter-ideograph;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+				p.19, li.19, div.19{
+		mso-style-name:"表格标题";
+		mso-style-next:"正文";
+		margin-top:0.0pt;
+		margin-bottom:6.0pt;
+		text-align:center;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:no-line-numbers;
+		mso-hyphenate:none;
+		font-size:10.5pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:bold;
+		mso-bidi-font-weight:normal;}
+				
+				p.MsoTitle, li.MsoTitle, div.MsoTitle{
+		mso-style-next:"正文";
+		margin-top:12.0pt;
+		margin-bottom:3.0pt;
+		text-align:center;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:16.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:宋体;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:bold;
+		mso-bidi-font-weight:normal;}
+				
+				p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle{
+		mso-style-next:"正文";
+		margin-top:12.0pt;
+		margin-bottom:3.0pt;
+		text-align:center;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:14.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:bold;
+		mso-bidi-font-weight:normal;
+		font-style:italic;}
+				
+				p.20, li.20, div.20{
+		mso-style-name:"WW-Absatz-Standardschriftart1111111";
+		mso-style-next:"正文";
+		margin-top:0.0pt;
+		margin-bottom:0.0pt;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:12.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+				
+				p.21, li.21, div.21{
+		mso-style-name:"WW-Absatz-Standardschriftart11111";
+		mso-style-next:"正文";
+		margin-top:0.0pt;
+		margin-bottom:0.0pt;
+		margin-left:0.0pt;
+		text-indent:0.0pt;
+		mso-pagination:none;
+		mso-hyphenate:none;
+		font-size:12.0pt;
+		mso-bidi-font-size:10.0pt;
+		font-family:Times New Roman;
+		mso-fareast-font-family:宋体;
+		color:#000000;
+		font-weight:normal;
+		mso-bidi-font-weight:normal;}
+		    
+		    p.22, li.22, div.22{
+			mso-style-name:"WW-Absatz-Standardschriftart1111111111";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.23, li.23, div.23{
+			mso-style-name:"WW-Absatz-Standardschriftart";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.24, li.24, div.24{
+			mso-style-name:"Absatz-Standardschriftart";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.25, li.25, div.25{
+			mso-style-name:"WW-Absatz-Standardschriftart11111111";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.26, li.26, div.26{
+			mso-style-name:"WW-Absatz-Standardschriftart1111";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.27, li.27, div.27{
+			mso-style-name:"WW-Absatz-Standardschriftart111111";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.28, li.28, div.28{
+			mso-style-name:"WW-Absatz-Standardschriftart11";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.29, li.29, div.29{
+			mso-style-name:"WW-Absatz-Standardschriftart1";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.30, li.30, div.30{
+			mso-style-name:"style1";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.31, li.31, div.31{
+			mso-style-name:"WW-Absatz-Standardschriftart111111111";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.32, li.32, div.32{
+			mso-style-name:"WW-Absatz-Standardschriftart11111111111";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p.33, li.33, div.33{
+			mso-style-name:"WW-Absatz-Standardschriftart111";
+			mso-style-next:"正文";
+			margin-top:0.0pt;
+			margin-bottom:0.0pt;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:none;
+			mso-hyphenate:none;
+			font-size:12.0pt;
+			mso-bidi-font-size:10.0pt;
+			font-family:Times New Roman;
+			mso-fareast-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					p{
+			mso-margin-top-alt:auto;
+			mso-margin-bottom-alt:auto;
+			margin-left:0.0pt;
+			text-indent:0.0pt;
+			mso-pagination:widow-orphan;
+			font-size:12.0pt;
+			font-family:宋体;
+			mso-fareast-font-family:宋体;
+			mso-bidi-font-family:宋体;
+			color:#000000;
+			font-weight:normal;
+			mso-bidi-font-weight:normal;}
+				
+					@list l0{
+			mso-list-id:268435337;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l0:level1{
+			mso-level-number-format:bullet;
+			mso-level-style-link:"列表项目符号";
+			mso-level-text:"●";
+			mso-level-tab-stop:18.0pt;
+			mso-level-number-position:left;
+			margin-left:18.0pt;
+			text-indent:-18.0pt;
+			font-family:宋体;}
+				
+					@list l1{
+			mso-list-id:268435336;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l1:level1{
+			mso-level-style-link:"列表编号";
+			mso-level-text:"%1.";
+			mso-level-tab-stop:18.0pt;
+			mso-level-number-position:left;
+			margin-left:18.0pt;
+			text-indent:-18.0pt;}
+				
+					@list l2{
+			mso-list-id:268435331;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l2:level1{
+			mso-level-number-format:bullet;
+			mso-level-style-link:"列表项目符号 2";
+			mso-level-text:"●";
+			mso-level-tab-stop:39.0pt;
+			mso-level-number-position:left;
+			margin-left:39.0pt;
+			text-indent:-18.0pt;
+			font-family:宋体;}
+				
+					@list l3{
+			mso-list-id:268435330;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l3:level1{
+			mso-level-number-format:bullet;
+			mso-level-style-link:"列表项目符号 3";
+			mso-level-text:"●";
+			mso-level-tab-stop:60.0pt;
+			mso-level-number-position:left;
+			margin-left:60.0pt;
+			text-indent:-18.0pt;
+			font-family:宋体;}
+				
+					@list l4{
+			mso-list-id:268435329;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l4:level1{
+			mso-level-number-format:bullet;
+			mso-level-style-link:"列表项目符号 4";
+			mso-level-text:"●";
+			mso-level-tab-stop:81.0pt;
+			mso-level-number-position:left;
+			margin-left:81.0pt;
+			text-indent:-18.0pt;
+			font-family:宋体;}
+				
+					@list l5{
+			mso-list-id:268435328;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l5:level1{
+			mso-level-number-format:bullet;
+			mso-level-style-link:"列表项目符号 5";
+			mso-level-text:"●";
+			mso-level-tab-stop:102.0pt;
+			mso-level-number-position:left;
+			margin-left:102.0pt;
+			text-indent:-18.0pt;
+			font-family:宋体;}
+				
+					@list l6{
+			mso-list-id:268435327;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l6:level1{
+			mso-level-style-link:"列表编号 2";
+			mso-level-text:"%1.";
+			mso-level-tab-stop:39.0pt;
+			mso-level-number-position:left;
+			margin-left:39.0pt;
+			text-indent:-18.0pt;}
+				
+					@list l7{
+			mso-list-id:268435326;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l7:level1{
+			mso-level-style-link:"列表编号 3";
+			mso-level-text:"%1.";
+			mso-level-tab-stop:60.0pt;
+			mso-level-number-position:left;
+			margin-left:60.0pt;
+			text-indent:-18.0pt;}
+				
+					@list l8{
+			mso-list-id:268435325;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l8:level1{
+			mso-level-style-link:"列表编号 4";
+			mso-level-text:"%1.";
+			mso-level-tab-stop:81.0pt;
+			mso-level-number-position:left;
+			margin-left:81.0pt;
+			text-indent:-18.0pt;}
+				
+					@list l9{
+			mso-list-id:268435324;
+			mso-list-type:hybrid;
+			mso-list-template-ids:0;
+			}
+				
+					@list l9:level1{
+			mso-level-style-link:"列表编号 5";
+			mso-level-text:"%1.";
+			mso-level-tab-stop:102.0pt;
+			mso-level-number-position:left;
+			margin-left:102.0pt;
+			text-indent:-18.0pt;}
+				
+					@page{
+			mso-page-border-surround-header:yes;
+			mso-page-border-surround-footer:yes;}
+				
+					@page Section1{
+			size:841.85pt 595.25pt;
+			mso-page-orientation:landscape;
+			margin:27.0pt 89.6pt 20.8pt 35.25pt;
+			mso-page-numbers:arabic;
+			mso-header-margin:27.0pt;
+			mso-footer-margin:20.8pt;
+			mso-gutter-margin:0.0pt;
+			mso-paper-source:27.0pt;
+			mso-vertical-page-align:27.0pt 89.6pt 20.8pt 35.25pt;
+			padding:24.0pt 24.0pt 24.0pt 24.0pt;}
+				
+					div.Section1{
+			page:Section1;
+			}
+				
+					@font-face{
+			font-family:Lucidasans;
+			panose-1:0 0 0 0 0 0 0 0 0 0;
+			mso-font-alt:Times New Roman;
+			mso-font-charset:0;
+			mso-generic-font-family:auto;
+			mso-font-pitch:variable;
+			mso-font-signature:0 0 0 0 0 0;}
+				
+					@font-face{
+			font-family:黑体;
+			panose-1:2 1 6 0 3 1 1 1 1 1;
+			mso-font-alt:Tahoma;
+			mso-font-charset:1;
+			mso-generic-font-family:roman;
+			mso-font-pitch:variable;
+			mso-font-signature:536885895 0 0 0 511 0;}
+				
+					@font-face{
+			font-family:宋体;
+			panose-1:2 2 6 3 5 4 5 2 3 4;
+			mso-font-alt:Times New Roman;
+			mso-font-charset:1;
+			mso-generic-font-family:roman;
+			mso-font-pitch:variable;
+			mso-font-signature:536885895 0 0 0 511 0;}
+				
+					@font-face{
+			font-family:Luxi Sans;
+			panose-1:0 0 0 0 0 0 0 0 0 0;
+			mso-font-alt:Times New Roman;
+			mso-font-charset:1;
+			mso-generic-font-family:roman;
+			mso-font-pitch:variable;
+			mso-font-signature:536885895 0 0 0 511 0;}
+				
+					@font-face{
+			font-family:Times New Roman;
+			panose-1:2 2 6 3 5 4 5 2 3 4;
+			mso-font-charset:0;
+			mso-generic-font-family:roman;
+			mso-font-pitch:variable;
+			mso-font-signature:536902279 -2147483648 8 0 511 0;}
+				
+					@font-face{
+			font-family:Lucida Sans;
+			panose-1:2 11 6 2 3 5 4 2 2 4;
+			mso-font-charset:0;
+			mso-generic-font-family:swiss;
+			mso-font-pitch:variable;
+			mso-font-signature:3 0 0 0 1 0;}
+				
+					@font-face{
+			font-family:东文宋体;
+			panose-1:2 1 6 0 3 1 1 1 1 1;
+			mso-font-alt:宋体;
+			mso-font-charset:134;
+			mso-generic-font-family:modern;
+			mso-font-pitch:variable;
+			mso-font-signature:2051 135135232 0 0 262145 0;}
+				
+					@font-face{
+			font-family:Bitstream Vera Sans;
+			panose-1:2 11 6 3 3 8 4 2 2 4;
+			mso-font-charset:0;
+			mso-generic-font-family:swiss;
+			mso-font-pitch:variable;
+			mso-font-signature:-2147483473 268443722 0 0 1 0;}
+				
+					@font-face{
+			font-family:宋体;
+			panose-1:2 1 6 0 3 1 1 1 1 1;
+			mso-font-alt:SimSun;
+			mso-font-charset:134;
+			mso-generic-font-family:auto;
+			mso-font-pitch:variable;
+			mso-font-signature:3 135135232 16 0 262145 0;}
+				
+					@font-face{
+			font-family:Times;
+			panose-1:2 2 6 3 5 4 5 2 3 4;
+			mso-font-alt:宋体;
+			mso-font-charset:0;
+			mso-generic-font-family:roman;
+			mso-font-pitch:variable;
+			mso-font-signature:536902279 -2147483648 8 0 511 0;}
+				
+					@font-face{
+			font-family:MS Mincho;
+			panose-1:2 2 6 9 4 2 5 8 3 4;
+			mso-font-alt:ＭＳ 明朝;
+			mso-font-charset:128;
+			mso-generic-font-family:modern;
+			mso-font-pitch:variable;
+			mso-font-signature:-1610612033 1757936891 16 0 131231 0;}
+				
+					@font-face{
+			font-family:Arial;
+			panose-1:2 11 6 4 2 2 2 2 2 4;
+			mso-font-charset:0;
+			mso-generic-font-family:swiss;
+			mso-font-pitch:variable;
+			mso-font-signature:536902279 -2147483648 8 0 511 0;}
+				
+			  -->
+			</STYLE>
+			 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><style>
+	* { margin:0; padding:0; word-break:break-all; }
+	body { background:#FFF; color:#000; font:14px/1.7em Verdana,Helvetica,Arial,sans-serif; }
+
+	#article { padding:15px; }
+	#article h1 { margin:6px 0 15px 0; text-align:center; font-size:1.33em; }
+	#article img, #blog_body img { max-width:565px; width:expression(this.width > 565 ? 563: true);}
+	#article_extinfo { margin-bottom:25px; padding:6px 10px; border:1px solid #E7E7E7; background:#FFFEF7; color:#000; }  
+
+	#article_body { width:100%; overflow:hidden;  padding-bottom:10px; font-size:19px; line-height:1.8em; clear:right; }
+	#article_body p { margin-bottom:6px; text-indent:2em;clear:right; }
+	#article_body strong { font-weight:700;clear:right;}
+	#article_body li { margin-left:27px;line-height: 27px;}
+	#article_body a { font-size:19px;color:blue; }
+	#article_body a:hover { font-size:19px;color:red; }
+	</style>	
+			</head>
+			<body><html>
+	<div id="article"><CENTER><FONT SIZE="6"><B>出口退税的换汇成本</B></FONT></CENTER> <div id="article_extinfo"> <CENTER></CENTER> </div><div id="article_body"  style="font-size:19px"><BR>
+	<p class="f14">外贸企业在申报出口退税时，退税部门将出口企业出口退税申报数据经过审核系统审核后，经常会出现换汇成本过高或过低的疑点，退税人员在审核调整疑点时，核实换汇成本高于合理上限或低于合理下限的原因多种多样，出口企业办税或业务人员感到审核系统计算的出口退税换汇成本和出口企业自己计算的换汇成本不完全一致。因此退税人员在核实换汇成本的高或低时或企业办税人员在配合退税人员核实疑点的原因之前，必须从财务和业务的角度真正了解购进货物的成本、所发生的费用、出口退税的换汇成本、出口企业的换汇成本、外汇牌价等之间的关系，只有把这些基础常识理解，才能对各种情况的疑点有一个正确的判断。</p><p>一、商品成本</p><p>出口商品的成本可以包括生产成本、加工成本和采购成本三种。对于贸易型出口企业(外贸企业)而言，商品成本在一般情况下即为采购成本，是指外贸企业向供货商采购商品的价格(增值税发票上的计税金额)。在出口价格中，正常采购成本所占比例最大，因而成为价格的重要组成部分。一般来讲，供货商所报的价格就是外贸企业的采购成本，但是由于增值税是转嫁税，需要购买方负担税款，因此供货商报出的价格包含增值税，由于出口商品实行退税政策，外贸企业因购买货物所负担的税款由国家全额或按一定比例(有征退税率差的商品)退还。如果是全额退税的商品，如：征税率17%、退税率17%的商品，商品成本即为不含税的采购成本。因为购货商所负担的税款，国家全额退付给企业，不需要企业承担。这里另外需要强调的是，假如该商品用于内销，商品成本也是不含税的采购成本，因为购货商所负担的税款，抵顶内销的销项税金，转嫁到下一家购货企业或消费者来负担。如果是按一定比例(有征退税率差的商品)退税的出口商品，如：征税率17%、退税率13%的商品，商品成本应该是采购成本和征退税率差部分，因为征退税率差部分由企业负担增加成本。换句话讲：外贸出口企业购进出口退税商品的实际采购成本应将出口退税部分从含税的采购成本中予以扣除，从而得出实际采购成本。</p><p>实际采购成本的计算程序如下：</p><p>含税采购成本=购货成本=货价+增值税额(增值税额=货价×增值税率)</p><p>=货价+货价×增值税率</p><p>=货价×(1+增值税率)</p><p>货价=含税采购成本/(1+增值税率)</p><p>出口退税额=货价×出口退税率</p><p>实际采购成本=含税采购成本-出口退税额</p><p>=货价×(1+增值税率)-货价×出口退税率</p><p>=货价×(1+增值率-出口退税率)</p><p>=含税采购成本/(1+增值税率)×(1+增值税率-出口退税率)</p><p>含税采购成本=实际采购成本/(1+增值税率-出口退税率)×(1+增值税率)</p><p>由此，得出如下公式：</p><p>含税采购成本=实际采购成本/(1+增值税率-出口退税率)×(1+增值税率)</p><p>实际采购成本=含税采购成本/(1+增值税率)×(1+增值税率-出口退税率)</p><p>退税额=含税采购成本/(1+增值税率)×出口退税率</p><p>财务核算是对业务过程的正确反映，结合财务核算对上述内容举例说明。</p><p>例：一件产品的含税采购成本(价税合计)是117元人民币，其中包括17%的增值税，若该产品的退税率为13%，那么该产品的实际采购成本为：</p><p>实际采购成本=117/(1+17%)(1+17%-13%)=104元</p><p>财务核算：购进该产品应该记库存商品借方增加额为100元，同时应交增值税进项税金借方增加额17元。根据这个实例可能出现以下几种情况：</p><p>1、假如该产品用于内销，内销后同时结转成本，简单说就是100元从库存商品贷方结转到主营业务成本，那么该产品的实际采购成本是100元，进项税金17元用于抵顶内销的销项税，由下一购货方或消费者负担税款。</p><p>2、假如该产品用于出口销售，退税率17%，简单说就是100元从库存商品贷方结转到主营业务成本，那么该产品的实际采购成本也是100元，进项税金17元通过应交税金贷方结转到应收出口退税科目，税款由国家退付给出口企业。</p><p>3、假如该产品购进时取得的是增值税发票，出口是免税的(如：出口含金产品)，进项税金17元通过应交税金贷方结转到销售成本，由该企业负担税款，那么该产品的实际采购成本是117元。</p><p>4、假如该产品用于出口销售，征税率17%，退税率13%，简单说就是100元从库存商品贷方结转到主营业务成本，进项税金17元通过应交税金贷方结转到应收出口退税13元，4元结转到销售成本由该企业负担，那么该产品的实际采购成本是104元。</p><p>上述内容的介绍虽然是一个非常简单的问题，在这里并不是单纯为了说明什么是商品成本以及财务如何核算的问题，而是根据增值税价税分流的原理，来说明由于出口退税的原因对商品成本的构成做一些基本分析，这样才能对外贸企业出口退税换汇成本、外贸企业的出口换汇成本有了正确的理解。</p><p>二、外贸企业出口退税换汇成本</p><p>出口退税换汇成本是指商品出口后的离岸价(FOB)每1美元所耗费的人民币实际采购成本。计算公式为：</p><p>出口退税换汇成本=实际采购成本(人民币)/FOB出口外汇净收入(美元)</p><p>实际采购成本=含税采购成本/(1+增值税率)×(1+增值税率-出口退税率)</p><p>出口退税审核系统设置换汇成本高于合理上限或低于合理下限，目的是对出口退税的是否合理起到监督检查作用，因为它是目前唯一能在出口退税审核系统中对进货和出口起到关联的指标。虽然这项指标在出口退税审核中具有一定的局限性，但是仍然对出口退税的监督检查起到非常重要的作用。</p><p>换汇成本的合理上下限是根据高于或低于汇率来设置的。笼统地说，换汇成本的合理上限设置最高不能高于汇率，如果高于，企业出口就亏损。实际上，最高上限应和汇率保持一定的距离，以使企业具有一定得盈利，企业得以持续经营。换汇成本的合理下限是考虑出口业务合理性指标，除了高技术、高附加值和垄断性产品外，企业出口普通商品的盈利具有一定空间，不可能是暴利，如果过低，则可能在购入环节税收、或者出口环节的结汇存在一定问题。但是合理上下限的提出只是针对一般情况，有一定的局限性，有很多时候，换汇成本出现疑点是正常的，在这里就不具体列举，具体问题需要税务机关具体落实。如果要落实准确就必须真正掌握商品成本、换汇成本等基本概念及增值税和出口退税原理结合起来分析。</p><p>三、费用</p><p>从业务的角度来分析，进出口交易跨越国界，其间所发生的费用名目繁多，计算方法不尽相同，成为价格核算中复杂的一面，这些费用包括：国内厂家货交外贸公司之前的国内段运费、保险费、仓储费和经营费用等；外贸公司正式出运货物之前的与商品相关的运杂费、包装费、商品损耗费、仓储保管费及经营管理费等；出运期间的商品质量认证费、商检报关费、港区港杂费、税金和银行费用，还包含一旦交货即开始计算的出口保险费。若买方为中间商，还须付佣金。</p><p>这些费用中，除出口运费、出口保险费和佣金的计算稍微复杂以外，其他可逐项相加，从业务的角度看，上述这些费用看起来比较直观，但从财务角度来分析无非归集为经营费用、管理费用、财务费用(期间费用)。由于在费用发生之前，需要计算企业换汇成本，来确定该笔业务的盈亏，因此需要预估该笔业务的费用。一般企业在采购成本的基础上确定一个费用率，再根据实际情况进行加减，费用率一般按(5%-10%)来计算，也有的企业加强管理降低费用，费用率稍低一些。</p><p>四、出口企业的换汇成本</p><p>根据上面介绍的出口商品成本(实际采购成本)和费用，我们可计算出口退税的出口商品总成本而根据商定的外币报价(通常使用FOB价)我们可依照银行买入价计算出出口销售总收入与出口商品总成本按不同指标进行比较就可得出该笔交易的换汇成本与盈亏额。</p><p>出口换汇成本又称换汇率，是指商品出口后净收入每1美元所耗费的人民币成本。通常把换汇成本与当时的外汇牌价进行对比，换汇成本低于牌价则可保本或盈利，高于牌价则意味着亏损。计算公式为：</p><p>出口换汇成本=出口商品总成本(人民币)/FOB出口外汇净收入(美元)</p><p>例如，当日的人民币对美元的买入牌价是USD100=RMB811，若计算出换汇成本为8.05元，则可盈利，而另一商品出口换汇成本为8.15元，则会亏损。</p><p>上述例子只是反映通过换汇成本和外汇牌价的对比来计算盈亏的一种方法，实际上企业在按出口合同或信用证规定对外发货并向银行交单即体现了货物所有权的转移，确立了可按出口合同或信用证规定收取货款的权利，因此，财会部门应把向银行交单之日，作为确立出口销售的依据，即根据出口发票及合同规定的其它内容，进行&quot;出口销售&quot;及应收(付)外汇帐款的核算。这就意味着企业记销售帐的时间并不是实际结汇的时间，而是按中间价或规定的牌价来记销售帐，这样就和实际的结汇额不完全一致，如果再和汇兑损益相加减，那么计算的盈亏额和上面例子计算的完全一致。通过这个问题可说明一个问题，掌握这些基础知识可以触类旁通地分析每一项指标不一样的原因。</p><p>五、出口退税的换汇成本和企业的换汇成本的区别</p><p>通过上述内容可以看出出口退税换汇成本和企业的换汇成本有一定的区别，那就是出口退税换汇成本没有将费用提供到退税管理系统当中，因为出口退税审核系统是面向所有外贸企业，每个外贸企业的费用水平是不一致的，无法计算每一个企业的费用率，不能综合考虑出口企业的实际状况。另外也考虑到出口退税设置换汇成本的目的和出口企业计算换汇成本的目的是不完全相同的，出口退税设置换汇成本是为发现出口退税存在的问题，如高报价问题、骗税问题等。出口企业计算换汇成本，可以说是整个贸易的基础，它决定了一笔交易是否可行、交易的盈利程度及报价水平，要做出准确合理的成本核算，首先须清楚地了解出口过程中所发生的各种国内外成本和费用，然后根据预期利润做出正确的报价，最后根据报价所计算的收入与总成本的比较指标核算出该笔交易的盈利状况。</p><p>正常情况退税的换汇成本比企业的换汇成本低，低在费用上。如果退税换汇成本等于外汇牌价也必然亏损，因为没有考虑费用部分，那么费用是多少就亏损多少，所以需对出口退税换汇成本设定上下限。</p><p>上述介绍的内容是常识性的应掌握的问题，为了更清楚的理解其含义，没有考虑消费税货物的出口退税问题，如果是消费税退税货物，根据上面介绍的原理可清楚的分析出应将退还的消费税冲减商品成本。</p><p></p></div><div id="article_extinfo"></div><div id="article_extinfo"> <CENTER></CENTER> </div></html></body></html>
