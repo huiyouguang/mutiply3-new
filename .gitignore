@@ -72,3 +72,8 @@ node_modules/
 
 
 .mutiply-ipad/plugins/i18n/data.json
+
+
+
+# Ignore Smart Environment folder
+.smart-env
