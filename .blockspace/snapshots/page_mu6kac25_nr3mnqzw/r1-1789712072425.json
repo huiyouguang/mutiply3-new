@@ -1,0 +1,125 @@
+{
+  "version": 8,
+  "formatVersion": 8,
+  "id": "page_mu6kac25_nr3mnqzw",
+  "title": "欢迎使用 Blockspace",
+  "icon": "✨",
+  "cover": "none",
+  "parentId": null,
+  "sourcePath": null,
+  "properties": {
+    "status": "doing",
+    "priority": "medium",
+    "tags": [
+      "blockspace"
+    ],
+    "source": "",
+    "author": "",
+    "publishedAt": "",
+    "description": "",
+    "custom": []
+  },
+  "blocks": [
+    {
+      "id": "block_mu6kac24_caxjz98t",
+      "type": "heading-1",
+      "text": "独立的块编辑工作台",
+      "marks": [],
+      "appearance": {
+        "textColor": "default",
+        "background": "default",
+        "align": "left"
+      },
+      "checked": false,
+      "parentId": null,
+      "children": [],
+      "collapsed": false,
+      "sectionCollapsed": false,
+      "toc": {
+        "minLevel": 1,
+        "maxLevel": 3,
+        "showNumbers": false,
+        "collapsible": true
+      },
+      "depth": 0
+    },
+    {
+      "id": "block_mu6kac25_rci2rye4",
+      "type": "paragraph",
+      "text": "这里的内容保存为结构化块数据，而不是 Markdown 文件。",
+      "marks": [],
+      "appearance": {
+        "textColor": "default",
+        "background": "default",
+        "align": "left"
+      },
+      "checked": false,
+      "parentId": null,
+      "children": [],
+      "collapsed": false,
+      "sectionCollapsed": false,
+      "toc": {
+        "minLevel": 1,
+        "maxLevel": 3,
+        "showNumbers": false,
+        "collapsible": true
+      },
+      "depth": 0
+    },
+    {
+      "id": "block_mu6kac25_3qt4rlnt",
+      "type": "callout",
+      "text": "输入 / 可以切换块类型；拖动左侧手柄可以调整顺序。",
+      "marks": [],
+      "appearance": {
+        "textColor": "default",
+        "background": "default",
+        "align": "left"
+      },
+      "checked": false,
+      "parentId": null,
+      "children": [],
+      "collapsed": false,
+      "sectionCollapsed": false,
+      "toc": {
+        "minLevel": 1,
+        "maxLevel": 3,
+        "showNumbers": false,
+        "collapsible": true
+      },
+      "depth": 0
+    },
+    {
+      "id": "block_mu6kac25_481n05yb",
+      "type": "todo",
+      "text": "创建你的第一个 Blockspace 页面",
+      "marks": [],
+      "appearance": {
+        "textColor": "default",
+        "background": "default",
+        "align": "left"
+      },
+      "checked": false,
+      "parentId": null,
+      "children": [],
+      "collapsed": false,
+      "sectionCollapsed": false,
+      "toc": {
+        "minLevel": 1,
+        "maxLevel": 3,
+        "showNumbers": false,
+        "collapsible": true
+      },
+      "depth": 0
+    }
+  ],
+  "rootBlockIds": [
+    "block_mu6kac24_caxjz98t",
+    "block_mu6kac25_rci2rye4",
+    "block_mu6kac25_3qt4rlnt",
+    "block_mu6kac25_481n05yb"
+  ],
+  "createdAt": "2026-09-18T06:12:31.756Z",
+  "updatedAt": "2026-09-18T06:12:31.756Z",
+  "revision": 1
+}
