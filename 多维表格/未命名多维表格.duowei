@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "id": "tbl_mv2fqcfl_zdl20v2",
+  "name": "未命名多维表格",
+  "fields": [
+    {
+      "id": "fld_mv2fqcfl_4fxpjy8",
+      "name": "标题",
+      "type": "text",
+      "required": false,
+      "width": 240
+    },
+    {
+      "id": "fld_mv2fqcfl_gcodzsa",
+      "name": "状态",
+      "type": "singleSelect",
+      "required": false,
+      "width": 140,
+      "options": [
+        {
+          "id": "opt_mv2fqcfl_ratb7bu",
+          "name": "待处理",
+          "color": "var(--color-orange)"
+        },
+        {
+          "id": "opt_mv2fqcfl_s5sh1sp",
+          "name": "进行中",
+          "color": "var(--color-blue)"
+        },
+        {
+          "id": "opt_mv2fqcfl_zatyq6e",
+          "name": "已完成",
+          "color": "var(--color-green)"
+        }
+      ]
+    },
+    {
+      "id": "fld_mv2fqcfl_dyvlbjs",
+      "name": "完成",
+      "type": "checkbox",
+      "required": false,
+      "width": 96
+    }
+  ],
+  "records": [],
+  "views": [
+    {
+      "id": "view_mv2fqcfl_cgytc2d",
+      "name": "表格",
+      "fieldOrder": [
+        "fld_mv2fqcfl_4fxpjy8",
+        "fld_mv2fqcfl_gcodzsa",
+        "fld_mv2fqcfl_dyvlbjs"
+      ],
+      "hiddenFields": [],
+      "sorts": [],
+      "filters": [],
+      "filterConjunction": "and",
+      "colorRules": [],
+      "collapsedDetailGroups": [],
+      "type": "grid",
+      "rowHeight": "default",
+      "rowHeights": {},
+      "frozenFieldCount": 1,
+      "groupFieldId": null,
+      "groupBy": [],
+      "collapsedGroups": [],
+      "wrapText": false,
+      "columnSummaries": {}
+    },
+    {
+      "id": "view_mv2fqcfl_akvg2ev",
+      "name": "看板",
+      "fieldOrder": [
+        "fld_mv2fqcfl_4fxpjy8",
+        "fld_mv2fqcfl_gcodzsa",
+        "fld_mv2fqcfl_dyvlbjs"
+      ],
+      "hiddenFields": [],
+      "sorts": [],
+      "filters": [],
+      "filterConjunction": "and",
+      "colorRules": [],
+      "collapsedDetailGroups": [],
+      "type": "kanban",
+      "groupFieldId": "fld_mv2fqcfl_gcodzsa",
+      "titleFieldId": "fld_mv2fqcfl_4fxpjy8",
+      "cardFieldIds": [
+        "fld_mv2fqcfl_gcodzsa",
+        "fld_mv2fqcfl_dyvlbjs"
+      ]
+    },
+    {
+      "id": "view_mv2fqcfm_nwk714x",
+      "name": "画廊",
+      "fieldOrder": [
+        "fld_mv2fqcfl_4fxpjy8",
+        "fld_mv2fqcfl_gcodzsa",
+        "fld_mv2fqcfl_dyvlbjs"
+      ],
+      "hiddenFields": [],
+      "sorts": [],
+      "filters": [],
+      "filterConjunction": "and",
+      "colorRules": [],
+      "collapsedDetailGroups": [],
+      "type": "gallery",
+      "coverFieldId": null,
+      "titleFieldId": "fld_mv2fqcfl_4fxpjy8",
+      "cardFieldIds": [
+        "fld_mv2fqcfl_gcodzsa",
+        "fld_mv2fqcfl_dyvlbjs"
+      ],
+      "layoutPreset": "4x4",
+      "coverFit": "smart",
+      "cardClickAction": "select"
+    },
+    {
+      "id": "view_mv2fqcfm_pb3e5nn",
+      "name": "日历",
+      "fieldOrder": [
+        "fld_mv2fqcfl_4fxpjy8",
+        "fld_mv2fqcfl_gcodzsa",
+        "fld_mv2fqcfl_dyvlbjs"
+      ],
+      "hiddenFields": [],
+      "sorts": [],
+      "filters": [],
+      "filterConjunction": "and",
+      "colorRules": [],
+      "collapsedDetailGroups": [],
+      "type": "calendar",
+      "dateFieldId": null,
+      "titleFieldId": "fld_mv2fqcfl_4fxpjy8",
+      "cardFieldIds": [
+        "fld_mv2fqcfl_gcodzsa",
+        "fld_mv2fqcfl_dyvlbjs"
+      ],
+      "month": "2026-10"
+    },
+    {
+      "id": "view_mv2fqcfm_nvj098a",
+      "name": "时间线",
+      "fieldOrder": [
+        "fld_mv2fqcfl_4fxpjy8",
+        "fld_mv2fqcfl_gcodzsa",
+        "fld_mv2fqcfl_dyvlbjs"
+      ],
+      "hiddenFields": [],
+      "sorts": [],
+      "filters": [],
+      "filterConjunction": "and",
+      "colorRules": [],
+      "collapsedDetailGroups": [],
+      "type": "timeline",
+      "startFieldId": null,
+      "endFieldId": null,
+      "titleFieldId": "fld_mv2fqcfl_4fxpjy8",
+      "cardFieldIds": [
+        "fld_mv2fqcfl_gcodzsa",
+        "fld_mv2fqcfl_dyvlbjs"
+      ],
+      "month": "2026-10"
+    }
+  ],
+  "activeViewId": "view_mv2fqcfl_cgytc2d",
+  "meta": {
+    "createdAt": "2026-10-10T13:33:38.289Z",
+    "updatedAt": "2026-10-10T13:33:38.289Z"
+  }
+}
